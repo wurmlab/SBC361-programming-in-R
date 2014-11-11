@@ -62,7 +62,7 @@ These special characters can be used on their own, or in combination with one an
 
 * The pattern ".r" means any character, followed by the letter "r" (e.g. "er", "or", "tr", "3r").
 * The pattern "...r" means any character, followed by any character, followed by any character, followed by the letter "r" (e.g. "beer", "deer", "zekr").
-* The pattern "l\*at" means zero or more copies of the letter "l", followed by the letters "at" (e.g. "at", "lat", "llllllllllat").
+* The pattern "l\*at" means zero or more copies of the letter "l", followed by the letters "at" (e.g. "at", "lat", "\l\l\l\l\l\l\l\l\l\lat").
 * The pattern "s.\+s" means the letter "s", followed by one or more copies of any character, followed by the letter "s" (e.g. "sas", "sts", "sauces", "serendipities", but NOT "ss").
 * The pattern ".\* .\*" means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. "test word").
 
@@ -75,9 +75,9 @@ ant.names.better.clean <- gsub(pattern=".*:", replacement="", x=ant.names.better
 ```
 Have a look inside the variable `ant.names.better.clean`. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 
-3. What does the pattern "..x.." mean in a regular expression?
-4. What does the pattern "e+" mean in a regular expression?
-5. How many names (genus or species) contain a lowercase "o" or an uppercase "E"?
+Q3. What does the pattern "..x.." mean in a regular expression?
+Q4. What does the pattern "e+" mean in a regular expression?
+Q5. How many names (genus or species) contain a lowercase "o" or an uppercase "E"?
 
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 Q6. Add three additional columns to the ant.data table:

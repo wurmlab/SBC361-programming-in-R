@@ -1,4 +1,4 @@
-# Introduction: the basics (just in case)
+# Introduction: the basics
 ## The environment
 To start with, let us reacquaint ourselves with the R environment. First of all, launch R (in the computer room, probably the “Bio version” if there are several to choose from; but any R install should be fine).
 
@@ -15,17 +15,17 @@ A variable is a symbolic way of storing a particular set of values and/or charac
 ```
 x <- 5
 ```
-into the console and hitting return. This assigns the number 5 to the symbol x. You can run operations on variables (e.g. 3*x^2), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
+into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
 
 ### A note on assigning variables:
-The = symbol can also be used for assignment instead of <-, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use <- . When in doubt about how to write something, check Google’s R style guide; it provides standard guidelines which most R users follow.
+The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check Google’s R style guide; it provides standard guidelines which most R users follow.
 
 It’s worth pointing out that you can name variables almost anything you want. Try using descriptive names (avoiding  x and y), but don’t make the it too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
-Finally some variable names are not allowed. Typing ?make.names in the console brings up a help file describing the important variable name restrictions.
+Finally some variable names are not allowed. Typing `?make.names` in the console brings up a help file describing the important variable name restrictions.
 
 ## Data classes
-There are several classes of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives.  You can use the function class() to check the class of a variable.
+There are several classes of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
 
 You will probably have met variables of class numeric (`x <- 5`) and character (`x <- ‘hello’`). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example
 ```
@@ -53,12 +53,12 @@ x <- (5 > 4)
 You can read this to mean "the variable x is assigned the outcome of the logical expression 5 > 4". In this particular example the variable x will be assigned the logical value "TRUE". Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.
 
 The main logical operators that you should be familiar with are the following:
-`>`      is greater than
-`<`     is less than
-`>=`   is greater than or equal to
-`<=`   is less than or equal to
-`==`   is equal to
-`!=`   is not equal to
+*`>`      is greater than
+*`<`     is less than
+*`>=`   is greater than or equal to
+*`<=`   is less than or equal to
+*`==`   is equal to
+*`!=`   is not equal to
 
 Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.
 
@@ -86,7 +86,7 @@ vec6 <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 ### Matrices
-Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(vec1, vec2))`.
+Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(vec1, vec2)`).
 
 You can also create matrices directly in a number of different ways:
 ```
@@ -96,12 +96,12 @@ mat3 <- diag(x=5)
 mat4 <- outer(X=1:5, Y=4:8)
 mat5 <- matrix("Hello World", nrow=2, ncol=5)
 ```
-As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4,3]`, `mat1[1:4, 1:2]`, `mat1[1:3,]`). You can perform simple calculations on matrices, in which case the calculation applies to each element separately (`(mat3 + 2)*2` ). You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible (`(mat3*100) + mat4)`. Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating `(mat1 > 10)`
+As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4,3]`, `mat1[1:4, 1:2]`, `mat1[1:3,]`). You can perform simple calculations on matrices, in which case the calculation applies to each element separately (`(mat3 + 2)*2` ). You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible (`(mat3*100) + mat4)`. Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating `(mat1 > 10)`.
 
 ### Data frame
 A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin.data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin.data[1,1]`). While you can get to specific columns using an index (`puromycin.data[,2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin.data$rate`. Note that, although the data frame is of class data frame, typing `puromycin.data$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
-Normally, when R encounters columns with words in a data frame, (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Check puromycin.data$rate as an example.
+Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Check `puromycin.data$rate` as an example.
 
 ### Lists
 The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:
@@ -192,13 +192,19 @@ tadayeahmanfunky<-100*exp(bigblah*10)
 tadayeahmanfunky
 
 Example 2
+
 #--------------------------------
 # Program:        PopSize.R
 # Author:        Bob Verity
 # Date:        01/10/2013
 # Purpose:
-# Works out the size of a population under a simple model of exponential growth. The growth rate is assumed to be equal to the sum of the nutrient content (% sugars), the temperature (centigrade above 20), and the humidity (%). Other parameters include the starting population size (number of individuals) and the time allowed to grow (hours).
+# Works out the size of a population under a simple model of exponential growth.
+# The growth rate is assumed to be equal to the sum of the nutrient content (% sugars),
+# the temperature (centigrade above 20), and the humidity (%).
+# Other parameters include the starting population size (number of individuals)
+# and the time allowed to grow (hours).
 #--------------------------------
+
 # Define input parameters
 nutrients     <- 0.01
 temp          <- 0.005

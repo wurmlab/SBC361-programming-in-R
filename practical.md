@@ -38,9 +38,9 @@ The output of this function is a new vector in which the desired replacement has
 
 Experiment with `grep()` and `gsub()` until you are confident at using them. Then answer the following questions:
 
-1. How could you use regular expressions to find the only element in the vector `ant.names` that contain lowercase "v"? What are the positions of this element in the vector?
+Q1. How could you use regular expressions to find the only element in the vector `ant.names` that contain lowercase "v"? What are the positions of this element in the vector?
 
-2. You want to import the `ant.names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
+Q2. You want to import the `ant.names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
 
 ### Using "fuzzy" searching
 One of the most powerful features of regular expressions is the ability to perform "fuzzy" searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.
@@ -60,12 +60,11 @@ Additional special characters can be found:
 
 These special characters can be used on their own, or in combination with one another. To help you out with understanding these symbols, here are a few examples:
 
-* The pattern ".r" means any character, followed by the letter "r" (e.g. "er", "or", "tr", "3r").
-* The pattern "...r" means any character, followed by any character, followed by any character, followed by the letter "r" (e.g. "beer", "deer", "zekr").
-* The pattern "l\*at" means zero or more copies of the letter "l", followed by the letters "at" (e.g. "at", "lat", "\l\l\l\l\l\l\l\l\l\lat").
-* The pattern "s.\+s" means the letter "s", followed by one or more copies of any character, followed by the letter "s" (e.g. "sas", "sts", "sauces", "serendipities", but NOT "ss").
-* The pattern ".\* .\*" means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. "test word").
-
+* The pattern `.r` means any character, followed by the letter "r" (e.g. "er", "or", "tr", "3r").
+* The pattern `...r` means any character, followed by any character, followed by any character, followed by the letter "r" (e.g. "beer", "deer", "zekr").
+* The pattern `l*at` means zero or more copies of the letter "l", followed by the letters "at" (e.g. "at", "lat", "llllllllllat").
+* The pattern `s.+s` means the letter "s", followed by one or more copies of any character, followed by the letter "s" (e.g. "sas", "sts", "sauces", "serendipities", but NOT "ss").
+* The pattern `.* .*` means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. "test word").
 
 Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.
 
@@ -76,36 +75,52 @@ ant.names.better.clean <- gsub(pattern=".*:", replacement="", x=ant.names.better
 Have a look inside the variable `ant.names.better.clean`. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 
 Q3. What does the pattern "..x.." mean in a regular expression?
+
 Q4. What does the pattern "e+" mean in a regular expression?
+
 Q5. How many names (genus or species) contain a lowercase "o" or an uppercase "E"?
 
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
+
 Q6. Add three additional columns to the ant.data table:
-one containing only the collection identifier numbers (e.g. 1423 without the "MB")
-one column containing only the genus (e.g. Polyrhachis)
-one containing only the species (excluding the subspecies, e.g. hemioptica)
+* one containing only the collection identifier numbers (e.g. 1423 without the "MB")
+* one column containing only the genus (e.g. Polyrhachis)
+* one containing only the species (excluding the subspecies, e.g. hemioptica)
+
 Hint -the solution is not a "one-liner":  try to decompose this task into several steps. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species first. Only subsequently add the new columns.
 Hacker Q7.  Figure out how to "capture" the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
-Hint - look into the help page of "gsub", especially the explanation for the "replacement’" parameter, as well as the examples at the bottom of the help page.
+
+Hint - look into the help page of `gsub`, especially the explanation for the "replacement’" parameter, as well as the examples at the bottom of the help page.
+
 For more information on these species check Antweb (and create a field guide for your next trip! (example pdf)).
 
-Functions
+## Functions
 
-We start by taking a more detailed look at functions. You have already encountered a number of different functions, and should be quite familiar with their usage. For example, rbind(), subset(), grep() and gsub() are all functions that you have used already Although these functions all do different things, they have the same common structure to them. This structure is key to understanding how a function really works.
+Functions are pieces of code that are made to take an input (generally known as parameters), do something with it, and give back an output. To take a self-explanatory example:
+```
+x <- c(2,3,4,5)
+mean(x)
+```
+We just used the function `mean` on an vector. The interesting thing about R is that it is possible to create your own functions. Let us reate our own function to calculate the mean:
+```
+## Define function named myMean
 
-A function has three main parts:
-Inputs
-Main workings of the function
-Outputs
+myMean <- function(my.vector) {
+  ## Calculate the mean
+  my.mean <- sum(my.vector)/length(my.vector)
 
-The inputs are what go into the function. For example, in the case of grep() we were required to input a pattern that we were searching for, and a vector x within which to search. The main workings of the function are a set of rules or calculations describing what should be done using these inputs. Finally, the end result of these calculations is an output, or a series of outputs, that should be returned by the function. Figure 1 gives a rough schematic showing how a function works. Don't worry if this does not make perfect sense to you at this stage - hopefully it will do shortly!
+  ## Return the calculated mean
+  return(my.mean)
+}
 
-
-Figure 1   Rough schematic of a function.
-
+## Now call the function on some data:
+x <- c(2,3,4,5)
+myMean(x)
+```
 
 Now take a look at the following code. This code is designed to take a number in seconds, and convert it into hours, minutes and remaining seconds:
 
+```
 # Input raw number of seconds
 number.of.seconds <- 19955
 
@@ -119,15 +134,13 @@ outputvec <- c(hours, minutes, seconds)
 
 # Output the solution to the console
 outputvec
+```
+Try to understand roughly what this code does, although don't worry too much about the calculations in the middle. Copy the code into a new script window, and run the script. You should find that the program outputs the solution, which in this case is 5 hours, 32 minutes, and 35 seconds. Now imagine that we need to carry out this operation not just once on the value number.of.seconds=19955, but many hundreds of times, and each time with a different input. Making the code into a function would mean you can call it any number of times without having to type it as many times.
 
-Try to understand roughly what this code does, although don't worry too much about the calculations in the middle. Copy the code into a new script window, and run the script. You should find that the program outputs the solution, which in this case is 5 hours, 32 minutes, and 35 seconds.
 
-Notice that there are three clearly identifiable parts to the code above:
-- the inputs (the variable number.of.seconds),
-- the main workings of the code (where the actual calculations are performed),
-- the outputs (where the value of outputvec is returned).
 
-So, we can see that this script already has some similarities with our definition of a function. But! Now imagine that we need to carry out this operation not just once on the value number.of.seconds=19955, but many hundreds of times, and each time with a different input. At the moment we would have no choice but to copy the entire code many times over, varying the input each time. This is clearly an extremely wasteful and time-consuming way to program, and is not a practical solution to the problem.
+
+At the moment we would have no choice but to copy the entire code many times over, varying the input each time. This is clearly an extremely wasteful and time-consuming way to program, and is not a practical solution to the problem.
 	A much better solution is to write this code as a function, rather than as a standalone script. A function takes the input value - in this case the raw time in seconds - performs all of the necessary calculations behind the scenes, and then simply returns the desired output. We will now work through the process of converting this example script into a working function, looking at each of the stages in turn.
 Defining a function and its inputs
 The first thing that we need is a name for our function. As with naming variables, this is not rocket science, and the name timeconverter will do fine here.

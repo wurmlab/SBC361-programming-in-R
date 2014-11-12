@@ -3,6 +3,7 @@
 SBSm032: stats and bioinformatics
 
 November 2014
+
 Yannick Wurm and Rodrigo Pracana
 
 This practical is aimed at teaching basic programming in R. The stuff presented here will hopefully be helpful for handling and formatting data. It's also a general (though very simple) introduction to programming, as stuff we will be learning about exists, in one way or another, in most other programming languages.

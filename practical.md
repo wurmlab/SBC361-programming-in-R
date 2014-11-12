@@ -2,11 +2,11 @@
 
 ## Regular Expressions
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
-```
+```R
 collections <- read.csv("http://yannick.poulet.org/teaching/2014msc/ant_collections.csv", row.names = 1)
 ```
 This data frame details the genus and species names of some ants, along with the date at which they were collected and some extra stuff. Load just the names into a separate variable:
-```
+```R
 ant.names <- collections[,1:3]$ID.Genus_species
 ```
 Have a close look at these names. Notice that some names have been recorded neglectfully. For example, the genus names for the Pheidole group are sometimes lowercase, and include spelling mistakes. This data needs cleaning up.
@@ -15,21 +15,21 @@ Regular expressions help us to deal with this sort of problem. They consist of a
 
 ### Basic find and replace
 To start with we will consider a simple case of finding a pattern within a vector of names.  First of all we will search through the vector ant.names to find a list of the elements that contain the word "pheido". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
-```
+```R
 # Search through reptile.names for the word "pheido", and output positions
 grep(pattern= "pheido", x=ant.names)
 ```
 The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `ant.names` that matches the pattern. Make sure you fully understand where these numbers came from!
 
 Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = T` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
-```
+```R
 # Search through reptile.names for the word "pheido", and output names
 grep(pattern= "pheido", x=ant.names, value=TRUE)
 ```
 Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.
 
 Finally, we may want to find and replace the pattern. This can be done using the function `gsub()`. The function `gsub()` takes `arguments`, `pattern` and `x`, just like the function `grep()`, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the ant.names the word "pheidole" is a genus name, and so should be capitalized. Thus, we want to replace the word "pheidole" with "Pheidole", as follows:
-```
+```R
 # Search through reptile.names for the word "pheidole" and replace with the word "Pheidole."
 ant.names.better <- gsub(pattern="pheidole", replacement="Pheidole", x=ant.names)
 ```
@@ -69,7 +69,7 @@ These special characters can be used on their own, or in combination with one an
 Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.
 
 As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the ant names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:
-```
+```R
 ant.names.better.clean <- gsub(pattern=".*:", replacement="", x=ant.names.better)
 ```
 Have a look inside the variable `ant.names.better.clean`. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
@@ -98,12 +98,12 @@ For more information on these species check Antweb (and create a field guide for
 
 Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to write it entirely at each time.
 To take a self-explanatory example:
-```
+```R
 x      <- c(2,3,4,5)
 x.mean <- mean(x)
 ```
 We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the `mean` each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
-```
+```R
 ## Define function named myMean
 
 myMean <- function(my.vector) {
@@ -123,7 +123,7 @@ The syntax `functionName <- function(parameter) {code}` is the most common way o
 
 Now take a look at the following code. This code is designed to take a number in seconds, and convert it into hours, minutes and remaining seconds (don't worry too much about the computation in the middle):
 
-```
+```R
 # Input raw number of seconds
 number.of.seconds <- 19955
 
@@ -171,7 +171,7 @@ Imagine you need to run the function `timeConverter()` on different numbers. You
 
 Fortunately, computers were built to perform same task over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the for loop. It works this way:
 
-```
+```R
 ## For loop exmaple
 for (seconds in c(1000,2000,3000)) {
   time.in.hours <- timeConverter(number.of.seconds=seconds)
@@ -183,7 +183,7 @@ The loop will run 3 times. Each time, it will define the variable `seconds` as a
 ### Slightly more complex loops
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are indexing over can be anything that goes in a vector. The vector can be defined outside the loop definition line:
 
-```
+```R
 ## Sequential loop values
 loop.values <- c(15,5,2.3,100,16)
 for (index in loop.values) {
@@ -209,7 +209,7 @@ for (index in loop.text) {
 }
 ```
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
-```
+```R
 for (i in 1:5) {
 
 	for (j in 7:9) {
@@ -241,7 +241,7 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 More often than not, you will not want to just print the loop results. Instead, you may want to keep them in a separate variable. Check the following example. What's the result from the 4th iteration?
 
-```
+```R
 ## Vector to loop through
 practical.attribute.vec <- c("great", "boring", "very long", "informative", "here")
 
@@ -257,7 +257,7 @@ for (practical.attribute in practical.attribute.vec) {
 ```
 A different way of approaching a for loop is to loop through the indexes of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through, and we use the index to 'populate' it:
 
-```
+```R
 ## Vector to loop through
 practical.attribute.vec <- c("great", "boring", "very long", "informative", "here")
 
@@ -279,7 +279,7 @@ for (i in 1:length(practical.attribute.vec)) {
 We will now take the last approach to reformat data, for which loops tend to be particularly useful. By looping through all of the fields of a particular data set, and at each iteration dropping the relevant entry into a new data structure, it is possible to convert from one data format to another.
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
-```
+```R
 helianthus.data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header=T))
 ```
 
@@ -303,7 +303,7 @@ We can make the transition from the wide format of helianthus.data to the long f
 #### Q20.a. Create an empty matrix, called `long.data`. This matrix must have 3 columns, and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
 
 With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus.data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
-```
+```R
 # Loop through all rows
 for (myrow in 1:5) {
 
@@ -322,16 +322,16 @@ Hopefully you can already see that these are the exact values we want to drop in
 #### Q20.b. Change the for loop above to include a variable `myindex`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
 
 Now that we have three indices - one going through the rows of helianthus.data, one going through the columns of helianthus.data, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix `long.data`. The code we need at each iteration of the loop is the following:
-```
+```R
 long.data[myindex,3] <- helianthus.data[myrow,mycol]
 ```
 This is fairly straightforward. We also want to drop the time point in the second column of long.data. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by mycol minus two. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
-```
+```R
 long.data[myindex,2] <- mycol-2
 ```
 
 Finally, we want to drop the strain type into the first column of long.data. The strain type is given by the first element in every row, meaning it is given by helianthus.data[myrow,1]. Therefore, we need the following line of code to extract the strain types:
-```
+```R
 long.data[myindex,1] <- helianthus.data[myrow,1]
 ```
 #### Q20.c. Bring all of this together to finish the for loop, and run it!
@@ -340,7 +340,7 @@ long.data[myindex,1] <- helianthus.data[myrow,1]
 ## If statements
 
 Often, we may want to perform different operations depending on a condition. You do this using the if statement. Check the following example:
-```
+```R
 x <- 6
 
 if (x > 5) {
@@ -351,7 +351,7 @@ print(x)
 ```
 If statements work using conditional statements. As long as what is inside the round brackets is TRUE, the code is ran, otherwise it's skipped. It's possible to evaluate different conditions; keeps on skipping code until it finds a condition that is TRUE, then it stops (it won't evaluate the second condition if the first is TRUE, regardless of the second condition being TRUE)
 
-```
+```R
 this.practical <- 'interesting'
 
 if (this.practical == 'boring') {

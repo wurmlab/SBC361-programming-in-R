@@ -339,9 +339,44 @@ long.data[myindex,1] <- helianthus.data[myrow,1]
 
 ## If statements
 
-Often, we may want to perform different operations depending on a condition.
+Often, we may want to perform different operations depending on a condition. You do this using the if statement. Check the following example:
+```
+x <- 6
+
+if (x > 5) {
+  x <- x - 1
+}
+
+print(x)
+```
+If statements work using conditional statements. As long as what is inside the round brackets is TRUE, the code is ran, otherwise it's skipped. It's possible to evaluate different conditions; keeps on skipping code until it finds a condition that is TRUE, then it stops (it won't evaluate the second condition if the first is TRUE, regardless of the second condition being TRUE)
+
+```
+this.practical <- 'interesting'
+
+if (this.practical == 'boring') {
+
+  print ('YAWN!')
+
+} else if (this.practical == 'interesting') {
+
+  print('We want more!')
+
+} else {
+
+  print('I do not know how to evaluate this practical')
+
+}
+
+```
+
+The conditions need to follow the rules of conditional statements. You can find more information in the Rbasics document. It also follows boolean logic, which you should also read about (which defines how R evaluates statements like `TRUE & FALSE` or `(TRUE & TRUE) | (FALSE & TRUE) & TRUE`).
+
+#### Q21 Add another argument to the function created in question Q12, to allow the user to ask for the speed in metric (km/h) or imperial (miles/h) units. Make sure you use an if statement!
 
 # Extra exercices
+
+The following exercices use a bit of everything we have learned here. Don't be worried if you cannot finish it in class, but make sure to try finishing the exercices at home!
 
 #### Q11. Write a function that converts a short DNA sequence of 15 bases (eg ACCTGTCATCATCCC) to RNA, and splits the string into triplets. You will need to:
 

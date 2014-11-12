@@ -102,7 +102,7 @@ To take a self-explanatory example:
 x      <- c(2,3,4,5)
 x.mean <- mean(x)
 ```
-We just used the `mean()` function, one of many function loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the `mean` each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
+We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the `mean` each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 ```
 ## Define function named myMean
 
@@ -156,28 +156,17 @@ Q10. Make a function takes a vector of words as input, and outputs the number of
 
 Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q10. Most of the time, you will probably want run it with `additional.hours` being 0. To do this, you can make `additional.hours=0` as a default. With default valus for arguments,function take the syntax `myFunction <- function(argument1, ..., argument2=default) {code including argument1, argument2, ...}`. The default argument generally goes in the end of the argument list.
 
-Q11. Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function.
+Q11. Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional.hours` and defining it to different number of seconds.
 
+Q12. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function you must create should:
 
-
-timeconverter <- function(number.of.seconds, additionalhours=0) {
-
-	# (the rest of the code)
-
-}
-
-Make this change to your function, and then try running the line timeconverter(inputseconds=123). You should find that this command goes through fine, using the value additionalhours=0 as the default.
-
-
-Q2. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function you must create should:
-
-take a distance in kilometres and a time in minutes as input.
-convert the distance into miles, and the time into hours. It should then calculate a speed in miles per hour.
-return the speed in miles per hour as output.
+* take a distance in kilometres and a time in minutes as input.
+* convert the distance into miles, and the time into hours. It should then calculate a speed in miles per hour.
+* return the speed in miles per hour as output.
 
 All of the skills required to complete this task this are given above. Take your time, and approach this problem one step at a time.
 
-Loops
+## Loops
 Intro to loops
 One of the main things that computers are useful for is doing the same task over and over again many times. Something that may take hours to do manually might take seconds on a computer, just as long as we have the right code to do it. The programming tool that allows you to perform a task many times over is the loop.
 

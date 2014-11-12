@@ -341,7 +341,7 @@ long.data[myindex,1] <- helianthus.data[myrow,1]
 
 Often, we may want to perform different operations depending on a condition.
 
-OTHER SECTION.
+# Extra exercices
 
 #### Q11. Write a function that converts a short DNA sequence of 15 bases (eg ACCTGTCATCATCCC) to RNA, and splits the string into triplets. You will need to:
 

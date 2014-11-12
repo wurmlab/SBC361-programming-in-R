@@ -1,6 +1,6 @@
 # Computing in R
 
-SBSm032: stats and bioinformatics
+SBSM032: stats and bioinformatics
 
 November 2014
 

@@ -378,18 +378,19 @@ The conditions need to follow the rules of conditional statements. You can find 
 
 The following exercices use a bit of everything we have learned here. Don't be worried if you cannot finish it in class, but make sure to try finishing the exercices at home!
 
-#### Q11. Write a function that converts a short DNA sequence of 15 bases (eg ACCTGTCATCATCCC) to RNA, and splits the string into triplets. You will need to:
+#### Q22. Write a function that converts a short DNA sequence of 15 bases (eg ACCTGTCATCATCCC) to RNA, and splits the string into triplets. You will need to:
 
-   		 1. replace T with U  ( thymine with uracil to convert DNA to RNA)
-        		 2. use substring() to split the seqence into triplets, and  seq() within substring()
+   		 1. replace T with U  (thymine with uracil to convert DNA to RNA)
+        		 2. use `substring()` to split the sequence into triplets, and `seq()` within `substring()`
         		 3. return the RNA triplets string
 
-Note substring() takes a "first" and "last" argument. The "first" would be seq() indicating where the beginning of your first triplet is and where the beginning of your last triplet is. The "last" argument would be seq() indicating where the end of your first triplet is, and the end of your last triplet.  In seq() you will also indicate you want triplets.  
+Note `substring()` takes a "first" and "last" argument. The "first" would be `seq()` indicating where the beginning of your first triplet is and where the beginning of your last triplet is. The "last" argument would be `seq()` indicating where the end of your first triplet is, and the end of your last triplet.  In `seq()` you will also indicate you want triplets.  
 
-   	 As an example:
+As an example:
+```R
 dna.string<-c("AAATTT")
-   				substring(dna.string, seq(1, 4, by=3), seq(3, 6, by=3))
-
+substring(dna.string, seq(1, 4, by=3), seq(3, 6, by=3))
+```
 
 
 Once you have created the function, see if you can modify the function to work for a sequence with any number of characters. Tip: you can use nchar() to create a variable such as "num.characters".

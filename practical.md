@@ -17,7 +17,7 @@ collections <- read.csv("http://yannick.poulet.org/teaching/2014msc/ant_collecti
 ```
 This data frame details the genus and species names of some ants, along with the date at which they were collected and some extra stuff. Load just the names into a separate variable:
 ```R
-ant.names <- collections[,1:3]$ID.Genus_species
+ant.names <- collections$ID.Genus_species
 ```
 Have a close look at these names. Notice that some names have been recorded neglectfully. For example, the genus names for the Pheidole group are sometimes lowercase, and include spelling mistakes. This data needs cleaning up.
 

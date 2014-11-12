@@ -8,7 +8,7 @@ Yannick Wurm and Rodrigo Pracana
 
 ## Introduction
 
-This practical is aimed at teaching basic programming in R. The stuff presented here will hopefully be helpful for handling and formatting data. It's also a general (though very simple) introduction to programming, as stuff we will be learning about exists, in one way or another, in most other programming languages.
+This practical is aimed at teaching basic programming in R. The stuff presented here will hopefully be helpful for handling and formatting data. It's also a general (though very simple) introduction to programming: the stuff we will be learning about exists, in one way or another, in most other programming languages.
 
 ## Regular Expressions
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:

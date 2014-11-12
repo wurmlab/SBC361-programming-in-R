@@ -197,37 +197,27 @@ There are some interesting ways in which we can stretch our understanding of loo
 ## Sequential loop values
 loop.values <- c(15,5,2.3,100,16)
 for (index in loop.values) {
-
 	print(index)
-
 }
 
 ## Non-sequential loop values
 seq.values <- c(1:50)
 for (i in loop.values) {
-
   print(i)
-
 }
 
 ## Character based loop values
 loop.text <- c("How", "Now", "Brown", "Cow")
 for (index in loop.text) {
-
 	print(index)
-
 }
 ```
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 ```R
 for (i in 1:5) {
-
 	for (j in 7:9) {
-
 		print(c(i,j))
-
 	}
-
 }
 ```
 
@@ -259,7 +249,6 @@ practical.attribute.vec <- c("great", "boring", "very long", "informative", "her
 phrase.vec <- c()
 
 for (practical.attribute in practical.attribute.vec) {
-
   phrase     <- paste("This practical is", practical.attribute, collapse=" ")
   phrase.vec <- c(phrase.vec, phrase)
 
@@ -318,7 +307,6 @@ With this empty matrix created, we can move on to the next part of the problem -
 ```R
 # Loop through all rows
 for (myrow in 1:5) {
-
 	# Loop through all columns except the first
 	for (mycol in 2:7) {
 
@@ -367,17 +355,11 @@ If statements work using conditional statements. As long as what is inside the r
 this.practical <- 'interesting'
 
 if (this.practical == 'boring') {
-
   print ('YAWN!')
-
 } else if (this.practical == 'interesting') {
-
   print('We want more!')
-
 } else {
-
   print('I do not know how to evaluate this practical')
-
 }
 
 ```

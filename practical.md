@@ -4,7 +4,7 @@ SBSm032: stats and bioinformatics
 
 November 2014
 
-Yannick Wurm and Rodrigo Pracana
+Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 
 ## Introduction
 

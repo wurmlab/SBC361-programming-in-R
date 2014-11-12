@@ -13,7 +13,7 @@ This practical is aimed at teaching basic programming in R. The stuff presented 
 ## Regular Expressions
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 ```R
-collections <- read.csv("http://yannick.poulet.org/teaching/2014msc/ant_collections.csv", row.names = 1)
+collections <- read.csv("http://yannick.poulet.org/teaching/2014msc/ant_collections.csv")
 ```
 This data frame details the genus and species names of some ants, along with the date at which they were collected and some extra stuff. Load just the names into a separate variable:
 ```R

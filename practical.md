@@ -96,12 +96,13 @@ For more information on these species check Antweb (and create a field guide for
 
 ## Functions
 
-Functions are pieces of code that are made to take an input (generally known as parameters), do something with it, and give back an output. To take a self-explanatory example:
+Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to write it entirely at each time.
+To take a self-explanatory example:
 ```
-x <- c(2,3,4,5)
-mean(x)
+x      <- c(2,3,4,5)
+x.mean <- mean(x)
 ```
-We just used the function `mean` on an vector. The interesting thing about R is that it is possible to create your own functions. Let us reate our own function to calculate the mean:
+We just used the `mean()` function, one of many function loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the `mean` each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 ```
 ## Define function named myMean
 
@@ -114,11 +115,13 @@ myMean <- function(my.vector) {
 }
 
 ## Now call the function on some data:
-x <- c(2,3,4,5)
-myMean(x)
+x      <- c(2,3,4,5)
+x.mean <- myMean(x)
 ```
 
-Now take a look at the following code. This code is designed to take a number in seconds, and convert it into hours, minutes and remaining seconds:
+The syntax `functionName <- function(parameter) {code}` is the most common way of defining a function. Remember to add the `return()` bit, otherwise the function will compute the code but it won't return anything!
+
+Now take a look at the following code. This code is designed to take a number in seconds, and convert it into hours, minutes and remaining seconds (don't worry too much about the computation in the middle):
 
 ```
 # Input raw number of seconds
@@ -135,133 +138,29 @@ outputvec <- c(hours, minutes, seconds)
 # Output the solution to the console
 outputvec
 ```
-Try to understand roughly what this code does, although don't worry too much about the calculations in the middle. Copy the code into a new script window, and run the script. You should find that the program outputs the solution, which in this case is 5 hours, 32 minutes, and 35 seconds. Now imagine that we need to carry out this operation not just once on the value number.of.seconds=19955, but many hundreds of times, and each time with a different input. Making the code into a function would mean you can call it any number of times without having to type it as many times.
 
+Q7. Modify the code above to make it into a function called `timeConverter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly bracket.
 
+Q8. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input, and return the distance in miles as output (8 kilometres is roughly equal to 5 miles). Remember to clearly annotate your code, and make appropriate use of white space.
 
-
-At the moment we would have no choice but to copy the entire code many times over, varying the input each time. This is clearly an extremely wasteful and time-consuming way to program, and is not a practical solution to the problem.
-	A much better solution is to write this code as a function, rather than as a standalone script. A function takes the input value - in this case the raw time in seconds - performs all of the necessary calculations behind the scenes, and then simply returns the desired output. We will now work through the process of converting this example script into a working function, looking at each of the stages in turn.
-Defining a function and its inputs
-The first thing that we need is a name for our function. As with naming variables, this is not rocket science, and the name timeconverter will do fine here.
-
-
-
-Note - there a many functions loaded into R by default. When coming up with a function name, make sure you are not overwriting one of these existing functions. Do this by searching the help for that function name. For example, if you wanted to call your function prod then type ?prod (in this example you will find that this function name is already taken).
-
-
-Now we need to tell R that we want to create a new function called timeconverter. This can be done as follows:
-
-timeconverter <- function(inputseconds) { }
-
-(don't run this code on its own, as it will not do anything). The crucial part here, i.e. the part that cannot be fiddled with, is the word function(), which tells R that we want timeconverter to be a function, rather than an ordinary variable. The part that can be fiddled with is the text inside the curly brackets. This is where we write the name, or names, of the inputs to the function. These are often called the arguments of the function. You are already familiar with the arguments of several functions from previous work. For example, the function grep() has arguments pattern and x, as well as the optional arguments value and ignore.case. In the code above we are stating that our function timeconverter has a single argument, which is called inputseconds. So far so simple.
-
-The main workings of a function
-Once we have defined our function and stated the inputs, we can get stuck into the main body of the function. This section always opens with a squiggly bracket "{", and closes with another squiggly bracket "}".  These tell R where the function starts, and where is stops. The overall format should look like this:
-
-timeconverter <- function(inputseconds) {
-
-	# this is where the calculations go
-
-}
-
-Notice that I have indented everything inside curly brackets using the Tab key. This is not strictly required to make the function work, but is good coding practice as it makes it more obvious where the function starts and stops.
-	In this example we want to paste into this section the code that actually performs the time conversion. The new code should look like this:
-
-
-timeconverter <- function(inputseconds) {
-
-	# Convert the inputseconds into hours, minutes, and seconds
-	hours		<- floor(inputseconds/(60*60))
-	minutes	<- floor((inputseconds-hours*(60*60))/60)
-	seconds	<- inputseconds-((hours*60)+minutes)*60
-
-	# Create a single vector containing all three quantities
-	outputvec <- c(hours, minutes, seconds)
-
-}
-
-In the initial script we used the fixed variable number.of.seconds in our calculations. In the code above we have replaced this with the variable inputseconds, which is an argument of the function. The value of inputseconds can be different every time the function is run, while in the initial script we were stuck with the fixed value number.of.seconds=19845. In other words, by writing this as a function the user will be able to decide whatever value they want for the value of inputseconds.
-
-
-Outputs
-The only thing missing from the function above is the code for outputting the solution. At the moment the function simply takes the input, performs the calculations, and then keeps the solution to itself! This is no good.
-	Telling a function which values to output is very simple. We simply need to use the command return() within the function, with the variable that we want to output written inside the brackets. For example, in this case we will write return(outputvec). The complete code should look like this:
-
-timeconverter <- function(inputseconds) {
-
-	# Convert the inputseconds into hours, minutes, and seconds
-	hours		<- floor(inputseconds/(60*60))
-	minutes	<- floor((inputseconds-hours*(60*60))/60)
-	seconds	<- inputseconds-((hours*60)+minutes)*60
-
-	# Create a single vector containing all three quantities
-	outputvec <- c(hours, minutes, seconds)
-
-	# Output the solution
-	return(outputvec)
-
-}
-
-Copy this code over into a new script window, and run the script. Once this script has been evaluated you will have access to the function timeconverter(). Try typing timeconverter(345) in the console. You should find that all of the calculations required to convert this number into hours, minutes, and seconds, takes place behind the scenes, and just the final answer is output to the console.
-
-	Remember that you can assign the output of a function to a new variable. For example, try typing converted<-timeconverter(345) in the console. The variable converted should now contain the desired output.
-
-Returning to the beginning of this section, our initial problem was that we wanted to perform this time conversion many times over, and with different inputs each time. The unsatisfactory solution was to copy the entire script many times over, varying the input each time. We can now see that the way to solve this problem is as follows:
-Define the function timeconverter() at the beginning of the script. Let the raw time in seconds be an argument to this function.
-Use the function timeconverter()throughout the rest of the script whenever we need to perform a conversion.
-
-When using this approach it is important that you remember to define the function at the beginning of the script. Otherwise when you load up R the next time, or when you try to run the script on a different machine, you will not have access to the function.
-
-Q1. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input, and return the distance in miles as output (8 kilometres is roughly equal to 5 miles). Remember to clearly annotate your code, and make appropriate use of white space.
-
-More complex functions
+### More complex functions
 Hopefully you can already see how functions can be very useful things. We can make them even more useful by considering some simple extensions.
 
-	First, you can define multiple arguments to a function. For example, in the case of timeconverter() we might have another input - say, an additional number of hours that need to be added on to the solution. Lets call this argument additionalhours. This extra argument goes in at the point where we define the function, separated by a comma from the previous argument. The new code looks like this:
+First, you can define multiple arguments to a function, with the general sytax of a function being `myFunction <- function(argument1, argument2, ...) {code including argument1, argument2, ...}`.
 
-timeconverter <- function(inputseconds, additionalhours) {
-
-	# Convert the inputseconds into hours, minutes, and seconds
-	hours		<- floor(inputseconds/(60*60))
-	minutes	<- floor((inputseconds-hours*(60*60))/60)
-	seconds	<- inputseconds-((hours*60)+minutes)*60
-
-	# Create a single vector containing all three quantities
-	outputvec <- c(additionalhours+hours, minutes, seconds)
-
-	# Output the solution
-	return(outputvec)
-
-}
-
-The value of additionalhours has been included in the calculations, being added on to the existing solution. Run this code and have a go at using the function with some different input values. Remember that you will now have to specify values for both arguments when you run the function, i.e.
-
-timeconverter(inputseconds=345, additionalhours=10).
-
+Q9. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional.hours`), and add it to the `hours` variable.
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical.
 
-For example, the following function takes a vector of words as input, and outputs the number of characters in the longest word:
+Q10. Make a function takes a vector of words as input, and outputs the number of characters in the longest word.
 
-maxcharacters <- function(wordvec) {
+Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q10. Most of the time, you will probably want run it with `additional.hours` being 0. To do this, you can make `additional.hours=0` as a default. With default valus for arguments,function take the syntax `myFunction <- function(argument1, ..., argument2=default) {code including argument1, argument2, ...}`. The default argument generally goes in the end of the argument list.
 
-	# Find the number of characters in the longest word
-	characters		<- nchar(wordvec)
-	largestvalue	<- max(characters)
-
-	# Output the solution
-	return(largestvalue)
-
-}
-
-Try creating  a vector of words and running it through this function. If you want to understand how this function actually works, simply copy the main workings of the function over into a new script and look at each command in turn (you may not have encountered the functions nchar() and max() yet).
+Q11. Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function.
 
 
-Default values
-Another neat thing that we can do is set default values for our arguments. Have another look at the timeconverter() function. This function will complain if you try to run it without setting a value for both the argument inputseconds and the argument additionalhours - for example, if we tried to run the line timeconverter(inputseconds=123) we would get an error message. This might become very annoying - especially if the vast majority of the time the value of additionalhours will be set to zero. We can set a default value for this argument when we define the function as follows:
 
-timeconverter <- function(inputseconds, additionalhours=0) {
+timeconverter <- function(number.of.seconds, additionalhours=0) {
 
 	# (the rest of the code)
 

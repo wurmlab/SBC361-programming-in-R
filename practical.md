@@ -98,7 +98,8 @@ Hint - you will have to combine your knowledge of regular expressions with your 
 * one containing only the species (excluding the subspecies, e.g. hemioptica)
 
 Hint -the solution is not a "one-liner":  try to decompose this task into several steps. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species first. Only subsequently add the new columns.
-Hacker Q7.  Figure out how to "capture" the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
+
+### Hacker Q7.  Figure out how to "capture" the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
 
 Hint - look into the help page of `gsub`, especially the explanation for the "replacement’" parameter, as well as the examples at the bottom of the help page.
 

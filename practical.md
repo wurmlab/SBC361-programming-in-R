@@ -50,7 +50,7 @@ Experiment with `grep()` and `gsub()` until you are confident at using them. The
 
 #### Q1. How could you use regular expressions to find the only element in the vector `ant.names` that contain lowercase "v"? What are the positions of this element in the vector?
 
-#### Q2. You want to import the `ant.names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
+#### Q2. You want to import the `ant.names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with an underscore?
 
 ### Using "fuzzy" searching
 One of the most powerful features of regular expressions is the ability to perform "fuzzy" searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.

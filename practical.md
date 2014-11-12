@@ -406,7 +406,8 @@ The tricky part here is reversing a single string of characters. Search around f
 * remove the spaces to get your single string of DNA bases
 * return the reverse-complement sequence
 
-#### Q13 (Hacker question). Translate your triplet string from Q12 into amino acids. Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Alternatively, you could  search around and load a specific package for the manipulation of biological sequences.
+#### Q13 (Hacker question). Translate your triplet string from Q12 into amino acids
+Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Alternatively, you could  search around and load a specific package for the manipulation of biological sequences.
 
 
 

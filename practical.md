@@ -285,6 +285,8 @@ helianthus.data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
 
+#### Q20 The aim of the following exercice is to get the data from the current format into what's generally called the 'long format'
+
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:
 ```
 Strain	Time	Count

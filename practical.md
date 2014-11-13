@@ -171,9 +171,10 @@ Note that functions do not have to take single numbers as input. They can take v
 
 #### Q10. Make a function takes a vector of words as input, and outputs the number of characters in the longest word.
 
-Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q10. Most of the time, you will probably want run it with `additional.hours` being 0. To do this, you can make `additional.hours=0` as a default. With default valus for arguments,function take the syntax `myFunction <- function(argument1, ..., argument2=default) {code including argument1, argument2, ...}`. The default argument generally goes in the end of the argument list.
+#### Q11.A Extra arguments: 
+Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q9. Most of the time, you will probably want run it with `additional.hours` being 0. To do this, you can make `additional.hours=0` as a default. With default valus for arguments,function take the syntax `myFunction <- function(argument1, ..., argument2=default) {code including argument1, argument2, ...}`. The default argument generally goes in the end of the argument list.
 
-#### Q11. Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional.hours` and defining it to different number of seconds.
+#### Q11.B Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional.hours` and defining it to different number of seconds.
 
 #### Q12. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function you must create should:
 

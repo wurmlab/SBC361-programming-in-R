@@ -157,7 +157,13 @@ outputvec
 ### More complex functions
 Hopefully you can already see how functions can be very useful things. We can make them even more useful by considering some simple extensions.
 
-First, you can define multiple arguments to a function, with the general sytax of a function being `myFunction <- function(argument1, argument2, ...) {code including argument1, argument2, ...}`.
+First, you can define multiple arguments to a function, with the general sytax of a function being: 
+
+```R
+my_function <- function(argument1, argument2, ...) {
+    #code including argument1, argument2, ...
+}
+```
 
 #### Q9. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional.hours`), and add it to the `hours` variable.
 

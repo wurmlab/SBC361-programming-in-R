@@ -1,3 +1,6 @@
+# Next time:
+#  * need more disk space. 
+
 # Get Amazon AWS Command Line tool
 brew install awscli
 
@@ -22,11 +25,11 @@ sudo apt-get install gcc make zlib1g-dev x11-apps r-base -y
 
 sudo add-apt-repository ppa:nebc/bio-linux
 sudo apt-get update
-sudo apt-get install ncbi-blast+ mafft -y
+sudo apt-get install ncbi-blast+ mafft zsh -y
 
-#make zsh default? 
+#make zsh default?  - but would need oh-my-zsh and default configuration. 
 
-# stop running
+# stop running server
 
 
 

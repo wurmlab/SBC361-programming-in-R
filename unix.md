@@ -1,10 +1,8 @@
 # Intro to Unix
 
-`ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`
+## Commands 
 
 You'll want to find some Unix cheat sheet on google.
-
-Commands: 
 
 ```bash
 ls  # -a -l -t -h)
@@ -26,19 +24,21 @@ getting help; running stuff
 R 
 ```
 
+## Examples 
+
  * example: run blast of gene against swissprot
    `http://www.antgenomes.org/~yannickwurm/tmp/2014-10-15-Swissprot.zip`
 
- * example: `seqtk` compile ; extract scaffold 00059. 
+ * example: `seqtk` compile ; extract scaffold00059 
 
 
-Resource monitoring
+## Resource monitoring
  * htop or top
  * who
  * finger
 
 
-HPC concept
+## Shared computing - HPC concept
 
 Remote: 
  
@@ -48,3 +48,15 @@ Remote:
    qlogin -pe smp 4 -l h_vmem=10G  # four cores and 40 gigs of Ram 
  * (qsub)
  * scp 
+
+
+## Practical
+
+1. Use MobaXterm (on Windows) or Terminal to: `ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`
+   secret: ____arethebest
+2. In the home folder, create your own directory (subfolder) with your name. 
+3. In there, download a fasta sequence, BLAST it against Swissprot.
+4. Download the fire ant genome, ex
+
+
+

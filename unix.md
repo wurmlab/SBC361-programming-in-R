@@ -52,11 +52,18 @@ Remote:
 
 ## Practical
 
+### Unix
+
 1. Use MobaXterm (on Windows) or Terminal to: `ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`
    secret: ____arethebest
 2. In the home folder, create your own directory (subfolder) with your name. 
-3. In there, download a fasta sequence, BLAST it against Swissprot.
-4. Download the fire ant genome, ex
+3. Within this directory, launch R - make a plot. 
+5. Within this new directory, download a fasta sequence, BLAST it against Swissprot - monitor with `htop` (in a different window) while this happens. 
+6. Download a genome sequence, use seqtk to extract a specific sequence 
+
+### Gene annotation
+
+http://afra.sbcs.qmul.ac.uk
 
 
 

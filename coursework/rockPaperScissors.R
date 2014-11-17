@@ -1,14 +1,13 @@
 rockPaperScissors <- function(user.play) {
 
+  ## The aim of the function is to return a phrase saying
+  # what you played, what the computer played, and who won.
+
   ## The possible plays
   legal.plays   <- c("rock", "paper", "scissors")
 
-  # Your play
-  print(paste("You played", user.play))
-
   ## The computer's play
   computer.play <- sample(x=legal.plays, size=1)
-  print(paste("The computer played", computer.play))
 
   ##### COMPLETE THE FOLLOWING #####
   # Make sure the input is of length one (complete the condition of the if statement)
@@ -24,10 +23,11 @@ rockPaperScissors <- function(user.play) {
   }
 
   ##### COMPLETE THE FOLLOWING #####
+  # You will have to store the game results to a variable called game.result
 
-  # If the user wins, return "You win."
-  # If the user loses, return "You lose."
-  # If there is a draw, return "Draw."
+  # If the user wins, write "You win." to game.result          # game.result <- "You win."
+  # If the user loses, write "You lose." to game.result.       # game.result <- "You lose."
+  # If there is a draw, write "Draw." to game.result.          # game.result <- "Draw."
 
   # Remember, rock wins against scissors, scissors win against paper, and paper wins against rock.
   # For example, if the user plays rock,
@@ -37,10 +37,13 @@ rockPaperScissors <- function(user.play) {
 
   # HINT: This function will probably take a lot of if statements
 
+  # Return the game.result
+  phrase.to.return <- paste("You played ", user.play, "; the computer played ", computer.play, ". ", game.result, sep='')
+  return(phrase.to.return)
 
   ###### NOTE #######
   ## The marking is done automatically.
-  ## Please print and return the exact phrases we ask you to!
+  ## Please return the exact phrase we ask you to!
   ###### NOTE #######
 
 }

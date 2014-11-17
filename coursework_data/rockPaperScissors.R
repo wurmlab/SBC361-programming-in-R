@@ -12,7 +12,7 @@ rockPaperScissors <- function(user.play) {
 
   ##### COMPLETE THE FOLLOWING #####
   # Make sure the input is of length one (complete the condition of the if statement)
-  if (length(user.play) != 1) {
+  if () {
     stop("Sorry, I did not understand that. Please input one word only")
   }
   ##################################

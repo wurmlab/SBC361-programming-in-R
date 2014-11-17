@@ -17,7 +17,7 @@
 
 This was part of QMUL's SBCM032 Statistics & Bioinformatics MSc-level course. 
 
-Thanks to support from Amazon (grant EDU_E_FY2014_Q4_QueenMaryULondon_Wurm) for making much of this possible!
+Thanks to support from [Amazon](http://aws.amazon.com) (grant EDU_E_FY2014_Q4_QueenMaryULondon_Wurm) for making much of this possible!
 @bmpvieira set up an appropriate server with [this script][].
 
 

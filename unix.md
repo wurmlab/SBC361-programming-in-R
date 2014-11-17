@@ -52,6 +52,8 @@ Remote:
 
 ## Practical
 
+Thanks to [Amazon Web Services](http://aws.amazon.com) for providing free access for this course (grant EDU_E_FY2014_Q4_QueenMaryULondon_Wurm). 
+
 ### Unix
 
 1. Use MobaXterm (on Windows) or Terminal to: `ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`

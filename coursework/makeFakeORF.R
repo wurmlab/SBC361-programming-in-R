@@ -55,13 +55,13 @@ makeFakeORF <- function(number.of.codons) {
   # Add the start codon to the beggining of the orf.middle vector:
    # (code goes here)
 
-  # Add the stop codon to the beggining of the orf.middle vector:
+  # Add the stop codon to the end of the orf.middle vector:
    # (code goes here)
 
   ############################
   ## U -> T
 
-  # We need to outpu DNA and not RNA, so we need to change U to T
+  # We need to output DNA and not RNA, so we need to change U to T
   # HINT: you may want to collapse the vector into a string and then use a regular expression!
 
   ############################

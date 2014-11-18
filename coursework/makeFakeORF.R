@@ -14,7 +14,7 @@ makeFakeORF <- function(number.of.codons) {
 
   # read in codon frequency table for H. sapiens
   # retrieved and modified from http://www.kazusa.or.jp/codon/
-  codon.freq.table <- read.csv()
+  codon.freq.table <- read.csv('http://wurmlab.github.io/2014-MSc-SBSm032-stats_bioinformatics/coursework/data/codon_frequency_table.csv', h=T)
 
   ############################
   ## Middle of the ORF

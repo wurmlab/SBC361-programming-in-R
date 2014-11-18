@@ -1,4 +1,4 @@
-rock_paper_scissors <- function(user.play) {
+rock_paper_scissors <- function(user_play) {
     
   ## The aim of the function is to return a phrase saying
   # what you played, what the computer played, and who won.
@@ -16,7 +16,7 @@ rock_paper_scissors <- function(user.play) {
   ##################################
 
   # Make sure the input is one of the 3 possible choices
-  # The %in% operand checks if the element on the lect is present in the vecotr on the right, and returns TRUE or FALSE
+  # The %in% operand checks if the element on the left is present in the vecotr on the right, and returns TRUE or FALSE
   if (!(user_play %in% legal_plays)) {
     stop(paste("Sorry, I did not understand that. Input has to be: ", paste(legal_plays, collapse=" or ")))
   }

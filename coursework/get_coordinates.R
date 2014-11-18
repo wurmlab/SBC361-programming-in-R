@@ -1,11 +1,11 @@
 get_coordinates <- function() {
 
   # Download and read the tables
-  data_dir_url <- 'http://wurmlab.github.io/2014-MSc-SBSm032-stats_bioinformatics/coursework/data/'
+  data_dir_url <- 'http://wurmlab.github.io/2014-MSc-SBSm032-stats_bioinformatics/coursework/data'
     
-  solenopsis_invicta_url     <- file.path(data_dir,
+  solenopsis_invicta_url     <- file.path(data_dir_url,
                                           'allantwebants-myrmicinaesolenopsis_invicta.csv')
-  pheidole_obscurithorax_url <- file.path(data_dir,
+  pheidole_obscurithorax_url <- file.path(data_dir_url,
                                           'alabamaants-myrmicinaepheidole_obscurithorax.csv')
 
   solenopsis_invicta_collections     <- read.csv(solenopsis_invicta_url,     h=T)

@@ -50,27 +50,3 @@ multiplied
 ```
 
 
-## Rock paper scissors almost
-
-```R
-rock_paper_scissors_almost <- function(play) {
-    print(paste("You played:", play))
-
-    legalplays <-  c("rock", "paper", "scissors")
-    computerplay <- sample(x=legalplays, size=1)
-    print(paste("Computer played:", computerplay))
-    
-    if ( play == "rock") {
-        if (computerplay == "scissors") {
-            print("You're the best!")
-        } else if (computerplay == "paper") {
-            print("LOSER!")
-        } else {
-            print("Uhhhhhh")
-        }
-    } else {
-        print("Sorry... I'm not that smart yet... I don't know what to do :(")
-    }
-}
-```
-

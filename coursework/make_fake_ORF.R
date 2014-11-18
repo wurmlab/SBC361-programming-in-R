@@ -23,7 +23,7 @@ make_fake_ORF <- function(number_of_codons) {
 
   # We are going to use the function sample() to create vector of codons for the
   # 'middle' portion of the ORF.
-  # This portions does not include the start or stop codon.
+  # This portion does not include the start or stop codon.
 
   # The length of this portion is the input length - 2:
   length_of_orf_middle <- replace_me

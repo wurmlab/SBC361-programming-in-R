@@ -4,9 +4,11 @@ get_coordinates <- function() {
   data_dir_url <- 'http://wurmlab.github.io/2014-MSc-SBSm032-stats_bioinformatics/coursework/data'
     
   solenopsis_invicta_url     <- file.path(data_dir_url,
-                                          'allantwebants-myrmicinaesolenopsis_invicta.csv')
+                                          'allantwebants-myrmicinaesolenopsis_invicta.csv',
+                                          na.strings="")
   pheidole_obscurithorax_url <- file.path(data_dir_url,
-                                          'alabamaants-myrmicinaepheidole_obscurithorax.csv')
+                                          'alabamaants-myrmicinaepheidole_obscurithorax.csv',
+                                          na.strings="")
 
   solenopsis_invicta_collections     <- read.csv(solenopsis_invicta_url,     h=T)
   pheidole_obscurithorax_collections <- read.csv(pheidole_obscurithorax_url, h=T)

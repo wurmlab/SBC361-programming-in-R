@@ -74,7 +74,7 @@ make_fake_ORF <- function(number_of_codons) {
   ############################
   ## Output
 
-  # return a *string*! Its length() should be number_of_codons * 3
+  # return a *string*! Its length (nchar()) should be number_of_codons * 3
   return(replace_me)
 
 }

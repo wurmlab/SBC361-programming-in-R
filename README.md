@@ -1,21 +1,17 @@
 ## Slides:
 
-* [Slides from Intro to programming  (2014-11-12)][1]
-* [Slides about software sustainability & reproducible research (2014-11-13)][2]
+* [MSc Slides from Intro to programming  (2014-11-12)][1]
+* [MSc Slides about software sustainability & reproducible research (2014-11-13)][2]
 
 ## Practicals: 
 
-* [Basic introduction to R](/Rbasics.md)
-* [Programming in R (for 2-3 afternoons)](/practical.md) includes three parts:
-  * [Regular expressions](/practical.md#regular-expressions)
-  * [Functions](/practical.md#functions)
-  * [Loops](/practical.md#loops)
-* [Introduction to Unix (on Amazon AWS)](/unix.md)
-
+* [Practical 1](/practical1.md): introduction to R and Regular expressions
+* [Practical 2](/practical2.md): functions and for loops
+* [Practical 3](/practical3.md): practice exercises
 
 ## Logistics
 
-This was part of QMUL's SBCM032 Statistics & Bioinformatics MSc-level course. 
+This is part of QMUL's SBC361 Research Methods and Communication course.
 
 Thanks to support from [Amazon](http://aws.amazon.com) (grant EDU_E_FY2014_Q4_QueenMaryULondon_Wurm) for making much of this possible!
 @bmpvieira set up an appropriate server with [this script][].

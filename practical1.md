@@ -194,8 +194,8 @@ There are a number of useful functions that can be applied to matrices. Have a l
 * `length()`
 * `dim()`
 * `t()`
-* colSums()`
-* summary()`
+* `colSums()`
+* `summary()`
 Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.
 
 #### Q15. The variable `mat1` describes a matrix produced by the following code:

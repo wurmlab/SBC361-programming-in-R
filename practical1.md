@@ -339,7 +339,7 @@ The layout and design of the program are much more important than the calculatio
 
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 ```R
-reptile.data <- read.csv("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt")
+reptile.data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt",row.names=1)
 ```
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code
 ```

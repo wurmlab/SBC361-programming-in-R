@@ -17,6 +17,7 @@ This is part of QMUL's SBC361 Research Methods and Communication course.
 |practical 3 + exam|week 6|Session 1|Wednesday|2015-11-04|3-6pm|Francis Bancroft 1.23|
 |practical 3 + exam|week 6|Session 2|Friday|2015-11-06|2-5pm|Francis Bancroft 1.23|
 
+Meeting to discuss on the 28th September in Yannick's office (5.21).
 
 #### Practical 1
 Leandro (lead), Elham, Bruno, Andrea, James

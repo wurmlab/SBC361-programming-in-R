@@ -20,7 +20,7 @@ This is part of QMUL's SBC361 Research Methods and Communication course.
 Meeting to discuss on the 28th September in Yannick's office (5.21).
 
 #### Practical 1
-Leandro (lead), Elham, Bruno, Andrea, James
+Leandro (lead), ~~Elham,~~ Bruno, Andrea, James and Kim
 
 #### Practical 2
 Jasmin (lead), Kim, James, Hernani, Roddy

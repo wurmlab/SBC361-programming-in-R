@@ -160,9 +160,9 @@ You will find that each of the elements of `combined.vec1` is equal to the produ
 ### Matrices
 Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(numeric.vec, seq.vec1)`).
 
-#### Q11. What happens when you evaluate `rbind(vec1, vec2)`? What happens when you evaluate cbind(vec1, vec2)? Why?
-#### Q12. When you evaluate `rbind(vec1, vec3)` you get a warning message. Why?
-#### Q13. What happens when you evaluate `rbind(vec1, vec4)`? Why?
+#### Q11. What happens when you evaluate `rbind(numeric.vec, seq.vec1)`? What happens when you evaluate cbind(vec1, vec2)? Why?
+#### Q12. When you evaluate `rbind(numeric.vec, seq.vec2)` you get a warning message. Why?
+#### Q13. What happens when you evaluate `rbind(numeric.vec, rep.vec)`? Why?
 
 You can also create matrices directly in a number of different ways:
 ```

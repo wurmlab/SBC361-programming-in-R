@@ -214,71 +214,71 @@ mat1[, c(2, 4)]
 #### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my.matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
-A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin.data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin.data[1,1]`). While you can get to specific columns using an index (`puromycin.data[,2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin.data$rate`. Note that, although the data frame is of class data frame, typing `puromycin.data$rate` will return a vector of class numeric (try using the function `class()` to check this).
+A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1,1]`). While you can get to specific columns using an index (`puromycin_data[,2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
 Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:
 ```
-puromycin.data$rate
-class(puromycin.data$rate)
-levels(puromycin.data$rate)
-as.character(puromycin.data$rate)
+puromycin_data$rate
+class(puromycin_data$rate)
+levels(puromycin_data$rate)
+as.character(puromycin_data$rate)
 ```
 
 ### Lists
 The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:
 ```
-my.list <- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c('G', 'H'))
+my_list <- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c('G', 'H'))
 ```
-Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`my.list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my.list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my.list[['A']]`) or the dollar sign (`my.list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
+Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`my_list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my_list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
 There are other types of data in R, with many being specific to particular libraries.
 
 ## Subsetting a data frame
 We have already come across one way of subsetting through the use of square brackets. By typing, for example,
 ```
-puromycin.data <- Puromycin
-puromycin.data[1:3, ]
+puromycin_data <- Puromycin
+puromycin_data[1:3, ]
 ```
 we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign `$` to get a specific column:
 ```
-puromycin.data[,2]
+puromycin_data[,2]
 ```
 We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:
 ```
 #returns TRUE or FALSE
-puromycin.data$rate < 100
+puromycin_data$rate < 100
 #returns which elements are TRUE
-which(puromycin.data$rate < 100)
+which(puromycin_data$rate < 100)
 ```
 We can use the index to select the rows for which the statement is TRUE:
 ```
 # returns all the columns, but only the rows for which
-# puromycin.data$rate < 100 is TRUE
-sub.data <- puromycin.data[puromycin.data$rate < 100, ]
+# puromycin_data$rate < 100 is TRUE
+puromycin_sub <- puromycin_data[puromycin_data$rate < 100, ]
 ```
 
 When subsetting data frames, we can also use the subset function, which has a more clear syntax, as the `$` is not necessary:
 ```
-sub.data <- subset(puromycin.data, rate < 100)
+puromycin_sub <- subset(puromycin_data, rate < 100)
 ```
 
 We could subset by the "state" column:
 ```
 ## First alternative
-subdata <- puromycin.data[puromycin.data$state == "treated", ]
+puromycin_treated <- puromycin_data[puromycin_data$state == "treated", ]
 ## Second alternative
-subdata <- subset(puromycin.data, state == "treated")
+puromycin_treated <- subset(puromycin_data, state == "treated")
 ```
 
 This will return all fields for which the state is equal to "treated". Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.
 
-#### Q18. How would you subset the variable `puromycin.data` to return only those fields for which the concentration is greater than 0.1?
+#### Q18. How would you subset the variable `puromycin_data` to return only those fields for which the concentration is greater than 0.1?
 #### Q19. What is the average (mean) concentration for these cells?
-#### Q20. How would you subset the variable `puromycin.data` to return only the fields for which the cells were not treated?
-#### Q21. How would you subset the variable `puromycin.data` to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?
-#### Q22. How would you subset the variable `puromycin.data` to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
-#### Q23. How would you subset the variable `puromycin.data` to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
-#### Q24. How would you subset the variable `puromycin.data` to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
+#### Q20. How would you subset the variable `puromycin_data` to return only the fields for which the cells were not treated?
+#### Q21. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?
+#### Q22. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
+#### Q23. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
+#### Q24. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
 
 
 ## Good coding practice
@@ -315,17 +315,17 @@ Example 2
 nutrients     <- 0.01
 temperature   <- 0.005
 humidity      <- 0.0036
-starting.size <- 100
-grow.time     <- 10
+starting_size <- 100
+grow_time     <- 10
 
 # Calculate total growth rate
-growth.rate <- nutrients + temperature + humidity
+growth_rate <- nutrients + temperature + humidity
 
 # Calculate population size at the end of the time period
-end.size <- starting.size * exp(growth.rate * grow.time)
+end_size <- starting_size * exp(growth_rate * grow_time)
 
 # Return end population size in the console
-end.size
+end_size
 #--------------------------------
 ```
 
@@ -339,11 +339,11 @@ The layout and design of the program are much more important than the calculatio
 
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 ```R
-reptile.data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt",row.names=1)
+reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt",row.names=1)
 ```
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code
 ```
-reptile.names <- row.names(reptile.data)
+reptile_names <- row.names(reptile_data)
 ```
 
 Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the *Liopholis* group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite "messy" and needs cleaning up.
@@ -351,35 +351,35 @@ Have a close look at these names. Notice that each reptile has been given a uniq
 The tools that allow us to deal with this sort of problem fall under the heading regular expressions. These consist of a suite of tools that allow us to search for, locate, and replace characters or words within a data set. The really powerful thing about regular expressions is that we can do a "fuzzy" search, meaning the pattern we are searching for has some flexibility built into it.
 
 ### Basic find and replace
-First of all we will search through the vector reptile.names to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
+First of all we will search through the vector reptile_names to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
 ```
-# Search through reptile.names for the word "liopholis", and output positions
-grep(pattern="liopholis", x=reptile.names)
+# Search through reptile_names for the word "liopholis", and output positions
+grep(pattern="liopholis", x=reptile_names)
 ```
 
-The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `reptile.names` that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!
+The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `reptile_names` that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!
 
 Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = T` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
 ```
-# Search through reptile.names for the word "liopholis", and output names
-grep(pattern = "liopholis", x = reptile.names, value = T)
+# Search through reptile_names for the word "liopholis", and output names
+grep(pattern = "liopholis", x = reptile_names, value = T)
 ```
 
 Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.
 
-Finally, we may want to find and replace the pattern. This can be done using the function `gsub()`. The function `gsub()` takes arguments `pattern` and `x`, just like the function `grep()`, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the `reptile.data` the word "liopholis" is a genus name, and so should be capitalized. Thus, we want to replace the word "liopholis" with "Liopholis", as follows:
+Finally, we may want to find and replace the pattern. This can be done using the function `gsub()`. The function `gsub()` takes arguments `pattern` and `x`, just like the function `grep()`, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the `reptile_data` the word "liopholis" is a genus name, and so should be capitalized. Thus, we want to replace the word "liopholis" with "Liopholis", as follows:
 
 ```
-# Search through reptile.names for the word "liopholis" and replace with the word "Liopholis."
-reptile.names2 <- gsub(pattern="liopholis", replacement="Liopholis", x=reptile.names)
+# Search through reptile_names for the word "liopholis" and replace with the word "Liopholis."
+reptile_names2 <- gsub(pattern="liopholis", replacement="Liopholis", x=reptile_names)
 ```
 
-The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile.names2.
+The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile_names2.
 Experiment with `grep()` and `gsub()` until you are confident at using them. Then answer the following questions:
 
-#### Q26. How could you use regular expressions to find the only element in the vector `reptile.names` that contains a lowercase "q"? What is the position of this element in the vector?
+#### Q26. How could you use regular expressions to find the only element in the vector `reptile_names` that contains a lowercase "q"? What is the position of this element in the vector?
 
-#### Q27. You want to import the `reptile.names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
+#### Q27. You want to import the `reptile_names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
 
 ### Using "fuzzy" searching
 One of the most powerful features of regular expressions is the ability to perform "fuzzy" searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.
@@ -410,9 +410,9 @@ Some of these examples might seem very confusing at first, but if you learn what
 
 As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:
 ```
-reptile.names3 <- gsub(pattern=".*:", replacement="", x=reptile.names2)
+reptile_names3 <- gsub(pattern=".*:", replacement="", x=reptile_names2)
 ```
-Have a look inside the variable reptile.names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
+Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 
 #### Q28. What does the pattern "..x.." mean in a regular expression?
 
@@ -421,7 +421,7 @@ Have a look inside the variable reptile.names3. We have successfully isolated th
 #### Q30. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
-#### Q30. Add three additional columns to the `reptile.data` table:
+#### Q30. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
 * one column containing only the genus (e.g. Bellatorias)
 * one containing only the species (excluding the subspecies, e.g. tympanum)
@@ -435,9 +435,9 @@ Hint - look into the help page of “gsub”, especially the explanation for the
 ## Data input from files
 Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download river.csv and kaiser.xls and try loading them into R.
 ```
-river.data  <- read.csv(“river.csv”)      # if you’re in the right directory
-river.data  <- read.csv(file.choose())    # to choose the file
-kaiser.data <- read.xls(“kaiser.xls”, sheet=1)
+river_data  <- read.csv(“river.csv”)      # if you’re in the right directory
+river_data  <- read.csv(file.choose())    # to choose the file
+kaiser_data <- read.xls(“kaiser.xls”, sheet=1)
 # try to figure out how to import Excel spreadsheets into R,
 # which is an excessively discussed topic online
 ```

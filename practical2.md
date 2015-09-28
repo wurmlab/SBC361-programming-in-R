@@ -19,24 +19,24 @@ Functions are pieces of code that are made to take an input (generally known as 
 To take a self-explanatory example:
 ```R
 x      <- c(2, 3, 4, 5)
-x.mean <- mean(x)
+x_mean <- mean(x)
 ```
 We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 
 ```R
 ## Define function named myMean
 
-myMean <- function(my.vector) {
+myMean <- function(my_vector) {
   ## Calculate the mean
-  my.mean <- sum(my.vector) / length(my.vector)
+  my_mean <- sum(my_vector) / length(my_vector)
 
   ## Return the calculated mean
-  return(my.mean)
+  return(my_mean)
 }
 
 ## Now call the function on some data:
 x      <- c(2, 3, 4, 5)
-x.mean <- myMean(x)
+x_mean <- myMean(x)
 ```
 
 The syntax `functionName <- function(parameter) {code}` is the most common way of defining a function. Remember to add the `return()` bit, otherwise the function will compute the code but it won't return anything!
@@ -45,18 +45,18 @@ Now take a look at the following code. This code is designed to take a number in
 
 ```R
 # Input raw number of seconds
-number.of.seconds <- 19955
+number_of_seconds <- 19955
 
-# Convert number.of.seconds into hours, minutes, and seconds
-hours   <- floor(number.of.seconds / (60 * 60))
-minutes <- floor((number.of.seconds - hours * (60 * 60))/ 60)
-seconds <- number.of.seconds - ((hours * 60) + minutes) * 60
+# Convert number_of_seconds into hours, minutes, and seconds
+hours   <- floor(number_of_seconds / (60 * 60))
+minutes <- floor((number_of_seconds - hours * (60 * 60))/ 60)
+seconds <- number_of_seconds - ((hours * 60) + minutes) * 60
 
 # Create a single vector containing all three quantities
-outputvec <- c(hours, minutes, seconds)
+output_vec <- c(hours, minutes, seconds)
 
 # Output the solution to the console
-outputvec
+output_vec
 ```
 
 #### Q1. Modify the code above to make it into a function called `timeConverter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.
@@ -69,21 +69,21 @@ Hopefully you can already see how functions can be very useful things. We can ma
 First, you can define multiple arguments to a function, with the general syntax of a function being:
 
 ```R
-my_function <- function(argument1, argument2, ...) {
+myFunction <- function(argument1, argument2, ...) {
     #code including argument1, argument2, ...
 }
 ```
 
-#### Q3. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional.hours`) and add it to the `hours` variable.
+#### Q3. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional_hours`) and add it to the `hours` variable.
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical.
 
 #### Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
 
 #### Q5.A Extra arguments:
-Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q9. Most of the time, you will probably want to run it with `additional.hours` being 0. To do this, you can make `additional.hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
+Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q9. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
 
-#### Q6.B Make the `additional.hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional.hours` and defining it to different number of seconds.
+#### Q6.B Make the `additional_hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional_hours` and defining it to different number of seconds.
 
 #### Q7. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
 
@@ -102,8 +102,8 @@ Fortunately, computers were built to perform same tasks over and over again many
 ```R
 ## For loop exmaple
 for (seconds in c(1000, 2000, 3000)) {
-  time.in.hours <- timeConverter(number.of.seconds = seconds)
-  print(time.in.hours)
+  time_in_hours <- timeConverter(number_of_seconds = seconds)
+  print(time_in_hours)
 }
 ```
 The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000,2000,3000)`. It will compute a new time in hours and print it for every number in the vector.
@@ -114,8 +114,8 @@ There are some interesting ways in which we can stretch our understanding of loo
 
 ```R
 ## Non-sequential loop values
-loop.values <- c(1:50)
-for (i in loop.values) {
+loop_values <- c(1:50)
+for (i in loop_values) {
  	print(i)
 }
 
@@ -125,14 +125,14 @@ for (i in 1:50) {
 }
 
 ## Sequential loop values
-loop.values <- c(15, 5, 2.3, 100, 16)
-for (index in loop.values) {
+loop_values <- c(15, 5, 2.3, 100, 16)
+for (index in loop_values) {
 	print(index)
 }
 
 ## Character based loop values
-loop.text <- c("Hey", "Hi", "Hello")
-for (word in loop.text) {
+loop_text <- c("Hey", "Hi", "Hello")
+for (word in loop_text) {
 	print(word)
 }
 ```
@@ -143,32 +143,33 @@ More often than not, you will not want to just print the loop results. Instead, 
 
 ```R
 ## Vector to loop through
-practical.attribute.vec <- c("great", "boring", "very long", "informative", "here")
+practical_attribute_vec <- c("great", "boring", "very long", "informative", "fun")
 
 ## Empty vector to keep loop results
 phrase.vec <- c()
 
-for (practical.attribute in practical.attribute.vec) {
- 	phrase     <- paste("This practical is", practical.attribute, collapse = " ")
+for (practical_attribute in practical_attribute_vec) {
+ 	phrase     <- paste("This practical is", practical_attribute, collapse = " ")
  	# Add the loop result to end of the vector of results
  	phrase.vec <- c(phrase.vec, phrase)
 }
 ```
+
 A different way of approaching a for loop is to loop through the indexes of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the index to 'populate' it:
 
 ```R
 ## Vector to loop through
-practical.attribute.vec <- c("great", "boring", "very long", "informative", "here")
+practical_attribute_vec <- c("great", "boring", "very long", "informative", "here")
 
 ## Empty vector to keep loop results
-phrase.vec <- rep(NA, length(practical.attribute.vec))
+phrase.vec <- rep(NA, length(practical_attribute_vec))
 
 ## Loop through the index rather than the vector
-for (i in 1:length(practical.attribute.vec)) {
+for (i in 1:length(practical_attribute_vec)) {
 
-	## Create phrase, getting attribute from practical.attribute.vec[i]
+	## Create phrase, getting attribute from practical_attribute_vec[i]
 	phrase        <- paste("This practical is",
-	                       practical.attribute.vec[i],
+	                       practical_attribute_vec[i],
 	                       collapse = " ")
 
 	## Add phrase to the right index of the results vector
@@ -185,7 +186,7 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q10A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the **index** each time through (you may have to search around for the square root function).
 
-#### Q10B. Make the loop from Q10A store the results to a separate vector called `sq.root.vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Q10B. Make the loop from Q10A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
 #### Q11. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate the function timeconverter() on the indexed value and store it in a separate vector.
 
@@ -214,12 +215,12 @@ Loops tend to be particularly useful to reformat data sets. By looping through a
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 ```R
-helianthus.data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
+helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
 ```
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
 
-#### Q15 The aim of the following exercice is to get the data from the current format into what's generally called the 'long format'
+#### Q15 The aim of the following exercise is to get the data from the current format into what's generally called the 'long format'
 
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:
 
@@ -235,100 +236,100 @@ We want to get this data into a new format - sometimes called long format - in w
 |2 |1 |27 |
 ...
 
-We can make the transition from the wide format of helianthus.data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
+We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
-#### Q15.a. Create an empty matrix, called `long.data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
+#### Q15.a. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
 
-With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus.data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
+With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
 ```R
 # Loop through all rows
-for (myrow in 1:5) {
+for (my_row in 1:5) {
 	# Loop through all columns except the first
-	for (mycol in 2:7) {
+	for (my_col in 2:7) {
 
 		# This is where the main code goes.
 
 	}
 }
 ```
-Here we are using loops to index through each of the rows of the matrix `helianthus.data`, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus.data[myrow, mycol]`.
+Here we are using loops to index through each of the rows of the matrix `helianthus_data`, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[my_row, my_col]`.
 
-Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long.data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long.data`? We cannot use the index 'myrow' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'mycol', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
+Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index 'my_row' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'my_col', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q15.b. Change the for loop above to include a variable `myindex`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
+#### Q15.b. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
 
 It should look something like this:
 ```R
-# myindex defined as 1 before the loop starts
-myindex <- 0
+# my_index defined as 1 before the loop starts
+my_index <- 0
 
 # Loop through all rows
-for (myrow in 1:5) {
+for (my_row in 1:5) {
 	# Loop through all columns except the first
-	for (mycol in 2:7) {
-		
-		## Change myindex here:
-		# make myindex equal to myindex plus one
-		
+	for (my_col in 2:7) {
+
+		## Change my_index here:
+		# make my_index equal to my_index plus one
+
 		# If you want to check what you are doing so far,
 		# remove the comment from the following line:
-		# print(c(myindex, myrow, mycol))
+		# print(c(my_index, my_row, my_col))
 	}
 }
 ```
 
-Now that we have three indices - one going through the rows of `helianthus.data`, one going through the columns of `helianthus.data`, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix `long.data`. The code we need at each iteration of the loop is the following:
+Now that we have three indices - one going through the rows of `helianthus_data`, one going through the columns of `helianthus_data`, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix `long_data`. The code we need at each iteration of the loop is the following:
 ```R
 # Get Count
-long.data[myindex, 3] <- helianthus.data[myrow, mycol]
+long_data[my_index, 3] <- helianthus_data[my_row, my_col]
 ```
 
-This is fairly straightforward. We also want to drop the time point in the second column of `long.data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'mycol minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
+This is fairly straightforward. We also want to drop the time point in the second column of `long_data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
 ```R
 # Get Time
-long.data[myindex, 2] <- mycol - 2
+long_data[my_index, 2] <- my_col - 2
 ```
 
-Finally, we want to drop the strain type into the first column of `long.data`. The strain type is given by the first element in every row, meaning it is given by `helianthus.data[myrow, 1]`. Therefore, we need the following line of code to extract the strain types:
+Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[my_row, 1]`. Therefore, we need the following line of code to extract the strain types:
 ```R
 # Get Strain
-long.data[myindex, 1] <- helianthus.data[myrow, 1]
+long_data[my_index, 1] <- helianthus_data[my_row, 1]
 ```
 #### Q15.c. Bring all of this together to finish the for loop, and run it!
 It should look something like this:
 ```R
 
-helianthus.data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
+helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
 
 # Create an empty matrix
-long.data           <- matrix(0, nrow = 30, ncol = 3)
-colnames(long.data) <- c("Strain", "Time", "Count")
+long_data           <- matrix(0, nrow = 30, ncol = 3)
+colnames(long_data) <- c("Strain", "Time", "Count")
 
-# myindex defined as 0 before the loop starts
-myindex <- 0
+# my_index defined as 0 before the loop starts
+my_index <- 0
 
 # Loop through all rows
-for (myrow in 1:5) {
+for (my_row in 1:5) {
 	# Loop through all columns except the first
-	for (mycol in 2:7) {
+	for (my_col in 2:7) {
 
-		## Change myindex here:
-		# make myindex equal to myindex plus one
-		
-		## Populate the long.data matrix
-		long.data[myindex, 1] <- helianthus.data[myrow, 1] # Add Strain
-		long.data[myindex, 2] <- # Add Time
-		long.data[myindex, 3] <- # Add Count
-		
+		## Change my_index here:
+		# make my_index equal to my_index plus one
+
+		## Populate the long_data matrix
+		long_data[my_index, 1] <- helianthus_data[my_row, 1] # Add Strain
+		long_data[my_index, 2] <- # Add Time
+		long_data[my_index, 3] <- # Add Count
+
 		# If you want to check what you are doing so far,
 		# remove the comment from the following line:
-		# print(long.data[myindex, ])
+		# print(long_data[my_index, ])
 	}
 }
 
-# To check what you've done, you can print the start and end of long.data
-head(long.data)
-tail(long.data)
+# To check what you've done, you can print the start and end of long_data
+head(long_data)
+tail(long_data)
 ```
 
 ## Working with DNA data
@@ -343,8 +344,8 @@ Note `substring()` takes a 'first' and 'last' argument. The 'first' would be `se
 
 As an example:
 ```R
-dna.string <- c("AAATTT")
-substring(dna.string, seq(1, 4, by = 3), seq(3, 6, by = 3))
+dna_string <- c("AAATTT")
+substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```
 
 Once you have created the function, see if you can modify the function to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num.characters`.

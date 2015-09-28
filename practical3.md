@@ -13,9 +13,9 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q1. Write a for loop that calculates the sum of 1/13 + 1/14 + 1/15… all the way up to 1/32. Note that R will not create the correct vector if you tell it ‘1/13:1/32’!
 
-*It is possible to get the answer to this exercise without writing a loop, by using sum(). The idea of this exercise is to practice writing for loops, however, and it will be more useful for you to do it this way.*
+*It is possible to get the answer to this exercise without writing a loop, by using `sum()`. The idea of this exercise is to practice writing for loops, however, and it will be more useful for you to do it this way.*
 
-#### Intro Q2. Create a function that can run this loop between any two denominators (so from 1/x to 1/y, where x and y are inputs to the function).
+#### Intro Q2. Create a function that can run this loop between any two denominators (so from `1/x` to `1/y`, where `x` and `y` are inputs to the function).
 
 ## Palindromic Sequences
 
@@ -44,17 +44,17 @@ atgctaaactaa
 #### Q4. (hacker question). Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
 
 ## Species names
-Run the following line of code to import the butterfly.sample data frame:
-```
-butterfly.sample <- read.table("http://yannick.poulet.org/teaching/2014sbc361/ButterflySample.csv",sep = ",", header = T)
+Run the following line of code to import the butterfly_sample data frame:
+```R
+butterfly_sample <- read.table("http://yannick.poulet.org/teaching/2014sbc361/ButterflySample.csv",sep = ",", header = T)
 ```
 This data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 
 #### Q30 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
 
-You will also need to import the `butterfly.reference` data frame to help you do this:
+You will also need to import the `butterfly_reference` data frame to help you do this:
 ```R
-butterfly.reference <- read.table("http://yannick.poulet.org/teaching/2014sbc361/ButterflyReference.csv",sep = ",", header = T)
+butterfly_reference <- read.table("http://yannick.poulet.org/teaching/2014sbc361/ButterflyReference.csv",sep = ",", header = T)
 ```
 TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. `grep` and `gsub` both allow you to set an `ignore.case = T` option. Alternately, you could use the R commands `toupper()` and `tolower()`. Use the help pages to see how these work, which you can access by typing a question mark before the command - `?toupper`.
 
@@ -69,4 +69,4 @@ TIP: There are several ways to do this. Remember that R is case sensitive, so yo
 * You will submit your answers through a Google form. Please do not use Internet Explorer for this. The form does not save as you fill in your answers, so please also save them in a text document or with screenshots so that you do not lose them if something goes wrong.
 * Do not click ‘submit’ until you have filled in all of your answers on the form.
 * You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.
-* You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another. 
+* You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.

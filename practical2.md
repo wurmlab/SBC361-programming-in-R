@@ -48,9 +48,9 @@ Now take a look at the following code. This code is designed to take a number in
 number.of.seconds <- 19955
 
 # Convert number.of.seconds into hours, minutes, and seconds
-hours |  | <- floor(number.of.seconds / (60 * 60))
-minutes | <- floor((number.of.seconds - hours * (60 * 60))/ 60)
-seconds | <- number.of.seconds - ((hours * 60) + minutes) * 60
+hours   <- floor(number.of.seconds / (60 * 60))
+minutes <- floor((number.of.seconds - hours * (60 * 60))/ 60)
+seconds <- number.of.seconds - ((hours * 60) + minutes) * 60
 
 # Create a single vector containing all three quantities
 outputvec <- c(hours, minutes, seconds)
@@ -116,24 +116,24 @@ There are some interesting ways in which we can stretch our understanding of loo
 ## Non-sequential loop values
 loop.values <- c(1:50)
 for (i in loop.values) {
-  print(i)
+ 	print(i)
 }
 
 ## The same as writing:
 for (i in 1:50) {
-  print(i)
+ 	print(i)
 }
 
 ## Sequential loop values
 loop.values <- c(15, 5, 2.3, 100, 16)
 for (index in loop.values) {
- | print(index)
+	print(index)
 }
 
 ## Character based loop values
 loop.text <- c("Hey", "Hi", "Hello")
 for (word in loop.text) {
- | print(word)
+	print(word)
 }
 ```
 
@@ -149,9 +149,9 @@ practical.attribute.vec <- c("great", "boring", "very long", "informative", "her
 phrase.vec <- c()
 
 for (practical.attribute in practical.attribute.vec) {
-  phrase     <- paste("This practical is", practical.attribute, collapse = " ")
-  # Add the loop result to end of the vector of results
-  phrase.vec <- c(phrase.vec, phrase)
+ 	phrase     <- paste("This practical is", practical.attribute, collapse = " ")
+ 	# Add the loop result to end of the vector of results
+ 	phrase.vec <- c(phrase.vec, phrase)
 }
 ```
 A different way of approaching a for loop is to loop through the indexes of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the index to 'populate' it:
@@ -166,11 +166,13 @@ phrase.vec <- rep(NA, length(practical.attribute.vec))
 ## Loop through the index rather than the vector
 for (i in 1:length(practical.attribute.vec)) {
 
-  ## Create phrase, getting attribute from practical.attribute.vec[i]
-  phrase     <- paste("This practical is", practical.attribute.vec[i], collapse = " ")
+	## Create phrase, getting attribute from practical.attribute.vec[i]
+	phrase        <- paste("This practical is",
+	                       practical.attribute.vec[i],
+	                       collapse = " ")
 
-  ## Add phrase to the right index of the results vector
-  phrase.vec[i] <- phrase
+	## Add phrase to the right index of the results vector
+	phrase.vec[i] <- phrase
 
 }
 ```
@@ -194,9 +196,9 @@ Once you are comfortable with loops, have a go at the following tasks:
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 ```R
 for (i in 1:5) {
- | for (j in 7:9) {
- |  | print(c(i, j))
- | }
+	for (j in 7:9) {
+		print(c(i, j))
+	}
 }
 ```
 
@@ -264,13 +266,13 @@ myindex <- 0
 for (myrow in 1:5) {
 	# Loop through all columns except the first
 	for (mycol in 2:7) {
-
+		
 		## Change myindex here:
-    # make myindex equal to myindex plus one
-
-    # If you want to check what you are doing so far,
-    # remove the comment from the following line:
-    # print(c(myindex, myrow, mycol))
+		# make myindex equal to myindex plus one
+		
+		# If you want to check what you are doing so far,
+		# remove the comment from the following line:
+		# print(c(myindex, myrow, mycol))
 	}
 }
 ```
@@ -311,16 +313,16 @@ for (myrow in 1:5) {
 	for (mycol in 2:7) {
 
 		## Change myindex here:
-    # make myindex equal to myindex plus one
-
-    ## Populate the long.data matrix
-    long.data[myindex, 1] <- helianthus.data[myrow, 1] # Add Strain
-    long.data[myindex, 2] <- # Add Time
-    long.data[myindex, 3] <- # Add Count
-
-    # If you want to check what you are doing so far,
-    # remove the comment from the following line:
-    # print(long.data[myindex, ])
+		# make myindex equal to myindex plus one
+		
+		## Populate the long.data matrix
+		long.data[myindex, 1] <- helianthus.data[myrow, 1] # Add Strain
+		long.data[myindex, 2] <- # Add Time
+		long.data[myindex, 3] <- # Add Count
+		
+		# If you want to check what you are doing so far,
+		# remove the comment from the following line:
+		# print(long.data[myindex, ])
 	}
 }
 
@@ -333,9 +335,9 @@ tail(long.data)
 
 #### Q16. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:
 
-		1. replace T with U  (thymine with uracil to convert DNA to RNA)
-		2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
-		3. return the RNA triplets string
+	1. replace T with U  (thymine with uracil to convert DNA to RNA)
+	2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
+	3. return the RNA triplets string
 
 Note `substring()` takes a 'first' and 'last' argument. The 'first' would be `seq()` indicating where the beginning of your first triplet is. The 'last' argument would be `seq()` indicating where the end of your first triplet is.  In `seq()` you will also indicate you want triplets.  
 

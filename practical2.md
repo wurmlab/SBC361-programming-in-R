@@ -8,7 +8,7 @@ In this session we will build on some of the skills learned in the previous prac
 
 To get your brains warmed up, here a a few questions on the material from last week:
 
-#### Intro Q1. What would be the outcome of the code my.matrix<-diag(5)? Then what would be the outcome of the code colSums(my.matrix)?
+#### Intro Q1. What would be the outcome of the code my.matrix <- diag(5)? Then what would be the outcome of the code colSums(my.matrix)?
 #### Intro Q2. Load the data Indometh. Subset this data to return only those fields for which the concentration is between 1 and 2? What is the average (mean) growth rate for this subset?
 #### Intro Q3. What is the regular expression code that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 

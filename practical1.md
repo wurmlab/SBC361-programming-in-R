@@ -229,7 +229,7 @@ The last data type that is commonly seen in R is the list. A list is a bit like 
 ```
 my.list <- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c('G', 'H'))
 ```
-Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`mylist[1]`), while using the double bracket will return an object of the same type as the element of the list (`mylist[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my.list[['A']]`) or the dollar sign (`my.list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
+Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`my.list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my.list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my.list[['A']]`) or the dollar sign (`my.list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
 There are other types of data in R, with many being specific to particular libraries.
 

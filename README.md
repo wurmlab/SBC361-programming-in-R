@@ -55,7 +55,7 @@ For each practical is in charge of revising the content & making sure that every
 * The practicals are not necessarily easy/intuitive.
   * you should have worked through your practical at least 1 week beforehand. Where you struggled is likely where students will also struggle.
   * you guys can help each other out
-* We are using the [!Hadley Wickham style guide](http://adv-r.had.co.nz/Style.html)
+* We are using the [Hadley Wickham style guide](http://adv-r.had.co.nz/Style.html)
 * For many exercises there are multiple possible solutions. That's cool. Some may be easier, some may suck.
 * You are welcome (but by no means obliged!) to attend the lectures where we'll be going over the basics.
 * The practicals as we have them are imperfect. Don't hesitate to suggest changes.

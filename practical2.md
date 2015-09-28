@@ -127,13 +127,13 @@ for (i in 1:50) {
 ## Sequential loop values
 loop_values <- c(15, 5, 2.3, 100, 16)
 for (index in loop_values) {
-	print(index)
+  print(index)
 }
 
 ## Character based loop values
 loop_text <- c("Hey", "Hi", "Hello")
 for (word in loop_text) {
-	print(word)
+  print(word)
 }
 ```
 
@@ -167,13 +167,13 @@ phrase.vec <- rep(NA, length(practical_attribute_vec))
 ## Loop through the index rather than the vector
 for (i in 1:length(practical_attribute_vec)) {
 
-	## Create phrase, getting attribute from practical_attribute_vec[i]
-	phrase        <- paste("This practical is",
-	                       practical_attribute_vec[i],
-	                       collapse = " ")
+  ## Create phrase, getting attribute from practical_attribute_vec[i]
+  phrase        <- paste("This practical is",
+                         practical_attribute_vec[i],
+                         collapse = " ")
 
-	## Add phrase to the right index of the results vector
-	phrase.vec[i] <- phrase
+  ## Add phrase to the right index of the results vector
+  phrase.vec[i] <- phrase
 
 }
 ```
@@ -197,9 +197,9 @@ Once you are comfortable with loops, have a go at the following tasks:
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 ```R
 for (i in 1:5) {
-	for (j in 7:9) {
-		print(c(i, j))
-	}
+  for (j in 7:9) {
+    print(c(i, j))
+  }
 }
 ```
 
@@ -244,12 +244,12 @@ With this empty matrix created, we can move on to the next part of the problem -
 ```R
 # Loop through all rows
 for (my_row in 1:5) {
-	# Loop through all columns except the first
-	for (my_col in 2:7) {
+  # Loop through all columns except the first
+  for (my_col in 2:7) {
 
-		# This is where the main code goes.
+    # This is where the main code goes.
 
-	}
+  }
 }
 ```
 Here we are using loops to index through each of the rows of the matrix `helianthus_data`, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[my_row, my_col]`.
@@ -265,16 +265,16 @@ my_index <- 0
 
 # Loop through all rows
 for (my_row in 1:5) {
-	# Loop through all columns except the first
-	for (my_col in 2:7) {
+  # Loop through all columns except the first
+  for (my_col in 2:7) {
 
-		## Change my_index here:
-		# make my_index equal to my_index plus one
+    ## Change my_index here:
+    # make my_index equal to my_index plus one
 
-		# If you want to check what you are doing so far,
-		# remove the comment from the following line:
-		# print(c(my_index, my_row, my_col))
-	}
+    # If you want to check what you are doing so far,
+    # remove the comment from the following line:
+    # print(c(my_index, my_row, my_col))
+  }
 }
 ```
 
@@ -310,21 +310,21 @@ my_index <- 0
 
 # Loop through all rows
 for (my_row in 1:5) {
-	# Loop through all columns except the first
-	for (my_col in 2:7) {
+  # Loop through all columns except the first
+  for (my_col in 2:7) {
 
-		## Change my_index here:
-		# make my_index equal to my_index plus one
+    ## Change my_index here:
+    # make my_index equal to my_index plus one
 
-		## Populate the long_data matrix
-		long_data[my_index, 1] <- helianthus_data[my_row, 1] # Add Strain
-		long_data[my_index, 2] <- # Add Time
-		long_data[my_index, 3] <- # Add Count
+    ## Populate the long_data matrix
+    long_data[my_index, 1] <- helianthus_data[my_row, 1] # Add Strain
+    long_data[my_index, 2] <- # Add Time
+    long_data[my_index, 3] <- # Add Count
 
-		# If you want to check what you are doing so far,
-		# remove the comment from the following line:
-		# print(long_data[my_index, ])
-	}
+    # If you want to check what you are doing so far,
+    # remove the comment from the following line:
+    # print(long_data[my_index, ])
+  }
 }
 
 # To check what you've done, you can print the start and end of long_data
@@ -336,9 +336,9 @@ tail(long_data)
 
 #### Q16. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:
 
-	1. replace T with U  (thymine with uracil to convert DNA to RNA)
-	2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
-	3. return the RNA triplets string
+  1. replace T with U  (thymine with uracil to convert DNA to RNA)
+  2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
+  3. return the RNA triplets string
 
 Note `substring()` takes a 'first' and 'last' argument. The 'first' would be `seq()` indicating where the beginning of your first triplet is. The 'last' argument would be `seq()` indicating where the end of your first triplet is.  In `seq()` you will also indicate you want triplets.  
 

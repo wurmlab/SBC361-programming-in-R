@@ -22,7 +22,7 @@ To get back into gear in terms of thinking about programming, we’ll start with
 Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase ‘Never odd or even’. In molecular biology, many restriction enzyme sites are palindromic.
 
 #### Q1. Write a function that assesses whether a given word or phrase is a palindrome.
-Before starting to code, think about the steps that you would need to go through in order to judge if something was a palindrome or not, write these steps as comments in an R script window, then think about how you can tell the computer to execute those steps. Only start writing the code when you have a plan of what you want to do. Don’t be afraid to test lines independently in the console and to use easy test cases where you know the answer in order to check that your function works.
+Before starting to code, think about the steps that you would need to go through in order to judge if something is a palindrome or not. Write these steps as comments in an R script window, then think about how you can tell the computer to execute those steps. Only start writing the code when you have a plan of what you want to do. Don’t be afraid to test lines independently in the console and to use easy test cases where you know the answer in order to check that your function works.
 
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 

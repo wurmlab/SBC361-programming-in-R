@@ -34,9 +34,9 @@ x <- 5
 ```
 into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
 
-The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check Google’s R style guide; it provides standard guidelines which most R users follow.
+The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check Hadley Wickham style guide (http://adv-r.had.co.nz/Style.html); it provides standard guidelines which most R users follow.
 
-You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), but don’t make the them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
+You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), but don’t make them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
 Finally some variable names are not allowed. Typing `?make.names` in the console brings up a help file describing the important variable name restrictions.
 
@@ -124,53 +124,53 @@ In this case `x` is of class "character" because of the quotation marks. Try typ
 ### Scalars and vectors
 Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. `x <- 3`). Another very common type of object is the *vector*, which is an object containing several elements:
 ```
-numeric.vec   <- c(1, 1, 2, 3, 5, 8)
-seq.vec1      <- 5:10
-seq.vec2      <- seq(0, 10, 0.25)
-rep.vec       <- rep(2, 12)
-character.vec <- c("How", "Now", "Brown", "Cow")
-logical.vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
+numeric_vec   <- c(1, 1, 2, 3, 5, 8)
+seq_vec1      <- 5:10
+seq_vec2      <- seq(0, 10, 0.25)
+rep_vec       <- rep(2, 12)
+character_vec <- c("How", "Now", "Brown", "Cow")
+logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 ```
 As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
-#### Q5. What number would you obtain if you typed `seq.vec1[3]` in the console? (try working this out for yourself before typing it into R)
+#### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
 
-#### Q6. What happens when you type `seq.vec2[1:5]` in the console an hit return?
+#### Q6. What happens when you type `seq_vec2[1:5]` in the console an hit return?
 
-#### Q7. How would you retrieve the just the 8th, 13th and 21st elements of `seq.vec2`?
+#### Q7. How would you retrieve the just the 8th, 13th and 21st elements of `seq_vec2`?
 
 Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing
 ```
-numeric.vec.squared <- numeric.vec^2
+numeric_vec_squared <- numeric_vec^2
 ```
-in the console. You will find that `numeric.vec.squared` contains values taken from `numeric.vec`, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as `numeric.vec > 3`
+in the console. You will find that `numeric_vec_squared` contains values taken from `numeric_vec`, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as `numeric_vec > 3`.
 
 You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing
 ```
-combined.vec1 <- numeric.vec*seq.vec1
+combined_vec1 <- numeric_vec*seq_vec1
 ```
-You will find that each of the elements of `combined.vec1` is equal to the product of the corresponding elements in `numeric.vec` and `seq.vec1`
+You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec1`
 
-#### Q8. Try evaluating `combined.vec2 <- numeric.vec*seq.vec2` in the console. What happens? Why?
+#### Q8. Try evaluating `combined_vec2 <- numeric_vec*seq_vec2` in the console. What happens? Why?
 
 #### Q9. What do you type to find the length of a vector?
 
-#### Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating `combined.vec3 <- numeric.vec*rep.vec` in the console, and look at the result. What is the reasoning behind the values produced?
+#### Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating `combined_vec3 <- numeric_vec*rep_vec` in the console, and look at the result. What is the reasoning behind the values produced?
 
 ### Matrices
-Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(numeric.vec, seq.vec1)`).
+Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(numeric_vec, seq_vec1)`).
 
-#### Q11. What happens when you evaluate `rbind(numeric.vec, seq.vec1)`? What happens when you evaluate cbind(vec1, vec2)? Why?
-#### Q12. When you evaluate `rbind(numeric.vec, seq.vec2)` you get a warning message. Why?
-#### Q13. What happens when you evaluate `rbind(numeric.vec, rep.vec)`? Why?
+#### Q11. What happens when you evaluate `rbind(numeric_vec, seq_vec1)`? What happens when you evaluate cbind(numeric_vec, seq_vec1)? Why?
+#### Q12. When you evaluate `rbind(numeric_vec, seq_vec2)` you get a warning message. Why?
+#### Q13. What happens when you evaluate `rbind(numeric_vec, rep_vec)`? Why?
 
 You can also create matrices directly in a number of different ways:
 ```
-mat1 <- matrix(1:24, nrow=6, ncol=4)
-mat2 <- matrix(1:24, nrow=6, ncol=4, byrow=T)
-mat3 <- diag(x=5)
-mat4 <- outer(X=1:5, Y=4:8)
-mat5 <- matrix("Hello World", nrow=2, ncol=5)
+mat1 <- matrix(1:24, nrow = 6, ncol = 4)
+mat2 <- matrix(1:24, nrow = 6, ncol = 4, byrow = T)
+mat3 <- diag(x = 5)
+mat4 <- outer(X = 1:5, Y = 4:8)
+mat5 <- matrix("Hello World", nrow = 2, ncol = 5)
 ```
 As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4,3]`, `mat1[1:4, 1:2]`, `mat1[1:3,]`).
 
@@ -182,7 +182,7 @@ You can perform simple calculations on matrices, in which case the calculation a
 ```
 You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible
 ```
-(mat3*100) + mat4)
+(mat3*100) + mat4
 ```
 
 Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:
@@ -200,7 +200,7 @@ Keep in mind that if you ever need help in understanding a function, just bring 
 
 #### Q15. The variable `mat1` describes a matrix produced by the following code:
 ```
-mat1 <- matrix(1:50, nrow=10, ncol=5)
+mat1 <- matrix(1:50, nrow = 10, ncol = 5)
 ```
 What number would we expect to see when we evaluate `mat1[1, 2]` (try to answer this without evaluating the code!)? Why not a different number?
 
@@ -211,7 +211,7 @@ mat1(,(2, 4))
 mat1[c(2, 4), ]
 mat1[, c(2, 4)]
 ```
-#### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my.matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
+#### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
 A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1,1]`). While you can get to specific columns using an index (`puromycin_data[,2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
@@ -339,7 +339,7 @@ The layout and design of the program are much more important than the calculatio
 
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 ```R
-reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt",row.names=1)
+reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
 ```
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code
 ```
@@ -354,7 +354,7 @@ The tools that allow us to deal with this sort of problem fall under the heading
 First of all we will search through the vector reptile_names to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
 ```
 # Search through reptile_names for the word "liopholis", and output positions
-grep(pattern="liopholis", x=reptile_names)
+grep(pattern = "liopholis", x = reptile_names)
 ```
 
 The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `reptile_names` that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!
@@ -371,7 +371,7 @@ Finally, we may want to find and replace the pattern. This can be done using the
 
 ```
 # Search through reptile_names for the word "liopholis" and replace with the word "Liopholis."
-reptile_names2 <- gsub(pattern="liopholis", replacement="Liopholis", x=reptile_names)
+reptile_names2 <- gsub(pattern = "liopholis", replacement = "Liopholis", x = reptile_names)
 ```
 
 The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile_names2.
@@ -397,7 +397,7 @@ Additional special characters can be found:
 
 * by Googling (e.g., "Regexp cheat sheet for R")
 * in the slides for our course (from slide 45): http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm
-* by typing ?regex in R
+* by typing: ?regex in R
 
 These special characters can be used on their own, or in combination with one another. To help you out with understanding these symbols, here are a few examples:
 
@@ -410,7 +410,7 @@ Some of these examples might seem very confusing at first, but if you learn what
 
 As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:
 ```
-reptile_names3 <- gsub(pattern=".*:", replacement="", x=reptile_names2)
+reptile_names3 <- gsub(pattern = ".*:", replacement = "", x = reptile_names2)
 ```
 Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 

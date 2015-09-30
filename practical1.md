@@ -160,7 +160,7 @@ You will find that each of the elements of `combined_vec1` is equal to the produ
 ### Matrices
 Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()` (try `rbind(numeric_vec, seq_vec1)`).
 
-#### Q11. What happens when you evaluate `rbind(numeric_vec, seq_vec1)`? What happens when you evaluate cbind(numeric_vec, seq_vec1)? Why?
+#### Q11. What happens when you evaluate `rbind(numeric_vec, seq_vec1)`? What happens when you evaluate `cbind(numeric_vec, seq_vec1)`? Why?
 #### Q12. When you evaluate `rbind(numeric_vec, seq_vec2)` you get a warning message. Why?
 #### Q13. What happens when you evaluate `rbind(numeric_vec, rep_vec)`? Why?
 
@@ -172,7 +172,7 @@ mat3 <- diag(x = 5)
 mat4 <- outer(X = 1:5, Y = 4:8)
 mat5 <- matrix("Hello World", nrow = 2, ncol = 5)
 ```
-As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4,3]`, `mat1[1:4, 1:2]`, `mat1[1:3,]`).
+As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
 
 #### Q14. How do you retrieve the 2 column of `mat2`?
 
@@ -207,14 +207,14 @@ What number would we expect to see when we evaluate `mat1[1, 2]` (try to answer 
 #### Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?
 ```
 mat1[2, 4]
-mat1(,(2, 4))
+mat1(, (2, 4))
 mat1[c(2, 4), ]
 mat1[, c(2, 4)]
 ```
 #### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
-A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1,1]`). While you can get to specific columns using an index (`puromycin_data[,2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
+A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1, 1]`). While you can get to specific columns using an index (`puromycin_data[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
 Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:
 ```
@@ -227,7 +227,7 @@ as.character(puromycin_data$rate)
 ### Lists
 The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:
 ```
-my_list <- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c('G', 'H'))
+my_list <- list(A = c(1, 2, 3), B = c(5, 6, 7, 8, 9, 10), D = c('G', 'H'))
 ```
 Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`my_list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my_list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
@@ -241,7 +241,7 @@ puromycin_data[1:3, ]
 ```
 we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign `$` to get a specific column:
 ```
-puromycin_data[,2]
+puromycin_data[, 2]
 ```
 We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:
 ```
@@ -437,7 +437,7 @@ Open source data plays an increasingly important role recently, so it is vital t
 ```
 river_data  <- read.csv(“river.csv”)      # if you’re in the right directory
 river_data  <- read.csv(file.choose())    # to choose the file
-kaiser_data <- read.xls(“kaiser.xls”, sheet=1)
+kaiser_data <- read.xls(“kaiser.xls”, sheet = 1)
 # try to figure out how to import Excel spreadsheets into R,
 # which is an excessively discussed topic online
 ```
@@ -448,7 +448,7 @@ Setting directory is a highly intensely used function which helps group your cod
 # set the working directory
 setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options
 # get all the file names in the current directory
-list.files(path=".")
+list.files(path = ".")
 # get the current working directory
 getwd()
 ```
@@ -460,5 +460,5 @@ Most of the time, as either a data recorder or a data analyst, knowing the best 
 write.csv(my.river.subset, file = “myRiverSubset.csv”)
 # import this into Excel
 # create three variables, a, b, and c of any class and save them into a .Rdata file (What is this? When could it be useful?)
-save(a, b, c, file=”nodeProperty.Rdata”)
+save(a, b, c, file = ”nodeProperty.Rdata”)
 ```

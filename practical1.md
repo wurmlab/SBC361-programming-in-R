@@ -433,13 +433,13 @@ Hint - look into the help page of “gsub”, especially the explanation for the
 # Extra section!
 
 ## Data input from files
-Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download river.csv and kaiser.xls and try loading them into R.
+Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download  [longevity_genes/longevity_genes.csv](http://genomics.senescence.info/longevity/longevity_genes.zip) and [TableS2.xls](http://genomics.senescence.info/diet/TableS2.xls) and try loading them into R.
 ```
-river_data  <- read.csv(“river.csv”)      # if you’re in the right directory
-river_data  <- read.csv(file.choose())    # to choose the file
-kaiser_data <- read.xls(“kaiser.xls”, sheet = 1)
+longevity_genes_data  <- read.csv(“river.csv”)               # if you’re in the right directory
+longevity_genes_data  <- read.csv(file.choose())             # to choose the file
 # try to figure out how to import Excel spreadsheets into R,
-# which is an excessively discussed topic online
+# which is an excessively discussed topic online. For more information on how
+# to import files, see Quick-R (http://www.statmethods.net/input/importingdata.html).
 ```
 
 ## Setting the working directory
@@ -457,7 +457,7 @@ getwd()
 Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).
 ```
 # write a new subsetted data frame (create this using your previous skills) into a CSV file
-write.csv(my.river.subset, file = “myRiverSubset.csv”)
+write.csv(longevity_genes_data, file = "my_output_test.csv")
 # import this into Excel
 # create three variables, a, b, and c of any class and save them into a .Rdata file (What is this? When could it be useful?)
 save(a, b, c, file = ”nodeProperty.Rdata”)

@@ -34,7 +34,7 @@ x <- 5
 ```
 into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
 
-The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check Hadley Wickham style guide (http://adv-r.had.co.nz/Style.html); it provides standard guidelines which most R users follow.
+The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check [Hadley Wickham style guide](http://adv-r.had.co.nz/Style.html); it provides standard guidelines which most R users follow.
 
 You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), but don’t make them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
@@ -433,13 +433,15 @@ Hint - look into the help page of “gsub”, especially the explanation for the
 # Extra section!
 
 ## Data input from files
-Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download  [longevity_genes/longevity_genes.csv](http://genomics.senescence.info/longevity/longevity_genes.zip) and [TableS2.xls](http://genomics.senescence.info/diet/TableS2.xls) and try loading them into R.
+Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download  [longevity_genes/longevity.csv](http://genomics.senescence.info/longevity/longevity_genes.zip) and [TableS2.xls](http://genomics.senescence.info/diet/TableS2.xls) and try loading them into R.
 ```
-longevity_genes_data  <- read.csv(“river.csv”)               # if you’re in the right directory
-longevity_genes_data  <- read.csv(file.choose())             # to choose the file
+longevity_genes_data  <- read.csv("input location/longevity.csv")     
+longevity_genes_data  <- read.csv(file.choose())                    # to choose the file
 # try to figure out how to import Excel spreadsheets into R,
-# which is an excessively discussed topic online. For more information on how
-# to import files, see Quick-R (http://www.statmethods.net/input/importingdata.html).
+# which is an excessively discussed topic online. 
+# One way of doing it, is saving your Excel spreadsheet (TableS2.xls) 
+# as a tab delimited text file and loading it into R
+read.delim("input location/file name.txt")
 ```
 
 ## Setting the working directory
@@ -457,8 +459,9 @@ getwd()
 Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).
 ```
 # write a new subsetted data frame (create this using your previous skills) into a CSV file
-write.csv(longevity_genes_data, file = "my_output_test.csv")
-# import this into Excel
-# create three variables, a, b, and c of any class and save them into a .Rdata file (What is this? When could it be useful?)
-save(a, b, c, file = ”nodeProperty.Rdata”)
+write.csv(your subsetted data frame, file = "output location/file name.csv")
+# import your subsetted data frame into Excel
+write.table(your subsetted data frame, file = "output location/file name.xls", sep = "\t")
+# create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)
+save(a, b, c, file = "output location/file name.RData")
 ```

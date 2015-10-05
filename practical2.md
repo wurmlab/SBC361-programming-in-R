@@ -8,7 +8,7 @@ In this session we will build on some of the skills learned in the previous prac
 
 To get your brains warmed up, here a a few questions on the material from last week:
 
-#### Intro Q1. What would be the outcome of the code my.matrix <- diag(5)? And what would then be the outcome of the code colSums(my.matrix)?
+#### Intro Q1. What would be the outcome of the code my_matrix <- diag(5)? And what would then be the outcome of the code colSums(my_matrix)?
 #### Intro Q2. Load the data 'Indometh' into your R session. Subset this data to return only those fields for which the concentration is between 1 and 2. What is the average (mean) growth rate for this subset?
 #### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 
@@ -106,7 +106,7 @@ for (seconds in c(1000, 2000, 3000)) {
   print(time_in_hours)
 }
 ```
-The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000,2000,3000)`. It will compute a new time in hours and print it for every number in the vector.
+The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000, 2000, 3000)`. It will compute a new time in hours and print it for every number in the vector.
 
 
 ### Slightly more complex loops
@@ -146,12 +146,12 @@ More often than not, you will not want to just print the loop results. Instead, 
 practical_attribute_vec <- c("great", "boring", "very long", "informative", "fun")
 
 ## Empty vector to keep loop results
-phrase.vec <- c()
+phrase_vec <- c()
 
 for (practical_attribute in practical_attribute_vec) {
  	phrase     <- paste("This practical is", practical_attribute, collapse = " ")
  	# Add the loop result to end of the vector of results
- 	phrase.vec <- c(phrase.vec, phrase)
+ 	phrase_vec <- c(phrase_vec, phrase)
 }
 ```
 
@@ -162,7 +162,7 @@ A different way of approaching a for loop is to loop through the indexes of a ve
 practical_attribute_vec <- c("great", "boring", "very long", "informative", "here")
 
 ## Empty vector to keep loop results
-phrase.vec <- rep(NA, length(practical_attribute_vec))
+phrase_vec <- rep(NA, length(practical_attribute_vec))
 
 ## Loop through the index rather than the vector
 for (i in 1:length(practical_attribute_vec)) {
@@ -173,7 +173,7 @@ for (i in 1:length(practical_attribute_vec)) {
                          collapse = " ")
 
   ## Add phrase to the right index of the results vector
-  phrase.vec[i] <- phrase
+  phrase_vec[i] <- phrase
 
 }
 ```
@@ -348,7 +348,7 @@ dna_string <- c("AAATTT")
 substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```
 
-Once you have created the function, see if you can modify the function to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num.characters`.
+Once you have created the function, see if you can modify the function to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
 
 
 #### Q17 (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.

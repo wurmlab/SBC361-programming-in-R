@@ -6,10 +6,10 @@ October 2015
 
 In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring **loops** and **functions**, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the help files and your own notes when exploring these new concepts.
 
-To get your brains warmed up, here a a few questions on the material from last week:
+To get your brains warmed up, here a a few questions on the material from last week (try to think of the answer before evaluating the R code):
 
-#### Intro Q1. What would be the outcome of the code my_matrix <- diag(5)? And what would then be the outcome of the code colSums(my_matrix)?
-#### Intro Q2. Load the data 'Indometh' into your R session. Subset this data to return only those fields for which the concentration is between 1 and 2. What is the average (mean) growth rate for this subset?
+#### Intro Q1. What would be the outcome of the code `my_matrix <- diag(5)`? And what would then be the outcome of the code `colSums(my_matrix)`?
+#### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is between 1 and 2. What is the average (mean) growth rate for this subset?
 #### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 
 ## Functions
@@ -24,7 +24,7 @@ x_mean <- mean(x)
 We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 
 ```R
-## Define function named myMean
+## Define function named 'myMean'
 
 myMean <- function(my_vector) {
   ## Calculate the mean
@@ -49,7 +49,7 @@ number_of_seconds <- 19955
 
 # Convert number_of_seconds into hours, minutes, and seconds
 hours   <- floor(number_of_seconds / (60 * 60))
-minutes <- floor((number_of_seconds - hours * (60 * 60))/ 60)
+minutes <- floor((number_of_seconds - hours * (60 * 60)) / 60)
 seconds <- number_of_seconds - ((hours * 60) + minutes) * 60
 
 # Create a single vector containing all three quantities
@@ -61,7 +61,7 @@ output_vec
 
 #### Q1. Modify the code above to make it into a function called `timeConverter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.
 
-#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometers as input and return the distance in miles as output (8 kilometres is roughly equal to 5 miles). Remember to clearly annotate your code and make appropriate use of white spaces.
+#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly equal to 0.62 miles). Remember to clearly annotate your code and make appropriate use of white spaces.
 
 ### More complex functions
 Hopefully you can already see how functions can be very useful things. We can make them even more useful by considering some simple extensions.
@@ -74,18 +74,18 @@ myFunction <- function(argument1, argument2, ...) {
 }
 ```
 
-#### Q3. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional_hours`) and add it to the `hours` variable.
+#### Q3. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional_hours`) and add it to the `hours` variable (think carefully about where to add this!).
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical.
 
 #### Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
 
-#### Q5.A Extra arguments:
-Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q9. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
+#### Extra arguments:
+Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q1. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
 
-#### Q6.B Make the `additional_hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional_hours` and defining it to different number of seconds.
+#### Q5. Make the `additional_hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional_hours` and defining it to different number of seconds.
 
-#### Q7. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
+#### Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
 
 * take a distance in kilometres and a time in minutes as input.
 * convert the distance into miles and the time into hours. It should then calculate a speed in miles per hour.
@@ -180,17 +180,17 @@ for (i in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q8A. Write a loop that iterates over the numbers 10 to 100 and prints out the index of the loop each time through (i.e. the numbers 1 to 91).
+#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index of the loop each time through (i.e. the numbers 1 to 91).
 
-#### Q9B. Write a loop that iterates over the numbers 10 to 100 and store the results in a separate vector. What's the number in the 20th iteration?
+#### Q8. Write a loop that iterates over the numbers 10 to 100 and store the results in a separate vector. What's the number in the 20th iteration?
 
-#### Q10A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the **index** each time through (you may have to search around for the square root function).
+#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the **index** each time through (you may have to search around for the square root function).
 
-#### Q10B. Make the loop from Q10A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Q9-B. Make the loop from Q10A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
-#### Q11. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate the function timeconverter() on the indexed value and store it in a separate vector.
+#### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate the function timeconverter() on the indexed value and store it in a separate vector.
 
-#### Q12. Write a loop that calculates the product of all numbers from 1 to 10 and then subtracts the numbers 1 to 10 in turn, i.e.  (product)-1, then (product)-2, followed by (product)-3…  etc).
+#### Q11. Write a loop that calculates the product of all numbers from 1 to 10 and then subtracts the numbers 1 to 10 in turn, i.e.  (product)-1, then (product)-2, followed by (product)-3…  etc).
 
 ### Nested Loops
 
@@ -205,9 +205,9 @@ for (i in 1:5) {
 
 Here we have one loop (with index j) nested within another loop (with index i). I have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
-#### Q13. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the **indexes** of both loops (for example "Angry" and "birds" in the first instance).
+#### Q12. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the **indexes** of both loops (for example "Angry" and "birds" in the first instance).
 
-#### Q14. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
+#### Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
 
 ### Using loops to reformat a data set
 
@@ -220,7 +220,7 @@ helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
 
-#### Q15 The aim of the following exercise is to get the data from the current format into what's generally called the 'long format'
+#### Q14. The aim of the following exercise is to get the data from the current format into what's generally called the 'long format'
 
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:
 
@@ -238,7 +238,7 @@ We want to get this data into a new format - sometimes called long format - in w
 
 We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
-#### Q15.a. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
+#### Q15-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
 
 With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
 ```R
@@ -256,7 +256,7 @@ Here we are using loops to index through each of the rows of the matrix `heliant
 
 Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index 'my_row' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'my_col', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q15.b. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
+#### Q15-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
 
 It should look something like this:
 ```R
@@ -295,7 +295,7 @@ Finally, we want to drop the strain type into the first column of `long_data`. T
 # Get Strain
 long_data[my_index, 1] <- helianthus_data[my_row, 1]
 ```
-#### Q15.c. Bring all of this together to finish the for loop, and run it!
+#### Q15-C. Bring all of this together to finish the for loop, and run it!
 It should look something like this:
 ```R
 

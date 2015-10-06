@@ -91,6 +91,15 @@ can be read "x is greater than five, and x is less than or equal to ten". Simila
 ```
 can be read "x is less than six, or x is equal to twelve". By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.
 
+**A short note on classes:**
+
+It's easy to get numeric and character data confused. For example, in `x <- "blue"`, `x` is of class "character", while in `x <- 4`, `x` is of class "numeric". The problem comes if you type:
+```
+x <- "4"
+```
+In this case `x` is of class "character" because of the quotation marks. Try typing `class(x)` if you are confused. You can also type `is.numeric(x)` and `is.character(x)`.
+
+
 
 #### Q2. Let us define the variable `x <- 10`. What will the outcome of the following expressions be?
 
@@ -112,13 +121,6 @@ can be read "x is less than six, or x is equal to twelve". By using a combinatio
 
 *The variable `x` is less than variable `y`, or is it greater than variable `z`?*
 
-**A short note on classes:**
-
-It's easy to get numeric and character data confused. For example, in `x <- "blue"`, `x` is of class "character", while in `x <- 4`, `x` is of class "numeric". The problem comes if you type:
-```
-x <- "4"
-```
-In this case `x` is of class "character" because of the quotation marks. Try typing `class(x)` if you are confused. You can also type `is.numeric(x)` and `is.character(x)`.
 
 ## Types of Objects
 ### Scalars and vectors
@@ -137,7 +139,7 @@ As you know by now, R is good at manipulating these vectors, with easy ways of a
 
 #### Q6. What happens when you type `seq_vec2[1:5]` in the console an hit return?
 
-#### Q7. How would you retrieve the just the 8th, 13th and 21st elements of `seq_vec2`?
+#### Q7. How would you retrieve just the 8th, 13th and 21st elements of `seq_vec2`?
 
 Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing
 ```
@@ -421,14 +423,14 @@ Have a look inside the variable reptile_names3. We have successfully isolated th
 #### Q30. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
-#### Q30. Add three additional columns to the `reptile_data` table:
+#### Q31. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
 * one column containing only the genus (e.g. Bellatorias)
 * one containing only the species (excluding the subspecies, e.g. tympanum)
 Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
 
-#### Hacker Q31.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
-Hint - look into the help page of “gsub”, especially the explanation for the “replacement’” parameter, as well as the examples at the bottom of the help page.
+#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
+Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.
 
 # Extra section!
 

@@ -420,12 +420,13 @@ Have a look inside the variable reptile_names3. We have successfully isolated th
 #### Q30. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
-#### Q31. Add two additional columns to the `reptile_data` table:
+#### Q31. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
 * one column containing only the genus (e.g. Bellatorias)
-Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers and genus, rather than the “add new columns” bit.
+* one containing only the species (excluding the subspecies, e.g. tympanum)
+Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
 
-#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species). Additionally, make a new vector, 'species_names', containing only the species (excluding the subspecies, e.g. tympanum).
+#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species). 
 Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.
 
 

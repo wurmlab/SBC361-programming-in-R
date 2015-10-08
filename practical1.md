@@ -31,6 +31,7 @@ It is also worth keeping in mind that the R help is extremely good. Just put a q
 A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing
 ```
 x <- 5
+y <- 225
 ```
 into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
 
@@ -91,6 +92,7 @@ can be read "x is greater than five, and x is less than or equal to ten". Simila
 ```
 can be read "x is less than six, or x is equal to twelve". By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.
 
+
 **A short note on classes:**
 
 It's easy to get numeric and character data confused. For example, in `x <- "blue"`, `x` is of class "character", while in `x <- 4`, `x` is of class "numeric". The problem comes if you type:
@@ -126,14 +128,14 @@ In this case `x` is of class "character" because of the quotation marks. Try typ
 ### Scalars and vectors
 Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. `x <- 3`). Another very common type of object is the *vector*, which is an object containing several elements:
 ```
-numeric_vec   <- c(1, 1, 2, 3, 5, 8)
+numeric_vec   <- c(1, 1, 2, 3, 5, 8)   # c is a function for combining values into a vector or list.
 seq_vec1      <- 5:10
-seq_vec2      <- seq(0, 10, 0.25)
-rep_vec       <- rep(2, 12)
+seq_vec2      <- seq(from = 0, to = 10, by = 0.25)
+rep_vec       <- rep(x = 2, times = 12)
 character_vec <- c("How", "Now", "Brown", "Cow")
 logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 ```
-As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
+As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). You can also use vectors to access a set of elements (e.g. `x[1:5]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 #### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
 
@@ -168,13 +170,13 @@ Another major type of object in R is the matrix. A matrix is simply a rectangula
 
 You can also create matrices directly in a number of different ways:
 ```
-mat1 <- matrix(1:24, nrow = 6, ncol = 4)
-mat2 <- matrix(1:24, nrow = 6, ncol = 4, byrow = T)
-mat3 <- diag(x = 5)
+mat1 <- matrix(data = 1:24, nrow = 6, ncol = 4)
+mat2 <- matrix(data = 1:24, nrow = 6, ncol = 4, byrow = T)
+mat3 <- diag(x = 5, nrow = 3, ncol = 2)
 mat4 <- outer(X = 1:5, Y = 4:8)
-mat5 <- matrix("Hello World", nrow = 2, ncol = 5)
+mat5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
-As with vectors, you can get to the elements of a matrix using square brackets, but with  a two-dimensional index! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
+As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for row and another one for columns! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
 
 #### Q14. How do you retrieve the 2 column of `mat2`?
 
@@ -202,7 +204,7 @@ Keep in mind that if you ever need help in understanding a function, just bring 
 
 #### Q15. The variable `mat1` describes a matrix produced by the following code:
 ```
-mat1 <- matrix(1:50, nrow = 10, ncol = 5)
+mat1 <- matrix(data = 1:50, nrow = 10, ncol = 5)
 ```
 What number would we expect to see when we evaluate `mat1[1, 2]` (try to answer this without evaluating the code!)? Why not a different number?
 
@@ -240,11 +242,13 @@ We have already come across one way of subsetting through the use of square brac
 ```
 puromycin_data <- Puromycin
 puromycin_data[1:3, ]
+puromycin_data[, 2]
 ```
 we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign `$` to get a specific column:
 ```
-puromycin_data[, 2]
+puromycin_data$rate
 ```
+
 We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:
 ```
 #returns TRUE or FALSE
@@ -252,24 +256,17 @@ puromycin_data$rate < 100
 #returns which elements are TRUE
 which(puromycin_data$rate < 100)
 ```
-We can use the index to select the rows for which the statement is TRUE:
+
+We can use the subset function to select the rows for which the statement is TRUE:
 ```
 # returns all the columns, but only the rows for which
 # puromycin_data$rate < 100 is TRUE
-puromycin_sub <- puromycin_data[puromycin_data$rate < 100, ]
-```
-
-When subsetting data frames, we can also use the subset function, which has a more clear syntax, as the `$` is not necessary:
-```
 puromycin_sub <- subset(puromycin_data, rate < 100)
 ```
 
 We could subset by the "state" column:
 ```
-## First alternative
-puromycin_treated <- puromycin_data[puromycin_data$state == "treated", ]
-## Second alternative
-puromycin_treated <- subset(puromycin_data, state == "treated")
+puromycin_treated <- subset(puromycin_data, subset = state == "treated")
 ```
 
 This will return all fields for which the state is equal to "treated". Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.
@@ -423,14 +420,14 @@ Have a look inside the variable reptile_names3. We have successfully isolated th
 #### Q30. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
 Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
-#### Q31. Add three additional columns to the `reptile_data` table:
+#### Q31. Add two additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
 * one column containing only the genus (e.g. Bellatorias)
-* one containing only the species (excluding the subspecies, e.g. tympanum)
-Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
+Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers and genus, rather than the “add new columns” bit.
 
-#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
+#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species). Additionally, make a new vector, 'species_names', containing only the species (excluding the subspecies, e.g. tympanum).
 Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.
+
 
 # Extra section!
 

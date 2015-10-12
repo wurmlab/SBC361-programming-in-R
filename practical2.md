@@ -115,19 +115,19 @@ There are some interesting ways in which we can stretch our understanding of loo
 ```R
 ## Non-sequential loop values
 loop_values <- c(1:50)
-for (i in loop_values) {
- 	print(i)
+for (value in loop_values) {
+ 	print(value)
 }
 
 ## The same as writing:
-for (i in 1:50) {
- 	print(i)
+for (value in 1:50) {
+ 	print(value)
 }
 
 ## Sequential loop values
 loop_values <- c(15, 5, 2.3, 100, 16)
-for (index in loop_values) {
-  print(index)
+for (value in loop_values) {
+  print(value)
 }
 
 ## Character based loop values
@@ -165,32 +165,32 @@ practical_attribute_vec <- c("great", "boring", "very long", "informative", "her
 phrase_vec <- rep(NA, length(practical_attribute_vec))
 
 ## Loop through the index rather than the vector
-for (i in 1:length(practical_attribute_vec)) {
+for (index in 1:length(practical_attribute_vec)) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
   phrase        <- paste("This practical is",
-                         practical_attribute_vec[i],
+                         practical_attribute_vec[index],
                          collapse = " ")
 
   ## Add phrase to the right index of the results vector
-  phrase_vec[i] <- phrase
+  phrase_vec[index] <- phrase
 
 }
 ```
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index of the loop each time through (i.e. the numbers 1 to 91).
+#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the *index* of the loop each time through (i.e. the numbers 1 to 91).
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and store the results in a separate vector. What's the number in the 20th iteration?
 
-#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the **index** each time through (you may have to search around for the square root function).
+#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function).
 
-#### Q9-B. Make the loop from Q10A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
-#### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate the function timeconverter() on the indexed value and store it in a separate vector.
+#### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate your function to convert kilometres into miles on the indexed value and store it in a separate vector.
 
-#### Q11. Write a loop that calculates the product of all numbers from 1 to 10 and then subtracts the numbers 1 to 10 in turn, i.e.  (product)-1, then (product)-2, followed by (product)-3…  etc).
+#### Q11. Write a loop that calculates the product of all numbers from 1 to 10 (there is a special function for that in R) and then subtracts the numbers 1 to 10 in turn, i.e.  (product)-1, then (product)-2, followed by (product)-3…  etc).
 
 ### Nested Loops
 
@@ -203,15 +203,15 @@ for (i in 1:5) {
 }
 ```
 
-Here we have one loop (with index j) nested within another loop (with index i). I have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
+Here we have one loop (with index j) nested within another loop (with index i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
-#### Q12. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the **indexes** of both loops (for example "Angry" and "birds" in the first instance).
+#### Q12. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).
 
 #### Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
 
 ### Using loops to reformat a data set
 
-Loops tend to be particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format to another.
+Loops tend to be particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 ```R
@@ -219,8 +219,6 @@ helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/
 ```
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
-
-#### Q14. The aim of the following exercise is to get the data from the current format into what's generally called the 'long format'
 
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:
 
@@ -238,16 +236,16 @@ We want to get this data into a new format - sometimes called long format - in w
 
 We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
-#### Q15-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
+#### Q14-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
 
 With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
 ```R
-# Loop through all rows
+# Loop through all rows of helianthus_data
 for (my_row in 1:5) {
-  # Loop through all columns except the first
+  # Loop through all columns of helianthus_data except the first
   for (my_col in 2:7) {
 
-    # This is where the main code goes.
+    # This is where the main code goes (populating long_data with values).
 
   }
 }
@@ -256,7 +254,7 @@ Here we are using loops to index through each of the rows of the matrix `heliant
 
 Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index 'my_row' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'my_col', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q15-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
+#### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
 
 It should look something like this:
 ```R
@@ -295,7 +293,7 @@ Finally, we want to drop the strain type into the first column of `long_data`. T
 # Get Strain
 long_data[my_index, 1] <- helianthus_data[my_row, 1]
 ```
-#### Q15-C. Bring all of this together to finish the for loop, and run it!
+#### Q14-C. Bring all of this together to finish the for loop, and run it!
 It should look something like this:
 ```R
 
@@ -334,13 +332,13 @@ tail(long_data)
 
 ## Working with DNA data
 
-#### Q16. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:
+#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:
 
   1. replace T with U  (thymine with uracil to convert DNA to RNA)
   2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
   3. return the RNA triplets string
 
-Note `substring()` takes a 'first' and 'last' argument. The 'first' would be `seq()` indicating where the beginning of your first triplet is. The 'last' argument would be `seq()` indicating where the end of your first triplet is.  In `seq()` you will also indicate you want triplets.  
+Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
 
 As an example:
 ```R
@@ -348,21 +346,21 @@ dna_string <- c("AAATTT")
 substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```
 
-Once you have created the function, see if you can modify the function to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
+#### Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
 
 
-#### Q17 (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
+#### Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
 
 You can use this sequence: `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
 
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
-* replace bases with their complement
-* split the string of DNA bases into separate characters with `strsplit`. Note that `strsplit` returns a list, so you will need to use `unlist()` to obtain a string
+* replace bases with their complement (look up the `chartr()` function)
+* split the string of DNA bases into separate characters with `strsplit`. Note that `strsplit` returns a list, so you will need to use `unlist()` to obtain a string again
 * reverse the sequence
-* remove the spaces to get your single string of DNA bases
+* remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function)
 * return the reverse-complement sequence
 
-#### Q18 (Mastermind question). Translate your triplet string from Q12 into amino acids.
+#### Q17. (Mastermind question). Translate your triplet string from Q15 into amino acids.
 Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.
 
 ## Bringing it all together

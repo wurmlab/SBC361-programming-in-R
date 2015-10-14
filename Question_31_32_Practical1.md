@@ -8,25 +8,23 @@ First let's create one vector for each; we can worry about combining them into t
 ### one containing only the identifier numbers (e.g. 1423 without the “ID”)
 
 #### it might be easiest to do this in two steps. For example: 
-
 ```
-id_numbers_temp <- gsub(x = reptile_names, pattern = "ID", replacement = "")
-id_numbers      <- gsub(x = id_numbers_temp, pattern = ":.*", replacement = "")
+id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "ID")
+id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":.+")
 rm(id_numbers_temp)
 ```
 
 This can be a bit risky though. For example, what happens if the species name contains "ID", or if there are multiple ":"? Thus it is better to be more specific. You will be more in control of what the computer is doing, and thus it is less likely to make a mistake. For example:
-
 ```
-id_numbers_temp <- gsub(x = reptile_names, pattern = "^ID", replacement = "")
-id_numbers      <- gsub(x = id_numbers_temp, pattern = ":[A-z ]+$", replacement = "")
+id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "^ID")
+id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":[A-z ]+$")
 rm(id_numbers_temp)
 ```
 
 If we want our regexp to be more general (e.g. if "ID" might be other capitalized letters, and if some species may be unresolved and thus be abbreviated as "sp."), we could for example do the following:
 ```
-id_numbers_temp <- gsub(x = reptile_names, pattern = "^[A-Z]+", replacement = "")
-id_numbers      <- gsub(x = id_numbers_temp, pattern = ":[A-z \.]+$", replacement = "")
+id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "^[A-Z]+")
+id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":[A-z \\.]+$")
 rm(id_numbers_temp)
 ```
 
@@ -36,81 +34,85 @@ rm(id_numbers_temp)
 
 Risky but works: 
 ```
-id_numbers <- gsub(x = reptile_names, pattern = "([A-Z]*)|(:.*)", replacement = "")
+id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "([A-Z]+)|(:.+)")
 ```
 
 Less risky:
 ```
-id_numbers <- gsub(x = reptile_names, pattern = "(^[A-z]+)|(:[A-z \.]+)", replacement = "")
+id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "(^[A-z]+)|(:[A-z \\.]+)")
 ```
 
 Specific for this dataset:
 ```
-id_numbers <- gsub(x = reptile_names, pattern = "(^ID)|(:[A-z ]+)", replacement = "")
+id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "(^ID)|(:[A-z ]+)")
 ```
 
 #### Or we take a minimalistic approach by exclusion of everything that is not a number
-
 ```
 id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "[^0-9]")
 ```
 
 ### one column containing only the genus (e.g. Bellatorias)
 
+Risky but works:
 ```
-only_genus    <- gsub(pattern = "(.+:)|( .+)", x = reptile_names, replacement = "")
-```
-
-#### Generic manner. Also more readable.
-```
-only_genus    <- gsub(pattern = "([A-z]+[0-9]+:)|(\\s[A-z]+)", x = reptile_names, replacement = "")
+only_genus_temp <- gsub(x = reptile_names,   replacement = "", pattern = "(.+:)")
+only_genus      <- gsub(x = only_genus_temp, replacement = "", pattern = "( .+)")
+rm(only_genus_temp)
 ```
 
-The pattern  for the gsub() above means: any letter (upper or lowercase), that
-repeats once or more times, followed by any number, that repeats once or more times,
-followed by a collon; or space followed by any letter (upper or lowercase),
-that repeats one or more times.
-
-#### or splitting in two strings:
+More specific, less risky:
 ```
-only_genus_temp <- gsub(pattern = "([A-z]+[0-9]+:)", x = reptile_names, replacement = "")
+only_genus_temp <- gsub(x = reptile_names,   replacement = "", pattern = "([A-z]+[0-9]+:)")
+only_genus      <- gsub(x = only_genus_temp, replacement = "", pattern = "( [A-z]+)")
+rm(only_genus_temp)
+```
 
-only_genus      <- gsub(pattern = "(\\s[A-z]+)", x = only_genus_temp, replacement = "")
+
+#### We can also combine those two options above, each one into one single line:
+
+Risky:
+```
+only_genus      <- gsub(x = reptile_names, replacement = "", pattern = "(.+:)|( .+)")
+```
+
+Less risky:
+```
+only_genus    <- gsub(x = reptile_names, replacement = "", pattern = "([A-z]+[0-9]+:)|( [A-z]+)")
 ```
 
 ### one containing only the species (excluding the subspecies, e.g. tympanum)
-```
-only_species_temp <- gsub(pattern = "(.*:)", replacement = "", x = reptile_names)
 
-only_species      <- gsub(pattern = "(^[A-z]+ )|( [A-z]+$)", x = only_species_temp, replacement = "")
-```
-The pattern  for the gsub() above means: any letter at the beginning of the string
-(upper or lowercase), that repeats one or more times, followed by space; or
-space followed by any letter (upper or lowercase), that repeats one or more times
-at the end of the string.
+#### As aforementioned, it is easier to do it in two steps:
 
-#### or
+Risky:
 ```
-only_species_temp <- gsub(pattern = "([A-z]+[0-9]+:)", replacement = "", x = reptile_names)
+only_species_temp <- gsub(x = reptile_names,     replacement = "", pattern = "(.+:)")
+only_species      <- gsub(x = only_species_temp, replacement = "", pattern = "(^[A-z]+ )|( .+$)")
+rm(only_species_temp)
+```
 
-only_species      <- gsub(pattern = "(^[A-z]+\\s)|(\\s[A-z]+$)", x = only_species_temp, replacement = "")
+We can be more specific, making our script more readable, thus less risky:
+```
+only_species_temp <- gsub(x = reptile_names,     replacement = "", pattern = "([A-z]+[0-9]+:)")
+only_species      <- gsub(x = only_species_temp, replacement = "", pattern = "(^[A-z]+ )|( [A-z]+$)")
+rm(only_species_temp)
 ``` 
 
-#### or all combined in one string.
-```
-only_species <- gsub(pattern = "(^[A-z]+[0-9]+:)([A-z]+\\s)|(\\s[A-z]+$)", x = reptile_names, replacement = "")
-```
+#### We can also combine the above scripts into one single line each:
 
-The pattern  for the gsub() above means: any letter at the beginning of the string
-(upper or lowercase), that repeats one or more times, followed by any number that repeats
-one or more times followed by collon, followed by any letter (upper or lowercase), that
-repeats one or more times followed by space; or
-space followed by any letter (upper or lowercase), that repeats one or more times
-at the end of the string.
+Risky:
+```
+only_species <- gsub(x = reptile_names, replacement = "", pattern = "(.+:)([A-z]+ )|( .+$)")
+```
+Less risky:
+```
+only_species <- gsub(x = reptile_names, replacement = "", pattern = "(^[A-z]+[0-9]+:)([A-z]+ )|( [A-z]+$)")
+```
 
 #### Now you can add the columns to the reptile_data data frame:
 ```
-reptile_data2 <- cbind(reptile_data, id_numbers, only_genus, only_species)
+reptile_data_q31 <- cbind(reptile_data, id_numbers, only_genus, only_species)
 ```
 
 ## Hacker Q32. Figure out how to “capture” the first letter of the species, and transform it to make it uppercase.
@@ -119,38 +121,29 @@ reptile_data2 <- cbind(reptile_data, id_numbers, only_genus, only_species)
 ### Easiest way
 
 ```
-multi_part_regex <- "^(ID[0-9]+:[A-z]+ )(.)([a-z ]+$)"
-first_part <- gsub(x = reptile_names, pattern = multi_part_regex, repl = "\\1")
-species_first_char <-  gsub(x = reptile_names, pattern = multi_part_regex, repl = "\\2")
-last_part <-  gsub(x = reptile_names, pattern = multi_part_regex, repl = "\\3")
-
-
+multi_part_regex       <- "^([A-z]+[0-9]+:[A-z]+ )(.)([a-z ]+$)"
+first_part             <- gsub(x = reptile_names, replacement = "\\1", pattern = multi_part_regex)
+species_first_char     <- gsub(x = reptile_names, replacement = "\\2", pattern = multi_part_regex)
+last_part              <- gsub(x = reptile_names, replacement = "\\3", pattern = multi_part_regex)
 species_first_char_big <- toupper(species_first_char)
-reptile_names_q32 <- paste(first_part, species_first_char_big, last_part, sep="")
+reptile_names_q32      <- paste(first_part, species_first_char_big, last_part, sep = "")
 ```
 
-
-### With Perl extensions
+### With Perl extensions, both in one single line each:
 ```
-gsub("(\\w+)\\s+(\\w)(\\w*)", replacement = "\\1 \\U\\2\\L\\3", reptile_names, perl = TRUE)
+reptile_names_q32 <- gsub(x           = reptile_names, 
+                          replacement = "\\1 \\U\\2\\L\\3", 
+                          pattern     = "([A-z]+) +([A-z])([A-z]+)", 
+                          perl        = TRUE)
 ```
-
-The pattern  for the gsub() above means: any character (letter or number)
-that repeats one or more times, followed by space that repeats one or more times,
-followed by any character (letter or number), followed by any character that repeats
-zero or more times.
-
-The replacement for the gsub() above means: keep the first group (anything between parenthesis)
-the way it is, keep the space, captilize the second group, and put the third group in lowercase.
+The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis)
+the way it is, then keep the space, captilize the second group, and put the third group in lowercase.
 
 ```
-gsub(pattern = "([\\w|:]+\\s)(\\w)(.*)", x = reptile_names, replacement = "\\1\\U\\2\\L\\3", perl=TRUE)
+reptile_names_q32 <- gsub(x           = reptile_names, 
+                          replacement = "\\1\\U\\2\\L\\3", 
+                          pattern     = "([A-z:]+ )([A-z])(.+)", 
+                          perl        = TRUE)
 ```
-
-#### or by using sub(), which matches only once.
-```
-sub("(\\w+)\\s+(\\w)", replacement = "\\1 \\U\\2", reptile_names, perl = TRUE)
-```
-
-#### Since sub matches only once, you need to describe in the pattern only the first part
-#### (ID(number):Genus_space, and the first letter of the second word.
+The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis)
+the way it is, captilize the second group, and put the third group in lowercase.

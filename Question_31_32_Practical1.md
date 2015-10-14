@@ -136,7 +136,7 @@ reptile_names_q32 <- gsub(x           = reptile_names,
                           pattern     = "([A-z]+) +([A-z])([A-z]+)", 
                           perl        = TRUE)
 ```
-The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis)
+The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis in the `pattern`)
 the way it is, then keep the space, captilize the second group, and put the third group in lowercase.
 
 ```
@@ -145,5 +145,5 @@ reptile_names_q32 <- gsub(x           = reptile_names,
                           pattern     = "([A-z:]+ )([A-z])(.+)", 
                           perl        = TRUE)
 ```
-The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis)
+The `replacement` in the `gsub()` above means: keep the first group (anything between parenthesis in the `pattern`)
 the way it is, captilize the second group, and put the third group in lowercase.

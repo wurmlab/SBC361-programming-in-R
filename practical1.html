@@ -5,26 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
-  </style>
 </head>
 <body>
 <h1 id="computing-in-r---practical-1">Computing in R - Practical 1</h1>
@@ -42,26 +22,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>We strongly suggest that you write anything you want to keep in scripts and that you save these scripts in your home directory or on a USB stick. (Scripts are just text files; most people use up using other text editors, such as SublimeText, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).</p>
 <p>It is also worth keeping in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. ?length) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!</p>
 <h2 id="variables">Variables</h2>
-<p>A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing</p>
-<pre><code>x &lt;- 5</code></pre>
-<p>into the console and hitting return. This assigns the number <code>5</code> to the symbol <code>x</code>. You can run operations on variables (e.g. <code>3*x^2</code>), create new variables from existing variables (e.g. <code>y &lt;- 3*x^2</code>), and reassign existing variables to a new value (e.g.<code>x &lt;- 3*x^2</code>).</p>
-<p>The <code>=</code> symbol can also be used for assignment instead of <code>&lt;-</code>, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use <code>&lt;-</code> . When in doubt about how to write something, check Google’s R style guide; it provides standard guidelines which most R users follow.</p>
-<p>You can name variables almost anything you want. Try using descriptive names (avoiding x and y), but don’t make the them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.</p>
+<p>A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing <code>x &lt;- 5 y &lt;- 225</code> into the console and hitting return. This assigns the number <code>5</code> to the symbol <code>x</code>. You can run operations on variables (e.g. <code>3*x^2</code>), create new variables from existing variables (e.g. <code>y &lt;- 3*x^2</code>), and reassign existing variables to a new value (e.g.<code>x &lt;- 3*x^2</code>).</p>
+<p>The <code>=</code> symbol can also be used for assignment instead of <code>&lt;-</code>, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use <code>&lt;-</code> . When in doubt about how to write something, check <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham style guide</a>; it provides standard guidelines which most R users follow.</p>
+<p>You can name variables almost anything you want. Try using descriptive names (avoiding x and y), but don’t make them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.</p>
 <p>Finally some variable names are not allowed. Typing <code>?make.names</code> in the console brings up a help file describing the important variable name restrictions.</p>
 <h4 id="q1.-make-a-new-variable-z-out-of-the-values-in-x-and-y.-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y.">Q1. Make a new variable, <code>z</code>, out of the values in <code>x</code> and <code>y</code>. You can choose any formula you want for <code>z</code>, as long as it contains both <code>x</code> and <code>y</code>.</h4>
 <h2 id="data-classes">Data classes</h2>
 <p>There are several classes of data. In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function <code>class()</code> to check the class of a variable.</p>
-<p>You will probably have met variables of class numeric (<code>x &lt;- 5</code>) and character (<code>x &lt;- ‘hello’</code>). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: <code>TRUE</code> or <code>FALSE</code>. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example</p>
-<pre><code>x &lt;- TRUE</code></pre>
-<p>or false, for example</p>
-<pre><code>x &lt;- FALSE</code></pre>
+<p>You will probably have met variables of class numeric (<code>x &lt;- 5</code>) and character (<code>x &lt;- ‘hello’</code>). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: <code>TRUE</code> or <code>FALSE</code>. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example <code>x &lt;- TRUE</code> or false, for example <code>x &lt;- FALSE</code></p>
 <p>Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read &quot;logical&quot; (keep in mind that R is case-sensitive, i.e. x &lt;- false will throw an error). However, this is not the way that logical variables tend to be used in programming. More often than not we arrive at a logical variable through a particular type of calculation, called a logical expression. You can think of a logical expression as a statement that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code</p>
 <pre><code>5 &gt; 4</code></pre>
-<p>This statement is clearly true and accordingly R returns a value <code>TRUE</code>. The statement</p>
-<pre><code>5 &lt; 4</code></pre>
-<p>on the other hand, returns the value <code>FALSE</code>. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example</p>
-<pre><code>x &lt;- (5 &gt; 4)</code></pre>
-<p>You can read this to mean &quot;the variable x is assigned the outcome of the logical expression 5 &gt; 4&quot;. In this particular example the variable x will be assigned the logical value <code>TRUE</code>. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.</p>
+<p>This statement is clearly true and accordingly R returns a value <code>TRUE</code>. The statement <code>5 &lt; 4</code> on the other hand, returns the value <code>FALSE</code>. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example <code>x &lt;- (5 &gt; 4)</code> You can read this to mean &quot;the variable x is assigned the outcome of the logical expression 5 &gt; 4&quot;. In this particular example the variable x will be assigned the logical value <code>TRUE</code>. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.</p>
 <p>The main logical operators that you should be familiar with are the following:</p>
 <ul>
 <li><code>&gt;</code> is greater than</li>
@@ -72,11 +43,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><code>!=</code> is not equal to</li>
 </ul>
 <p>Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.</p>
-<p>We can create more sophisticated logical expressions using the &quot;and&quot; command and the &quot;or&quot; command. The &quot;and&quot; command is written <code>&amp;</code> (keyboard shortcut Shift+7), while the &quot;or&quot; command is written <code>|</code> (keyboard shortcut Shift+ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression</p>
-<pre><code>(x &gt; 5) &amp; (x &lt;= 10)</code></pre>
-<p>can be read &quot;x is greater than five, and x is less than or equal to ten&quot;. Similarly, the expression</p>
-<pre><code>(x &lt; 6) | (x == 12)</code></pre>
-<p>can be read &quot;x is less than six, or x is equal to twelve&quot;. By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.</p>
+<p>We can create more sophisticated logical expressions using the &quot;and&quot; command and the &quot;or&quot; command. The &quot;and&quot; command is written <code>&amp;</code> (keyboard shortcut Shift+7), while the &quot;or&quot; command is written <code>|</code> (keyboard shortcut Shift+ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression <code>(x &gt; 5) &amp; (x &lt;= 10)</code> can be read &quot;x is greater than five, and x is less than or equal to ten&quot;. Similarly, the expression <code>(x &lt; 6) | (x == 12)</code> can be read &quot;x is less than six, or x is equal to twelve&quot;. By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.</p>
+<p><strong>A short note on classes:</strong></p>
+<p>It's easy to get numeric and character data confused. For example, in <code>x &lt;- &quot;blue&quot;</code>, <code>x</code> is of class &quot;character&quot;, while in <code>x &lt;- 4</code>, <code>x</code> is of class &quot;numeric&quot;. The problem comes if you type: <code>x &lt;- &quot;4&quot;</code> In this case <code>x</code> is of class &quot;character&quot; because of the quotation marks. Try typing <code>class(x)</code> if you are confused. You can also type <code>is.numeric(x)</code> and <code>is.character(x)</code>.</p>
 <h4 id="q2.-let-us-define-the-variable-x---10.-what-will-the-outcome-of-the-following-expressions-be">Q2. Let us define the variable <code>x &lt;- 10</code>. What will the outcome of the following expressions be?</h4>
 <ul>
 <li><code>(x &gt; 5)</code></li>
@@ -95,103 +64,50 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h4 id="q4.-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression">Q4. Given three variables (<code>x</code>, <code>y</code> and <code>z</code>), how would you write the following sentence in a logical expression?</h4>
 <p><em>The variable <code>x</code> is less than variable <code>y</code>, or is it greater than variable <code>z</code>?</em></p>
-<p><strong>A short note on classes:</strong></p>
-<p>It's easy to get numeric and character data confused. For example, in <code>x &lt;- &quot;blue&quot;</code>, <code>x</code> is of class &quot;character&quot;, while in <code>x &lt;- 4</code>, <code>x</code> is of class &quot;numeric&quot;. The problem comes if you type:</p>
-<pre><code>x &lt;- &quot;4&quot;</code></pre>
-<p>In this case <code>x</code> is of class &quot;character&quot; because of the quotation marks. Try typing <code>class(x)</code> if you are confused. You can also type <code>is.numeric(x)</code> and <code>is.character(x)</code>.</p>
 <h2 id="types-of-objects">Types of Objects</h2>
 <h3 id="scalars-and-vectors">Scalars and vectors</h3>
-<p>Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. <code>x &lt;- 3</code>). Another very common type of object is the <em>vector</em>, which is an object containing several elements:</p>
-<pre><code>numeric.vec   &lt;- c(1, 1, 2, 3, 5, 8)
-seq.vec1      &lt;- 5:10
-seq.vec2      &lt;- seq(0, 10, 0.25)
-rep.vec       &lt;- rep(2, 12)
-character.vec &lt;- c(&quot;How&quot;, &quot;Now&quot;, &quot;Brown&quot;, &quot;Cow&quot;)
-logical.vec   &lt;- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)</code></pre>
-<p>As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector (e.g. <code>x[3]</code>) and of applying simple operations on all elements of the vector (e.g. <code>vec1*3</code> or <code>vec1*vec2</code>). Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.</p>
-<h4 id="q5.-what-number-would-you-obtain-if-you-typed-seq.vec13-in-the-console-try-working-this-out-for-yourself-before-typing-it-into-r">Q5. What number would you obtain if you typed <code>seq.vec1[3]</code> in the console? (try working this out for yourself before typing it into R)</h4>
-<h4 id="q6.-what-happens-when-you-type-seq.vec215-in-the-console-an-hit-return">Q6. What happens when you type <code>seq.vec2[1:5]</code> in the console an hit return?</h4>
-<h4 id="q7.-how-would-you-retrieve-the-just-the-8th-13th-and-21st-elements-of-seq.vec2">Q7. How would you retrieve the just the 8th, 13th and 21st elements of <code>seq.vec2</code>?</h4>
-<p>Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing</p>
-<pre><code>numeric.vec.squared &lt;- numeric.vec^2</code></pre>
-<p>in the console. You will find that <code>numeric.vec.squared</code> contains values taken from <code>numeric.vec</code>, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as <code>numeric.vec &gt; 3</code></p>
-<p>You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing</p>
-<pre><code>combined.vec1 &lt;- numeric.vec*seq.vec1</code></pre>
-<p>You will find that each of the elements of <code>combined.vec1</code> is equal to the product of the corresponding elements in <code>numeric.vec</code> and <code>seq.vec1</code></p>
-<h4 id="q8.-try-evaluating-combined.vec2---numeric.vecseq.vec2-in-the-console.-what-happens-why">Q8. Try evaluating <code>combined.vec2 &lt;- numeric.vec*seq.vec2</code> in the console. What happens? Why?</h4>
+<p>Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. <code>x &lt;- 3</code>). Another very common type of object is the <em>vector</em>, which is an object containing several elements: <code>numeric_vec   &lt;- c(1, 1, 2, 3, 5, 8)   # c is a function for combining values into a vector or list. seq_vec1      &lt;- 5:10 seq_vec2      &lt;- seq(from = 0, to = 10, by = 0.25) rep_vec       &lt;- rep(x = 2, times = 12) character_vec &lt;- c(&quot;How&quot;, &quot;Now&quot;, &quot;Brown&quot;, &quot;Cow&quot;) logical_vec   &lt;- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)</code> As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. <code>x[3]</code>) and of applying simple operations on all elements of the vector (e.g. <code>vec1*3</code> or <code>vec1*vec2</code>). You can also use vectors to access a set of elements (e.g. <code>x[1:5]</code>) or specific elements (e.g. <code>x[c(2, 7, 9)]</code>) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.</p>
+<h4 id="q5.-what-number-would-you-obtain-if-you-typed-seq_vec13-in-the-console-try-working-this-out-for-yourself-before-typing-it-into-r">Q5. What number would you obtain if you typed <code>seq_vec1[3]</code> in the console? (try working this out for yourself before typing it into R)</h4>
+<h4 id="q6.-what-happens-when-you-type-seq_vec215-in-the-console-an-hit-return">Q6. What happens when you type <code>seq_vec2[1:5]</code> in the console an hit return?</h4>
+<h4 id="q7.-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2">Q7. How would you retrieve just the 8th, 13th and 21st elements of <code>seq_vec2</code>?</h4>
+<p>Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing <code>numeric_vec_squared &lt;- numeric_vec^2</code> in the console. You will find that <code>numeric_vec_squared</code> contains values taken from <code>numeric_vec</code>, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as <code>numeric_vec &gt; 3</code>.</p>
+<p>You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing <code>combined_vec1 &lt;- numeric_vec*seq_vec1</code> You will find that each of the elements of <code>combined_vec1</code> is equal to the product of the corresponding elements in <code>numeric_vec</code> and <code>seq_vec1</code></p>
+<h4 id="q8.-try-evaluating-combined_vec2---numeric_vecseq_vec2-in-the-console.-what-happens-why">Q8. Try evaluating <code>combined_vec2 &lt;- numeric_vec*seq_vec2</code> in the console. What happens? Why?</h4>
 <h4 id="q9.-what-do-you-type-to-find-the-length-of-a-vector">Q9. What do you type to find the length of a vector?</h4>
-<h4 id="q10.-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length.-try-evaluating-combined.vec3---numeric.vecrep.vec-in-the-console-and-look-at-the-result.-what-is-the-reasoning-behind-the-values-produced">Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating <code>combined.vec3 &lt;- numeric.vec*rep.vec</code> in the console, and look at the result. What is the reasoning behind the values produced?</h4>
+<h4 id="q10.-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length.-try-evaluating-combined_vec3---numeric_vecrep_vec-in-the-console-and-look-at-the-result.-what-is-the-reasoning-behind-the-values-produced">Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating <code>combined_vec3 &lt;- numeric_vec*rep_vec</code> in the console, and look at the result. What is the reasoning behind the values produced?</h4>
 <h3 id="matrices">Matrices</h3>
-<p>Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions <code>rbind()</code> and <code>cbind()</code> (try <code>rbind(numeric.vec, seq.vec1)</code>).</p>
-<h4 id="q11.-what-happens-when-you-evaluate-rbindnumeric.vec-seq.vec1-what-happens-when-you-evaluate-cbindvec1-vec2-why">Q11. What happens when you evaluate <code>rbind(numeric.vec, seq.vec1)</code>? What happens when you evaluate cbind(vec1, vec2)? Why?</h4>
-<h4 id="q12.-when-you-evaluate-rbindnumeric.vec-seq.vec2-you-get-a-warning-message.-why">Q12. When you evaluate <code>rbind(numeric.vec, seq.vec2)</code> you get a warning message. Why?</h4>
-<h4 id="q13.-what-happens-when-you-evaluate-rbindnumeric.vec-rep.vec-why">Q13. What happens when you evaluate <code>rbind(numeric.vec, rep.vec)</code>? Why?</h4>
-<p>You can also create matrices directly in a number of different ways:</p>
-<pre><code>mat1 &lt;- matrix(1:24, nrow=6, ncol=4)
-mat2 &lt;- matrix(1:24, nrow=6, ncol=4, byrow=T)
-mat3 &lt;- diag(x=5)
-mat4 &lt;- outer(X=1:5, Y=4:8)
-mat5 &lt;- matrix(&quot;Hello World&quot;, nrow=2, ncol=5)</code></pre>
-<p>As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index! (<code>mat1[4,3]</code>, <code>mat1[1:4, 1:2]</code>, <code>mat1[1:3,]</code>).</p>
+<p>Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions <code>rbind()</code> and <code>cbind()</code> (try <code>rbind(numeric_vec, seq_vec1)</code>).</p>
+<h4 id="q11.-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec1-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec1-why">Q11. What happens when you evaluate <code>rbind(numeric_vec, seq_vec1)</code>? What happens when you evaluate <code>cbind(numeric_vec, seq_vec1)</code>? Why?</h4>
+<h4 id="q12.-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message.-why">Q12. When you evaluate <code>rbind(numeric_vec, seq_vec2)</code> you get a warning message. Why?</h4>
+<h4 id="q13.-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why">Q13. What happens when you evaluate <code>rbind(numeric_vec, rep_vec)</code>? Why?</h4>
+<p>You can also create matrices directly in a number of different ways: <code>mat1 &lt;- matrix(data = 1:24, nrow = 6, ncol = 4) mat2 &lt;- matrix(data = 1:24, nrow = 6, ncol = 4, byrow = T) mat3 &lt;- diag(x = 5, nrow = 3, ncol = 2) mat4 &lt;- outer(X = 1:5, Y = 4:8) mat5 &lt;- matrix(data = &quot;Hello World&quot;, nrow = 2, ncol = 5)</code> As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for row and another one for columns! (<code>mat1[4, 3]</code>, <code>mat1[1:4, 1:2]</code>, <code>mat1[1:3, ]</code>).</p>
 <h4 id="q14.-how-do-you-retrieve-the-2-column-of-mat2">Q14. How do you retrieve the 2 column of <code>mat2</code>?</h4>
-<p>You can perform simple calculations on matrices, in which case the calculation applies to each element separately:</p>
-<pre><code>(mat3 + 2)*2</code></pre>
-<p>You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible</p>
-<pre><code>(mat3*100) + mat4)</code></pre>
-<p>Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:</p>
-<pre><code>(mat1 &gt; 10)</code></pre>
+<p>You can perform simple calculations on matrices, in which case the calculation applies to each element separately: <code>(mat3 + 2)*2</code> You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible <code>(mat3*100) + mat4</code></p>
+<p>Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating: <code>(mat1 &gt; 10)</code></p>
 <p>There are a number of useful functions that can be applied to matrices. Have a look at each of the following functions, and try to make sense of the output: * <code>length()</code> * <code>dim()</code> * <code>t()</code> * <code>colSums()</code> * <code>summary()</code> Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.</p>
 <h4 id="q15.-the-variable-mat1-describes-a-matrix-produced-by-the-following-code">Q15. The variable <code>mat1</code> describes a matrix produced by the following code:</h4>
-<pre><code>mat1 &lt;- matrix(1:50, nrow=10, ncol=5)</code></pre>
-<p>What number would we expect to see when we evaluate <code>mat1[1, 2]</code> (try to answer this without evaluating the code!)? Why not a different number?</p>
+<p><code>mat1 &lt;- matrix(data = 1:50, nrow = 10, ncol = 5)</code> What number would we expect to see when we evaluate <code>mat1[1, 2]</code> (try to answer this without evaluating the code!)? Why not a different number?</p>
 <h4 id="q16.-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-mat1-only-again-try-answering-this-without-evaluating-the-code">Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?</h4>
-<pre><code>mat1[2, 4]
-mat1(,(2, 4))
-mat1[c(2, 4), ]
-mat1[, c(2, 4)]</code></pre>
-<h4 id="q17.-write-your-own-fully-annotated-program-for-creating-a-matrix-from-three-separate-vectors.-the-first-vector-vec1-should-be-50-elements-long-and-should-simply-contain-the-numbers-1-to-50.-the-second-vector-vec2-should-contain-the-square-of-these-numbers-i.e.-vec1-raised-to-the-power-2.-the-third-vector-vec3-should-contain-the-cube-of-these-numbers-i.e.-vec1-raised-to-the-power-3.-finally-create-a-matrix-my.matrix-which-has-vec1-as-the-first-row-vec2-as-the-second-row-and-vec3-as-the-third-row.">Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, <code>vec1</code>, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, <code>vec2</code>, should contain the square of these numbers (i.e. <code>vec1</code> raised to the power 2). The third vector, <code>vec3</code>, should contain the cube of these numbers (i.e. <code>vec1</code> raised to the power 3). Finally, create a matrix, <code>my.matrix</code>, which has <code>vec1</code> as the first row, <code>vec2</code> as the second row, and <code>vec3</code> as the third row.</h4>
+<p><code>mat1[2, 4] mat1(, (2, 4)) mat1[c(2, 4), ] mat1[, c(2, 4)]</code> #### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, <code>vec1</code>, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, <code>vec2</code>, should contain the square of these numbers (i.e. <code>vec1</code> raised to the power 2). The third vector, <code>vec3</code>, should contain the cube of these numbers (i.e. <code>vec1</code> raised to the power 3). Finally, create a matrix, <code>my_matrix</code>, which has <code>vec1</code> as the first row, <code>vec2</code> as the second row, and <code>vec3</code> as the third row.</p>
 <h3 id="data-frame">Data frame</h3>
-<p>A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are loaded into R by default (<code>puromycin.data &lt;- Puromycin</code>). Like in matrices, you can access different elements of the data frame using indices (<code>puromycin.data[1,1]</code>). While you can get to specific columns using an index (<code>puromycin.data[,2]</code>), R allows you to get to specific columns using their name and the dollar sign: <code>puromycin.data$rate</code>. Note that, although the data frame is of class data frame, typing <code>puromycin.data$rate</code> will return a vector of class numeric (try using the function <code>class()</code> to check this).</p>
-<p>Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:</p>
-<pre><code>puromycin.data$rate
-class(puromycin.data$rate)
-levels(puromycin.data$rate)
-as.character(puromycin.data$rate)</code></pre>
+<p>A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are loaded into R by default (<code>puromycin_data &lt;- Puromycin</code>). Like in matrices, you can access different elements of the data frame using indices (<code>puromycin_data[1, 1]</code>). While you can get to specific columns using an index (<code>puromycin_data[, 2]</code>), R allows you to get to specific columns using their name and the dollar sign: <code>puromycin_data$rate</code>. Note that, although the data frame is of class data frame, typing <code>puromycin_data$rate</code> will return a vector of class numeric (try using the function <code>class()</code> to check this).</p>
+<p>Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example: <code>puromycin_data$rate class(puromycin_data$rate) levels(puromycin_data$rate) as.character(puromycin_data$rate)</code></p>
 <h3 id="lists">Lists</h3>
-<p>The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:</p>
-<pre><code>my.list &lt;- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c(&#39;G&#39;, &#39;H&#39;))</code></pre>
-<p>Again, we can access elements from the list using their index. However, using a single bracket <code>[]</code> will return a list (<code>my.list[1]</code>), while using the double bracket will return an object of the same type as the element of the list (<code>my.list[[1]]</code> will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (<code>my.list[['A']]</code>) or the dollar sign (<code>my.list$A</code>). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…</p>
+<p>The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors: <code>my_list &lt;- list(A = c(1, 2, 3), B = c(5, 6, 7, 8, 9, 10), D = c('G', 'H'))</code> Again, we can access elements from the list using their index. However, using a single bracket <code>[]</code> will return a list (<code>my_list[1]</code>), while using the double bracket will return an object of the same type as the element of the list (<code>my_list[[1]]</code> will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (<code>my_list[['A']]</code>) or the dollar sign (<code>my_list$A</code>). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…</p>
 <p>There are other types of data in R, with many being specific to particular libraries.</p>
 <h2 id="subsetting-a-data-frame">Subsetting a data frame</h2>
-<p>We have already come across one way of subsetting through the use of square brackets. By typing, for example,</p>
-<pre><code>puromycin.data &lt;- Puromycin
-puromycin.data[1:3, ]</code></pre>
-<p>we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign <code>$</code> to get a specific column:</p>
-<pre><code>puromycin.data[,2]</code></pre>
-<p>We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:</p>
-<pre><code>#returns TRUE or FALSE
-puromycin.data$rate &lt; 100
-#returns which elements are TRUE
-which(puromycin.data$rate &lt; 100)</code></pre>
-<p>We can use the index to select the rows for which the statement is TRUE:</p>
-<pre><code># returns all the columns, but only the rows for which
-# puromycin.data$rate &lt; 100 is TRUE
-sub.data &lt;- puromycin.data[puromycin.data$rate &lt; 100, ]</code></pre>
-<p>When subsetting data frames, we can also use the subset function, which has a more clear syntax, as the <code>$</code> is not necessary:</p>
-<pre><code>sub.data &lt;- subset(puromycin.data, rate &lt; 100)</code></pre>
-<p>We could subset by the &quot;state&quot; column:</p>
-<pre><code>## First alternative
-subdata &lt;- puromycin.data[puromycin.data$state == &quot;treated&quot;, ]
-## Second alternative
-subdata &lt;- subset(puromycin.data, state == &quot;treated&quot;)</code></pre>
+<p>We have already come across one way of subsetting through the use of square brackets. By typing, for example, <code>puromycin_data &lt;- Puromycin puromycin_data[1:3, ] puromycin_data[, 2]</code> we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign <code>$</code> to get a specific column: <code>puromycin_data$rate</code></p>
+<p>We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100: <code>#returns TRUE or FALSE puromycin_data$rate &lt; 100 #returns which elements are TRUE which(puromycin_data$rate &lt; 100)</code></p>
+<p>We can use the subset function to select the rows for which the statement is TRUE: <code># returns all the columns, but only the rows for which # puromycin_data$rate &lt; 100 is TRUE puromycin_sub &lt;- subset(puromycin_data, rate &lt; 100)</code></p>
+<p>We could subset by the &quot;state&quot; column: <code>puromycin_treated &lt;- subset(puromycin_data, subset = state == &quot;treated&quot;)</code></p>
 <p>This will return all fields for which the state is equal to &quot;treated&quot;. Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.</p>
-<h4 id="q18.-how-would-you-subset-the-variable-puromycin.data-to-return-only-those-fields-for-which-the-concentration-is-greater-than-0.1">Q18. How would you subset the variable <code>puromycin.data</code> to return only those fields for which the concentration is greater than 0.1?</h4>
+<h4 id="q18.-how-would-you-subset-the-variable-puromycin_data-to-return-only-those-fields-for-which-the-concentration-is-greater-than-0.1">Q18. How would you subset the variable <code>puromycin_data</code> to return only those fields for which the concentration is greater than 0.1?</h4>
 <h4 id="q19.-what-is-the-average-mean-concentration-for-these-cells">Q19. What is the average (mean) concentration for these cells?</h4>
-<h4 id="q20.-how-would-you-subset-the-variable-puromycin.data-to-return-only-the-fields-for-which-the-cells-were-not-treated">Q20. How would you subset the variable <code>puromycin.data</code> to return only the fields for which the cells were not treated?</h4>
-<h4 id="q21.-how-would-you-subset-the-variable-puromycin.data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.5-and-the-rate-is-greater-than-100-remember-the-and-command-from-logical-expressions">Q21. How would you subset the variable <code>puromycin.data</code> to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the &quot;and&quot; command from logical expressions)?</h4>
-<h4 id="q22.-how-would-you-subset-the-variable-puromycin.data-to-return-only-the-fields-for-which-the-concentration-is-greater-than-0.2-and-the-cells-have-been-treated">Q22. How would you subset the variable <code>puromycin.data</code> to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?</h4>
-<h4 id="q23.-how-would-you-subset-the-variable-puromycin.data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.1-or-greater-than-0.2">Q23. How would you subset the variable <code>puromycin.data</code> to return only the fields for which the concentration is less than 0.1 or greater than 0.2?</h4>
-<h4 id="q24.-how-would-you-subset-the-variable-puromycin.data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.2-and-the-rate-is-less-than-70-and-the-cells-have-been-treated">Q24. How would you subset the variable <code>puromycin.data</code> to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?</h4>
+<h4 id="q20.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-cells-were-not-treated">Q20. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the cells were not treated?</h4>
+<h4 id="q21.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.5-and-the-rate-is-greater-than-100-remember-the-and-command-from-logical-expressions">Q21. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the &quot;and&quot; command from logical expressions)?</h4>
+<h4 id="q22.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-greater-than-0.2-and-the-cells-have-been-treated">Q22. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?</h4>
+<h4 id="q23.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.1-or-greater-than-0.2">Q23. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.1 or greater than 0.2?</h4>
+<h4 id="q24.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.2-and-the-rate-is-less-than-70-and-the-cells-have-been-treated">Q24. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?</h4>
 <h2 id="good-coding-practice">Good coding practice</h2>
 <p>Keep your code clean and tidy by making use of comments and white space and respecting the style guide. Comments start with the character # (R simply does not interpret anything written between a comment sign and the end of the line. They allow you to annotate your code, i.e. to write helpful notes in between all the raw program code. Notice also that white space such as empty lines, spaces and indentations (obtained by pressing the Tab key) are invisible to R. Making good use of white space helps keep your code readable, and so does using clear and descriptive variable names.</p>
 <p>The following two examples make this point clear. Both programs do exactly the same thing, but one will make sense one year from now, and the other will not!</p>
@@ -220,76 +136,44 @@ tadayeahmanfunky</code></pre>
 nutrients     &lt;- 0.01
 temperature   &lt;- 0.005
 humidity      &lt;- 0.0036
-starting.size &lt;- 100
-grow.time     &lt;- 10
+starting_size &lt;- 100
+grow_time     &lt;- 10
 
 # Calculate total growth rate
-growth.rate &lt;- nutrients + temperature + humidity
+growth_rate &lt;- nutrients + temperature + humidity
 
 # Calculate population size at the end of the time period
-end.size &lt;- starting.size * exp(growth.rate * grow.time)
+end_size &lt;- starting_size * exp(growth_rate * grow_time)
 
 # Return end population size in the console
-end.size
+end_size
 #--------------------------------</code></pre>
 <h4 id="q25.-write-your-own-well-annotated-and-fully-functional-script-for-calculating-the-volume-of-a-rectangular-room-with-the-following-dimensions">Q25. Write your own well annotated and fully functional script for calculating the volume of a rectangular room with the following dimensions:</h4>
 <p>length: 5m width: 4m height: 3m The layout and design of the program are much more important than the calculations here!</p>
 <h2 id="regular-expressions-new-stuff">Regular Expressions (New stuff!)</h2>
-<p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:</p>
-<pre class="sourceCode r"><code class="sourceCode r">reptile.data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</code></pre>
-<p>This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code</p>
-<pre><code>reptile.names &lt;- row.names(reptile.data)</code></pre>
+<p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame: <code>R reptile_data &lt;- read.table(&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;, row.names = 1)</code> This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code <code>reptile_names &lt;- row.names(reptile_data)</code></p>
 <p>Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the <em>Liopholis</em> group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite &quot;messy&quot; and needs cleaning up.</p>
 <p>The tools that allow us to deal with this sort of problem fall under the heading regular expressions. These consist of a suite of tools that allow us to search for, locate, and replace characters or words within a data set. The really powerful thing about regular expressions is that we can do a &quot;fuzzy&quot; search, meaning the pattern we are searching for has some flexibility built into it.</p>
 <h3 id="basic-find-and-replace">Basic find and replace</h3>
-<p>First of all we will search through the vector reptile.names to find a list of the elements that contain the word &quot;liopholis&quot;. The function that allows us to do this is <code>grep()</code>, which has two main arguments; <code>pattern</code> and <code>x</code>. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:</p>
-<pre><code># Search through reptile.names for the word &quot;liopholis&quot;, and output positions
-grep(pattern=&quot;liopholis&quot;, x=reptile.names)</code></pre>
-<p>The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector <code>reptile.names</code> that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!</p>
-<p>Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument <code>value = T</code> (see the help file for the <code>grep()</code> function for a complete list of possible arguments). The new code reads:</p>
-<pre><code># Search through reptile.names for the word &quot;liopholis&quot;, and output names
-grep(pattern = &quot;liopholis&quot;, x = reptile.names, value = T)</code></pre>
+<p>First of all we will search through the vector reptile_names to find a list of the elements that contain the word &quot;liopholis&quot;. The function that allows us to do this is <code>grep()</code>, which has two main arguments; <code>pattern</code> and <code>x</code>. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code: <code># Search through reptile_names for the word &quot;liopholis&quot;, and output positions grep(pattern = &quot;liopholis&quot;, x = reptile_names)</code></p>
+<p>The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector <code>reptile_names</code> that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!</p>
+<p>Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument <code>value = T</code> (see the help file for the <code>grep()</code> function for a complete list of possible arguments). The new code reads: <code># Search through reptile_names for the word &quot;liopholis&quot;, and output names grep(pattern = &quot;liopholis&quot;, x = reptile_names, value = T)</code></p>
 <p>Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.</p>
-<p>Finally, we may want to find and replace the pattern. This can be done using the function <code>gsub()</code>. The function <code>gsub()</code> takes arguments <code>pattern</code> and <code>x</code>, just like the function <code>grep()</code>, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the <code>reptile.data</code> the word &quot;liopholis&quot; is a genus name, and so should be capitalized. Thus, we want to replace the word &quot;liopholis&quot; with &quot;Liopholis&quot;, as follows:</p>
-<pre><code># Search through reptile.names for the word &quot;liopholis&quot; and replace with the word &quot;Liopholis.&quot;
-reptile.names2 &lt;- gsub(pattern=&quot;liopholis&quot;, replacement=&quot;Liopholis&quot;, x=reptile.names)</code></pre>
-<p>The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile.names2. Experiment with <code>grep()</code> and <code>gsub()</code> until you are confident at using them. Then answer the following questions:</p>
-<h4 id="q26.-how-could-you-use-regular-expressions-to-find-the-only-element-in-the-vector-reptile.names-that-contains-a-lowercase-q-what-is-the-position-of-this-element-in-the-vector">Q26. How could you use regular expressions to find the only element in the vector <code>reptile.names</code> that contains a lowercase &quot;q&quot;? What is the position of this element in the vector?</h4>
-<h4 id="q27.-you-want-to-import-the-reptile.names-data-into-excel-but-are-having-problems-due-to-the-spaces-between-the-words-a-common-problem.-how-could-you-use-gsub-to-replace-all-spaces-with-a-period">Q27. You want to import the <code>reptile.names</code> data into excel, but are having problems due to the spaces between the words (a common problem). How could you use <code>gsub()</code> to replace all spaces with a period?</h4>
+<p>Finally, we may want to find and replace the pattern. This can be done using the function <code>gsub()</code>. The function <code>gsub()</code> takes arguments <code>pattern</code> and <code>x</code>, just like the function <code>grep()</code>, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the <code>reptile_data</code> the word &quot;liopholis&quot; is a genus name, and so should be capitalized. Thus, we want to replace the word &quot;liopholis&quot; with &quot;Liopholis&quot;, as follows:</p>
+<pre><code># Search through reptile_names for the word &quot;liopholis&quot; and replace with the word &quot;Liopholis.&quot;
+reptile_names2 &lt;- gsub(pattern = &quot;liopholis&quot;, replacement = &quot;Liopholis&quot;, x = reptile_names)</code></pre>
+<p>The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile_names2. Experiment with <code>grep()</code> and <code>gsub()</code> until you are confident at using them. Then answer the following questions:</p>
+<h4 id="q26.-how-could-you-use-regular-expressions-to-find-the-only-element-in-the-vector-reptile_names-that-contains-a-lowercase-q-what-is-the-position-of-this-element-in-the-vector">Q26. How could you use regular expressions to find the only element in the vector <code>reptile_names</code> that contains a lowercase &quot;q&quot;? What is the position of this element in the vector?</h4>
+<h4 id="q27.-you-want-to-import-the-reptile_names-data-into-excel-but-are-having-problems-due-to-the-spaces-between-the-words-a-common-problem.-how-could-you-use-gsub-to-replace-all-spaces-with-a-period">Q27. You want to import the <code>reptile_names</code> data into excel, but are having problems due to the spaces between the words (a common problem). How could you use <code>gsub()</code> to replace all spaces with a period?</h4>
 <h3 id="using-fuzzy-searching">Using &quot;fuzzy&quot; searching</h3>
 <p>One of the most powerful features of regular expressions is the ability to perform &quot;fuzzy&quot; searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.</p>
 <p>A slightly reduced list of special characters and their meanings is given below.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Special Character</th>
-<th align="left">Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">.</td>
-<td align="left">Any character</td>
-</tr>
-<tr class="even">
-<td align="left">?</td>
-<td align="left">The preceding item is optional and will be matched at most once.</td>
-</tr>
-<tr class="odd">
-<td align="left">*</td>
-<td align="left">The preceding item will be matched zero or more times.</td>
-</tr>
-<tr class="even">
-<td align="left">+</td>
-<td align="left">The preceding item will be matched one or more times.</td>
-</tr>
-</tbody>
-</table>
+<p>|Special Character | Meaning | |------------------|----------| |. | Any character | |? | The preceding item is optional and will be matched at most once. | |* | The preceding item will be matched zero or more times. | |+ | The preceding item will be matched one or more times. |</p>
 <p>Additional special characters can be found:</p>
 <ul>
 <li>by Googling (e.g., &quot;Regexp cheat sheet for R&quot;)</li>
 <li>in the slides for our course (from slide 45): http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm</li>
-<li>by typing ?regex in R</li>
+<li>by typing: ?regex in R</li>
 </ul>
 <p>These special characters can be used on their own, or in combination with one another. To help you out with understanding these symbols, here are a few examples:</p>
 <ul>
@@ -299,43 +183,25 @@ reptile.names2 &lt;- gsub(pattern=&quot;liopholis&quot;, replacement=&quot;Lioph
 <li>The pattern <code>s.+s</code> means the letter &quot;s&quot;, followed by one or more copies of any character, followed by the letter &quot;s&quot; (e.g. &quot;sas&quot;, &quot;sts&quot;, &quot;sauces&quot;, &quot;serendipities&quot;, but NOT &quot;ss&quot;).</li>
 <li>The pattern <code>.* .*</code> means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. &quot;test word&quot;). Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.</li>
 </ul>
-<p>As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:</p>
-<pre><code>reptile.names3 &lt;- gsub(pattern=&quot;.*:&quot;, replacement=&quot;&quot;, x=reptile.names2)</code></pre>
-<p>Have a look inside the variable reptile.names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.</p>
+<p>As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows: <code>reptile_names3 &lt;- gsub(pattern = &quot;.*:&quot;, replacement = &quot;&quot;, x = reptile_names2)</code> Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.</p>
 <h4 id="q28.-what-does-the-pattern-..x..-mean-in-a-regular-expression">Q28. What does the pattern &quot;..x..&quot; mean in a regular expression?</h4>
 <h4 id="q29.-what-does-the-pattern-e-mean-in-a-regular-expression">Q29. What does the pattern &quot;e+&quot; mean in a regular expression?</h4>
 <h4 id="q30.-how-many-reptile-names-genus-or-species-contain-a-lowercase-o-or-an-uppercase-e">Q30. How many reptile names (genus or species) contain a lowercase &quot;o&quot; or an uppercase &quot;E&quot;?</h4>
 <p>Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!</p>
-<h4 id="q30.-add-three-additional-columns-to-the-reptile.data-table">Q30. Add three additional columns to the <code>reptile.data</code> table:</h4>
+<h4 id="q31.-add-three-additional-columns-to-the-reptile_data-table">Q31. Add three additional columns to the <code>reptile_data</code> table:</h4>
 <ul>
 <li>one containing only the identifier numbers (e.g. 1423 without the “ID”)</li>
 <li>one column containing only the genus (e.g. Bellatorias)</li>
 <li>one containing only the species (excluding the subspecies, e.g. tympanum) Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.</li>
 </ul>
-<h4 id="hacker-q31.-figure-out-how-to-capture-the-first-letter-of-the-species-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q31. Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
-<p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement’” parameter, as well as the examples at the bottom of the help page.</p>
+<h4 id="hacker-q32.-figure-out-how-to-capture-the-first-letter-of-the-species-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q32. Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
+<p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.</p>
 <h1 id="extra-section">Extra section!</h1>
 <h2 id="data-input-from-files">Data input from files</h2>
-<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download river.csv and kaiser.xls and try loading them into R.</p>
-<pre><code>river.data  &lt;- read.csv(“river.csv”)      # if you’re in the right directory
-river.data  &lt;- read.csv(file.choose())    # to choose the file
-kaiser.data &lt;- read.xls(“kaiser.xls”, sheet=1)
-# try to figure out how to import Excel spreadsheets into R,
-# which is an excessively discussed topic online</code></pre>
+<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download <a href="http://genomics.senescence.info/longevity/longevity_genes.zip">longevity_genes/longevity.csv</a> and <a href="http://genomics.senescence.info/diet/TableS2.xls">TableS2.xls</a> and try loading them into R. <code>longevity_genes_data  &lt;- read.csv(&quot;input location/longevity.csv&quot;)      longevity_genes_data  &lt;- read.csv(file.choose())                    # to choose the file # try to figure out how to import Excel spreadsheets into R, # which is an excessively discussed topic online.  # One way of doing it, is saving your Excel spreadsheet (TableS2.xls)  # as a tab delimited text file and loading it into R read.delim(&quot;input location/file name.txt&quot;)</code></p>
 <h2 id="setting-the-working-directory">Setting the working directory</h2>
-<p>Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you.</p>
-<pre><code># set the working directory
-setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options
-# get all the file names in the current directory
-list.files(path=&quot;.&quot;)
-# get the current working directory
-getwd()</code></pre>
+<p>Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you. <code># set the working directory setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options # get all the file names in the current directory list.files(path = &quot;.&quot;) # get the current working directory getwd()</code></p>
 <h2 id="data-output-into-various-formats">Data output into various formats</h2>
-<p>Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).</p>
-<pre><code># write a new subsetted data frame (create this using your previous skills) into a CSV file
-write.csv(my.river.subset, file = “myRiverSubset.csv”)
-# import this into Excel
-# create three variables, a, b, and c of any class and save them into a .Rdata file (What is this? When could it be useful?)
-save(a, b, c, file=”nodeProperty.Rdata”)</code></pre>
+<p>Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back). <code># write a new subsetted data frame (create this using your previous skills) into a CSV file write.csv(your subsetted data frame, file = &quot;output location/file name.csv&quot;) # import your subsetted data frame into Excel write.table(your subsetted data frame, file = &quot;output location/file name.xls&quot;, sep = &quot;\t&quot;) # create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?) save(a, b, c, file = &quot;output location/file name.RData&quot;)</code></p>
 </body>
 </html>

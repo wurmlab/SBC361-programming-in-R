@@ -33,24 +33,24 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>First let's create one vector for each; we can worry about combining them into the <code>reptile_data</code> table later.</p>
 <h3 id="one-containing-only-the-identifier-numbers-e.g.-1423-without-the-id">One containing only the identifier numbers (e.g. 1423 without the “ID”)</h3>
 <h4 id="it-might-be-easiest-to-do-this-in-two-steps.-for-example">It might be easiest to do this in two steps. For example:</h4>
-<pre><code>id_numbers_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;ID&quot;)
-id_numbers      &lt;- gsub(x = id_numbers_temp, replacement = &quot;&quot;, pattern = &quot;:.+&quot;)
-rm(id_numbers_temp)</code></pre>
-<p>This can be a bit risky though. For example, what happens if the species name contains &quot;ID&quot;, or if there are multiple &quot;:&quot;? Thus it is better to be more specific. You will be more in control of what the computer is doing, and thus it is less likely to do something you didn't intend. The following example is more specific than the previous: <code>id_numbers_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;^ID&quot;) id_numbers      &lt;- gsub(x = id_numbers_temp, replacement = &quot;&quot;, pattern = &quot;:[A-z ]+$&quot;) rm(id_numbers_temp)</code></p>
-<p>If we wanted our regexp to be more general (e.g. if we know that &quot;ID&quot; might be in other cases be other capitalized letters, and if some species may be unresolved and thus be abbreviated as &quot;sp.&quot;), we could for example do the following: <code>id_numbers_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;^[A-Z]+&quot;) id_numbers      &lt;- gsub(x = id_numbers_temp, replacement = &quot;&quot;, pattern = &quot;:[A-z \\.]+$&quot;) rm(id_numbers_temp)</code></p>
+<pre class="sourceCode R"><code class="sourceCode r">id_numbers_temp &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> reptile_names,   <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;ID&quot;</span>)
+id_numbers      &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> id_numbers_temp, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;:.+&quot;</span>)
+<span class="kw">rm</span>(id_numbers_temp)</code></pre>
+<p>This can be a bit risky though. For example, what happens if the species name contains &quot;ID&quot;, or if there are multiple &quot;:&quot;? Thus it is better to be more specific. You will be more in control of what the computer is doing, and thus it is less likely to do something you didn't intend. The following example is more specific than the previous: <code>R id_numbers_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;^ID&quot;) id_numbers      &lt;- gsub(x = id_numbers_temp, replacement = &quot;&quot;, pattern = &quot;:[A-z ]+$&quot;) rm(id_numbers_temp)</code></p>
+<p>If we wanted our regexp to be more general (e.g. if we know that &quot;ID&quot; might be in other cases be other capitalized letters, and if some species may be unresolved and thus be abbreviated as &quot;sp.&quot;), we could for example do the following: <code>R id_numbers_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;^[A-Z]+&quot;) id_numbers      &lt;- gsub(x = id_numbers_temp, replacement = &quot;&quot;, pattern = &quot;:[A-z \\.]+$&quot;) rm(id_numbers_temp)</code></p>
 <h4 id="or-we-can-combine-those-two-into-a-single-line">Or we can combine those two into a single line:</h4>
 <p><code>gsub</code> can &quot;find&quot; a regular expression match multiple times. So we can combine two parts with a <code>|</code>, taking care to use parentheses appropriately. Here are some examples of combinations:</p>
-<p>Risky but works: <code>id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;([A-Z]+)|(:.+)&quot;)</code></p>
-<p>Less risky because more specific while keeping some generality: <code>id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(^[A-z]+)|(:[A-z \\.]+$)&quot;)</code></p>
-<p>Specific for this dataset: <code>id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(^ID)|(:[A-z ]+$)&quot;)</code></p>
+<p>Risky but works: <code>R id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;([A-Z]+)|(:.+)&quot;)</code></p>
+<p>Less risky because more specific while keeping some generality: <code>R id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(^[A-z]+)|(:[A-z \\.]+$)&quot;)</code></p>
+<p>Specific for this dataset: <code>R id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(^ID)|(:[A-z ]+$)&quot;)</code></p>
 <h4 id="or-we-take-a-minimalistic-approach-by-exclusion-of-everything-that-is-not-a-number">Or we take a minimalistic approach by exclusion of everything that is not a number</h4>
-<pre><code>id_numbers &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;[^0-9]&quot;)</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r">id_numbers &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> reptile_names, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;[^0-9]&quot;</span>)</code></pre>
 <h3 id="one-column-containing-only-the-genus-e.g.-bellatorias">One column containing only the genus (e.g. Bellatorias):</h3>
-<p>Risky but works: <code>only_genus_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;(.+:)&quot;) only_genus      &lt;- gsub(x = only_genus_temp, replacement = &quot;&quot;, pattern = &quot;( .+)&quot;) rm(only_genus_temp)</code></p>
-<p>More specific, less risky: <code>only_genus_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;([A-z]+[0-9]+:)&quot;) only_genus      &lt;- gsub(x = only_genus_temp, replacement = &quot;&quot;, pattern = &quot;( [A-z]+)&quot;) rm(only_genus_temp)</code></p>
+<p>Risky but works: <code>R only_genus_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;(.+:)&quot;) only_genus      &lt;- gsub(x = only_genus_temp, replacement = &quot;&quot;, pattern = &quot;( .+)&quot;) rm(only_genus_temp)</code></p>
+<p>More specific, less risky: <code>R only_genus_temp &lt;- gsub(x = reptile_names,   replacement = &quot;&quot;, pattern = &quot;([A-z]+[0-9]+:)&quot;) only_genus      &lt;- gsub(x = only_genus_temp, replacement = &quot;&quot;, pattern = &quot;( [A-z]+)&quot;) rm(only_genus_temp)</code></p>
 <h4 id="we-can-also-combine-those-two-options-above-each-one-into-one-single-line">We can also combine those two options above, each one into one single line:</h4>
-<p>Risky: <code>only_genus &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(.+:)|( .+)&quot;)</code></p>
-<p>Less risky: <code>only_genus &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;([A-z]+[0-9]+:)|( [A-z]+)&quot;)</code></p>
+<p>Risky: <code>R only_genus &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;(.+:)|( .+)&quot;)</code></p>
+<p>Less risky: <code>R only_genus &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;([A-z]+[0-9]+:)|( [A-z]+)&quot;)</code></p>
 <h3 id="one-column-containing-only-the-species-excluding-the-subspecies-e.g.-tympanum">One column containing only the species (excluding the subspecies, e.g. tympanum):</h3>
 <h4 id="as-mentioned-above-it-is-easier-to-do-it-in-two-steps">As mentioned above, it is easier to do it in two steps:</h4>
 <p>Risky: <code>R only_species_temp &lt;- gsub(x = reptile_names,     replacement = &quot;&quot;, pattern = &quot;(.+:)&quot;) only_species      &lt;- gsub(x = only_species_temp, replacement = &quot;&quot;, pattern = &quot;(^[A-z]+ )|( .+$)&quot;) rm(only_species_temp)</code></p>
@@ -82,25 +82,25 @@ species_first_char_big &lt;- <span class="kw">toupper</span>(species_first_char)
 
 reptile_names_q32      &lt;- <span class="kw">paste</span>(first_part, species_first_char_big, last_part, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</code></pre>
 <h3 id="alternative-way-without-captures">Alternative way without captures</h3>
-<pre><code>first_part  &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot; .+&quot;)
-species     &lt;- gsub(x = reptile_names, replacement = &quot;&quot;, pattern = &quot;[A-z]+[0-9]+:[A-z]+ &quot;)
+<pre class="sourceCode R"><code class="sourceCode r">first_part  &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> reptile_names, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot; .+&quot;</span>)
+species     &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> reptile_names, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;[A-z]+[0-9]+:[A-z]+ &quot;</span>)
 
-#google &quot;extract part of string in R&quot; finds the substr function
-species_first_char     &lt;- substr(x=species, start=0, stop=1)
-species_first_char_big &lt;- toupper(species_first_char)
+<span class="co">#google &quot;extract part of string in R&quot; finds the substr function</span>
+species_first_char     &lt;- <span class="kw">substr</span>(<span class="dt">x=</span>species, <span class="dt">start=</span><span class="dv">0</span>, <span class="dt">stop=</span><span class="dv">1</span>)
+species_first_char_big &lt;- <span class="kw">toupper</span>(species_first_char)
 
-species_rest &lt;- gsub(x = species, pattern = &quot;^.&quot;, replacement = &quot;&quot;)
-reptile_names_q32      &lt;- paste(first_part, species_first_char_big, species_rest, sep = &quot;&quot;)</code></pre>
+species_rest &lt;- <span class="kw">gsub</span>(<span class="dt">x =</span> species, <span class="dt">pattern =</span> <span class="st">&quot;^.&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+reptile_names_q32      &lt;- <span class="kw">paste</span>(first_part, species_first_char_big, species_rest, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</code></pre>
 <h3 id="with-captures-and-perl-extensions-both-in-one-single-line-each">With captures and perl extensions, both in one single line each:</h3>
-<pre><code>reptile_names_q32 &lt;- gsub(x           = reptile_names,
-                          pattern     = &quot;(^ID[0-9]+:[A-z]+ )([A-z])([a-z ]+$)&quot;,
-                          replacement = &quot;\\1\\U\\2\\L\\3&quot;,
-                          perl        = TRUE)</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_names_q32 &lt;- <span class="kw">gsub</span>(<span class="dt">x           =</span> reptile_names,
+                          <span class="dt">pattern     =</span> <span class="st">&quot;(^ID[0-9]+:[A-z]+ )([A-z])([a-z ]+$)&quot;</span>,
+                          <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">1</span><span class="ch">\\</span><span class="st">U</span><span class="ch">\\</span><span class="st">2</span><span class="ch">\\</span><span class="st">L</span><span class="ch">\\</span><span class="st">3&quot;</span>,
+                          <span class="dt">perl        =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>The <code>replacement</code> in the <code>gsub()</code> above means: keep the first group (groups are sets of parentheses in the 'pattern'; in the same order) then keep the space, captalize the second group, and put the third group in lowercase.</p>
 <p>A less specific approach:</p>
-<pre><code>reptile_names_q32 &lt;- gsub(x           = reptile_names, 
-                          pattern     = &quot;(^[A-z:0-9]+ )(.)(.+)$&quot;, 
-                          replacement = &quot;\\1\\U\\2\\L\\3&quot;, 
-                          perl        = TRUE)</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_names_q32 &lt;- <span class="kw">gsub</span>(<span class="dt">x           =</span> reptile_names, 
+                          <span class="dt">pattern     =</span> <span class="st">&quot;(^[A-z:0-9]+ )(.)(.+)$&quot;</span>, 
+                          <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">1</span><span class="ch">\\</span><span class="st">U</span><span class="ch">\\</span><span class="st">2</span><span class="ch">\\</span><span class="st">L</span><span class="ch">\\</span><span class="st">3&quot;</span>, 
+                          <span class="dt">perl        =</span> <span class="ot">TRUE</span>)</code></pre>
 </body>
 </html>

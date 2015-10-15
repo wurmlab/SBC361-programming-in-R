@@ -1,4 +1,8 @@
-What follow are some ideas of how to answer those last few questions the first practical session. Remember that there are dozens of manners of answering a question, and no single one is best. Other ideas that we may not have listed are perfectly valid as well!
+What follow are some ideas of how to answer those last few questions the first practical session. Remember that there are dozens of manners of answering a question, and no single one is best. We provide a few possibilities for each. Other ideas that we may not have listed are perfectly valid as well!
+
+As a general rule, it can be better to be more specific, but in a real life situation you would want to include some sort of automated verification that your code is performing as you intend (in particular when you move on to larger datasets for which it is hard to have an overview). 
+
+Ok, ok, now let's get hacking.
 
 
 ## Q31. Add three additional columns to the reptile_data table:
@@ -73,17 +77,17 @@ rm(only_genus_temp)
 
 Risky:
 ```
-only_genus      <- gsub(x = reptile_names, replacement = "", pattern = "(.+:)|( .+)")
+only_genus <- gsub(x = reptile_names, replacement = "", pattern = "(.+:)|( .+)")
 ```
 
 Less risky:
 ```
-only_genus    <- gsub(x = reptile_names, replacement = "", pattern = "([A-z]+[0-9]+:)|( [A-z]+)")
+only_genus <- gsub(x = reptile_names, replacement = "", pattern = "([A-z]+[0-9]+:)|( [A-z]+)")
 ```
 
 ### One column containing only the species (excluding the subspecies, e.g. tympanum):
 
-#### As aforementioned, it is easier to do it in two steps:
+#### As mentioned above, it is easier to do it in two steps:
 
 Risky:
 ```R
@@ -130,6 +134,21 @@ reptile_data[,'id_nums'] <- id_numbers
 And another way (even more risky), just using the column number. I dislike this approach because it's easy to accidentally overwrite an existing column. 
 ```R
 reptile_data[,5] <- id_numbers
+```
+
+Obviously, you could also combine the data modification and merging into the table into a single step  creation  multiple steps. For example: 
+```R
+reptile_data$id_nums <- gsub(x = reptile_names, pattern = "[^0-9]", replacement = "")
+```
+
+Or: 
+```R
+reptile_data_q31 <- cbind(
+			  reptile_data, 
+			  id      = gsub(x = reptile_names, replacement = "", pattern = "[^0-9]"), 
+			  genus   = gsub(x = reptile_names, replacement = "", pattern = "(^[A-z]+[0-9]+:)|( [A-z]+$)"),
+			  species = gsub(x = reptile_names, replacement = "", pattern = "(^[A-z]+[0-9]+:)([A-z]+ )|( [A-z]+$)")
+			  )
 ```
 
 

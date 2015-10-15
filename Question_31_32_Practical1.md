@@ -12,21 +12,21 @@ First let's create one vector for each; we can worry about combining them into t
 ### One containing only the identifier numbers (e.g. 1423 without the “ID”)
 
 #### It might be easiest to do this in two steps. For example: 
-```
+```R
 id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "ID")
 id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":.+")
 rm(id_numbers_temp)
 ```
 
 This can be a bit risky though. For example, what happens if the species name contains "ID", or if there are multiple ":"? Thus it is better to be more specific. You will be more in control of what the computer is doing, and thus it is less likely to do something you didn't intend. The following example is more specific than the previous:
-```
+```R
 id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "^ID")
 id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":[A-z ]+$")
 rm(id_numbers_temp)
 ```
 
 If we wanted our regexp to be more general (e.g. if we know that "ID" might be in other cases be other capitalized letters, and if some species may be unresolved and thus be abbreviated as "sp."), we could for example do the following:
-```
+```R
 id_numbers_temp <- gsub(x = reptile_names,   replacement = "", pattern = "^[A-Z]+")
 id_numbers      <- gsub(x = id_numbers_temp, replacement = "", pattern = ":[A-z \\.]+$")
 rm(id_numbers_temp)
@@ -37,36 +37,36 @@ rm(id_numbers_temp)
 `gsub` can "find" a regular expression match multiple times. So we can combine two parts with a `|`, taking care to use parentheses appropriately. Here are some examples of combinations:
 
 Risky but works:
-```
+```R
 id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "([A-Z]+)|(:.+)")
 ```
 
 Less risky because more specific while keeping some generality:
-```
+```R
 id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "(^[A-z]+)|(:[A-z \\.]+$)")
 ```
 
 Specific for this dataset:
-```
+```R
 id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "(^ID)|(:[A-z ]+$)")
 ```
 
 #### Or we take a minimalistic approach by exclusion of everything that is not a number
-```
+```R
 id_numbers <- gsub(x = reptile_names, replacement = "", pattern = "[^0-9]")
 ```
 
 ### One column containing only the genus (e.g. Bellatorias):
 
 Risky but works:
-```
+```R
 only_genus_temp <- gsub(x = reptile_names,   replacement = "", pattern = "(.+:)")
 only_genus      <- gsub(x = only_genus_temp, replacement = "", pattern = "( .+)")
 rm(only_genus_temp)
 ```
 
 More specific, less risky:
-```
+```R
 only_genus_temp <- gsub(x = reptile_names,   replacement = "", pattern = "([A-z]+[0-9]+:)")
 only_genus      <- gsub(x = only_genus_temp, replacement = "", pattern = "( [A-z]+)")
 rm(only_genus_temp)
@@ -76,12 +76,12 @@ rm(only_genus_temp)
 #### We can also combine those two options above, each one into one single line:
 
 Risky:
-```
+```R
 only_genus <- gsub(x = reptile_names, replacement = "", pattern = "(.+:)|( .+)")
 ```
 
 Less risky:
-```
+```R
 only_genus <- gsub(x = reptile_names, replacement = "", pattern = "([A-z]+[0-9]+:)|( [A-z]+)")
 ```
 
@@ -177,7 +177,7 @@ reptile_names_q32      <- paste(first_part, species_first_char_big, last_part, s
 ```
 
 ### Alternative way without captures
-```
+```R
 first_part  <- gsub(x = reptile_names, replacement = "", pattern = " .+")
 species     <- gsub(x = reptile_names, replacement = "", pattern = "[A-z]+[0-9]+:[A-z]+ ")
 
@@ -190,7 +190,7 @@ reptile_names_q32      <- paste(first_part, species_first_char_big, species_rest
 ```
 
 ### With captures and perl extensions, both in one single line each:
-```
+```R
 reptile_names_q32 <- gsub(x           = reptile_names,
                           pattern     = "(^ID[0-9]+:[A-z]+ )([A-z])([a-z ]+$)",
                           replacement = "\\1\\U\\2\\L\\3",
@@ -202,7 +202,7 @@ The `replacement` in the `gsub()` above means: keep the first group (groups are 
 
 A less specific approach:
 
-```
+```R
 reptile_names_q32 <- gsub(x           = reptile_names, 
                           pattern     = "(^[A-z:0-9]+ )(.)(.+)$", 
                           replacement = "\\1\\U\\2\\L\\3", 

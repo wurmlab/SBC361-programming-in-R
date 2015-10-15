@@ -7,11 +7,13 @@ rev=$(git rev-parse --short HEAD)
 # RUN PANDOC and create HTML
 mkdir html
 for i in *md; do
-  pandoc -s $i -o html/${i%%md}html;
+  if [[ $i != 'README.md' ]]; then
+    pandoc -s $i -o html/${i%%md}html;
+  fi
 done
 
 cd html
-rm README.html
+
 git init
 
 

@@ -29,7 +29,8 @@ It is also worth keeping in mind that the R help is extremely good. Just put a q
 
 ## Variables
 A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing
-```
+
+```R
 x <- 5
 y <- 225
 ```
@@ -46,29 +47,35 @@ Finally some variable names are not allowed. Typing `?make.names` in the console
 ## Data classes
 There are several classes of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
 
-You will probably have met variables of class numeric (`x <- 5`) and character (`x <- ‘hello’`). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example
-```
+You will probably have met variables of class numeric (`x <- 5`) and character (`x <- ‘hello’`). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:
+
+```R
 x <- TRUE
 ```
+
 or false, for example
-```
+
+```R
 x <- FALSE
 ```
 
 Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read "logical" (keep in mind that R is case-sensitive, i.e. x <- false will throw an error). However, this is not the way that logical variables tend to be used in programming. More often than not we arrive at a logical variable through a particular type of calculation, called a logical expression. You can think of a logical expression as a statement that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code
 
-```
+```R
 5 > 4
 ```
 
 This statement is clearly true and accordingly R returns a value `TRUE`. The statement
-```
+
+```R
 5 < 4
 ```
 on the other hand, returns the value `FALSE`. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example
-```
+
+```R
 x <- (5 > 4)
 ```
+
 You can read this to mean "the variable x is assigned the outcome of the logical expression 5 > 4". In this particular example the variable x will be assigned the logical value `TRUE`. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.
 
 The main logical operators that you should be familiar with are the following:
@@ -83,22 +90,27 @@ The main logical operators that you should be familiar with are the following:
 Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.
 
 We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written `&` (keyboard shortcut Shift+7), while the "or" command is written `|` (keyboard shortcut Shift+\ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression
-```
+
+```R
 (x > 5) & (x <= 10)
 ```
 can be read "x is greater than five, and x is less than or equal to ten". Similarly, the expression
-```
+
+```R
 (x < 6) | (x == 12)
 ```
+
 can be read "x is less than six, or x is equal to twelve". By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.
 
 
 **A short note on classes:**
 
 It's easy to get numeric and character data confused. For example, in `x <- "blue"`, `x` is of class "character", while in `x <- 4`, `x` is of class "numeric". The problem comes if you type:
-```
+
+```R
 x <- "4"
 ```
+
 In this case `x` is of class "character" because of the quotation marks. Try typing `class(x)` if you are confused. You can also type `is.numeric(x)` and `is.character(x)`.
 
 
@@ -127,7 +139,8 @@ In this case `x` is of class "character" because of the quotation marks. Try typ
 ## Types of Objects
 ### Scalars and vectors
 Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. `x <- 3`). Another very common type of object is the *vector*, which is an object containing several elements:
-```
+
+```R
 numeric_vec   <- c(1, 1, 2, 3, 5, 8)   # c is a function for combining values into a vector or list.
 seq_vec1      <- 5:10
 seq_vec2      <- seq(from = 0, to = 10, by = 0.25)
@@ -135,6 +148,7 @@ rep_vec       <- rep(x = 2, times = 12)
 character_vec <- c("How", "Now", "Brown", "Cow")
 logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 ```
+
 As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). You can also use vectors to access a set of elements (e.g. `x[1:5]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 #### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
@@ -144,15 +158,19 @@ As you know by now, R is good at manipulating these vectors, with easy ways of a
 #### Q7. How would you retrieve just the 8th, 13th and 21st elements of `seq_vec2`?
 
 Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing
-```
+
+```R
 numeric_vec_squared <- numeric_vec^2
 ```
+
 in the console. You will find that `numeric_vec_squared` contains values taken from `numeric_vec`, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as `numeric_vec > 3`.
 
 You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing
-```
+
+```R
 combined_vec1 <- numeric_vec*seq_vec1
 ```
+
 You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec1`
 
 #### Q8. Try evaluating `combined_vec2 <- numeric_vec*seq_vec2` in the console. What happens? Why?
@@ -169,28 +187,33 @@ Another major type of object in R is the matrix. A matrix is simply a rectangula
 #### Q13. What happens when you evaluate `rbind(numeric_vec, rep_vec)`? Why?
 
 You can also create matrices directly in a number of different ways:
-```
+
+```R
 mat1 <- matrix(data = 1:24, nrow = 6, ncol = 4)
 mat2 <- matrix(data = 1:24, nrow = 6, ncol = 4, byrow = T)
 mat3 <- diag(x = 5, nrow = 3, ncol = 2)
 mat4 <- outer(X = 1:5, Y = 4:8)
 mat5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
+
 As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for row and another one for columns! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
 
 #### Q14. How do you retrieve the 2 column of `mat2`?
 
 You can perform simple calculations on matrices, in which case the calculation applies to each element separately:
-```
+
+```R
 (mat3 + 2)*2
 ```
 You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible
-```
+
+```R
 (mat3*100) + mat4
 ```
 
 Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:
-```
+
+```R
 (mat1 > 10)
 ```
 
@@ -203,25 +226,30 @@ There are a number of useful functions that can be applied to matrices. Have a l
 Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.
 
 #### Q15. The variable `mat1` describes a matrix produced by the following code:
-```
+
+```R
 mat1 <- matrix(data = 1:50, nrow = 10, ncol = 5)
 ```
+
 What number would we expect to see when we evaluate `mat1[1, 2]` (try to answer this without evaluating the code!)? Why not a different number?
 
 #### Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?
-```
+
+```R
 mat1[2, 4]
 mat1(, (2, 4))
 mat1[c(2, 4), ]
 mat1[, c(2, 4)]
 ```
+
 #### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
 A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1, 1]`). While you can get to specific columns using an index (`puromycin_data[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
 Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:
-```
+
+```R
 puromycin_data$rate
 class(puromycin_data$rate)
 levels(puromycin_data$rate)
@@ -230,27 +258,33 @@ as.character(puromycin_data$rate)
 
 ### Lists
 The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:
-```
+
+```R
 my_list <- list(A = c(1, 2, 3), B = c(5, 6, 7, 8, 9, 10), D = c('G', 'H'))
 ```
+
 Again, we can access elements from the list using their index. However, using a single bracket `[]` will return a list (`my_list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my_list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
 There are other types of data in R, with many being specific to particular libraries.
 
 ## Subsetting a data frame
 We have already come across one way of subsetting through the use of square brackets. By typing, for example,
-```
+
+```R
 puromycin_data <- Puromycin
 puromycin_data[1:3, ]
 puromycin_data[, 2]
 ```
+
 we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign `$` to get a specific column:
-```
+
+```R
 puromycin_data$rate
 ```
 
 We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:
-```
+
+```R
 #returns TRUE or FALSE
 puromycin_data$rate < 100
 #returns which elements are TRUE
@@ -258,14 +292,16 @@ which(puromycin_data$rate < 100)
 ```
 
 We can use the subset function to select the rows for which the statement is TRUE:
-```
+
+```R
 # returns all the columns, but only the rows for which
 # puromycin_data$rate < 100 is TRUE
 puromycin_sub <- subset(puromycin_data, rate < 100)
 ```
 
 We could subset by the "state" column:
-```
+
+```R
 puromycin_treated <- subset(puromycin_data, subset = state == "treated")
 ```
 
@@ -285,7 +321,7 @@ Keep your code clean and tidy by making use of comments and white space and resp
 
 The following two examples make this point clear. Both programs do exactly the same thing, but one will make sense one year from now, and the other will not!
 
-```
+```R
 Example 1
 boooom <-0.01
 blah2          =0.005
@@ -295,7 +331,7 @@ tadayeahmanfunky<-100*exp(bigblah*10)
 tadayeahmanfunky
 ```
 
-```
+```R
 Example 2
 
 #--------------------------------
@@ -337,11 +373,14 @@ The layout and design of the program are much more important than the calculatio
 ## Regular Expressions (New stuff!)
 
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
+
 ```R
 reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
 ```
+
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code
-```
+
+```R
 reptile_names <- row.names(reptile_data)
 ```
 
@@ -351,7 +390,8 @@ The tools that allow us to deal with this sort of problem fall under the heading
 
 ### Basic find and replace
 First of all we will search through the vector reptile_names to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
-```
+
+```R
 # Search through reptile_names for the word "liopholis", and output positions
 grep(pattern = "liopholis", x = reptile_names)
 ```
@@ -359,7 +399,8 @@ grep(pattern = "liopholis", x = reptile_names)
 The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `reptile_names` that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!
 
 Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = T` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
-```
+
+```R
 # Search through reptile_names for the word "liopholis", and output names
 grep(pattern = "liopholis", x = reptile_names, value = T)
 ```
@@ -368,7 +409,7 @@ Now we find that the output contains the actual elements of the vector that matc
 
 Finally, we may want to find and replace the pattern. This can be done using the function `gsub()`. The function `gsub()` takes arguments `pattern` and `x`, just like the function `grep()`, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the `reptile_data` the word "liopholis" is a genus name, and so should be capitalized. Thus, we want to replace the word "liopholis" with "Liopholis", as follows:
 
-```
+```R
 # Search through reptile_names for the word "liopholis" and replace with the word "Liopholis."
 reptile_names2 <- gsub(pattern = "liopholis", replacement = "Liopholis", x = reptile_names)
 ```
@@ -408,7 +449,8 @@ These special characters can be used on their own, or in combination with one an
 Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.
 
 As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:
-```
+
+```R
 reptile_names3 <- gsub(pattern = ".*:", replacement = "", x = reptile_names2)
 ```
 Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
@@ -434,7 +476,8 @@ Hint - look into the help page of “gsub”, especially the explanation for the
 
 ## Data input from files
 Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download  [longevity_genes/longevity.csv](http://genomics.senescence.info/longevity/longevity_genes.zip) and [TableS2.xls](http://genomics.senescence.info/diet/TableS2.xls) and try loading them into R.
-```
+
+```R
 longevity_genes_data  <- read.csv("input location/longevity.csv")     
 longevity_genes_data  <- read.csv(file.choose())                    # to choose the file
 # try to figure out how to import Excel spreadsheets into R,
@@ -446,7 +489,8 @@ read.delim("input location/file name.txt")
 
 ## Setting the working directory
 Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you.
-```
+
+```R
 # set the working directory
 setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options
 # get all the file names in the current directory
@@ -457,7 +501,8 @@ getwd()
 
 ## Data output into various formats
 Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).
-```
+
+```R
 # write a new subsetted data frame (create this using your previous skills) into a CSV file
 write.csv(your subsetted data frame, file = "output location/file name.csv")
 # import your subsetted data frame into Excel

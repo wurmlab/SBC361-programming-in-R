@@ -1,3 +1,9 @@
+# Computing in R - Questions 31 and 32 - Practical 1
+
+## SBC361: Research Methods and Communication - October 2015
+
+
+
 What follow are some ideas of how to answer those last few questions the first practical session. Remember that there are dozens of manners of answering a question, and no single one is best. We provide a few possibilities for each. Other ideas that we may not have listed are perfectly valid as well!
 
 As a general rule, it can be better to be more specific, but in a real life situation you would want to include some sort of automated verification that your code is performing as you intend (in particular when you move on to larger datasets for which it is hard to have an overview). 

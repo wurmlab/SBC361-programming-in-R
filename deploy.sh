@@ -12,6 +12,8 @@ for i in *md; do
   fi
 done
 
+cp theme.css html/theme.css
+
 cd html
 
 git init

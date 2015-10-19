@@ -93,8 +93,18 @@ Another neat thing that we can do is set default values for our arguments. Have 
 #### Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
 
 * take a distance in kilometres and a time in minutes as input.
-* convert the distance into miles and the time into hours. It should then calculate a speed in miles per hour.
+* convert the distance into miles and the time into hours (you won't be able to use the `timeConverter()` function here). 
+* calculate a speed in miles per hour.
 * return the speed in miles per hour as output.
+
+Test your function with the following values:
+
+Distance | Time 
+---------|------
+10 |60
+10 |90
+100 |150
+100 |175
 
 All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
 
@@ -149,13 +159,13 @@ More often than not, you will not want to just print the loop results. Instead, 
 ## Vector to loop through
 practical_attribute_vec <- c("great", "boring", "very long", "informative", "fun")
 
-## Empty vector to keep loop results
+## Empty vector to store the loop results in
 phrase_vec <- c()
 
 for (practical_attribute in practical_attribute_vec) {
  	phrase     <- paste("This practical is", practical_attribute, collapse = " ")
  	# Add the loop result to end of the vector of results
- 	phrase_vec <- c(phrase_vec, phrase)
+ 	phrase_vec <- append(phrase_vec, phrase)
 }
 ```
 
@@ -166,7 +176,7 @@ A different way of approaching a for loop is to loop through the indexes of a ve
 practical_attribute_vec <- c("great", "boring", "very long", "informative", "here")
 
 ## Empty vector to keep loop results
-phrase_vec <- rep(NA, length(practical_attribute_vec))
+phrase_vec <- rep("", times = length(practical_attribute_vec))
 
 ## Loop through the index rather than the vector
 for (index in 1:length(practical_attribute_vec)) {
@@ -184,7 +194,7 @@ for (index in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the *index* of the loop each time through (i.e. the numbers 1 to 91).
+#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index as well as the value of the loop each time through in human-readable format (i.e. "Index 1 is 10", "Index 2 is 11", "Index 3 is 12", and so on).
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and store the results in a separate vector. What's the number in the 20th iteration?
 
@@ -192,9 +202,9 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q9-B. Make the loop from Q9-A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
-#### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate your function to convert kilometres into miles on the indexed value and store it in a separate vector.
+#### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time around run your function to convert kilometres into miles on the indexed value and store the result in a separate vector.
 
-#### Q11. Write a loop that calculates the product of all numbers from 1 to 10 (there is a special function for that in R) and then subtracts the numbers 1 to 10 in turn, i.e.  (product)-1, then (product)-2, followed by (product)-3…  etc).
+#### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Use a starting population of 1000 (i.e. `pop <- 1000`) and the following vector containing the reproduction rate: `reproduction_rate <- runif(20, 0.5, 1.5)`. You will loop through this vector and change the value of `pop` each time through. Create a second output vector to store the value of `pop` for each iteration of the loop. Plot this value against each year (simply the numbers 1 to 20 will do).
 
 ### Nested Loops
 
@@ -238,7 +248,7 @@ We want to get this data into a new format - sometimes called long format - in w
 |1 |5 |57 |
 |2 |0 |10 |
 |2 |1 |27 |
-...
+|...|...|...|
 
 We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
@@ -262,7 +272,7 @@ Here we are using loops to index through each of the rows of the matrix `heliant
 
 Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index 'my_row' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'my_col', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
+#### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `my_row` and `my_col` when `my_index` is 3? Add a line to check the indices each time through.
 
 It should look something like this:
 
@@ -278,9 +288,7 @@ for (my_row in 1:5) {
     ## Change my_index here:
     # make my_index equal to my_index plus one
 
-    # If you want to check what you are doing so far,
-    # remove the comment from the following line:
-    # print(c(my_index, my_row, my_col))
+    # Print all the indices here to check that you are doing the right thing
   }
 }
 ```
@@ -307,47 +315,16 @@ long_data[my_index, 1] <- helianthus_data[my_row, 1]
 ```
 
 #### Q14-C. Bring all of this together to finish the for loop, and run it!
-
-It should look something like this:
+To check what you've done, you can print the start and end of long_data:
 
 ```R
-
-helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
-
-# Create an empty matrix
-long_data           <- matrix(0, nrow = 30, ncol = 3)
-colnames(long_data) <- c("Strain", "Time", "Count")
-
-# my_index defined as 0 before the loop starts
-my_index <- 0
-
-# Loop through all rows
-for (my_row in 1:5) {
-  # Loop through all columns except the first
-  for (my_col in 2:7) {
-
-    ## Change my_index here:
-    # make my_index equal to my_index plus one
-
-    ## Populate the long_data matrix
-    long_data[my_index, 1] <- helianthus_data[my_row, 1] # Add Strain
-    long_data[my_index, 2] <- # Add Time
-    long_data[my_index, 3] <- # Add Count
-
-    # If you want to check what you are doing so far,
-    # remove the comment from the following line:
-    # print(long_data[my_index, ])
-  }
-}
-
-# To check what you've done, you can print the start and end of long_data
 head(long_data)
 tail(long_data)
 ```
 
 ## Working with DNA data
 
-#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:
+#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into triplets. You will need to:
 
   1. replace T with U  (thymine with uracil to convert DNA to RNA)
   2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`

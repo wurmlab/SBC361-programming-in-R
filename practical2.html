@@ -167,9 +167,17 @@ for (index in <span class="dv">1</span>:<span class="kw">length</span>(practical
 <p>|Strain | Time | Count| |-------|------|------| |1 |0 |12 | |1 |1 |33 | |1 |2 |71 | |1 |3 |61 | |1 |4 |73 | |1 |5 |57 | |2 |0 |10 | |2 |1 |27 | ...</p>
 <p>We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.</p>
 <h4 id="q14-a.-create-an-empty-matrix-called-long_data.-this-matrix-must-have-3-columns-and-30-rows-the-number-30-comes-from-the-fact-that-we-have-five-strains-at-six-time-points-each.-name-the-columns-cstrain-time-count.">Q14-A. Create an empty matrix, called <code>long_data</code>. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns <code>c(&quot;Strain&quot;, &quot;Time&quot;, &quot;Count&quot;)</code>.</h4>
-<p>With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows: ```R # Loop through all rows of helianthus_data for (my_row in 1:5) { # Loop through all columns of helianthus_data except the first for (my_col in 2:7) {</p>
-<pre><code># This is where the main code goes (populating long_data with values).</code></pre>
-<p>} } ``<code>Here we are using loops to index through each of the rows of the matrix</code>helianthus_data<code>, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by</code>helianthus_data[my_row, my_col]`.</p>
+<p>With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Loop through all rows of helianthus_data</span>
+for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
+  <span class="co"># Loop through all columns of helianthus_data except the first</span>
+  for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {
+
+    <span class="co"># This is where the main code goes (populating long_data with values).</span>
+
+  }
+}</code></pre>
+<p>Here we are using loops to index through each of the rows of the matrix <code>helianthus_data</code>, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by <code>helianthus_data[my_row, my_col]</code>.</p>
 <p>Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix <code>long_data</code>. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix <code>long_data</code>? We cannot use the index 'my_row' to help us, as this only goes through values <code>1:5</code>. Similarly, we cannot use the index 'my_col', as this only goes through values <code>2:7</code>. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.</p>
 <h4 id="q14-b.-change-the-for-loop-above-to-include-a-variable-my_index.-this-variable-should-be-defined-as-being-0-before-the-loop-starts.-at-every-iteration-of-the-inner-loop-you-should-add-1-to-it.">Q14-B. Change the for loop above to include a variable <code>my_index</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.</h4>
 <p>It should look something like this: ```R # my_index defined as 1 before the loop starts my_index &lt;- 0</p>

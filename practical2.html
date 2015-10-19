@@ -268,7 +268,14 @@ for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
 <h4 id="q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
 <h4 id="q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
 <p>You can use this sequence: <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
-<p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to: * replace bases with their complement (look up the <code>chartr()</code> function) * split the string of DNA bases into separate characters with <code>strsplit</code>. Note that <code>strsplit</code> returns a list, so you will need to use <code>unlist()</code> to obtain a string again * reverse the sequence * remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function) * return the reverse-complement sequence</p>
+<p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
+<ul>
+<li>replace bases with their complement (look up the <code>chartr()</code> function)</li>
+<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Note that <code>strsplit</code> returns a list, so you will need to use <code>unlist()</code> to obtain a string again</li>
+<li>reverse the sequence</li>
+<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function)</li>
+<li>return the reverse-complement sequence</li>
+</ul>
 <h4 id="q17.-mastermind-question.-translate-your-triplet-string-from-q15-into-amino-acids.">Q17. (Mastermind question). Translate your triplet string from Q15 into amino acids.</h4>
 <p>Note: depending on your method, you may not need to convert it to RNA first. You can use a codon-to-amino-acid table and code the translation yourself. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.</p>
 <h2 id="bringing-it-all-together">Bringing it all together</h2>

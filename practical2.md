@@ -9,7 +9,9 @@ In this session we will build on some of the skills learned in the previous prac
 To get your brains warmed up, here a a few questions on the material from last week (try to think of the answer before evaluating the R code):
 
 #### Intro Q1. What would be the outcome of the code `my_matrix <- diag(5)`? And what would then be the outcome of the code `colSums(my_matrix)`?
+
 #### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is between 1 and 2. What is the average (mean) growth rate for this subset?
+
 #### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 
 ## Functions
@@ -17,10 +19,12 @@ To get your brains warmed up, here a a few questions on the material from last w
 Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it.
 
 To take a self-explanatory example:
+
 ```R
 x      <- c(2, 3, 4, 5)
 x_mean <- mean(x)
 ```
+
 We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 
 ```R
@@ -64,6 +68,7 @@ output_vec
 #### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly equal to 0.62 miles). Remember to clearly annotate your code and make appropriate use of white spaces.
 
 ### More complex functions
+
 Hopefully you can already see how functions can be very useful things. We can make them even more useful by considering some simple extensions.
 
 First, you can define multiple arguments to a function, with the general syntax of a function being:
@@ -93,7 +98,6 @@ Another neat thing that we can do is set default values for our arguments. Have 
 
 All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
 
-
 ## Loops
 Imagine you need to run the function `timeConverter()` on different numbers. You could type `timeConverter()` many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
 
@@ -106,8 +110,8 @@ for (seconds in c(1000, 2000, 3000)) {
   print(time_in_hours)
 }
 ```
-The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000, 2000, 3000)`. It will compute a new time in hours and print it for every number in the vector.
 
+The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000, 2000, 3000)`. It will compute a new time in hours and print it for every number in the vector.
 
 ### Slightly more complex loops
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:
@@ -195,6 +199,7 @@ Once you are comfortable with loops, have a go at the following tasks:
 ### Nested Loops
 
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
+
 ```R
 for (i in 1:5) {
   for (j in 7:9) {
@@ -214,6 +219,7 @@ Here we have one loop (with index j) nested within another loop (with index i). 
 Loops tend to be particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
+
 ```R
 helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
 ```
@@ -259,6 +265,7 @@ Hopefully you can already see that these are the exact values we want to drop in
 #### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.
 
 It should look something like this:
+
 ```R
 # my_index defined as 1 before the loop starts
 my_index <- 0
@@ -279,24 +286,30 @@ for (my_row in 1:5) {
 ```
 
 Now that we have three indices - one going through the rows of `helianthus_data`, one going through the columns of `helianthus_data`, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix `long_data`. The code we need at each iteration of the loop is the following:
+
 ```R
 # Get Count
 long_data[my_index, 3] <- helianthus_data[my_row, my_col]
 ```
 
 This is fairly straightforward. We also want to drop the time point in the second column of `long_data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
+
 ```R
 # Get Time
 long_data[my_index, 2] <- my_col - 2
 ```
 
 Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[my_row, 1]`. Therefore, we need the following line of code to extract the strain types:
+
 ```R
 # Get Strain
 long_data[my_index, 1] <- helianthus_data[my_row, 1]
 ```
+
 #### Q14-C. Bring all of this together to finish the for loop, and run it!
+
 It should look something like this:
+
 ```R
 
 helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
@@ -343,13 +356,13 @@ tail(long_data)
 Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
 
 As an example:
+
 ```R
 dna_string <- c("AAATTT")
 substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```
 
 #### Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
-
 
 #### Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
 

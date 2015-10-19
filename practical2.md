@@ -8,9 +8,9 @@ In this session we will build on some of the skills learned in the previous prac
 
 To get your brains warmed up, here a a few questions on the material from last week (try to think of the answer before evaluating the R code):
 
-#### Intro Q1. What would be the outcome of the code `my_matrix <- diag(5)`? And what would then be the outcome of the code `colSums(my_matrix)`?
+#### Intro Q1. What would be the outcome of the code `answer <- rep(x=c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
-#### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is between 1 and 2. What is the average (mean) growth rate for this subset?
+#### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) growth rate for this subset? ####
 
 #### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 
@@ -28,22 +28,22 @@ x_mean <- mean(x)
 We just used the `mean()` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:
 
 ```R
-## Define function named 'myMean'
+## Define function named 'my_mean'
 
-myMean <- function(my_vector) {
+my_mean <- function(my_vector) {
   ## Calculate the mean
-  my_mean <- sum(my_vector) / length(my_vector)
+  calculated_mean <- sum(my_vector) / length(my_vector)
 
   ## Return the calculated mean
-  return(my_mean)
+  return(calculated_mean)
 }
 
 ## Now call the function on some data:
 x      <- c(2, 3, 4, 5)
-x_mean <- myMean(x)
+x_mean <- my_mean(x)
 ```
 
-The syntax `functionName <- function(parameter) {code}` is the most common way of defining a function. Remember to add the `return()` bit, otherwise the function will compute the code but it won't return anything!
+The syntax `function_name <- function(parameter) {code}` is the most common way of defining a function. Remember to add the `return()` bit, otherwise the function will compute the code but it won't return anything!
 
 Now take a look at the following code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):
 
@@ -63,37 +63,37 @@ output_vec <- c(hours, minutes, seconds)
 output_vec
 ```
 
-#### Q1. Modify the code above to make it into a function called `timeConverter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.
+#### Q1. Modify the code above to make it into a function called `time_converter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.
 
-#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly equal to 0.62 miles). Remember to clearly annotate your code and make appropriate use of white spaces.
+#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.621371 miles). Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines. ####
 
 ### More complex functions
 
-Hopefully you can already see how functions can be very useful things. We can make them even more useful by considering some simple extensions.
+Hopefully you can already see how functions can be useful. We can make them even more useful by considering some simple extensions.
 
 First, you can define multiple arguments to a function, with the general syntax of a function being:
 
 ```R
-myFunction <- function(argument1, argument2, ...) {
+my_function <- function(argument1, argument2, ...) {
     #code including argument1, argument2, ...
 }
 ```
 
-#### Q3. To understand how a function can have multiple arguments, modify the function `timeConverter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional_hours`) and add it to the `hours` variable (think carefully about where to add this!).
+#### Q3. To understand how a function can have multiple arguments, modify the function `time_converter()` so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it `additional_hours`) and add it to the `hours` variable (think carefully about where to add this!).
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical.
 
 #### Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
 
 #### Extra arguments:
-Another neat thing that we can do is set default values for our arguments. Have another look at the `timeConverter()` function you modified in Q1. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
+Another neat thing that we can do is set default values for our arguments. Have another look at the `time_converter()` function you modified in Q1. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
 
-#### Q5. Make the `additional_hours` be defined as 0 by default in the `timeConverter()` function. Run it without defining `additional_hours` and defining it to different number of seconds.
+#### Q5. Make the `additional_hours` be defined as 0 by default in the `time_converter()` function. Run the function without defining `additional_hours`. Now run it again with "0" explicit additional hours. Do the same with 3, 24, and 1.1". 
 
 #### Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
 
 * take a distance in kilometres and a time in minutes as input.
-* convert the distance into miles and the time into hours (you won't be able to use the `timeConverter()` function here). 
+* convert the distance into miles and the time into hours (you won't be able to use the `time_converter()` function here). 
 * calculate a speed in miles per hour.
 * return the speed in miles per hour as output.
 
@@ -109,14 +109,14 @@ Distance | Time
 All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
 
 ## Loops
-Imagine you need to run the function `timeConverter()` on different numbers. You could type `timeConverter()` many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
+Imagine you need to run the function `time_converter()` on different numbers. You could type `time_converter()` many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
 
 Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:
 
 ```R
 ## For loop exmaple
 for (seconds in c(1000, 2000, 3000)) {
-  time_in_hours <- timeConverter(number_of_seconds = seconds)
+  time_in_hours <- time_converter(number_of_seconds = seconds)
   print(time_in_hours)
 }
 ```
@@ -139,25 +139,25 @@ for (value in 1:50) {
 }
 
 ## Sequential loop values
-loop_values <- c(15, 5, 2.3, 100, 16)
-for (value in loop_values) {
-  print(value)
+my_favorite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
+for (value in my_favorite_numbers) {
+  print(paste(value, " is my favorite number"))
 }
 
 ## Character based loop values
-loop_text <- c("Hey", "Hi", "Hello")
-for (word in loop_text) {
+greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy", "Yooooo!", "Wassup", "What's shakin?", "yello!", "Greetings",  "Dude, wake up!")
+for (word in greetings) {
   print(word)
 }
 ```
 
 ### Storing loop results
 
-More often than not, you will not want to just print the loop results. Instead, you may want to keep them in a separate variable. Check the following example. What's the result from the 4th iteration?
+You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does "phrase_vec" look like after the 4th iteration?
 
 ```R
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long", "informative", "fun")
+practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
 ## Empty vector to store the loop results in
 phrase_vec <- c()
@@ -196,19 +196,19 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index as well as the value of the loop each time through in human-readable format (i.e. "Index 1 is 10", "Index 2 is 11", "Index 3 is 12", and so on).
 
-#### Q8. Write a loop that iterates over the numbers 10 to 100 and store the results in a separate vector. What's the number in the 20th iteration?
+#### Q8. Write a loop that iterates over the numbers 10 to 100 and stores the results in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
-#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function).
+#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this. 
 
-#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `sq_root_vec` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
 #### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time around run your function to convert kilometres into miles on the indexed value and store the result in a separate vector.
 
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop and in a separate vector. 
 
-* Use a starting population of 1000.
-* Create a vector containing the reproduction rate: `reproduction_rate <- runif(20, 0.5, 1.5)`.
-* Loop through the reproduction rate vector and update the population value accordingly.
+* Use a starting population size of 1000.
+* Create a vector containing the reproduction rate for each year: `reproduction_rate <- rnorm(20, mean=1, sd=.2)`.
+* Loop through the reproduction rate vector and update the population size value accordingly.
 * Store each year's population and plot or just print it against the year (1-20).
 
 ### Nested Loops
@@ -223,15 +223,17 @@ for (i in 1:5) {
 }
 ```
 
-Here we have one loop (with index j) nested within another loop (with index i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
+Here we have one loop (with index j) nested within another loop (with index i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
 #### Q12. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).
 
 #### Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
 
+(if you're short of ideas, you could for example add `practical_attribute_vec` qualifiers to Q12...
+
 ### Using loops to reformat a data set
 
-Loops tend to be particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.
+Loops are particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
@@ -241,7 +243,7 @@ helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
 
-We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:
+We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using `ggplot` (and many analysis packages) require long format. The first few lines of this new data structure should look like this:
 
 |Strain | Time | Count|
 |-------|------|------|
@@ -327,13 +329,15 @@ head(long_data)
 tail(long_data)
 ```
 
+#### Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?
+
 ## Working with DNA data
 
-#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into triplets. You will need to:
+#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
 
   1. replace T with U  (thymine with uracil to convert DNA to RNA)
   2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
-  3. return the RNA triplets string
+  3. return a vector containing the RNA codon strings
 
 Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
 
@@ -352,17 +356,18 @@ You can use this sequence: `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example
 
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
 
-* replace bases with their complement (look up the `chartr()` function)
-* split the string of DNA bases into separate characters with `strsplit`. Note that `strsplit` returns a list, so you will need to use `unlist()` to obtain a string again
+* replace bases with their complement (you can use `gsub`, judiciously replacing uppercase characters with lowercase characters (or vice-versa)). 
+* split the string of DNA bases into separate characters with `strsplit`. Unfortunately, `strsplit` confusingly returns a list, so you will need to use `unlist()` to obtain a string again
 * reverse the sequence
 * remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function)
 * return the reverse-complement sequence
 
 #### Q17. (Mastermind question). Translate your triplet string from Q15 into amino acids.
-Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.
+Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.
 
 ## Bringing it all together
 
 Well done for making it this far! Now try to bring all of your knowledge together. Have another look over your previous notes and make sure these ideas are still fresh in your mind. Have a go at writing your own scripts, preferably combining a number of different concepts (for example, you could try making a function that acts on a matrix and then using this function within a loop). Another good idea would be to come up with a problem that you want to solve (either for fun or for other coursework) and then write a function that solves it.
 
 Many of the ideas presented in this and the last session are designed to challenge you. Do not expect to understand them from a single read through the material. Rather, you will have to play around with many different examples and applications before the penny drops completely. On the plus side, structures such as loops and functions are common to almost all programming languages, and so once you understand these concepts the world of programming is your oyster!
+

@@ -37,7 +37,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h4 id="intro-q3.-what-is-the-regular-expression-that-corresponds-to-one-or-more-copies-of-the-letter-e-followed-by-one-or-more-copies-of-the-letter-z">Intro Q3. What is the regular expression that corresponds to one or more copies of the letter &quot;e&quot;, followed by one or more copies of the letter &quot;z&quot;?</h4>
 <h2 id="functions">Functions</h2>
 <p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it.</p>
-<p>To take a self-explanatory example: <code>R x      &lt;- c(2, 3, 4, 5) x_mean &lt;- mean(x)</code> We just used the <code>mean()</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:</p>
+<p>To take a self-explanatory example:</p>
+<pre class="sourceCode R"><code class="sourceCode r">x      &lt;- <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+x_mean &lt;- <span class="kw">mean</span>(x)</code></pre>
+<p>We just used the <code>mean()</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;myMean&#39;
 
 myMean &lt;- function(my_vector) {
@@ -90,7 +93,12 @@ output_vec</code></pre>
 <h2 id="loops">Loops</h2>
 <p>Imagine you need to run the function <code>timeConverter()</code> on different numbers. You could type <code>timeConverter()</code> many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
-<p><code>R ## For loop exmaple for (seconds in c(1000, 2000, 3000)) {   time_in_hours &lt;- timeConverter(number_of_seconds = seconds)   print(time_in_hours) }</code> The loop will run 3 times. Each time, it will define the variable <code>seconds</code> as a different number from the vector <code>(1000, 2000, 3000)</code>. It will compute a new time in hours and print it for every number in the vector.</p>
+<pre class="sourceCode R"><code class="sourceCode r">## For loop exmaple
+for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {
+  time_in_hours &lt;- <span class="kw">timeConverter</span>(<span class="dt">number_of_seconds =</span> seconds)
+  <span class="kw">print</span>(time_in_hours)
+}</code></pre>
+<p>The loop will run 3 times. Each time, it will define the variable <code>seconds</code> as a different number from the vector <code>(1000, 2000, 3000)</code>. It will compute a new time in hours and print it for every number in the vector.</p>
 <h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Non-sequential loop values
@@ -155,13 +163,19 @@ for (index in <span class="dv">1</span>:<span class="kw">length</span>(practical
 <h4 id="q10.-write-a-loop-that-iterates-over-all-even-numbers-between-30-and-90.-each-time-round-evaluate-your-function-to-convert-kilometres-into-miles-on-the-indexed-value-and-store-it-in-a-separate-vector.">Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time round evaluate your function to convert kilometres into miles on the indexed value and store it in a separate vector.</h4>
 <h4 id="q11.-write-a-loop-that-calculates-the-product-of-all-numbers-from-1-to-10-there-is-a-special-function-for-that-in-r-and-then-subtracts-the-numbers-1-to-10-in-turn-i.e.-product-1-then-product-2-followed-by-product-3-etc.">Q11. Write a loop that calculates the product of all numbers from 1 to 10 (there is a special function for that in R) and then subtracts the numbers 1 to 10 in turn, i.e. (product)-1, then (product)-2, followed by (product)-3… etc).</h4>
 <h3 id="nested-loops">Nested Loops</h3>
-<p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code: <code>R for (i in 1:5) {   for (j in 7:9) {     print(c(i, j))   } }</code></p>
+<p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
+<pre class="sourceCode R"><code class="sourceCode r">for (i in <span class="dv">1</span>:<span class="dv">5</span>) {
+  for (j in <span class="dv">7</span>:<span class="dv">9</span>) {
+    <span class="kw">print</span>(<span class="kw">c</span>(i, j))
+  }
+}</code></pre>
 <p>Here we have one loop (with index j) nested within another loop (with index i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!</p>
 <h4 id="q12.-create-a-nested-loop.-the-outer-loop-should-iterate-over-the-words-angry-lazy-and-happy.-the-inner-loop-should-iterate-over-the-words-birds-dogs-and-horses.-the-code-inside-the-inner-loop-should-print-out-a-vector-containing-the-values-of-both-loops-for-example-angry-and-birds-in-the-first-instance.">Q12. Create a nested loop. The outer loop should iterate over the words &quot;Angry&quot;, &quot;Lazy&quot;, and &quot;Happy&quot;. The inner loop should iterate over the words &quot;birds&quot;, &quot;dogs&quot;, and &quot;horses&quot;. The code inside the inner loop should print out a vector containing the values of both loops (for example &quot;Angry&quot; and &quot;birds&quot; in the first instance).</h4>
 <h4 id="q13.-write-a-third-degree-nested-loop-i.e.-a-loop-within-a-loop-within-a-loop.-be-careful-not-to-loop-over-too-many-values-or-you-will-crash-r">Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!</h4>
 <h3 id="using-loops-to-reformat-a-data-set">Using loops to reformat a data set</h3>
 <p>Loops tend to be particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.</p>
-<p>The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code: <code>R helianthus_data &lt;- as.matrix(read.table(&quot;http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt &quot;, header = T))</code></p>
+<p>The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:</p>
+<pre class="sourceCode R"><code class="sourceCode r">helianthus_data &lt;- <span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt &quot;</span>, <span class="dt">header =</span> T))</code></pre>
 <p>Each row in this data set represents a different strain of <em>Helianthus annuus</em> (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.</p>
 <p>We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. The first few lines of this new data structure should look like this:</p>
 <p>|Strain | Time | Count| |-------|------|------| |1 |0 |12 | |1 |1 |33 | |1 |2 |71 | |1 |3 |61 | |1 |4 |73 | |1 |5 |57 | |2 |0 |10 | |2 |1 |27 | ...</p>
@@ -180,40 +194,66 @@ for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
 <p>Here we are using loops to index through each of the rows of the matrix <code>helianthus_data</code>, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by <code>helianthus_data[my_row, my_col]</code>.</p>
 <p>Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix <code>long_data</code>. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix <code>long_data</code>? We cannot use the index 'my_row' to help us, as this only goes through values <code>1:5</code>. Similarly, we cannot use the index 'my_col', as this only goes through values <code>2:7</code>. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.</p>
 <h4 id="q14-b.-change-the-for-loop-above-to-include-a-variable-my_index.-this-variable-should-be-defined-as-being-0-before-the-loop-starts.-at-every-iteration-of-the-inner-loop-you-should-add-1-to-it.">Q14-B. Change the for loop above to include a variable <code>my_index</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it.</h4>
-<p>It should look something like this: ```R # my_index defined as 1 before the loop starts my_index &lt;- 0</p>
-<h1 id="loop-through-all-rows">Loop through all rows</h1>
-<p>for (my_row in 1:5) { # Loop through all columns except the first for (my_col in 2:7) {</p>
-<pre><code>## Change my_index here:
-# make my_index equal to my_index plus one
+<p>It should look something like this:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># my_index defined as 1 before the loop starts</span>
+my_index &lt;- <span class="dv">0</span>
 
-# If you want to check what you are doing so far,
-# remove the comment from the following line:
-# print(c(my_index, my_row, my_col))</code></pre>
-<p>} } ```</p>
-<p>Now that we have three indices - one going through the rows of <code>helianthus_data</code>, one going through the columns of <code>helianthus_data</code>, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix <code>long_data</code>. The code we need at each iteration of the loop is the following: <code>R # Get Count long_data[my_index, 3] &lt;- helianthus_data[my_row, my_col]</code></p>
-<p>This is fairly straightforward. We also want to drop the time point in the second column of <code>long_data</code>. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings: <code>R # Get Time long_data[my_index, 2] &lt;- my_col - 2</code></p>
-<p>Finally, we want to drop the strain type into the first column of <code>long_data</code>. The strain type is given by the first element in every row, meaning it is given by <code>helianthus_data[my_row, 1]</code>. Therefore, we need the following line of code to extract the strain types: <code>R # Get Strain long_data[my_index, 1] &lt;- helianthus_data[my_row, 1]</code> #### Q14-C. Bring all of this together to finish the for loop, and run it! It should look something like this: ```R</p>
-<p>helianthus_data &lt;- as.matrix(read.table(&quot;http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt &quot;, header = T))</p>
-<h1 id="create-an-empty-matrix">Create an empty matrix</h1>
-<p>long_data &lt;- matrix(0, nrow = 30, ncol = 3) colnames(long_data) &lt;- c(&quot;Strain&quot;, &quot;Time&quot;, &quot;Count&quot;)</p>
-<h1 id="my_index-defined-as-0-before-the-loop-starts">my_index defined as 0 before the loop starts</h1>
-<p>my_index &lt;- 0</p>
-<h1 id="loop-through-all-rows-1">Loop through all rows</h1>
-<p>for (my_row in 1:5) { # Loop through all columns except the first for (my_col in 2:7) {</p>
-<pre><code>## Change my_index here:
-# make my_index equal to my_index plus one
+<span class="co"># Loop through all rows</span>
+for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
+  <span class="co"># Loop through all columns except the first</span>
+  for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {
 
-## Populate the long_data matrix
-long_data[my_index, 1] &lt;- helianthus_data[my_row, 1] # Add Strain
-long_data[my_index, 2] &lt;- # Add Time
-long_data[my_index, 3] &lt;- # Add Count
+    ## Change my_index here:
+    <span class="co"># make my_index equal to my_index plus one</span>
 
-# If you want to check what you are doing so far,
-# remove the comment from the following line:
-# print(long_data[my_index, ])</code></pre>
-<p>} }</p>
-<h1 id="to-check-what-youve-done-you-can-print-the-start-and-end-of-long_data">To check what you've done, you can print the start and end of long_data</h1>
-<p>head(long_data) tail(long_data) ```</p>
+    <span class="co"># If you want to check what you are doing so far,</span>
+    <span class="co"># remove the comment from the following line:</span>
+    <span class="co"># print(c(my_index, my_row, my_col))</span>
+  }
+}</code></pre>
+<p>Now that we have three indices - one going through the rows of <code>helianthus_data</code>, one going through the columns of <code>helianthus_data</code>, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix <code>long_data</code>. The code we need at each iteration of the loop is the following:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Count</span>
+long_data[my_index, <span class="dv">3</span>] &lt;- helianthus_data[my_row, my_col]</code></pre>
+<p>This is fairly straightforward. We also want to drop the time point in the second column of <code>long_data</code>. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Time</span>
+long_data[my_index, <span class="dv">2</span>] &lt;- my_col - <span class="dv">2</span></code></pre>
+<p>Finally, we want to drop the strain type into the first column of <code>long_data</code>. The strain type is given by the first element in every row, meaning it is given by <code>helianthus_data[my_row, 1]</code>. Therefore, we need the following line of code to extract the strain types:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Strain</span>
+long_data[my_index, <span class="dv">1</span>] &lt;- helianthus_data[my_row, <span class="dv">1</span>]</code></pre>
+<h4 id="q14-c.-bring-all-of-this-together-to-finish-the-for-loop-and-run-it">Q14-C. Bring all of this together to finish the for loop, and run it!</h4>
+<p>It should look something like this:</p>
+<pre class="sourceCode R"><code class="sourceCode r">
+helianthus_data &lt;- <span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt &quot;</span>, <span class="dt">header =</span> T))
+
+<span class="co"># Create an empty matrix</span>
+long_data           &lt;- <span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow =</span> <span class="dv">30</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)
+<span class="kw">colnames</span>(long_data) &lt;- <span class="kw">c</span>(<span class="st">&quot;Strain&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Count&quot;</span>)
+
+<span class="co"># my_index defined as 0 before the loop starts</span>
+my_index &lt;- <span class="dv">0</span>
+
+<span class="co"># Loop through all rows</span>
+for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
+  <span class="co"># Loop through all columns except the first</span>
+  for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {
+
+    ## Change my_index here:
+    <span class="co"># make my_index equal to my_index plus one</span>
+
+    ## Populate the long_data matrix
+    long_data[my_index, <span class="dv">1</span>] &lt;- helianthus_data[my_row, <span class="dv">1</span>] <span class="co"># Add Strain</span>
+    long_data[my_index, <span class="dv">2</span>] &lt;- <span class="co"># Add Time</span>
+    long_data[my_index, <span class="dv">3</span>] &lt;- <span class="co"># Add Count</span>
+
+    <span class="co"># If you want to check what you are doing so far,</span>
+    <span class="co"># remove the comment from the following line:</span>
+    <span class="co"># print(long_data[my_index, ])</span>
+  }
+}
+
+<span class="co"># To check what you&#39;ve done, you can print the start and end of long_data</span>
+<span class="kw">head</span>(long_data)
+<span class="kw">tail</span>(long_data)</code></pre>
 <h2 id="working-with-dna-data">Working with DNA data</h2>
 <h4 id="q15-a.-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-e.g.-acctgtcatcatccc-to-rna-and-splits-the-string-into-triplets.-you-will-need-to">Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. 'ACCTGTCATCATCCC') to RNA and splits the string into triplets. You will need to:</h4>
 <ol style="list-style-type: decimal">
@@ -222,7 +262,9 @@ long_data[my_index, 3] &lt;- # Add Count
 <li>return the RNA triplets string</li>
 </ol>
 <p>Note <code>substring()</code> takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are. In <code>seq()</code> you will also indicate you want triplets.</p>
-<p>As an example: <code>R dna_string &lt;- c(&quot;AAATTT&quot;) substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))</code></p>
+<p>As an example:</p>
+<pre class="sourceCode R"><code class="sourceCode r">dna_string &lt;- <span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
+<span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
 <h4 id="q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
 <h4 id="q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
 <p>You can use this sequence: <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>

@@ -204,11 +204,12 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time around run your function to convert kilometres into miles on the indexed value and store the result in a separate vector.
 
-#### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Output the current population for each iteration of the loop and store it in a matrix against the year. 
-  1.Use a starting population of 1000 
-  2.Create a vector containing the reproduction rate: `reproduction_rate <- runif(20, 0.5, 1.5)`
-  3.Loop through the reproduction rate vector and update the population value accordingly
-  4.Store each 'years' population and create a matrix against the year (1-20)
+#### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop and in a separate vector. 
+
+* Use a starting population of 1000.
+* Create a vector containing the reproduction rate: `reproduction_rate <- runif(20, 0.5, 1.5)`.
+* Loop through the reproduction rate vector and update the population value accordingly.
+* Store each year's population and plot or just print it against the year (1-20).
 
 ### Nested Loops
 

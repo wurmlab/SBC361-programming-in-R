@@ -369,6 +369,7 @@ substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 You can use this sequence: `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
 
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
+
 * replace bases with their complement (look up the `chartr()` function)
 * split the string of DNA bases into separate characters with `strsplit`. Note that `strsplit` returns a list, so you will need to use `unlist()` to obtain a string again
 * reverse the sequence

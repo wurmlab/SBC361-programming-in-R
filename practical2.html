@@ -144,7 +144,7 @@ for (value in <span class="dv">1</span>:<span class="dv">50</span>) {
 ## Sequential loop values
 my_favourite_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">42</span>, <span class="fl">3.14</span>, <span class="dv">7</span>, <span class="dv">69</span>, <span class="fl">6.626e-34</span>, <span class="dv">1024</span>, <span class="dv">4</span>, <span class="fl">2.718281828</span>, <span class="dv">666</span> , <span class="fl">1.61803398</span>, <span class="dv">99</span>)
 for (value in my_favourite_numbers) {
-  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot; is my favourite number&quot;</span>))
+  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>))
 }
 
 ## Character based loop values
@@ -328,7 +328,7 @@ long_data[my_index, <span class="dv">1</span>] &lt;-<span class="st"> </span>hel
 <span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
 <h4 id="q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
 <h4 id="q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
-<p>You can use this sequence: <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
+<p>You can use this sequence (copy and paste it into R): <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
 <p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
 <ul>
 <li>replace bases with their complement (you can use <code>gsub</code>, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).<br /></li>

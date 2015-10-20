@@ -1,4 +1,6 @@
-install: sudo apt-get install pandoc
+install:
+  sudo apt-get update -qq
+  sudo apt-get install pandoc
 script: bash deploy.sh
 env:
   global:

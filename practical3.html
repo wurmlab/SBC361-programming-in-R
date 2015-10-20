@@ -5,7 +5,27 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <link rel="stylesheet" href="theme.css" type="text/css" />
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="public/theme.css" type="text/css" />
 </head>
 <body>
 <h1 id="computing-in-r---practical-3">Computing in R - Practical 3</h1>
@@ -34,17 +54,21 @@ CTAATGGATTTTTGAAT
 atgctaaactaa</code></pre>
 <h4 id="q4.-hacker-question.-instead-of-having-the-function-return-whether-your-sequence-contains-an-open-reading-frame-have-the-function-return-a-string-containing-the-open-reading-frame-if-there-is-one-and-null-if-there-is-not-you-will-need-to-look-up-if-statements.">Q4. (hacker question). Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up &quot;if statements&quot;).</h4>
 <h2 id="species-names">Species names</h2>
-<p>Run the following line of code to import the butterfly_sample data frame: <code>R butterfly_sample &lt;- read.table(&quot;http://yannick.poulet.org/teaching/2014sbc361/ButterflySample.csv&quot;,sep = &quot;,&quot;, header = T)</code> This data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.</p>
+<p>Run the following line of code to import the butterfly_sample data frame:</p>
+<pre class="sourceCode R"><code class="sourceCode r">butterfly_sample &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://yannick.poulet.org/teaching/2014sbc361/ButterflySample.csv&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</code></pre>
+<p>This data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.</p>
 <h4 id="q30-write-a-function-that-adds-a-new-column-in-the-data-frame-that-contains-the-correct-latin-species-name-for-each-record-in-the-data-frame-imported-below.">Q30 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.</h4>
-<p>You will also need to import the <code>butterfly_reference</code> data frame to help you do this: <code>R butterfly_reference &lt;- read.table(&quot;http://yannick.poulet.org/teaching/2014sbc361/ButterflyReference.csv&quot;,sep = &quot;,&quot;, header = T)</code> TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. <code>grep</code> and <code>gsub</code> both allow you to set an <code>ignore.case = T</code> option. Alternately, you could use the R commands <code>toupper()</code> and <code>tolower()</code>. Use the help pages to see how these work, which you can access by typing a question mark before the command - <code>?toupper</code>.</p>
+<p>You will also need to import the <code>butterfly_reference</code> data frame to help you do this:</p>
+<pre class="sourceCode R"><code class="sourceCode r">butterfly_reference &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://yannick.poulet.org/teaching/2014sbc361/ButterflyReference.csv&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</code></pre>
+<p>TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. <code>grep</code> and <code>gsub</code> both allow you to set an <code>ignore.case = T</code> option. Alternately, you could use the R commands <code>toupper()</code> and <code>tolower()</code>. Use the help pages to see how these work, which you can access by typing a question mark before the command - <code>?toupper</code>.</p>
 <h4 id="q31.-from-the-data-above-which-location-has-the-greatest-number-of-different-species">Q31. From the data above, which location has the greatest number of different species?</h4>
 <h4 id="q32.-which-genus-has-been-caught-the-greatest-number-of-times">Q32. Which genus has been caught the greatest number of times?</h4>
 <h2 id="exam-reminders">Exam Reminders</h2>
 <ul>
-<li>You will have to sit the exam on one of the university PCs.</li>
-<li>You will submit your answers through a Google form. Please do not use Internet Explorer for this. The form does not save as you fill in your answers, so please also save them in a text document or with screenshots so that you do not lose them if something goes wrong.</li>
-<li>Do not click ‘submit’ until you have filled in all of your answers on the form.</li>
-<li>You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.</li>
+<li>You will have to sit the exam on one of the university PCs.<br /></li>
+<li>You will submit your answers through a Google form. Please do not use Internet Explorer for this. The form does not save as you fill in your answers, so please also save them in a text document or with screenshots so that you do not lose them if something goes wrong.<br /></li>
+<li>Do not click ‘submit’ until you have filled in all of your answers on the form.<br /></li>
+<li>You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.<br /></li>
 <li>You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.</li>
 </ul>
 </body>

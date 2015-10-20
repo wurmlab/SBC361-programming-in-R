@@ -6,7 +6,7 @@ October 2015
 
 In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring **loops** and **functions**, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the help files and your own notes when exploring these new concepts.
 
-To get your brains warmed up, here a a few questions on the material from last week (try to think of the answer before evaluating the R code):
+To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before evaluating the R code):
 
 #### Intro Q1. What would be the outcome of the code `my_matrix <- diag(5)`? And what would then be the outcome of the code `colSums(my_matrix)`?
 

@@ -5,16 +5,13 @@ set -o errexit -o nounset
 rev=$(git rev-parse --short HEAD)
 
 # RUN PANDOC and create HTML
-mkdir html
 for i in *md; do
   if [[ $i != 'README.md' ]]; then
-    pandoc -f markdown_github -c theme.css -s $i -o html/${i%%md}html;
+    pandoc -f markdown_github -c public/theme.css -s $i -o public/${i%%md}html;
   fi
 done
 
-cp theme.css html/theme.css
-
-cd html
+cd public
 
 git init
 

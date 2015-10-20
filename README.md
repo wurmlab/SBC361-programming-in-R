@@ -4,6 +4,8 @@
 * [Practical 2](/practical2.md): functions and for loops
 * [Practical 3](/practical3.md): practice exercises
 
+Put any public file in the "public" folder.
+
 ## Logistics
 
 This is part of QMUL's SBC361 Research Methods and Communication course.

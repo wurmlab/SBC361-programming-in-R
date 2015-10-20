@@ -8,7 +8,7 @@ rev=$(git rev-parse --short HEAD)
 mkdir html
 for i in *md; do
   if [[ $i != 'README.md' ]]; then
-    pandoc -c theme.css -s $i -o html/${i%%md}html;
+    pandoc -f markdown_github -c theme.css -s $i -o html/${i%%md}html;
   fi
 done
 

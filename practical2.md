@@ -8,7 +8,7 @@ In this session we will build on some of the skills learned in the previous prac
 
 To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before evaluating the R code):
 
-#### Intro Q1. What would be the outcome of the code `answer <- rep(x=c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
+#### Intro Q1. What would be the outcome of the code `answer <- rep(x = c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
 #### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) growth rate for this subset? ####
 
@@ -139,9 +139,9 @@ for (value in 1:50) {
 }
 
 ## Sequential loop values
-my_favorite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
-for (value in my_favorite_numbers) {
-  print(paste(value, " is my favorite number"))
+my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
+for (value in my_favourite_numbers) {
+  print(paste(value, " is my favourite number"))
 }
 
 ## Character based loop values
@@ -173,7 +173,7 @@ A different way of approaching a for loop is to loop through the indexes of a ve
 
 ```R
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long", "informative", "here")
+practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
 ## Empty vector to keep loop results
 phrase_vec <- rep("", times = length(practical_attribute_vec))
@@ -207,7 +207,7 @@ Once you are comfortable with loops, have a go at the following tasks:
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop and in a separate vector. 
 
 * Use a starting population size of 1000.
-* Create a vector containing the reproduction rate for each year: `reproduction_rate <- rnorm(20, mean=1, sd=.2)`.
+* Create a vector containing the reproduction rate for each year: `reproduction_rate <- rnorm(20, mean = 1, sd = 0.2)`.
 * Loop through the reproduction rate vector and update the population size value accordingly.
 * Store each year's population and plot or just print it against the year (1-20).
 
@@ -229,7 +229,7 @@ Here we have one loop (with index j) nested within another loop (with index i). 
 
 #### Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
 
-(if you're short of ideas, you could for example add `practical_attribute_vec` qualifiers to Q12...
+(if you're short of ideas, you could for example add `practical_attribute_vec` qualifiers to Q12...)
 
 ### Using loops to reformat a data set
 
@@ -277,7 +277,7 @@ for (my_row in 1:5) {
 
 Here we are using loops to index through each of the rows of the matrix `helianthus_data`, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[my_row, my_col]`.
 
-Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index 'my_row' to help us, as this only goes through values `1:5`. Similarly, we cannot use the index 'my_col', as this only goes through values `2:7`. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
+Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `my_row` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
 #### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `my_row` and `my_col` when `my_index` is 3? Add a line to check the indices each time through.
 
@@ -335,9 +335,10 @@ tail(long_data)
 
 #### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
 
-  1. replace T with U  (thymine with uracil to convert DNA to RNA)
-  2. use `substring()` to split the sequence into triplets and `seq()` within `substring()`
-  3. return a vector containing the RNA codon strings
+  * load the data into R: `dna_string <- scan("https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
+  * replace T with U  (thymine with uracil to convert DNA to RNA)
+  * use `substring()` to split the sequence into triplets and `seq()` within `substring()`
+  * return the RNA triplets string
 
 Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
 

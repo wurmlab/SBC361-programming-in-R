@@ -141,7 +141,7 @@ for (value in 1:50) {
 ## Sequential loop values
 my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
 for (value in my_favourite_numbers) {
-  print(paste(value, " is my favourite number"))
+  print(paste(value, "is my favourite number"))
 }
 
 ## Character based loop values
@@ -353,7 +353,7 @@ substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 
 #### Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
 
-You can use this sequence: `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
+You can use this sequence (copy and paste it into R): `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
 
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
 

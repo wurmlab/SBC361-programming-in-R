@@ -10,7 +10,7 @@ To get your brains warmed up, here a few questions on the material from last wee
 
 #### Intro Q1. What would be the outcome of the code `answer <- rep(x = c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
-#### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) growth rate for this subset? ####
+#### Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset? ####
 
 #### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
 

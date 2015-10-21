@@ -88,7 +88,7 @@ Note that functions do not have to take single numbers as input. They can take v
 #### Extra arguments:
 Another neat thing that we can do is set default values for our arguments. Have another look at the `time_converter()` function you modified in Q1. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `myFunction <- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}`. The default argument is generally placed at the end of the argument list.
 
-#### Q5. Make the `additional_hours` be defined as 0 by default in the `time_converter()` function. Run the function without defining `additional_hours`. Now run it again with "0" explicit additional hours. Do the same with 3, 24, and 1.1". 
+#### Q5. Make the `additional_hours` be defined as 0 by default in the `time_converter()` function. Run the function without defining `additional_hours`. Now run it again with "0" explicit additional hours. Do the same with 3, 24, and 50. 
 
 #### Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
 

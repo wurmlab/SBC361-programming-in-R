@@ -65,7 +65,7 @@ output_vec
 
 #### Q1. Modify the code above to make it into a function called `time_converter()`. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.
 
-#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.621371 miles). Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines. ####
+#### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines. ####
 
 ### More complex functions
 

@@ -100,6 +100,7 @@ Another neat thing that we can do is set default values for our arguments. Have 
 Test your function with the following values:
 
 Distance | Time 
+(km)     | (minutes)
 ---------|------
 10 |60
 10 |90

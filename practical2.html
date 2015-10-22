@@ -31,32 +31,46 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h1 id="computing-in-r---practical-2">Computing in R - Practical 2</h1>
 <p>SBC361: Research Methods and Communication</p>
 <p>October 2015</p>
-<p>In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring <strong>loops</strong> and <strong>functions</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the help files and your own notes when exploring these new concepts.</p>
+<p>In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the R help files and your own notes when exploring these new concepts.</p>
 <p>To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before evaluating the R code):</p>
 <h4 id="intro-q1.-what-would-be-the-outcome-of-the-code-answer---repx-c42-24-times-42-and-what-would-then-be-the-outcome-of-the-code-meananswer">Intro Q1. What would be the outcome of the code <code>answer &lt;- rep(x = c(42, 24), times = 42)</code>? And what would then be the outcome of the code <code>mean(answer)</code>?</h4>
-<h4 id="intro-q2.-load-the-data-indometh-into-your-r-session-google-how-to-do-this-if-you-dont-know.-subset-this-data-to-return-only-those-fields-for-which-the-concentration-is-strictly-between-1-and-2.-what-is-the-average-mean-concentration-for-this-subset">Intro Q2. Load the data 'Indometh' into your R session (google how to do this if you don't know). Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?</h4>
+<h4 id="intro-q2.-use-the-preloaded-r-data-set-indometh.-subset-this-data-to-return-only-those-fields-for-which-the-concentration-is-strictly-between-1-and-2.-what-is-the-average-mean-concentration-for-this-subset">Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?</h4>
 <h4 id="intro-q3.-what-is-the-regular-expression-that-corresponds-to-one-or-more-copies-of-the-letter-e-followed-by-one-or-more-copies-of-the-letter-z">Intro Q3. What is the regular expression that corresponds to one or more copies of the letter &quot;e&quot;, followed by one or more copies of the letter &quot;z&quot;?</h4>
 <h2 id="functions">Functions</h2>
-<p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it.</p>
+<p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. So the general construct of a function looks like this:</p>
+<pre class="sourceCode R"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
+  
+  ### the &quot;body&quot; of the function
+  
+  <span class="co"># code that performs some calculation on the input</span>
+  <span class="co"># possibly other lines of code that perform calculations</span>
+  
+  <span class="co"># returning an output vector:</span>
+  <span class="kw">return</span>(output)
+  
+}</code></pre>
+<p>The <code>function_name</code> is something you can choose. The word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, this is where the calculation(s) happen. At the end it is important to produce an output vector as well (the <code>return</code> argument can only handle a single argument), otherwise the function will compute the code but it won't return anything!</p>
 <p>To take a self-explanatory example:</p>
-<pre class="sourceCode R"><code class="sourceCode r">x      &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
-x_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(x)</code></pre>
-<p>We just used the <code>mean()</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to calculate the mean:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;my_mean&#39;
+<pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+<span class="kw">mean</span>(x)</code></pre>
+<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to do some calculations:</p>
+<pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;my_first_function&#39;
 
-my_mean &lt;-<span class="st"> </span>function(my_vector) {
-  ## Calculate the mean
-  calculated_mean &lt;-<span class="st"> </span><span class="kw">sum</span>(my_vector) /<span class="st"> </span><span class="kw">length</span>(my_vector)
+my_first_function &lt;-<span class="st"> </span>function(my_input) {
+  ## Do some calculations
+  total &lt;-<span class="st"> </span><span class="dv">50000</span>
+  calculation &lt;-<span class="st"> </span>my_input /<span class="st"> </span>total
+  output &lt;-<span class="st"> </span>calculation *<span class="st"> </span><span class="dv">100</span>
 
-  ## Return the calculated mean
-  <span class="kw">return</span>(calculated_mean)
+  ## Return the output
+  <span class="kw">return</span>(output)
 }
 
-## Now call the function on some data:
-x      &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
-x_mean &lt;-<span class="st"> </span><span class="kw">my_mean</span>(x)</code></pre>
-<p>The syntax <code>function_name &lt;- function(parameter) {code}</code> is the most common way of defining a function. Remember to add the <code>return()</code> bit, otherwise the function will compute the code but it won't return anything!</p>
-<p>Now take a look at the following code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):</p>
+## Now run the function with some data:
+<span class="kw">my_first_function</span>(<span class="dv">123</span>)</code></pre>
+<p>What we did here is to create a function that computes the percentage of a given number (<code>my_input</code>) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (<code>my_input</code>) and all the calculations are based on this. In the end we return the result of the second calculation (<code>output</code>).</p>
+<p>Nothing much happens after loading the funciton <code>my_first_function</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>my_first_function(123)</code> (of course you can use other numbers instead of &quot;123&quot; as well). The number &quot;123&quot; will be used as <code>my_input</code> in the function and the output is simply the result of &quot; (123 / 50000) * 100&quot;.</p>
+<p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):</p>
 <pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>
 
@@ -70,24 +84,24 @@ output_vec &lt;-<span class="st"> </span><span class="kw">c</span>(hours, minute
 
 <span class="co"># Output the solution to the console</span>
 output_vec</code></pre>
-<h4 id="q1.-modify-the-code-above-to-make-it-into-a-function-called-time_converter.-can-you-run-it-on-the-numbers-5s-50000s-and-10000000s-remember-to-indent-any-code-inside-the-curly-brackets.">Q1. Modify the code above to make it into a function called <code>time_converter()</code>. Can you run it on the numbers 5s, 50000s and 10000000s? Remember to indent any code inside the curly brackets.</h4>
-<h4 id="q2.-write-your-own-function-for-converting-distances-between-different-units.-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-roughly-0.62-miles.-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines.">Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
+<h4 id="q1.-modify-the-code-above-to-make-it-into-a-function-called-time_converter.-the-input-will-be-a-single-number-the-number-of-seconds-we-want-to-convert-then-there-are-three-lines-of-code-for-the-calculations-and-finally-we-merge-these-into-one-vector-to-be-able-to-return-the-result.-all-of-this-code-is-given-above.-once-you-created-the-function-and-loaded-it-into-r-run-it-on-the-numbers-5-50000-and-10000000-seconds.-remember-to-indent-any-code-inside-the-curly-brackets.">Q1. Modify the code above to make it into a function called <code>time_converter</code>. The input will be a single number (the number of seconds we want to convert), then there are three lines of code for the calculations, and finally we merge these into one vector to be able to return the result. All of this code is given above. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.</h4>
+<h4 id="q2.-write-your-own-function-for-converting-distances-between-different-units.-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-roughly-0.62-miles.-note-floor-wont-be-needed-in-the-calculations-here.-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines.">Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
 <h3 id="more-complex-functions">More complex functions</h3>
 <p>Hopefully you can already see how functions can be useful. We can make them even more useful by considering some simple extensions.</p>
-<p>First, you can define multiple arguments to a function, with the general syntax of a function being:</p>
-<pre class="sourceCode R"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(argument1, argument2, ...) {
-    <span class="co">#code including argument1, argument2, ...</span>
+<p>First, you can define multiple arguments to a function, with the general syntax of a function being then:</p>
+<pre class="sourceCode R"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
+    <span class="co">#code including input1, input2, ...</span>
 }</code></pre>
-<h4 id="q3.-to-understand-how-a-function-can-have-multiple-arguments-modify-the-function-time_converter-so-that-it-adds-a-given-number-of-hours-to-the-result.-you-will-have-to-include-a-new-parameter-you-can-call-it-additional_hours-and-add-it-to-the-hours-variable-think-carefully-about-where-to-add-this.">Q3. To understand how a function can have multiple arguments, modify the function <code>time_converter()</code> so that it adds a given number of hours to the result. You will have to include a new parameter (you can call it <code>additional_hours</code>) and add it to the <code>hours</code> variable (think carefully about where to add this!).</h4>
-<p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical.</p>
+<h4 id="q3.-to-understand-how-a-function-can-have-multiple-arguments-modify-the-function-time_converter-so-that-it-adds-a-given-number-of-hours-to-the-result-the-number-of-hours-will-be-supplied-to-the-function-in-addition-to-the-number-of-seconds.-you-will-have-to-include-a-new-input-to-the-function-you-can-call-it-additional_hours-and-add-it-to-the-hours-variable-think-carefully-about-where-to-add-this.">Q3. To understand how a function can have multiple arguments, modify the function <code>time_converter</code> so that it adds a given number of hours to the result (the number of hours will be supplied to the function in addition to the number of seconds). You will have to include a new input to the function (you can call it <code>additional_hours</code>) and add it to the <code>hours</code> variable (think carefully about where to add this!).</h4>
+<p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
 <h4 id="q4.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-google">Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!</h4>
 <h4 id="extra-arguments">Extra arguments:</h4>
-<p>Another neat thing that we can do is set default values for our arguments. Have another look at the <code>time_converter()</code> function you modified in Q1. Most of the time, you will probably want to run it with <code>additional_hours</code> being 0. To do this, you can make <code>additional_hours = 0</code> the default. With default values for arguments, functions take the syntax <code>myFunction &lt;- function(argument1, ..., argument2 = default) {code including argument1, argument2, ...}</code>. The default argument is generally placed at the end of the argument list.</p>
-<h4 id="q5.-make-the-additional_hours-be-defined-as-0-by-default-in-the-time_converter-function.-run-the-function-without-defining-additional_hours.-now-run-it-again-with-0-explicit-additional-hours.-do-the-same-with-3-24-and-50.">Q5. Make the <code>additional_hours</code> be defined as 0 by default in the <code>time_converter()</code> function. Run the function without defining <code>additional_hours</code>. Now run it again with &quot;0&quot; explicit additional hours. Do the same with 3, 24, and 50.</h4>
+<p>Another neat thing that we can do is set default values for our arguments. Have another look at the <code>time_converter</code> function you modified in Q1. Most of the time, you will probably want to run it with <code>additional_hours</code> being 0. To do this, you can make <code>additional_hours = 0</code> the default. With default values for arguments, functions take the syntax <code>my_function &lt;- function(input1, ..., input15 = default) {code including input1, input2, ..., input15}</code>. The default argument is generally placed at the end of the argument list.</p>
+<h4 id="q5.-make-the-additional_hours-be-defined-as-0-by-default-in-the-time_converter-function.-run-the-function-without-supplying-any-additional-hours.-now-run-it-again-with-0-explicit-additional-hours.-do-the-same-with-3-24-and-50.">Q5. Make the <code>additional_hours</code> be defined as 0 by default in the <code>time_converter</code> function. Run the function without supplying any additional hours. Now run it again with &quot;0&quot; explicit additional hours. Do the same with 3, 24, and 50.</h4>
 <h4 id="q6.-this-task-is-a-bit-more-challenging-go-back-to-your-function-for-converting-kilometres-to-miles-make-a-copy-with-an-appropriate-new-name.-the-new-extended-function-should">Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:</h4>
 <ul>
 <li>take a distance in kilometres and a time in minutes as input.<br /></li>
-<li>convert the distance into miles and the time into hours (you won't be able to use the <code>time_converter()</code> function here).<br /></li>
+<li>convert the distance into miles and the time into hours (you won't be able to use the <code>time_converter</code> function here).<br /></li>
 <li>calculate a speed in miles per hour.<br /></li>
 <li>return the speed in miles per hour as output.</li>
 </ul>
@@ -120,9 +134,9 @@ output_vec</code></pre>
 </table>
 <p>All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!</p>
 <h2 id="loops">Loops</h2>
-<p>Imagine you need to run the function <code>time_converter()</code> on different numbers. You could type <code>time_converter()</code> many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
+<p>Imagine you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## For loop exmaple
+<pre class="sourceCode R"><code class="sourceCode r">## For loop example
 for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {
   time_in_hours &lt;-<span class="st"> </span><span class="kw">time_converter</span>(<span class="dt">number_of_seconds =</span> seconds)
   <span class="kw">print</span>(time_in_hours)
@@ -153,7 +167,7 @@ for (word in greetings) {
   <span class="kw">print</span>(word)
 }</code></pre>
 <h3 id="storing-loop-results">Storing loop results</h3>
-<p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does &quot;phrase_vec&quot; look like after the 4th iteration?</p>
+<p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does <code>phrase_vec</code> look like after the 4th iteration?</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Vector to loop through
 practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
@@ -161,7 +175,7 @@ practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(
 phrase_vec &lt;-<span class="st"> </span><span class="kw">c</span>()
 
 for (practical_attribute in practical_attribute_vec) {
-    phrase     &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute, <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)
+    phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute)
     <span class="co"># Add the loop result to end of the vector of results</span>
     phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(phrase_vec, phrase)
 }</code></pre>
@@ -176,26 +190,24 @@ phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class
 for (index in <span class="dv">1</span>:<span class="kw">length</span>(practical_attribute_vec)) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase        &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>,
-                         practical_attribute_vec[index],
-                         <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)
+  phrase        &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute_vec[index])
 
   ## Add phrase to the right index of the results vector
   phrase_vec[index] &lt;-<span class="st"> </span>phrase
 
 }</code></pre>
 <p>Once you are comfortable with loops, have a go at the following tasks:</p>
-<h4 id="q7.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-prints-out-the-index-as-well-as-the-value-of-the-loop-each-time-through-in-human-readable-format-i.e.-index-1-is-10-index-2-is-11-index-3-is-12-and-so-on.">Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index as well as the value of the loop each time through in human-readable format (i.e. &quot;Index 1 is 10&quot;, &quot;Index 2 is 11&quot;, &quot;Index 3 is 12&quot;, and so on).</h4>
-<h4 id="q8.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-stores-the-results-in-a-separate-vector.-can-you-explain-the-sequence-of-events-that-the-computer-goes-through-during-say-the-20th-iteration">Q8. Write a loop that iterates over the numbers 10 to 100 and stores the results in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?</h4>
+<h4 id="q7.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-prints-out-the-index-i.e.-position-of-the-number-in-the-vector-as-well-as-the-number-itself-each-time-through-in-human-readable-format-i.e.-index-1-is-10-index-2-is-11-index-3-is-12-and-so-on.">Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index (i.e. position of the number in the vector) as well as the number itself each time through in human-readable format (i.e. &quot;Index 1 is 10&quot;, &quot;Index 2 is 11&quot;, &quot;Index 3 is 12&quot;, and so on).</h4>
+<h4 id="q8.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-stores-this-number-in-a-separate-vector.-can-you-explain-the-sequence-of-events-that-the-computer-goes-through-during-say-the-20th-iteration">Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?</h4>
 <h4 id="q9-a.-write-a-loop-that-iterates-over-the-numbers-16-to-49-and-prints-out-the-square-root-of-the-number-each-time-through-you-may-have-to-search-around-for-the-square-root-function.-yes-we-absolutely-want-you-to-write-a-loop-to-do-this.">Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we <em>absolutely</em> want you to write a loop to do this.</h4>
 <h4 id="q9-b.-make-the-loop-from-q9-a-store-the-results-to-a-separate-vector-called-my_square_roots-instead-of-just-printing-the-results.-whats-the-value-the-3rd-iteration-whats-the-sum-of-the-square-roots-of-the-numbers-16-to-49">Q9-B. Make the loop from Q9-A store the results to a separate vector called <code>my_square_roots</code> instead of just printing the results. What's the value the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?</h4>
 <h4 id="q10.-write-a-loop-that-iterates-over-all-even-numbers-between-30-and-90.-each-time-around-run-your-function-to-convert-kilometres-into-miles-on-the-indexed-value-and-store-the-result-in-a-separate-vector.">Q10. Write a loop that iterates over all even numbers between 30 and 90. Each time around run your function to convert kilometres into miles on the indexed value and store the result in a separate vector.</h4>
-<h4 id="q11.-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years.-store-the-population-value-for-each-iteration-of-the-loop-and-in-a-separate-vector.">Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop and in a separate vector.</h4>
+<h4 id="q11.-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years.-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector.">Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.</h4>
 <ul>
 <li>Use a starting population size of 1000.<br /></li>
 <li>Create a vector containing the reproduction rate for each year: <code>reproduction_rate &lt;- rnorm(20, mean = 1, sd = 0.2)</code>.<br /></li>
 <li>Loop through the reproduction rate vector and update the population size value accordingly.<br /></li>
-<li>Store each year's population and plot or just print it against the year (1-20).</li>
+<li>In addition, store each year's population and plot or just print it against the year (1 to 20).</li>
 </ul>
 <h3 id="nested-loops">Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>

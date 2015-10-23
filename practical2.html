@@ -49,7 +49,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
   <span class="kw">return</span>(output)
   
 }</code></pre>
-<p>The <code>function_name</code> is the name of your function. You can choose whatever name you want. After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the <code>return</code> argument can only handle a single argument.</p>
+<p>The <code>function_name</code> is the name of your function. You can choose whatever name you want. After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
 <pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
@@ -165,6 +165,13 @@ for (value in my_favourite_numbers) {
 greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>, <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>, <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
 for (word in greetings) {
   <span class="kw">print</span>(word)
+}
+
+## Looping through the positions of each element of the vector (the index)
+colour_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;pink&quot;</span>)
+for (index in <span class="dv">1</span>:<span class="kw">length</span>(colour_vec)) {
+  colour &lt;-<span class="st"> </span>colour_vec[index]
+  <span class="kw">print</span>(colour)
 }</code></pre>
 <h3 id="storing-loop-results">Storing loop results</h3>
 <p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does <code>phrase_vec</code> look like after the 4th iteration?</p>

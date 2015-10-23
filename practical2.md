@@ -16,7 +16,7 @@ To get your brains warmed up, here a few questions on the material from last wee
 
 ## Functions
 
-Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. So the general construct of a function looks like this:
+Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. The general construct of a function looks like this:
 
 ```R
 function_name <- function(input) {
@@ -32,7 +32,7 @@ function_name <- function(input) {
 }
 ```
 
-The `function_name` is something you can choose. The word `function` lets R know that you are writing a new function. The `input` will be what the calculations in the `body` of the function are based on. Between the curly brackets `{}` is the main code of your function, this is where the calculation(s) happen. At the end it is important to produce an output vector as well (the `return` argument can only handle a single argument), otherwise the function will compute the code but it won't return anything! 
+The `function_name` is the name of your function. You can choose whatever name you want. After the `<-`, the word `function` lets R know that you are writing a new function. The `input` will be what the calculations in the `body` of the function are based on. Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the `return` argument can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -62,7 +62,7 @@ my_first_function(123)
 
 What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`). 
 
-Nothing much happens after loading the funciton `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of " (123 / 50000) * 100".
+Nothing much happens after loading the function `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of " (123 / 50000) * 100".
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):
 

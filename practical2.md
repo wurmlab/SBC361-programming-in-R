@@ -268,7 +268,7 @@ The data set that we will use in this example is typical of the sort of data tha
 helianthus_data <- as.matrix(read.table("http://www.antgenomes.org/~yannickwurm/tmp/HelianthusData_num.txt ", header = T))
 ```
 
-Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants, but by the final time point contained 57 plants.
+Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.
 
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using `ggplot` (and many analysis packages) require long format. The first few lines of this new data structure should look like this:
 
@@ -284,7 +284,7 @@ Strain | Time | Count
 2 |1 |27
 ...|...|...
 
-We can make the transition from the wide format of helianthus_data to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
+We can make the transition from the wide format of `helianthus_data` to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
 #### Q14-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
 

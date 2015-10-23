@@ -202,7 +202,7 @@ A different way of approaching a for loop is to loop through the indexes of a ve
 ## Vector to loop through
 practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
-## Empty vector to keep loop results
+## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec <- rep("", times = length(practical_attribute_vec))
 
 ## Loop through the index rather than the vector

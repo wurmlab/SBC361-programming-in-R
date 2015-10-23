@@ -32,7 +32,7 @@ function_name <- function(input) {
 }
 ```
 
-The `function_name` is the name of your function. You can choose whatever name you want. After the `<-`, the word `function` lets R know that you are writing a new function. The `input` will be what the calculations in the `body` of the function are based on. Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the `return` argument can only handle a single argument.
+The `function_name` is the name of your function. You can choose whatever name you want. After the `<-`, the word `function` lets R know that you are writing a new function. The `input` will be what the calculations in the `body` of the function are based on. Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the `return` command can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -168,6 +168,14 @@ greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy", "Yooooo!", "Wassup", "Wha
 for (word in greetings) {
   print(word)
 }
+
+## Looping through the positions of each element of the vector (the index)
+colour_vec <- c("red","green","blue","yellow","orange","purple","pink")
+for (index in 1:length(colour_vec)) {
+  colour <- colour_vec[index]
+  print(colour)
+}
+
 ```
 
 ### Storing loop results

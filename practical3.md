@@ -11,9 +11,9 @@ This session will be divided into two halves. For the first 90 minutes, we will 
 ## Recap questions
 To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the material from last week:
 
-#### Intro Q1. Write a for loop that calculates the sum of 1/13 + 1/14 + 1/15… all the way up to 1/32. Note that R will not create the correct vector if you tell it ‘1/13:1/32’!
+#### Intro Q1. Write a `for` loop that calculates the sum of 1/13 + 1/14 + 1/15… all the way up to 1/32. Note that R will not create the correct vector if you tell it ‘1/13:1/32’!
 
-*It is possible to get the answer to this exercise without writing a loop, by using `sum()`. The idea of this exercise is to practice writing for loops, however, and it will be more useful for you to do it this way.*
+*It is possible to get the answer to this exercise without writing a loop, by using `sum()`. However, the idea of this exercise is to practice writing `for` loops - so write a `for` loop.*
 
 #### Intro Q2. Create a function that can run this loop between any two denominators (so from `1/x` to `1/y`, where `x` and `y` are inputs to the function).
 
@@ -26,9 +26,9 @@ Before starting to code, think about the steps that you would need to go through
 
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
-Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, ACCTAGGT is a palindromic DNA sequence as its complement is TGGATCCA.
-
 #### Q2. Write a function that assesses whether a DNA sequence is palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the last session.
+
+Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, ACCTAGGT is a palindromic DNA sequence as its complement is TGGATCCA.
 
 ## Open Reading Frames
 Protein-coding regions in the genome can be predicted by detecting open reading frames. An open reading frame normally begins with the start codon ‘ATG’ and ends at one of three possible stop codons, ‘TGA’, ‘TAA’ and ‘TAG’. The sequence in between these two points is arranged in 3-base codons.

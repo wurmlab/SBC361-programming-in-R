@@ -46,7 +46,7 @@ atgctaaactaa
 ## Species names
 Run the following line of code to import the butterfly_sample data frame:
 ```R
-butterfly_sample <- read.table(""https://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv",sep = ",", header = T)
+butterfly_sample <- read.table("https://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv",sep = ",", header = T)
 ```
 This data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 

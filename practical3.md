@@ -34,6 +34,7 @@ Palindromes in molecular biology work a little differently, in that the sequence
 Protein-coding regions in the genome can be predicted by detecting open reading frames. An open reading frame normally begins with the start codon ‘ATG’ and ends at one of three possible stop codons, ‘TGA’, ‘TAA’ and ‘TAG’. The sequence in between these two points is arranged in 3-base codons.
 
 #### Q3. Write a function which uses regular expressions to detect if a given sequence contains an open reading frame (ORF). Test it on the following sequences:
+
 ```
 ATGGATTTTTAG
 ATGGATTTTCTAG
@@ -44,18 +45,22 @@ atgctaaactaa
 #### Q4. (hacker question). Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
 
 ## Species names
-Run the following line of code to import the butterfly_sample data frame:
+Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:
+
 ```R
-butterfly_sample <- read.table("https://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv",sep = ",", header = T)
+butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv"
+butterfly_sample  <- read.csv(butterfly_sam_url, header = T)
+
+butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv"
+butterfly_reference <- read.csv(butterfly_ref_url, header = T)
 ```
-This data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
+
+The `butterfly_reference` data frame contains the species name and the common name of a number of butterflies.
+
+The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 
 #### Q30 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
 
-You will also need to import the `butterfly_reference` data frame to help you do this:
-```R
-butterfly_reference <- read.table("http://yannick.poulet.org/teaching/2014sbc361/ButterflyReference.csv",sep = ",", header = T)
-```
 TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. `grep` and `gsub` both allow you to set an `ignore.case = T` option. Alternately, you could use the R commands `toupper()` and `tolower()`. Use the help pages to see how these work, which you can access by typing a question mark before the command - `?toupper`.
 
 

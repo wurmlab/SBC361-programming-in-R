@@ -52,7 +52,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 ATGGATTTTCTAG
 CTAATGGATTTTTGAAT
 atgctaaactaa</code></pre>
-<h4 id="q4.-hacker-question.-instead-of-having-the-function-return-whether-your-sequence-contains-an-open-reading-frame-have-the-function-return-a-string-containing-the-open-reading-frame-if-there-is-one-and-null-if-there-is-not-you-will-need-to-look-up-if-statements.">Q4. (hacker question). Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up &quot;if statements&quot;).</h4>
+<h4 id="q4a.-hacker-question-instead-of-having-the-function-return-whether-your-sequence-contains-an-open-reading-frame-have-the-function-return-a-string-containing-the-open-reading-frame-if-there-is-one-and-null-if-there-is-not-you-will-need-to-look-up-if-statements.">Q4a. (hacker question) Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up &quot;if statements&quot;).</h4>
+<h4 id="q4b.-hacker-question-modify-the-previous-function-so-it-can-also-check-for-an-open-reading-frame-in-the-reverse-strand-of-your-input-you-may-need-to-use-and-ifelse-statement.">Q4b. (hacker question) Modify the previous function so it can also check for an open reading frame in the reverse strand of your input (you may need to use and &quot;if/else statement&quot;).</h4>
 <h2 id="species-names">Species names</h2>
 <p>Run the following line of code to import the <code>butterfly_sample</code> and the <code>butterfly_reference</code> data frames:</p>
 <pre class="sourceCode R"><code class="sourceCode r">butterfly_sam_url &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv&quot;</span>
@@ -61,8 +62,8 @@ butterfly_sample  &lt;-<span class="st"> </span><span class="kw">read.csv</span>
 butterfly_ref_url   &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv&quot;</span>
 butterfly_reference &lt;-<span class="st"> </span><span class="kw">read.csv</span>(butterfly_ref_url, <span class="dt">header =</span> T)</code></pre>
 <p>The <code>butterfly_reference</code> data frame contains the species name and the common name of a number of butterflies.</p>
-<p>The <code>butterfly_sample</code> data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.</p>
-<h4 id="q5-write-a-function-that-adds-a-new-column-in-the-data-frame-that-contains-the-correct-latin-species-name-for-each-record-in-the-data-frame-imported-below.">Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.</h4>
+<p>The <code>butterfly_sample</code> data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, who have recorded the common names of the species they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.</p>
+<h4 id="q5-write-a-function-that-adds-a-new-column-in-the-data-frame-that-contains-the-correct-latin-species-name-for-each-record-in-the-butterfly_sample.">Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the <code>butterfly_sample</code>.</h4>
 <p>TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. <code>grep</code> and <code>gsub</code> both allow you to set an <code>ignore.case = T</code> option. Alternately, you could use the R commands <code>toupper()</code> and <code>tolower()</code>. Use the help pages to see how these work, which you can access by typing a question mark before the command - <code>?toupper</code>.</p>
 <h4 id="q6.-from-the-data-above-which-location-has-the-greatest-number-of-different-species">Q6. From the data above, which location has the greatest number of different species?</h4>
 <h4 id="q7.-which-genus-has-been-caught-the-greatest-number-of-times">Q7. Which genus has been caught the greatest number of times?</h4>
@@ -74,5 +75,15 @@ butterfly_reference &lt;-<span class="st"> </span><span class="kw">read.csv</spa
 <li>You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.<br /></li>
 <li>You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.</li>
 </ul>
+<h1 id="bonus-question">Bonus question</h1>
+<p>This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some people recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).</p>
+<h4 id="q8-write-a-script-that-adds-a-new-column-in-the-data-frame-that-contains-the-correct-latin-species-name-for-each-record-in-the-data-frame-imported-below.">Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.</h4>
+<pre class="sourceCode R"><code class="sourceCode r">butterfly_sam_url &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflySampleBonus.csv&quot;</span>
+butterfly_sample  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(butterfly_sam_url, <span class="dt">header =</span> T)
+
+butterfly_ref_url   &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv&quot;</span>
+butterfly_reference &lt;-<span class="st"> </span><span class="kw">read.csv</span>(butterfly_ref_url, <span class="dt">header =</span> T)</code></pre>
+<p>One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its latin name or not. You may find that using <code>if</code> statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from latin to latin or common to latin), and do the transformation independently on each.</p>
+<p>This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!</p>
 </body>
 </html>

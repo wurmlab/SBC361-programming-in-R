@@ -40,11 +40,12 @@ ATGGATTTTTAG
 ATGGATTTTCTAG
 CTAATGGATTTTTGAAT
 atgctaaactaa
+TCGATTAA
 ```
 
 #### Q4a. (hacker question) Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
 
-#### Q4b. (hacker question) Modify the previous function so it can also check for an open reading frame in the reverse strand of your input (you may need to use and "if/else statement").
+#### Q4b. (hacker question) This time, check both the forward and reverse strand for ORFs. Return `"forward_only"` if there is an ORF only on the forward strand, `"reverse_only"` if only on the reverse, `"both"` if in both or "none" if in neither.
 
 ## Species names
 Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:
@@ -77,7 +78,7 @@ TIP: There are several ways to do this. Remember that R is case sensitive, so yo
 * You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.
 * You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.
 
-# Bonus question
+# Bonus hacker question
 
 This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some people recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).
 

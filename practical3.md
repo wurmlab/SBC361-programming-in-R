@@ -80,7 +80,7 @@ TIP: There are several ways to do this. Remember that R is case sensitive, so yo
 
 # Bonus hacker question
 
-This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some people recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).
+This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some of the people who did the sampling recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).
 
 #### Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
 

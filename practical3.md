@@ -42,7 +42,9 @@ CTAATGGATTTTTGAAT
 atgctaaactaa
 ```
 
-#### Q4. (hacker question). Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
+#### Q4a. (hacker question) Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
+
+#### Q4b. (hacker question) Modify the previous function so it can also check for an open reading frame in the reverse strand of your input (you may need to use and "if/else statement").
 
 ## Species names
 Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:
@@ -57,12 +59,11 @@ butterfly_reference <- read.csv(butterfly_ref_url, header = T)
 
 The `butterfly_reference` data frame contains the species name and the common name of a number of butterflies.
 
-The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, and they have not recorded the species that they encountered the same way - some have used latin names for species and others common names, for example. In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
+The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, who have recorded the common names of the species they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 
-#### Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
+#### Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the `butterfly_sample`.
 
 TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. `grep` and `gsub` both allow you to set an `ignore.case = T` option. Alternately, you could use the R commands `toupper()` and `tolower()`. Use the help pages to see how these work, which you can access by typing a question mark before the command - `?toupper`.
-
 
 #### Q6. From the data above, which location has the greatest number of different species?
 
@@ -75,3 +76,21 @@ TIP: There are several ways to do this. Remember that R is case sensitive, so yo
 * Do not click ‘submit’ until you have filled in all of your answers on the form.
 * You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.
 * You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.
+
+# Bonus question
+
+This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some people recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).
+
+#### Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
+
+```R
+butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflySampleBonus.csv"
+butterfly_sample  <- read.csv(butterfly_sam_url, header = T)
+
+butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv"
+butterfly_reference <- read.csv(butterfly_ref_url, header = T)
+```
+
+One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from latin to latin or common to latin), and do the transformation independently on each.
+
+This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!

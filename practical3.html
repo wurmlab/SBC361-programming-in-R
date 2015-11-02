@@ -51,9 +51,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre><code>ATGGATTTTTAG
 ATGGATTTTCTAG
 CTAATGGATTTTTGAAT
-atgctaaactaa</code></pre>
+atgctaaactaa
+TCGATTAA</code></pre>
 <h4 id="q4a.-hacker-question-instead-of-having-the-function-return-whether-your-sequence-contains-an-open-reading-frame-have-the-function-return-a-string-containing-the-open-reading-frame-if-there-is-one-and-null-if-there-is-not-you-will-need-to-look-up-if-statements.">Q4a. (hacker question) Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up &quot;if statements&quot;).</h4>
-<h4 id="q4b.-hacker-question-modify-the-previous-function-so-it-can-also-check-for-an-open-reading-frame-in-the-reverse-strand-of-your-input-you-may-need-to-use-and-ifelse-statement.">Q4b. (hacker question) Modify the previous function so it can also check for an open reading frame in the reverse strand of your input (you may need to use and &quot;if/else statement&quot;).</h4>
+<h4 id="q4b.-hacker-question-this-time-check-both-the-forward-and-reverse-strand-for-orfs.-return-forward_only-if-there-is-an-orf-only-on-the-forward-strand-reverse_only-if-only-on-the-reverse-both-if-in-both-or-none-if-in-neither.">Q4b. (hacker question) This time, check both the forward and reverse strand for ORFs. Return <code>&quot;forward_only&quot;</code> if there is an ORF only on the forward strand, <code>&quot;reverse_only&quot;</code> if only on the reverse, <code>&quot;both&quot;</code> if in both or &quot;none&quot; if in neither.</h4>
 <h2 id="species-names">Species names</h2>
 <p>Run the following line of code to import the <code>butterfly_sample</code> and the <code>butterfly_reference</code> data frames:</p>
 <pre class="sourceCode R"><code class="sourceCode r">butterfly_sam_url &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv&quot;</span>
@@ -75,7 +76,7 @@ butterfly_reference &lt;-<span class="st"> </span><span class="kw">read.csv</spa
 <li>You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.<br /></li>
 <li>You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.</li>
 </ul>
-<h1 id="bonus-question">Bonus question</h1>
+<h1 id="bonus-hacker-question">Bonus hacker question</h1>
 <p>This question is an extension of the question Q5. Again, we will analyse a data frame containing the species of butterflies observed in two locations (A and B). This time, however, some people recorded the common name of the species, while others recorded the latin name (all with inconsistent letter case).</p>
 <h4 id="q8-write-a-script-that-adds-a-new-column-in-the-data-frame-that-contains-the-correct-latin-species-name-for-each-record-in-the-data-frame-imported-below.">Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.</h4>
 <pre class="sourceCode R"><code class="sourceCode r">butterfly_sam_url &lt;-<span class="st"> &quot;http://wurmlab.github.io/SBC361-programming-in-R/ButterflySampleBonus.csv&quot;</span>

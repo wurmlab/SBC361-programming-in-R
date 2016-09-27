@@ -21,6 +21,11 @@ This is part of QMUL's year 3 SBC361 Research Methods and Communication II cours
 |practical 3 + exam|week 6|Session 1|Wednesday|2016-11-02|3-6pm|Queens EB7|
 |practical 3 + exam|week 6|Session 2|Friday|2016-11-04|2-5pm|Queens EB7|
 
+Meetings:
+* Friday 30th September at 1pm for the practicals in the week of the 3rd October.
+* Wednesday 12th October at 1pm for the practicals in the week of the 17th October.
+* Wednesday 26th October at 1pm for the practicals in the week of the 31st October.
+
 #### Practical 1
 Carlos, Leandro, Josh (+2)
 

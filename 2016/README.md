@@ -1,4 +1,4 @@
-#  Programming in R ()
+#  Programming in R
 
 ## Practicals:
 
@@ -14,12 +14,12 @@ This is part of QMUL's year 3 SBC361 Research Methods and Communication II cours
 
 |What|Week|Session|Day|Date|Time|Room|
 |----|----|-------|---|----|----|----|
-|practical 1|week 2|Session 1|Wednesday|2016-10-07|3-6pm|Queens EB7|
-|practical 1|week 2|Session 2|Friday|2016-10-09|2-5pm|Queens EB7|
-|practical 2|week 4|Session 1|Wednesday|2016-10-21|3-6pm|Queens EB7|
-|practical 2|week 4|Session 2|Friday|2016-10-23|2-5pm|Queens EB7|
-|practical 3 + exam|week 6|Session 1|Wednesday|2016-11-04|3-6pm|Queens EB7|
-|practical 3 + exam|week 6|Session 2|Friday|2016-11-06|2-5pm|Queens EB7|
+|practical 1|week 2|Session 1|Wednesday|2016-10-05|3-6pm|Queens EB7|
+|practical 1|week 2|Session 2|Friday|2016-10-07|2-5pm|Queens EB7|
+|practical 2|week 4|Session 1|Wednesday|2016-10-19|3-6pm|Queens EB7|
+|practical 2|week 4|Session 2|Friday|2016-10-21|2-5pm|Queens EB7|
+|practical 3 + exam|week 6|Session 1|Wednesday|2016-11-02|3-6pm|Queens EB7|
+|practical 3 + exam|week 6|Session 2|Friday|2016-11-04|2-5pm|Queens EB7|
 
 #### Practical 1
 Carlos, Leandro, Josh (+2)

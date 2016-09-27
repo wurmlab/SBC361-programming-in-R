@@ -8,7 +8,7 @@ cd 2016
 # RUN PANDOC and create HTML
 for i in *md; do
   if [[ $i != 'README.md' ]]; then
-    pandoc -f --verbose markdown_github -c ../theme.css -s $i -o ../public/${i%%md}html;
+    pandoc -f markdown_github -c ../theme.css -s $i -o ../public/${i%%md}html;
   fi
 done
 cd ..

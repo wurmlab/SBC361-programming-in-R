@@ -1,8 +1,8 @@
 # Computing in R - Practical 3
 
-SBC361: Research Methods and Communication
+SBC361: Research Methods and Communication II
 
-October 2015
+October 2016
 
 ## Introduction
 

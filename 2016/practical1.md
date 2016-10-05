@@ -198,7 +198,7 @@ mat5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 
 As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for row and another one for columns! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
 
-#### Q14. How do you retrieve the 2 column of `mat2`?
+#### Q14. How do you retrieve the 2nd column of `mat2`?
 
 You can perform simple calculations on matrices, in which case the calculation applies to each element separately:
 

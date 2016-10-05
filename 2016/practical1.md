@@ -2,7 +2,7 @@
 
 SBC361: Research Methods and Communication
 
-October 2015
+October 2016
 
 Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 

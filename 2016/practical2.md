@@ -227,7 +227,7 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
-#### Q10. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers kilometres into miles and stores the result in a separate vector.
+#### Q10. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2). The loop should store the results in a separate vector.
 
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector. 
 

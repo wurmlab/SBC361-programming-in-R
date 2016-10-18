@@ -311,7 +311,7 @@ Hopefully you can already see that these are the exact values we want to drop in
 It should look something like this:
 
 ```R
-# my_index defined as 1 before the loop starts
+# my_index defined as 0 before the loop starts
 my_index <- 0
 
 # Loop through all rows

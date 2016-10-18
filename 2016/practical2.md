@@ -128,7 +128,7 @@ Distance (km) | Time (min)
 All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
 
 ## Loops
-Imagine you need to run the function `time_converter` on different numbers. You could type `time_converter` many different types, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
+Imagine you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
 
 Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:
 

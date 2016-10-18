@@ -219,7 +219,7 @@ for (index in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index (i.e. position of the number in the vector) as well as the number itself each time through in human-readable format (i.e. "Index 1 is 10", "Index 2 is 11", "Index 3 is 12", and so on). Did you appropriately indent the code between `{` and `}` curly brackets?
+#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index (i.e. position of the number in the vector) and the number itself. This should be done in human-readable format (i.e. "Index 1 is 10", "Index 2 is 11", "Index 3 is 12", and so on). Did you appropriately indent the code between the `{` and `}` curly brackets?
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 

@@ -306,7 +306,7 @@ for (my_row in <span class="dv">1</span>:<span class="dv">5</span>) {
 <p>Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix <code>long_data</code>. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix <code>long_data</code>? We cannot use the index <code>my_row</code> to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index <code>my_col</code>, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.</p>
 <h4 id="q14-b.-change-the-for-loop-above-to-include-a-variable-my_index.-this-variable-should-be-defined-as-being-0-before-the-loop-starts.-at-every-iteration-of-the-inner-loop-you-should-add-1-to-it.-what-are-the-values-of-my_row-and-my_col-when-my_index-is-3-add-a-line-to-check-the-indices-each-time-through.">Q14-B. Change the for loop above to include a variable <code>my_index</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of <code>my_row</code> and <code>my_col</code> when <code>my_index</code> is 3? Add a line to check the indices each time through.</h4>
 <p>It should look something like this:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># my_index defined as 1 before the loop starts</span>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># my_index defined as 0 before the loop starts</span>
 my_index &lt;-<span class="st"> </span><span class="dv">0</span>
 
 <span class="co"># Loop through all rows</span>

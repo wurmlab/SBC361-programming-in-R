@@ -24,9 +24,9 @@ We will have a meeting at 11am on the Tuesday preceding each practical. Everyone
 |----|----|-------|---|----|----|----|
 |Practical 1|Week 3|Session 1|Friday|2017-10-13|9am-12|Queens EB7|
 |Practical 1|Week 3|Session 2|Friday|2017-10-13|2-5pm|Francis Bancroft 1.15a |
-|*Practical 2 may be cancelled*|Week 4|Session 1|Friday|2017-10-20|9am-12|Queens EB7|
+|*Practical 2 may merge with afternoon session*|Week 4|Session 1|Friday|2017-10-20|9am-12|Queens EB7|
 |Practical 2|Week 4|Session 2|Friday|2016-10-20|2-5pm|Francis Bancroft 1.15a |
-|*Practical 3 may be cancelled*|Week 5|Session 1|Friday|2016-10-27|9am-12|Queens EB7|
+|*Practical 3 may merge with afternoon session*|Week 5|Session 1|Friday|2016-10-27|9am-12|Queens EB7|
 |Practical 3|Week 5|Session 2|Friday|2016-10-27|2-5pm|Francis Bancroft 1.15a |
 |Exam group 1|Week 6|Session 1|Friday|2016-11-03|9am-12|Queens EB7|
 |Exam group 2|Week 6|Session 2|Friday|2016-11-03|2-5pm|Francis Bancroft 1.15a |
@@ -36,24 +36,24 @@ We will have a meeting at 11am on the Tuesday preceding each practical. Everyone
 
 
 #### Practical 1 - max 50 in the room: morning and afternoon session
-Need 5 people total. 
-Main: 
-Others:  need 4 more.
+ * Need 5 people total.
+ * Main: 
+ * Others:  need 4 more.
 
 #### Practical 2 - probaly only afternoon
-Need 7 people total. 
-Main: 
-Others:
+ * Need 7 people total. 
+ * Main: 
+ * Others:
 
 #### Practical 3 - probaly only afternoon
-Need 7 people total 
-Main: 
-Others:
+ * Need 7 people total 
+ * Main: 
+ * Others:
 
 #### Practical 4: Test. morning & afternoon.
-Need 5 people total.
-Main: Yannick
-Others: 
+ * Need 5 people total.
+ * Main: Yannick
+ * Others: 
 
 
 ## Notes to demonstrators

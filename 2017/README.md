@@ -51,7 +51,7 @@ Main:
 Others:
 
 #### Practical 4: Test. morning & afternoon.
-Need 7 people total.
+Need 5 people total.
 Main: Yannick
 Others: 
 

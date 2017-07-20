@@ -16,7 +16,7 @@ Lectures are in: Geography 1.26 from 11am to 1pm on September 27th and on Octobe
 
 ## Logistics for practicals
 
-We will have a meeting at 11am on the Tuesday preceding each practical. Everyone TA-ing on that practical should already have worked through the practical & highlighted difficulties and potential questions. The meeting is the place to discuss how to best answer questions that the students may have. 
+We will have a meeting at 11am on the Tuesday preceding each practical in the Bioinformatics room 5.06. Everyone TA-ing on that practical should already have worked through the practical & highlighted difficulties and potential questions. The meeting is the place to discuss how to best answer questions that the students may have. 
 
 |Practical|Week|Session|Day|Date|Time|Room|
 |----|----|-------|---|----|----|----|
@@ -24,7 +24,7 @@ We will have a meeting at 11am on the Tuesday preceding each practical. Everyone
 |1|Week 3|Session 2|Friday|2017-10-13|2-5pm|Francis Bancroft 1.15a |
 |*2: merge with afternoon?*|Week 4|Session 1|Friday|2017-10-20|9am-12|Queens EB7|
 | 2|Week 4|Session 2|Friday|2016-10-20|2-5pm|Francis Bancroft 1.15a |
-|* 3: merge with afternoon?*|Week 5|Session 1|Friday|2016-10-27|9am-12|Queens EB7|
+|*3: merge with afternoon?*|Week 5|Session 1|Friday|2016-10-27|9am-12|Queens EB7|
 | 3|Week 5|Session 2|Friday|2016-10-27|2-5pm|Francis Bancroft 1.15a |
 |Exam group 1|Week 6|Session 1|Friday|2016-11-03|9am-12|Queens EB7|
 |Exam group 2|Week 6|Session 2|Friday|2016-11-03|2-5pm|Francis Bancroft 1.15a |
@@ -41,17 +41,17 @@ We will have a meeting at 11am on the Tuesday preceding each practical. Everyone
 #### Practical 2 - probaly only afternoon
  * If only doing afternoon, need 7 people total. 
  * Main: Emeline
- * Others: Carlos, Priyam, Tim, Roddy, Sandra? Leandro?
+ * Others: Carlos, Priyam, Tim, Roddy, _Sandra? Leandro?_
 
 #### Practical 3 - probaly only afternoon
  * Need 7 people total 
  * Main: Carlos
- * Others: Carlos, Priyam, Tim, Leandro, Sandra? James?
+ * Others: Carlos, Priyam, Tim, Leandro, _Sandra? James?_
 
 #### Practical 4: Test. morning & afternoon.
  * Need 5 people total.
  * Main: Carlos
- * Others: Leandro, Emeline, Priyam, Sandra?
+ * Others: Leandro, Emeline, Priyam, _Sandra?_
 
 
 ## Notes to demonstrators

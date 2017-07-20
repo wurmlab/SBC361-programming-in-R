@@ -39,19 +39,19 @@ We will have a meeting at 11am on the Tuesday preceding each practical in the Bi
  * Others: Carlos, Priyam, Tim, Roddy.
 
 #### Practical 2 - probaly only afternoon
- * If only doing afternoon, need 7 people total. 
+ * If only doing afternoon, need 7 people total.  If everyone always comes we'll have to downsize.
  * Main: Emeline
- * Others: Carlos, Priyam, Tim, Roddy, _Sandra? Leandro?_
+ * Others: Carlos, Priyam, Tim, Roddy, Sandra, Leandro
 
 #### Practical 3 - probaly only afternoon
  * Need 7 people total 
  * Main: Carlos
- * Others: Carlos, Priyam, Tim, Leandro, _Sandra? James?_
+ * Others: Carlos, Priyam, Tim, Leandro, Sandra, _James?_
 
 #### Practical 4: Test. morning & afternoon.
  * Need 5 people total.
  * Main: Carlos
- * Others: Leandro, Emeline, Priyam, _Sandra?_
+ * Others: Leandro, Emeline, Priyam, Sandra
 
 
 ## Notes to demonstrators

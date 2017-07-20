@@ -78,8 +78,8 @@ Work through the relevant material in preparation for a team meeting 1 week befo
 * For many exercises there are multiple possible solutions. That's cool. Some may be easier, some may suck. 
 * You are welcome (but not obliged!) to attend the lectures where we'll be going over the basics.
 * The practicals as we have them are imperfect. Don't hesitate to suggest changes (as github issues or pull requests or in person).
-* In "light orange" are commenting links - you can make comments there; or liaise directly with the practical leader with regards to specific suggestions. These can include structure, wording, deleting/adding sections.
+
 
 ## Contributors
 
-[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira), Bob Verity.
+[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira), Bob Verity, You and probably some others too.

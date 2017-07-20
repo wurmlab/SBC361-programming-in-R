@@ -37,23 +37,23 @@ We will have a meeting at 11am on the Tuesday preceding each practical. Everyone
 
 #### Practical 1 - max 50 in the room: morning and afternoon session
  * Need 5 people total.
- * Main: 
- * Others:  need 4 more.
+ * Main: Emeline
+ * Others: Carlos, Priyam, Tim, Roddy.
 
 #### Practical 2 - probaly only afternoon
- * Need 7 people total. 
- * Main: 
- * Others:
+ * If only doing afternoon, need 7 people total. 
+ * Main: Emeline
+ * Others: Carlos, Priyam, Tim, Roddy, Sandra? Leandro?
 
 #### Practical 3 - probaly only afternoon
  * Need 7 people total 
- * Main: 
- * Others:
+ * Main: Carlos
+ * Others: Carlos, Priyam, Tim, Leandro, Sandra? James?
 
 #### Practical 4: Test. morning & afternoon.
  * Need 5 people total.
- * Main: Yannick
- * Others: 
+ * Main: Carlos
+ * Others: Leandro, Emeline, Priyam, Sandra?
 
 
 ## Notes to demonstrators

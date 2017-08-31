@@ -16,7 +16,7 @@ Lectures are in: Geography 1.26 from 11am to 1pm on September 27th and on Octobe
 
 ## Logistics for practicals
 
-We will have a meeting at 11am on the Tuesday preceding each practical in the Bioinformatics room 5.06. Everyone TA-ing on that practical should already have worked through the practical & highlighted difficulties and potential questions. The meeting is the place to discuss how to best answer questions that the students may have. 
+We will have a meeting at 11am on the Tuesday preceding each practical in the Bioinformatics room 5.08. Everyone TA-ing on that practical should already have worked through the practical & highlighted difficulties and potential questions. The meeting is the place to discuss how to best answer questions that the students may have. 
 
 |Practical|Week|Session|Day|Date|Time|Room|
 |----|----|-------|---|----|----|----|
@@ -38,13 +38,13 @@ We will have a meeting at 11am on the Tuesday preceding each practical in the Bi
  * Main: Emeline
  * Others: Carlos, Priyam, Tim, Roddy.
 
-#### Practical 2 - probaly only afternoon
+#### Practical 2 - probably only afternoon
  * If only doing afternoon, need 7 people total.  If everyone always comes we'll have to downsize.
  * Main: Emeline
  * Others: Carlos, Priyam, Tim, Roddy, Sandra, Leandro
    Potential reserve: Kim
    
-#### Practical 3 - probaly only afternoon
+#### Practical 3 - probably only afternoon
  * Need 7 people total 
  * Main: Carlos
  * Others: Emeline, Priyam, Tim, Leandro, ~~Sandra~~, Kim

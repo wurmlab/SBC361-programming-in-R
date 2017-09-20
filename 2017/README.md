@@ -36,26 +36,24 @@ We will have a meeting at 11am on the Tuesday preceding each practical in the Bi
 
 #### Practical 1 - max 50 in the room: separate morning and afternoon sessions
  * Need 5 people total.
- * Main: Emeline
- * Others: Carlos, Priyam, Tim, Roddy.
+ * Main: Emeline Favreau
+ * Others: Carlos Martinez-Ruiz, Anurag Priyam, Timothy Penny, Rodrigo Pracana.
 
 #### Practical 2 - probably only afternoon
  * If only doing afternoon, need 7 people total.  If everyone always comes we'll have to downsize.
  * Main: Emeline
- * Others: Carlos, Priyam, Tim, Roddy, Sandra, Leandro
-   Potential reserve: Kim
+ * Others: Carlos, Priyam, Tim, Roddy, Sandra Alvarez-Carretero, Leandro Rodriguez-Santiago
+   Potential reserve if we were to split: Kim 
    
 #### Practical 3 - probably only afternoon
  * Need 7 people total 
  * Main: Carlos
- * Others: Emeline, Priyam, Tim, Leandro, ~~Sandra~~, Kim
+ * Others: Emeline, Priyam, Tim, Leandro, ~~Sandra~~, Kimberley Warren
    
- 
 #### Practical 4: Test. morning & afternoon.
  * Need 5 people total.
  * Main: Carlos
  * Others: Leandro, Emeline, Priyam, Sandra
-
 
 ## Notes to demonstrators
 

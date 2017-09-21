@@ -49,7 +49,7 @@ We will have a meeting at 11am on the Tuesday preceding each practical in the Bi
 #### Practical 3 - probably only afternoon
  * Need 7 people total 
  * Main: Carlos
- * Others: Emeline, ~~Priyam~~, Tim, Leandro, ~~Sandra~~, Kimberley Warren, NEED ONE MORE
+ * Others: Emeline, ~~Priyam~~, Tim, Leandro, ~~Sandra~~, Kimberley Warren, Giacomo 
    
 #### Practical 4: Test. morning & afternoon.
  * Need 5 people total.

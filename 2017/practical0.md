@@ -266,7 +266,7 @@ The last data type that is commonly seen in R is the **list**. A list is a bit l
 my_list <- list(A = c(1, 2, 3), B = c(5, 6, 7, 8, 9, 10), D = c('G', 'H'))
 ```
 
-Again, we can access elements from the list using their index. The difference here is that using a single bracket `[]` will return a list (`my_list[1]`), while using the double bracket will return an object of the same type as the element of the list (`my_list[[1]]` will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
+Again, we can access elements from the list using their index, with brackets `my_list[[1]]`, *but you should NOT do this!*. Instead, use the names whenever possible, either using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
 There are other types of data in R, with many being specific to particular libraries.
 
@@ -275,11 +275,10 @@ We have already come across one way of subsetting through the use of square brac
 
 ```R
 puromycin_data <- Puromycin
-puromycin_data[1:3, ]
-puromycin_data[, 2]
+puromycin_data[1:3, ]   # this is acceptable
+puromycin_data[, 2]     # we should never do this.
 ```
-
-we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign `$` to get a specific column:
+we can isolate certain rows of the data frame that we are interested in. Using numbers to access specific rows is ok, but we should never do this with columns. Instead, we can use `subset` (see below) or the dollar sign `$` to get a specific column:
 
 ```R
 puromycin_data$rate

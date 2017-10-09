@@ -14,7 +14,7 @@ This practical 1 is an introduction to regular expressions.
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 
 ```R
-reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
+reptile_data <- read.table("https://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
 ```
 
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code
@@ -56,9 +56,9 @@ reptile_names2 <- gsub(pattern = "liopholis", replacement = "Liopholis", x = rep
 The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile_names2.
 Experiment with `grep()` and `gsub()` until you are confident at using them. Then answer the following questions:
 
-#### Q26. How could you use regular expressions to find the only element in the vector `reptile_names` that contains a lowercase "q"? What is the position of this element in the vector?
+#### Q1. How could you use regular expressions to find the only element in the vector `reptile_names` that contains a lowercase "q"? What is the position of this element in the vector?
 
-#### Q27. You want to import the `reptile_names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
+#### Q2. You want to import the `reptile_names` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
 
 ### Using "fuzzy" searching
 One of the most powerful features of regular expressions is the ability to perform "fuzzy" searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.
@@ -95,21 +95,24 @@ reptile_names3 <- gsub(pattern = ".*:", replacement = "", x = reptile_names2)
 ```
 Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 
-#### Q28. What does the pattern "..x.." mean in a regular expression?
+#### Q3. What does the pattern "..x.." mean in a regular expression?
 
-#### Q29. What does the pattern "e+" mean in a regular expression?
+#### Q4. What does the pattern "e+" mean in a regular expression?
 
-#### Q30. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
-Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
+#### Q5. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
+Hint 1 - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
-#### Q31. Add three additional columns to the `reptile_data` table:
+Hint 2 - the pattern matching `grepl` will come in useful. Check the help  with `?grep`.
+
+
+#### Q6. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
 * one column containing only the genus (e.g. Bellatorias)
-* one containing only the species (excluding the subspecies, e.g. tympanum)
+* one containing only the species (excluding the subspecies, e.g. marnieae)
 
 Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
 
-#### Hacker Q32.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
+#### Hacker Q7.  Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
 Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.
 
 

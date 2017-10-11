@@ -23,6 +23,7 @@ fi
 
 echo "Fetching website content"
 cd public
+git init .
 git remote add deploy $REPO_URL
 git fetch deploy $TARGET_BRANCH
 git reset deploy/$TARGET_BRANCH
@@ -36,6 +37,6 @@ git add --all .
 git config user.name "Anurag Priyam"
 git config user.email "anurag.priyam@qmul.ac.uk"
 
-git commit -m "Deploy to GitHub Pages: ${SHA}"
+git commit -m "Deploy ${SHA}"
 echo "Now that we're all set up, we can push."
 git push deploy HEAD:gh-pages

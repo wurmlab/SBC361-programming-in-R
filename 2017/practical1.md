@@ -28,7 +28,7 @@ Have a close look at these names. Notice that each reptile has been given a uniq
 The tools that allow us to deal with this sort of problem fall under the heading **regular expressions**. These consist of a suite of tools that allow us to search for, locate, and replace characters or words within a data set. The really powerful thing about regular expressions is that we can do a "fuzzy" search, meaning the pattern we are searching for has some flexibility built into it.
 
 ### Basic find and replace
-First of all we will search through the vector id_names_vec to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
+First of all we will search through the vector `id_names_vec` to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
 
 ```R
 # Search through id_names_vec for the word "liopholis", and output positions
@@ -53,7 +53,7 @@ Finally, we may want to find and replace the pattern. This can be done using the
 names_correct_vec <- gsub(pattern = "liopholis", replacement = "Liopholis", x = id_names_vec)
 ```
 
-The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable names_correct_vec.
+The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable `names_correct_vec`.
 Experiment with `grep()` and `gsub()` until you are confident at using them. Then answer the following questions:
 
 #### Q1. How could you use regular expressions to find the only element in the vector `id_names_vec` that contains a lowercase "q"? What is the position of this element in the vector?
@@ -93,7 +93,7 @@ As an example of how fuzzy searching can be useful, we will now use these specia
 ```R
 names_vec <- gsub(pattern = ".*:", replacement = "", x = names_correct_vec)
 ```
-Have a look inside the variable names_vec. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
+Have a look inside the variable `names_vec`. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.
 
 #### Q3. What does the pattern "..x.." mean in a regular expression?
 

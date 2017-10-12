@@ -169,11 +169,11 @@ for (word in greetings) {
   print(word)
 }
 
-## Looping through the positions of each element of the vector (the index)
+## Looping through the positions of each element of the vector (the index, or position)
 colour_vec <- c("red","green","blue","yellow","orange","purple","pink")
-for (index in 1:length(colour_vec)) {
-  colour <- colour_vec[index]
-  print(colour)
+for (position in 1:length(colour_vec)) {
+  current_colour <- colour_vec[position]
+  print(current_colour)
 }
 
 ```
@@ -219,7 +219,7 @@ for (index in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index (i.e. position of the number in the vector) and the number itself. This should be done in human-readable format (i.e. "Index 1 is 10", "Index 2 is 11", "Index 3 is 12", and so on). Did you appropriately indent the code between the `{` and `}` curly brackets?
+#### Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the index (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 

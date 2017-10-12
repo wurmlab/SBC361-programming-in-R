@@ -37,7 +37,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>This practical 1 is an introduction to regular expressions.</p>
 <h2 id="regular-expressions">Regular Expressions</h2>
 <p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:</p>
-<pre class="sourceCode R"><code class="sourceCode r">reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># the first command might be needed</span>
+<span class="kw">setInternet2</span>(<span class="dt">use =</span> <span class="ot">TRUE</span>)
+reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
 <p>This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code</p>
 <pre class="sourceCode R"><code class="sourceCode r">id_names_vec &lt;-<span class="st"> </span><span class="kw">row.names</span>(reptile_data)</code></pre>
 <p>Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the <em>Liopholis</em> group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite &quot;messy&quot; and needs cleaning up.</p>
@@ -117,8 +119,6 @@ names_correct_vec &lt;-<span class="st"> </span><span class="kw">gsub</span>(<sp
 <li>one containing only the species (excluding the genus name and the subspecies name, e.g. we want to read &quot;tympanum&quot;)</li>
 </ul>
 <p>Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.</p>
-<h4 id="hacker-q7.-download-this-text-file-and-figure-out-how-to-capture-the-first-letter-of-the-genus-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q7. Download <a href="http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt">this text file</a> and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
-<p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.</p>
 <h1 id="extra-section">Extra section!</h1>
 <h2 id="data-input-from-files">Data input from files</h2>
 <p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download <a href="http://genomics.senescence.info/longevity/longevity_genes.zip">longevity_genes/longevity.csv</a> and <a href="http://genomics.senescence.info/diet/TableS2.xls">TableS2.xls</a> and try loading them into R.</p>
@@ -145,6 +145,8 @@ longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</s
 <span class="kw">write.table</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output location/file name.xls&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)
 <span class="co"># create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)</span>
 <span class="kw">save</span>(a, b, c, <span class="dt">file =</span> <span class="st">&quot;output location/file name.RData&quot;</span>)</code></pre>
+<h4 id="hacker-q7.-download-this-text-file-and-figure-out-how-to-capture-the-first-letter-of-the-genus-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q7. Download <a href="http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt">this text file</a> and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
+<p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.</p>
 <hr>
 <small>Copyright 2017 <a href=https://github.com/wurmlab/genomicscourse/graphs/contributors>Authors</a>. All rights reserverd.
 

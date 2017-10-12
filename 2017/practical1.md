@@ -109,8 +109,8 @@ Hint - As before, this can be done using a single command.
 
 #### Q6. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
-* one column containing only the genus (e.g. Bellatorias)
-* one containing only the species (excluding the subspecies, e.g. we want to read tympanum)
+* one column containing only the genus (e.g. "Bellatorias")
+* one containing only the species (excluding the genus name and the subspecies name, e.g. we want to read "tympanum")
 
 Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
 

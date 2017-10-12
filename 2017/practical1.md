@@ -56,11 +56,12 @@ names_correct_vec <- gsub(pattern = "liopholis", replacement = "Liopholis", x = 
 ```
 
 The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable `names_correct_vec`.
+
 Experiment with `grep()` and `gsub()` until you are confident at using them. Then answer the following questions:
 
-#### Q1. How could you use regular expressions to find the only element in the vector `id_names_vec` that contains a lowercase "q"? What is the position of this element in the vector?
+#### Q1. How could you use regular expressions to find the only element in the vector `names_correct_vec` that contains a lowercase "q"? What is the position of this element in the vector?
 
-#### Q2. You want to import the `id_names_vec` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
+#### Q2. You want to import the `names_correct_vec` data into excel, but are having problems due to the spaces between the words (a common problem). How could you use `gsub()` to replace all spaces with a period?
 
 ### Using "fuzzy" searching
 One of the most powerful features of regular expressions is the ability to perform "fuzzy" searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.

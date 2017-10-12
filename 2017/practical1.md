@@ -14,6 +14,8 @@ This practical 1 is an introduction to regular expressions.
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 
 ```R
+# the first command might be needed
+setInternet2(use = TRUE)
 reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
 ```
 
@@ -114,9 +116,6 @@ Hint - As before, this can be done using a single command.
 
 Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.
 
-#### Hacker Q7.  Download [this text file](http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt) and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
-Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.
-
 
 # Extra section!
 
@@ -156,3 +155,6 @@ write.table(your subsetted data frame, file = "output location/file name.xls", s
 # create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)
 save(a, b, c, file = "output location/file name.RData")
 ```
+
+#### Hacker Q7.  Download [this text file](http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt) and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).
+Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.

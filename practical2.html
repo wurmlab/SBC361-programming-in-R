@@ -168,11 +168,11 @@ for (word in greetings) {
   <span class="kw">print</span>(word)
 }
 
-## Looping through the positions of each element of the vector (the index)
+## Looping through the positions of each element of the vector (the index, or position)
 colour_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;pink&quot;</span>)
-for (index in <span class="dv">1</span>:<span class="kw">length</span>(colour_vec)) {
-  colour &lt;-<span class="st"> </span>colour_vec[index]
-  <span class="kw">print</span>(colour)
+for (position in <span class="dv">1</span>:<span class="kw">length</span>(colour_vec)) {
+  current_colour &lt;-<span class="st"> </span>colour_vec[position]
+  <span class="kw">print</span>(current_colour)
 }</code></pre>
 <h3 id="storing-loop-results">Storing loop results</h3>
 <p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does <code>phrase_vec</code> look like after the 4th iteration?</p>
@@ -205,7 +205,7 @@ for (index in <span class="dv">1</span>:<span class="kw">length</span>(practical
 
 }</code></pre>
 <p>Once you are comfortable with loops, have a go at the following tasks:</p>
-<h4 id="q7.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-prints-out-the-index-i.e.-position-of-the-number-in-the-vector-and-the-number-itself.-this-should-be-done-in-human-readable-format-i.e.-index-1-is-10-index-2-is-11-index-3-is-12-and-so-on.-did-you-appropriately-indent-the-code-between-the-and-curly-brackets">Q7. Write a loop that iterates over the numbers 10 to 100 and prints out the index (i.e. position of the number in the vector) and the number itself. This should be done in human-readable format (i.e. &quot;Index 1 is 10&quot;, &quot;Index 2 is 11&quot;, &quot;Index 3 is 12&quot;, and so on). Did you appropriately indent the code between the <code>{</code> and <code>}</code> curly brackets?</h4>
+<h4 id="q7-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-index-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the index (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
 <h4 id="q8.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-stores-this-number-in-a-separate-vector.-can-you-explain-the-sequence-of-events-that-the-computer-goes-through-during-say-the-20th-iteration">Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?</h4>
 <h4 id="q9-a.-write-a-loop-that-iterates-over-the-numbers-16-to-49-and-prints-out-the-square-root-of-the-number-each-time-through-you-may-have-to-search-around-for-the-square-root-function.-yes-we-absolutely-want-you-to-write-a-loop-to-do-this.">Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we <em>absolutely</em> want you to write a loop to do this.</h4>
 <h4 id="q9-b.-make-the-loop-from-q9-a-store-the-results-to-a-separate-vector-called-my_square_roots-instead-of-just-printing-the-results.-whats-the-value-of-the-3rd-iteration-whats-the-sum-of-the-square-roots-of-the-numbers-16-to-49">Q9-B. Make the loop from Q9-A store the results to a separate vector called <code>my_square_roots</code> instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?</h4>

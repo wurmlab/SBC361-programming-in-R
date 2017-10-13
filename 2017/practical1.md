@@ -39,11 +39,11 @@ grep(pattern = "liopholis", x = id_names_vec)
 
 The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector `id_names_vec` that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!
 
-Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = T` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
+Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = TRUE` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
 
 ```R
 # Search through id_names_vec for the word "liopholis", and output names
-grep(pattern = "liopholis", x = id_names_vec, value = T)
+grep(pattern = "liopholis", x = id_names_vec, value = TRUE)
 ```
 
 Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.

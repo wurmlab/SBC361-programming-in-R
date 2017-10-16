@@ -6,17 +6,18 @@ October 2017
 
 In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring **functions** and **loops**, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the R help files and your own notes when exploring these new concepts.
 
-To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before evaluating the R code):
+To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before testing the R code):
 
 #### Intro Q1. What would be the outcome of the code `answer <- rep(x = c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
-#### Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those fields for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
+#### Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
 
-#### Intro Q3. What is the regular expression that corresponds to one or more copies of the letter "e", followed by one or more copies of the letter "z"?
+#### Intro Q3. Using regular expression, how would you extract all the words except `dopamine` in the following vector?
+words_vec <- c("cameleopard", "eop4r", "kiloparsec", "dopamine")
 
 ## Functions
 
-Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. The general construct of a function looks like this:
+Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. A function looks like this:
 
 ```R
 function_name <- function(input) {
@@ -44,11 +45,11 @@ mean(x)
 You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to do some calculations:
 
 ```R
-## Define function named 'my_first_function'
+## Define function named 'ant_proportion_calculator'
 
-my_first_function <- function(my_input) {
+ant_proportion_calculator <- function(my_input) {
   ## Do some calculations
-  total       <- 50000
+  total       <- 10000
   calculation <- my_input / total
   output      <- calculation * 100
 
@@ -57,15 +58,15 @@ my_first_function <- function(my_input) {
 }
 
 ## Now run the function with some data:
-my_first_function(my_input = 123)
+ant_proportion_calculator(my_input = 123)
 
 ```
 
-What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
+What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
 
-Nothing much happens after loading the function `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(my_input = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
+Nothing much happens after loading the function `ant_proportion_calculator` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `ant_proportion_calculator(my_input = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
 
-Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):
+Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function function for rounding down to the closest whole number):
 
 ```R
 # Input raw number of seconds
@@ -83,13 +84,13 @@ output_vec <- c(hours, minutes, seconds)
 output_vec
 ```
 
-#### Q1. Modify the code above to make it into a function called `time_converter`. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that covert `number_of_seconds` into `hours`, `minutes`, and `seconds`, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.
+#### Q1. Modify the code above to make it into a function called `time_converter`. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert `number_of_seconds` into `hours`, `minutes`, and `seconds`, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.
 
 #### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Note: `floor` won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.
 
 ### More complex functions
 
-Hopefully you can already see how functions can be useful. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.
+Functions can be very useful when you have to do the same calculation many times. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.
 
 We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format `hours:minutes:seconds`, rather than just the total number of seconds.
 
@@ -119,7 +120,7 @@ total_seconds
 ```
 #### Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.
 
-In our experiment, most bees flew through the test tunnel in under an hour, and it is time consumming to include the argument `hours = 0` every time we call the function we just created.
+In our experiment, most bees flew through the test tunnel in under an hour, and it is time consuming to include the argument `hours = 0` every time we call the function we just created.
 
 A neat thing about functions is that we can set default values for any argument, using the syntax:
 
@@ -158,7 +159,7 @@ All of the skills required to complete this task are given above. Take your time
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the `mean` function we used earlier took the vector `x <- c(2, 3, 4, 5)` as input, which is a single vector with four numbers.
 
-#### Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
+#### Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!
 
 ## Loops
 Imagine you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
@@ -179,21 +180,17 @@ The loop will run 3 times. Each time, it will define the variable `seconds` as a
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:
 
 ```R
-## Non-sequential loop values
-loop_values <- c(1:50)
-for (value in loop_values) {
- 	print(value)
-}
-
-## The same as writing:
-for (value in 1:50) {
- 	print(value)
-}
-
 ## Sequential loop values
 my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
+# set the cumulative sum at zero before the loop starts
+cumulative_sum <- 0
 for (value in my_favourite_numbers) {
+  # print the sentence
   print(paste(value, "is my favourite number"))
+  # add favourite numbers, sequentially
+  cumulative_sum <- cumulative_sum + value
+  # print the cumulative sum
+  print(cumulative_sum)
 }
 
 ## Character based loop values
@@ -213,7 +210,7 @@ for (position in 1:length(colour_vec)) {
 
 ### Storing loop results
 
-You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What's does `phrase_vec` look like after the 4th iteration?
+You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does `phrase_vec` look like after the 4th iteration?
 
 ```R
 ## Vector to loop through
@@ -223,13 +220,13 @@ practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "inf
 phrase_vec <- c()
 
 for (practical_attribute in practical_attribute_vec) {
- 	phrase <- paste("This practical is", practical_attribute)
- 	# Add the loop result to end of the vector of results
- 	phrase_vec <- append(phrase_vec, phrase)
+ phrase <- paste("This practical is", practical_attribute)
+ # Add the loop result to end of the vector of results
+ phrase_vec <- append(phrase_vec, phrase)
 }
 ```
 
-A different way of approaching a for loop is to loop through the indexes of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the index to 'populate' it:
+A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the position to 'populate' it:
 
 ```R
 ## Vector to loop through
@@ -238,27 +235,27 @@ practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "inf
 ## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec <- rep("", times = length(practical_attribute_vec))
 
-## Loop through the index rather than the vector
-for (index in 1:length(practical_attribute_vec)) {
+## Loop through the position rather than the vector
+for (position in 1:length(practical_attribute_vec)) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase        <- paste("This practical is", practical_attribute_vec[index])
+  phrase        <- paste("This practical is", practical_attribute_vec[position])
 
-  ## Add phrase to the right index of the results vector
-  phrase_vec[index] <- phrase
+  ## Add phrase to the right position of the results vector
+  phrase_vec[position] <- phrase
 
 }
 ```
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the index (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
+#### Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
 #### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
 
-#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What is the value of the 3rd iteration? What is the sum of the square roots of the numbers 16 to 49?
 
 #### Q10. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2). The loop should store the results in a separate vector.
 
@@ -281,7 +278,7 @@ for (i in 1:5) {
 }
 ```
 
-Here we have one loop (with index j) nested within another loop (with index i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
+Here we have one loop (with position j) nested within another loop (with position i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
 #### Q12-A. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).
 
@@ -325,7 +322,8 @@ With this empty matrix created, we can move on to the next part of the problem -
 
 ```R
 # Loop through all rows of helianthus_data
-for (my_row in 1:5) {
+nrows(helianthus_data)
+for (number_of_rows in 1:5) {
   # Loop through all columns of helianthus_data except the first
   for (my_col in 2:7) {
 
@@ -335,25 +333,25 @@ for (my_row in 1:5) {
 }
 ```
 
-Here we are using loops to index through each of the rows of the matrix `helianthus_data`, and for each row we are indexing through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[my_row, my_col]`.
+Here we are using loops to go through each of the rows of the matrix `helianthus_data`, and for each row we are going through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[number_of_rows, my_col]`.
 
-Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `my_row` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
+Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `number_of_rows` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q14-B. Change the for loop above to include a variable `my_index`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `my_row` and `my_col` when `my_index` is 3? Add a line to check the indices each time through.
+#### Q14-B. Change the for loop above to include a variable `my_position`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `number_of_rows` and `my_col` when `my_position` is 3? Add a line to check the positions each time through.
 
 It should look something like this:
 
 ```R
-# my_index defined as 0 before the loop starts
-my_index <- 0
+# my_position defined as 0 before the loop starts
+my_position <- 0
 
 # Loop through all rows
-for (my_row in 1:5) {
+for (number_of_rows in 1:5) {
   # Loop through all columns except the first
   for (my_col in 2:7) {
 
-    ## Change my_index here:
-    # make my_index equal to my_index plus one
+    ## Change my_position here:
+    # make my_position equal to my_position plus one
 
     # Print all the indices here to check that you are doing the right thing
   }
@@ -364,21 +362,21 @@ Now that we have three indices - one going through the rows of `helianthus_data`
 
 ```R
 # Get Count
-long_data[my_index, 3] <- helianthus_data[my_row, my_col]
+long_data[my_position, 3] <- helianthus_data[number_of_rows, my_col]
 ```
 
 This is fairly straightforward. We also want to drop the time point in the second column of `long_data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
 
 ```R
 # Get Time
-long_data[my_index, 2] <- my_col - 2
+long_data[my_position, 2] <- my_col - 2
 ```
 
-Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[my_row, 1]`. Therefore, we need the following line of code to extract the strain types:
+Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[number_of_rows, 1]`. Therefore, we need the following line of code to extract the strain types:
 
 ```R
 # Get Strain
-long_data[my_index, 1] <- helianthus_data[my_row, 1]
+long_data[my_position, 1] <- helianthus_data[number_of_rows, 1]
 ```
 
 #### Q14-C. Bring all of this together to finish the for loop, and run it!

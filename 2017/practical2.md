@@ -93,7 +93,7 @@ Hopefully you can already see how functions can be useful. We will now consider 
 
 We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format `hours:minutes:seconds`, rather than just the total number of seconds.
 
-Fortunately, funcitons in R can take more than one argument:
+Fortunately, functions in R can take more than one argument:
 
 ```r
 
@@ -114,7 +114,7 @@ seconds <- 51
 
 # Convert to seconds
 total_seconds <- hours*3600 + minutes*60 + seconds
-return(total_seconds)
+total_seconds
 
 ```
 #### Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.
@@ -154,7 +154,7 @@ Distance (m) | Time (hours:minutes:seconds)
 
 All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
 
-### Function with other types of input
+### Functions with other types of input
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the `mean` function we used earlier took the vector `x <- c(2, 3, 4, 5)` as input, which is a single vector with four numbers.
 

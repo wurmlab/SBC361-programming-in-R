@@ -90,7 +90,7 @@ output_vec</code></pre>
 <h3 id="more-complex-functions">More complex functions</h3>
 <p>Hopefully you can already see how functions can be useful. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.</p>
 <p>We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format <code>hours:minutes:seconds</code>, rather than just the total number of seconds.</p>
-<p>Fortunately, funcitons in R can take more than one argument:</p>
+<p>Fortunately, functions in R can take more than one argument:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
     <span class="co">#code including input1, input2, ...</span>
@@ -104,7 +104,7 @@ seconds &lt;-<span class="st"> </span><span class="dv">51</span>
 
 <span class="co"># Convert to seconds</span>
 total_seconds &lt;-<span class="st"> </span>hours*<span class="dv">3600</span> +<span class="st"> </span>minutes*<span class="dv">60</span> +<span class="st"> </span>seconds
-<span class="kw">return</span>(total_seconds)</code></pre>
+total_seconds</code></pre>
 <h4 id="q3.-transform-the-previous-code-into-a-function.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times.">Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.</h4>
 <p>In our experiment, most bees flew through the test tunnel in under an hour, and it is time consumming to include the argument <code>hours = 0</code> every time we call the function we just created.</p>
 <p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
@@ -157,7 +157,7 @@ total_seconds &lt;-<span class="st"> </span>hours*<span class="dv">3600</span> +
 </tbody>
 </table>
 <p>All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!</p>
-<h3 id="function-with-other-types-of-input">Function with other types of input</h3>
+<h3 id="functions-with-other-types-of-input">Functions with other types of input</h3>
 <p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
 <h4 id="q6.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-google">Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!</h4>
 <h2 id="loops">Loops</h2>

@@ -57,13 +57,13 @@ my_first_function <- function(my_input) {
 }
 
 ## Now run the function with some data:
-my_first_function(my_input = 50)
+my_first_function(my_input = 123)
 
 ```
 
 What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`). 
 
-Nothing much happens after loading the function `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
+Nothing much happens after loading the function `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(my_input = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (don't worry too much about the computation in the middle):
 

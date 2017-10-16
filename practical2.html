@@ -40,15 +40,15 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="functions">Functions</h2>
 <p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. The general construct of a function looks like this:</p>
 <pre class="sourceCode R"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
-  
+
   ### the &quot;body&quot; of the function
-  
+
   <span class="co"># code that performs some calculation on the input</span>
   <span class="co"># possibly other lines of code that perform calculations</span>
-  
+
   <span class="co"># returning an output vector:</span>
   <span class="kw">return</span>(output)
-  
+
 }</code></pre>
 <p>The <code>function_name</code> is the name of your function. You can choose whatever name you want. After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
@@ -85,55 +85,81 @@ output_vec &lt;-<span class="st"> </span><span class="kw">c</span>(hours, minute
 
 <span class="co"># Output the solution to the console</span>
 output_vec</code></pre>
-<h4 id="q1.-modify-the-code-above-to-make-it-into-a-function-called-time_converter.-the-input-will-be-a-single-number-the-number-of-seconds-we-want-to-convert-then-there-are-three-lines-of-code-for-the-calculations-and-finally-we-merge-these-into-one-vector-which-we-will-return-as-the-output-of-the-function.-all-of-this-code-is-given-above.-once-you-created-the-function-and-loaded-it-into-r-run-it-on-the-numbers-5-50000-and-10000000-seconds.-remember-to-indent-any-code-inside-the-curly-brackets.">Q1. Modify the code above to make it into a function called <code>time_converter</code>. The input will be a single number (the number of seconds we want to convert), then there are three lines of code for the calculations, and finally we merge these into one vector, which we will return as the output of the function. All of this code is given above. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.</h4>
+<h4 id="q1.-modify-the-code-above-to-make-it-into-a-function-called-time_converter.-this-function-should-take-a-single-number-as-an-argument-the-number-of-seconds-we-want-to-convert.-this-function-should-also-include-the-three-lines-of-code-that-covert-number_of_seconds-into-hours-minutes-and-seconds-the-line-of-code-that-merges-these-three-variables-into-one-vector-and-a-line-returning-this-vector-as-the-output-of-the-function.-once-you-created-the-function-and-loaded-it-into-r-run-it-on-the-numbers-5-50000-and-10000000-seconds.-remember-to-indent-any-code-inside-the-curly-brackets.">Q1. Modify the code above to make it into a function called <code>time_converter</code>. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that covert <code>number_of_seconds</code> into <code>hours</code>, <code>minutes</code>, and <code>seconds</code>, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.</h4>
 <h4 id="q2.-write-your-own-function-for-converting-distances-between-different-units.-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-roughly-0.62-miles.-note-floor-wont-be-needed-in-the-calculations-here.-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines.">Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
 <h3 id="more-complex-functions">More complex functions</h3>
-<p>Hopefully you can already see how functions can be useful. We can make them even more useful by considering some simple extensions.</p>
-<p>First, you can define multiple arguments to a function, with the general syntax of a function being then:</p>
-<pre class="sourceCode R"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
+<p>Hopefully you can already see how functions can be useful. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.</p>
+<p>We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format <code>hours:minutes:seconds</code>, rather than just the total number of seconds.</p>
+<p>Fortunately, funcitons in R can take more than one argument:</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
     <span class="co">#code including input1, input2, ...</span>
+    <span class="kw">return</span>(something)
 }</code></pre>
-<h4 id="q3.-to-understand-how-a-function-can-have-multiple-arguments-modify-the-function-time_converter-so-that-it-adds-a-given-number-of-hours-to-the-result-the-number-of-hours-will-be-supplied-to-the-function-in-addition-to-the-number-of-seconds.-you-will-have-to-include-a-new-input-to-the-function-you-can-call-it-additional_hours-and-add-it-to-the-hours-variable-think-carefully-about-where-to-add-this.">Q3. To understand how a function can have multiple arguments, modify the function <code>time_converter</code> so that it adds a given number of hours to the result (the number of hours will be supplied to the function in addition to the number of seconds). You will have to include a new input to the function (you can call it <code>additional_hours</code>) and add it to the <code>hours</code> variable (think carefully about where to add this!).</h4>
-<p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
-<h4 id="q4.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-google">Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!</h4>
-<h4 id="extra-arguments">Extra arguments:</h4>
-<p>Another neat thing that we can do is set default values for our arguments. Have another look at the <code>time_converter</code> function you modified in Q1. Most of the time, you will probably want to run it with <code>additional_hours</code> being 0. To do this, you can make <code>additional_hours = 0</code> the default. With default values for arguments, functions take the syntax <code>my_function &lt;- function(input1, ..., input15 = default) {code including input1, input2, ..., input15}</code>. The default argument is generally placed at the end of the argument list.</p>
-<h4 id="q5.-make-the-additional_hours-be-defined-as-0-by-default-in-the-time_converter-function.-run-the-function-without-supplying-any-additional-hours.-now-run-it-again-with-0-explicit-additional-hours.-do-the-same-with-3-24-and-50.">Q5. Make the <code>additional_hours</code> be defined as 0 by default in the <code>time_converter</code> function. Run the function without supplying any additional hours. Now run it again with &quot;0&quot; explicit additional hours. Do the same with 3, 24, and 50.</h4>
-<h4 id="q6.-this-task-is-a-bit-more-challenging-go-back-to-your-function-for-converting-kilometres-to-miles-make-a-copy-with-an-appropriate-new-name.-the-new-extended-function-should">Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:</h4>
+<p>We would like to make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input hours, minutes and seconds</span>
+hours   &lt;-<span class="st"> </span><span class="dv">3</span>
+minutes &lt;-<span class="st"> </span><span class="dv">23</span>
+seconds &lt;-<span class="st"> </span><span class="dv">51</span>
+
+<span class="co"># Convert to seconds</span>
+total_seconds &lt;-<span class="st"> </span>hours*<span class="dv">3600</span> +<span class="st"> </span>minutes*<span class="dv">60</span> +<span class="st"> </span>seconds
+<span class="kw">return</span>(total_seconds)</code></pre>
+<h4 id="q3.-transform-the-previous-code-into-a-function.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times.">Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.</h4>
+<p>In our experiment, most bees flew through the test tunnel in under an hour, and it is time consumming to include the argument <code>hours = 0</code> every time we call the function we just created.</p>
+<p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
+<pre class="sourceCode r"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, ..., <span class="dt">input15 =</span> default) {
+  <span class="co"># code including input1, input2, ..., input15</span>
+  <span class="kw">return</span>(something)
+}</code></pre>
+<p>The default argument(s) is generally placed at the end of the argument list.</p>
+<h4 id="q4.-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function.-run-the-function-without-supplying-these-two-arguments.-now-run-it-again-with-using-a-range-of-hours-and-minutes.">Q4. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments. Now run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
+<p>Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:</p>
 <ul>
-<li>take a distance in kilometres and a time in minutes as input.<br /></li>
-<li>convert the distance into miles and the time into hours (you won't be able to use the <code>time_converter</code> function here).<br /></li>
-<li>calculate a speed in miles per hour.<br /></li>
-<li>return the speed in miles per hour as output.</li>
+<li>Take the tunnel length (in meters), hours, minutes and seconds as arguments<br /></li>
+<li>Use your previous function to convert hours, minutes and seconds to seconds<br /></li>
+<li>Calculate the speed of the bees in meters per second<br /></li>
+<li>Returns the speed of the bees</li>
 </ul>
-<p>Test your function with the following values:</p>
+<h4 id="q5.-create-this-function-and-test-it-with-the-following-values">Q5. Create this function, and test it with the following values:</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Distance (km)</th>
-<th align="left">Time (min)</th>
+<th align="left">Distance (m)</th>
+<th align="left">Time (hours:minutes:seconds)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">10</td>
-<td align="left">60</td>
+<td align="left">00:00:20</td>
 </tr>
 <tr class="even">
 <td align="left">10</td>
-<td align="left">90</td>
+<td align="left">00:00:43</td>
 </tr>
 <tr class="odd">
-<td align="left">100</td>
 <td align="left">150</td>
+<td align="left">00:07:20</td>
 </tr>
 <tr class="even">
-<td align="left">100</td>
-<td align="left">175</td>
+<td align="left">150</td>
+<td align="left">00:13:41</td>
+</tr>
+<tr class="odd">
+<td align="left">500</td>
+<td align="left">00:48:21</td>
+</tr>
+<tr class="even">
+<td align="left">500</td>
+<td align="left">01:03:23</td>
 </tr>
 </tbody>
 </table>
 <p>All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!</p>
+<h3 id="function-with-other-types-of-input">Function with other types of input</h3>
+<p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
+<h4 id="q6.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-google">Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!</h4>
 <h2 id="loops">Loops</h2>
 <p>Imagine you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>

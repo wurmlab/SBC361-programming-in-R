@@ -20,15 +20,15 @@ Functions are pieces of code that are made to take an input (generally known as 
 
 ```R
 function_name <- function(input) {
-  
+
   ### the "body" of the function
-  
+
   # code that performs some calculation on the input
   # possibly other lines of code that perform calculations
-  
+
   # returning an output vector:
   return(output)
-  
+
 }
 ```
 
@@ -61,7 +61,7 @@ my_first_function(my_input = 123)
 
 ```
 
-What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`). 
+What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
 
 Nothing much happens after loading the function `my_first_function` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_first_function(my_input = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
 
@@ -83,50 +83,82 @@ output_vec <- c(hours, minutes, seconds)
 output_vec
 ```
 
-#### Q1. Modify the code above to make it into a function called `time_converter`. The input will be a single number (the number of seconds we want to convert), then there are three lines of code for the calculations, and finally we merge these into one vector, which we will return as the output of the function. All of this code is given above. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.
+#### Q1. Modify the code above to make it into a function called `time_converter`. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that covert `number_of_seconds` into `hours`, `minutes`, and `seconds`, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, run it on the numbers 5, 50000, and 10000000 seconds. Remember to indent any code inside the curly brackets.
 
 #### Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is roughly 0.62 miles). Note: `floor` won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.
 
 ### More complex functions
 
-Hopefully you can already see how functions can be useful. We can make them even more useful by considering some simple extensions.
+Hopefully you can already see how functions can be useful. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.
 
-First, you can define multiple arguments to a function, with the general syntax of a function being then:
+We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format `hours:minutes:seconds`, rather than just the total number of seconds.
 
-```R
+Fortunately, funcitons in R can take more than one argument:
+
+```r
+
 my_function <- function(input1, input2, ...) {
     #code including input1, input2, ...
+    return(something)
+}
+
+```
+
+We would like to make a function that takes `hours`, `minutes` and `seconds` as inputs, and outputs the total number of seconds:
+
+```r
+# Input hours, minutes and seconds
+hours   <- 3
+minutes <- 23
+seconds <- 51
+
+# Convert to seconds
+total_seconds <- hours*3600 + minutes*60 + seconds
+return(total_seconds)
+
+```
+#### Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.
+
+In our experiment, most bees flew through the test tunnel in under an hour, and it is time consumming to include the argument `hours = 0` every time we call the function we just created.
+
+A neat thing about functions is that we can set default values for any argument, using the syntax:
+
+```r
+my_function <- function(input1, ..., input15 = default) {
+  # code including input1, input2, ..., input15
+  return(something)
 }
 ```
 
-#### Q3. To understand how a function can have multiple arguments, modify the function `time_converter` so that it adds a given number of hours to the result (the number of hours will be supplied to the function in addition to the number of seconds). You will have to include a new input to the function (you can call it `additional_hours`) and add it to the `hours` variable (think carefully about where to add this!).
+The default argument(s) is generally placed at the end of the argument list.
+
+#### Q4. Make the `hours` and `minutes` arguments be defined as 0 by default in your function. Run the function without supplying these two arguments. Now run it again with using a range of `hours` and `minutes`.
+
+Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:
+
+* Take the tunnel length (in meters), hours, minutes and seconds as arguments
+* Use your previous function to convert hours, minutes and seconds to seconds
+* Calculate the speed of the bees in meters per second
+* Returns the speed of the bees
+
+#### Q5. Create this function, and test it with the following values:
+
+Distance (m) | Time (hours:minutes:seconds)
+---------|------
+10 |00:00:20
+10 |00:00:43
+150 |00:07:20
+150 |00:13:41
+500 |00:48:21
+500 |01:03:23
+
+All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
+
+### Function with other types of input
 
 Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the `mean` function we used earlier took the vector `x <- c(2, 3, 4, 5)` as input, which is a single vector with four numbers.
 
-#### Q4. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
-
-#### Extra arguments:
-Another neat thing that we can do is set default values for our arguments. Have another look at the `time_converter` function you modified in Q1. Most of the time, you will probably want to run it with `additional_hours` being 0. To do this, you can make `additional_hours = 0` the default. With default values for arguments, functions take the syntax `my_function <- function(input1, ..., input15 = default) {code including input1, input2, ..., input15}`. The default argument is generally placed at the end of the argument list.
-
-#### Q5. Make the `additional_hours` be defined as 0 by default in the `time_converter` function. Run the function without supplying any additional hours. Now run it again with "0" explicit additional hours. Do the same with 3, 24, and 50. 
-
-#### Q6. This task is a bit more challenging! Go back to your function for converting kilometres to miles; make a copy with an appropriate new name. The new extended function should:
-
-* take a distance in kilometres and a time in minutes as input.
-* convert the distance into miles and the time into hours (you won't be able to use the `time_converter` function here). 
-* calculate a speed in miles per hour.
-* return the speed in miles per hour as output.
-
-Test your function with the following values:
-
-Distance (km) | Time (min)
----------|------
-10 |60
-10 |90
-100 |150
-100 |175
-
-All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
+#### Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use Google!
 
 ## Loops
 Imagine you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
@@ -224,13 +256,13 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
-#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this. 
+#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
 
 #### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
 
 #### Q10. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2). The loop should store the results in a separate vector.
 
-#### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector. 
+#### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.
 
 * Use a starting population size of 1000.
 * Create a vector containing the reproduction rate for each year: `reproduction_rate <- rnorm(20, mean = 1, sd = 0.2)`.
@@ -275,7 +307,7 @@ We want to get this data into a new format - sometimes called long format - in w
 
 Strain | Time | Count
 -------|------|------
-1 |0 |12 
+1 |0 |12
 1 |1 |33
 1 |2 |71
 1 |3 |61
@@ -368,7 +400,7 @@ tail(long_data)
   * use `substring()` to split the sequence into triplets and `seq()` within `substring()`
   * return the RNA triplets string
 
-Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
+Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.
 
 As an example:
 
@@ -385,7 +417,7 @@ You can use this sequence (copy and paste it into R): `"ATTACGACGCGATTCCCGGTTAAT
 
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
 
-* replace bases with their complement (you can use `gsub`, judiciously replacing uppercase characters with lowercase characters (or vice-versa)). 
+* replace bases with their complement (you can use `gsub`, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).
 * split the string of DNA bases into separate characters with `strsplit`. Unfortunately, `strsplit` confusingly returns a list, so you will need to use `unlist()` to obtain a string again
 * reverse the sequence
 * remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function)

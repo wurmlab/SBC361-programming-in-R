@@ -48,16 +48,17 @@ You just used the `mean` function, one of many functions loaded by default in R.
 
 my_first_function <- function(my_input) {
   ## Do some calculations
-  total <- 50000
+  total       <- 50000
   calculation <- my_input / total
-  output <- calculation * 100
+  output      <- calculation * 100
 
   ## Return the output
   return(output)
 }
 
 ## Now run the function with some data:
-my_first_function(123)
+my_first_function(my_input = 50)
+
 ```
 
 What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (50,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`). 

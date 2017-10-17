@@ -41,29 +41,34 @@ x <- c(2, 3, 4, 5)
 mean(x)
 ```
 
-You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to do some calculations:
+You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own mean function to understand how R functions work:
 
 ```R
-## Define function named 'ant_proportion_calculator'
+## Define function named 'my_own_mean'
 
-ant_proportion_calculator <- function(ant_number) {
-  ## Do some calculations
-  total       <- 10000
-  calculation <- ant_number / total
-  output      <- calculation * 100
+my_own_mean <- function(vector_for_mean) {
+  ## Calculate mean
+  #Sum all numbers in the vector and divide by t
+  sum_of_values <- sum(vector_for_mean)
 
-  ## Return the output
-  return(output)
+  #Obtain the number of values in the vector
+  nb_of_values <- length(vector_for_mean)
+
+  #Get the mean
+  final_mean <- sum_of_values/nb_of_values
+
+  ## Output the mean
+  return(final_mean)
 }
 
 ## Now run the function with some data:
-ant_proportion_calculator(ant_numbers = 123)
+my_own_mean(vector_for_mean = c(1:50))
 
 ```
 
-What we did here is to create a function that computes the percentage of a given number (`ant_number`) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`ant_number`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
+What we did here is to create a function that computes the sum and number of all values in a given vector (`vector_for_mean`) and then divides them to obtain the mean. Here we calculate the mean of a vector containing the values from 1 to 50. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (`vector_for_mean`) and all the calculations are based on this. In the end we return the result of the third calculation (`final_mean`).
 
-Nothing much happens after loading the function `ant_proportion_calculator` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `ant_proportion_calculator(ant_number = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `ant_number` in the function and the output is simply the result of `(123 / 10000) * 100`.
+Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `my_own_mean(vector_for_mean = c(1:50))` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `vector_for_mean` in the function.
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function function for rounding down to the closest whole number):
 

@@ -54,23 +54,28 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>To take a self-explanatory example:</p>
 <pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
-<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to do some calculations:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;ant_proportion_calculator&#39;
+<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own mean function to understand how R functions work:</p>
+<pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
 
-ant_proportion_calculator &lt;-<span class="st"> </span>function(ant_number) {
-  ## Do some calculations
-  total       &lt;-<span class="st"> </span><span class="dv">10000</span>
-  calculation &lt;-<span class="st"> </span>ant_number /<span class="st"> </span>total
-  output      &lt;-<span class="st"> </span>calculation *<span class="st"> </span><span class="dv">100</span>
+my_own_mean &lt;-<span class="st"> </span>function(vector_for_mean) {
+  ## Calculate mean
+  <span class="co">#Sum all numbers in the vector and divide by t</span>
+  sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(vector_for_mean)
 
-  ## Return the output
-  <span class="kw">return</span>(output)
+  <span class="co">#Obtain the number of values in the vector</span>
+  nb_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(vector_for_mean)
+
+  <span class="co">#Get the mean</span>
+  final_mean &lt;-<span class="st"> </span>sum_of_values/nb_of_values
+
+  ## Output the mean
+  <span class="kw">return</span>(final_mean)
 }
 
 ## Now run the function with some data:
-<span class="kw">ant_proportion_calculator</span>(<span class="dt">ant_numbers =</span> <span class="dv">123</span>)</code></pre>
-<p>What we did here is to create a function that computes the percentage of a given number (<code>ant_number</code>) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (<code>ant_number</code>) and all the calculations are based on this. In the end we return the result of the second calculation (<code>output</code>).</p>
-<p>Nothing much happens after loading the function <code>ant_proportion_calculator</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>ant_proportion_calculator(ant_number = 123)</code> (of course you can use other numbers instead of &quot;123&quot; as well). The number &quot;123&quot; will be used as <code>ant_number</code> in the function and the output is simply the result of <code>(123 / 10000) * 100</code>.</p>
+<span class="kw">my_own_mean</span>(<span class="dt">vector_for_mean =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">50</span>))</code></pre>
+<p>What we did here is to create a function that computes the sum and number of all values in a given vector (<code>vector_for_mean</code>) and then divides them to obtain the mean. Here we calculate the mean of a vector containing the values from 1 to 50. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>vector_for_mean</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>final_mean</code>).</p>
+<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>my_own_mean(vector_for_mean = c(1:50))</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>vector_for_mean</code> in the function.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function function for rounding down to the closest whole number):</p>
 <pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>

@@ -12,8 +12,7 @@ To get your brains warmed up, here a few questions on the material from last wee
 
 #### Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
 
-#### Intro Q3. Using regular expression, how would you extract all the words except `dopamine` in the following vector?
-words_vec <- c("cameleopard", "eop4r", "kiloparsec", "dopamine")
+#### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`?
 
 ## Functions
 
@@ -47,10 +46,10 @@ You just used the `mean` function, one of many functions loaded by default in R.
 ```R
 ## Define function named 'ant_proportion_calculator'
 
-ant_proportion_calculator <- function(my_input) {
+ant_proportion_calculator <- function(ant_number) {
   ## Do some calculations
   total       <- 10000
-  calculation <- my_input / total
+  calculation <- ant_number / total
   output      <- calculation * 100
 
   ## Return the output
@@ -58,13 +57,13 @@ ant_proportion_calculator <- function(my_input) {
 }
 
 ## Now run the function with some data:
-ant_proportion_calculator(my_input = 123)
+ant_proportion_calculator(ant_numbers = 123)
 
 ```
 
-What we did here is to create a function that computes the percentage of a given number (`my_input`) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`my_input`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
+What we did here is to create a function that computes the percentage of a given number (`ant_number`) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (`ant_number`) and all the calculations are based on this. In the end we return the result of the second calculation (`output`).
 
-Nothing much happens after loading the function `ant_proportion_calculator` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `ant_proportion_calculator(my_input = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `my_input` in the function and the output is simply the result of `(123 / 50000) * 100`.
+Nothing much happens after loading the function `ant_proportion_calculator` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing `ant_proportion_calculator(ant_number = 123)` (of course you can use other numbers instead of "123" as well). The number "123" will be used as `ant_number` in the function and the output is simply the result of `(123 / 10000) * 100`.
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function function for rounding down to the closest whole number):
 
@@ -120,7 +119,7 @@ total_seconds
 ```
 #### Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.
 
-In our experiment, most bees flew through the test tunnel in under an hour, and it is time consuming to include the argument `hours = 0` every time we call the function we just created.
+In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument `hours = 0` every time that we call the function.
 
 A neat thing about functions is that we can set default values for any argument, using the syntax:
 
@@ -146,6 +145,8 @@ Finally, we would like to create a function to measure the flight speed of the b
 
 Distance (m) | Time (hours:minutes:seconds)
 ---------|------
+0 |00:00:00
+1 |00:00:08
 10 |00:00:20
 10 |00:00:43
 150 |00:07:20
@@ -300,7 +301,7 @@ helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-progra
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.
 
-We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using `ggplot` (and many analysis packages) require long format. The first few lines of this new data structure should look like this:
+We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using `ggplot` (and many analysis packages) requires long format. The first few lines of this new data structure should look like this:
 
 Strain | Time | Count
 -------|------|------
@@ -389,9 +390,9 @@ tail(long_data)
 
 #### Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?
 
-## Working with DNA data
+## Hacker section: Working with DNA data
 
-#### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
+#### Bonus Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
 
   * load the data into R: `dna_string <- scan("https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
   * replace T with U  (thymine with uracil to convert DNA to RNA)
@@ -407,9 +408,9 @@ dna_string <- c("AAATTT")
 substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```
 
-#### Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
+#### Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
 
-#### Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
+#### Bonus Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
 
 You can use this sequence (copy and paste it into R): `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
 
@@ -421,7 +422,7 @@ The tricky part here is reversing a single string of characters. Search around f
 * remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function)
 * return the reverse-complement sequence
 
-#### Q17. (Mastermind question). Translate your triplet string from Q15 into amino acids.
+#### Mastermind Q17. Translate your triplet string from Q15 into amino acids.
 Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.
 
 ## Bringing it all together

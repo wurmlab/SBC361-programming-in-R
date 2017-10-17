@@ -10,7 +10,7 @@ In this session we will build on some of the skills learned in the previous prac
 
 Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. A function looks like this:
 
-```R
+```r
 function_name <- function(input) {
 
   ### the "body" of the function
@@ -28,7 +28,7 @@ The `function_name` is the name of your function. You can choose whatever name y
 
 To take a self-explanatory example:
 
-```R
+```r
 x <- c(2, 3, 4, 5)
 mean(x)
 ```
@@ -64,7 +64,7 @@ Nothing much happens after loading the function `my_own_mean` into R (you always
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function function for rounding down to the closest whole number):
 
-```R
+```r
 # Input raw number of seconds
 number_of_seconds <- 19955
 
@@ -149,7 +149,7 @@ Imagine you need to run the function `time_converter` on different numbers. You 
 
 Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:
 
-```R
+```r
 ## For loop example
 for (seconds in c(1000, 2000, 3000)) {
   time_in_hours <- time_converter(number_of_seconds = seconds)
@@ -162,7 +162,7 @@ The loop will run 3 times. Each time, it will define the variable `seconds` as a
 ### Slightly more complex loops
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:
 
-```R
+```r
 ## Sequential loop values
 my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
 # set the cumulative sum at zero before the loop starts
@@ -195,7 +195,7 @@ for (position in 1:length(colour_vec)) {
 
 You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does `phrase_vec` look like after the 4th iteration?
 
-```R
+```r
 ## Vector to loop through
 practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
@@ -211,7 +211,7 @@ for (practical_attribute in practical_attribute_vec) {
 
 A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the position to 'populate' it:
 
-```R
+```r
 ## Vector to loop through
 practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
@@ -257,7 +257,7 @@ In the following exercice, we will simulate the size of a population given a rep
 
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 
-```R
+```r
 for (i in 1:5) {
   for (j in 7:9) {
     print(c(i, j))
@@ -281,7 +281,7 @@ Loops are particularly useful to reformat data sets. By looping through all of t
 
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
-```R
+```r
 helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt", header = TRUE))
 ```
 
@@ -307,7 +307,7 @@ We can make the transition from the wide format of `helianthus_data` to the long
 
 With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
 
-```R
+```r
 # Loop through all rows of helianthus_data
 nrows(helianthus_data)
 for (number_of_rows in 1:5) {
@@ -328,7 +328,7 @@ Hopefully you can already see that these are the exact values we want to drop in
 
 It should look something like this:
 
-```R
+```r
 # my_position defined as 0 before the loop starts
 my_position <- 0
 
@@ -347,21 +347,21 @@ for (number_of_rows in 1:5) {
 
 Now that we have three indices - one going through the rows of `helianthus_data`, one going through the columns of `helianthus_data`, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix `long_data`. The code we need at each iteration of the loop is the following:
 
-```R
+```r
 # Get Count
 long_data[my_position, 3] <- helianthus_data[number_of_rows, my_col]
 ```
 
 This is fairly straightforward. We also want to drop the time point in the second column of `long_data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
 
-```R
+```r
 # Get Time
 long_data[my_position, 2] <- my_col - 2
 ```
 
 Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[number_of_rows, 1]`. Therefore, we need the following line of code to extract the strain types:
 
-```R
+```r
 # Get Strain
 long_data[my_position, 1] <- helianthus_data[number_of_rows, 1]
 ```
@@ -369,7 +369,7 @@ long_data[my_position, 1] <- helianthus_data[number_of_rows, 1]
 #### Q14-C. Bring all of this together to finish the for loop, and run it!
 To check what you've done, you can print the start and end of long_data:
 
-```R
+```r
 head(long_data)
 tail(long_data)
 ```
@@ -389,7 +389,7 @@ Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a s
 
 As an example:
 
-```R
+```r
 dna_string <- c("AAATTT")
 substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 ```

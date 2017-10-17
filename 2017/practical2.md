@@ -274,14 +274,14 @@ Another important way of extending loops is to consider nested loops - in other 
 coffee_drinks <- c("latte", "cappuccino", "espresso", "flat white", "cortado")
 coffee_places <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
 
-for (the_drink in 1:length(coffee_drinks)) {
-  for (the_place in 1:length(coffee_places)) {
-    print(paste("I'd like a", coffee_drinks[the_drink], "from", coffee_places[the_place]))
+for (drink in coffee_drinks) {
+  for (the_place in coffee_places) {
+    print(paste("I'd like a", drink, "from", the_place))
   }
 }
 ```
 
-Here we have one loop (with position `the_place`) nested within another loop (with position `the_drink`). We have also defined the values that `the_place` and `the_drink` can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
+Here we have one loop (with position `the_place`) nested within another loop (with position `drink`). We have also defined the values that `the_place` and `drink` can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
 #### Q12-A. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).
 

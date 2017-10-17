@@ -254,11 +254,15 @@ Once you are comfortable with loops, have a go at the following tasks:
 
 #### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
-#### Q9-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
+### Using loops
 
-#### Q9-B. Make the loop from Q9-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What is the value of the 3rd iteration? What is the sum of the square roots of the numbers 16 to 49?
+For the following exercice, imagine that instead of buying a coffee, you deposit the £2 you would have spent into a savings account. The account has an annual interest rate of 2%, which is deposited into the account. You do not take any money out of the account for 20 years.
 
-#### Q10. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2). The loop should store the results in a separate vector.
+#### Q9. Use a `for` loop to calculate how much money there is in the account after 20 years.
+
+#### Q10. Make a plot the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.
+
+In the following exercice, we will simulate the size of a population given a reproduction rate that changes every year.
 
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.
 

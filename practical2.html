@@ -51,27 +51,27 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
 <p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own mean function to understand how R functions work:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
+<pre class="sourceCode r"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
 
-my_own_mean &lt;-<span class="st"> </span>function(vector_for_mean) {
+my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
   ## Calculate mean
-  <span class="co">#Sum all numbers in the vector and divide by t</span>
-  sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(vector_for_mean)
+  <span class="co">#Sum all numbers in the vector</span>
+  sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(number_vec)
 
   <span class="co">#Obtain the number of values in the vector</span>
-  nb_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(vector_for_mean)
+  nb_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)
 
   <span class="co">#Get the mean</span>
-  final_mean &lt;-<span class="st"> </span>sum_of_values/nb_of_values
+  mean_value &lt;-<span class="st"> </span>sum_of_values/nb_of_values
 
   ## Output the mean
-  <span class="kw">return</span>(final_mean)
+  <span class="kw">return</span>(mean_value)
 }
 
 ## Now run the function with some data:
-<span class="kw">my_own_mean</span>(<span class="dt">vector_for_mean =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">50</span>))</code></pre>
-<p>What we did here is to create a function that computes the sum and number of all values in a given vector (<code>vector_for_mean</code>) and then divides them to obtain the mean. Here we calculate the mean of a vector containing the values from 1 to 50. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>vector_for_mean</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>final_mean</code>).</p>
-<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>my_own_mean(vector_for_mean = c(1:50))</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>vector_for_mean</code> in the function.</p>
+<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="dv">1</span>:<span class="dv">50</span>)</code></pre>
+<p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>).</p>
+<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function function for rounding down to the closest whole number):</p>
 <pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>

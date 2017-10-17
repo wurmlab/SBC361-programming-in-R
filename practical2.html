@@ -33,10 +33,6 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>BIO309: Research Methods and Communication</p>
 <p>October 2017</p>
 <p>In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the R help files and your own notes when exploring these new concepts.</p>
-<p>To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before testing the R code):</p>
-<h4 id="intro-q1.-what-would-be-the-outcome-of-the-code-answer---repx-c42-24-times-42-and-what-would-then-be-the-outcome-of-the-code-meananswer">Intro Q1. What would be the outcome of the code <code>answer &lt;- rep(x = c(42, 24), times = 42)</code>? And what would then be the outcome of the code <code>mean(answer)</code>?</h4>
-<h4 id="intro-q2.-use-the-preloaded-r-data-set-indometh.-subset-this-data-to-return-only-those-rows-for-which-the-concentration-is-strictly-between-1-and-2.-what-is-the-average-mean-concentration-for-this-subset">Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?</h4>
-<h4 id="intro-q3.-using-regular-expressions-how-would-you-extract-all-the-words-except-antilope-in-the-vector-ccameleopard-eop4a-kiloparsec-antilope">Intro Q3. Using regular expressions, how would you extract all the words except <code>antilope</code> in the vector <code>c(&quot;cameleopard&quot;, &quot;eop4a&quot;, &quot;kiloparsec&quot;, &quot;antilope&quot;)</code>?</h4>
 <h2 id="functions">Functions</h2>
 <p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. A function looks like this:</p>
 <pre class="sourceCode R"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
@@ -101,16 +97,7 @@ my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
     <span class="co">#code including input1, input2, ...</span>
     <span class="kw">return</span>(something)
 }</code></pre>
-<p>We would like to make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input hours, minutes and seconds</span>
-hours   &lt;-<span class="st"> </span><span class="dv">3</span>
-minutes &lt;-<span class="st"> </span><span class="dv">23</span>
-seconds &lt;-<span class="st"> </span><span class="dv">51</span>
-
-<span class="co"># Convert to seconds</span>
-total_seconds &lt;-<span class="st"> </span>hours*<span class="dv">3600</span> +<span class="st"> </span>minutes*<span class="dv">60</span> +<span class="st"> </span>seconds
-total_seconds</code></pre>
-<h4 id="q3.-transform-the-previous-code-into-a-function.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times.">Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.</h4>
+<h4 id="q3.-make-a-function-that-takes-hours-minutes-and-seconds-as-inputs-and-outputs-the-total-number-of-seconds.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times-for-which-you-know-the-answer.">Q3. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h4>
 <p>In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument <code>hours = 0</code> every time that we call the function.</p>
 <p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, ..., <span class="dt">input15 =</span> default) {
@@ -118,7 +105,7 @@ total_seconds</code></pre>
   <span class="kw">return</span>(something)
 }</code></pre>
 <p>The default argument(s) is generally placed at the end of the argument list.</p>
-<h4 id="q4.-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function.-run-the-function-without-supplying-these-two-arguments.-now-run-it-again-with-using-a-range-of-hours-and-minutes.">Q4. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments. Now run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
+<h4 id="q4.-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function.-run-the-function-without-supplying-these-two-arguments-then-run-it-again-with-using-a-range-of-hours-and-minutes.">Q4. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
 <p>Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:</p>
 <ul>
 <li>Take the tunnel length (in meters), hours, minutes and seconds as arguments<br /></li>

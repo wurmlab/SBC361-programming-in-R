@@ -109,20 +109,7 @@ my_function <- function(input1, input2, ...) {
 
 ```
 
-We would like to make a function that takes `hours`, `minutes` and `seconds` as inputs, and outputs the total number of seconds:
-
-```r
-# Input hours, minutes and seconds
-hours   <- 3
-minutes <- 23
-seconds <- 51
-
-# Convert to seconds
-total_seconds <- hours*3600 + minutes*60 + seconds
-total_seconds
-
-```
-#### Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.
+#### Q3. Make a function that takes `hours`, `minutes` and `seconds` as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.
 
 In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument `hours = 0` every time that we call the function.
 
@@ -137,7 +124,7 @@ my_function <- function(input1, ..., input15 = default) {
 
 The default argument(s) is generally placed at the end of the argument list.
 
-#### Q4. Make the `hours` and `minutes` arguments be defined as 0 by default in your function. Run the function without supplying these two arguments. Now run it again with using a range of `hours` and `minutes`.
+#### Q4. Make the `hours` and `minutes` arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of `hours` and `minutes`.
 
 Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:
 

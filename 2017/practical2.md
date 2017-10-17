@@ -245,8 +245,6 @@ for (letter in LETTERS){
  matches <- grep(pattern = begins_with, x = ant_table$genus)
  print(paste(length(matches), "begin with", letter))
 }
-
-
 ```
 
 #### Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.

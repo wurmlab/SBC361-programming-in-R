@@ -36,8 +36,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>To get your brains warmed up, here a few questions on the material from last week (try to think of the answer before testing the R code):</p>
 <h4 id="intro-q1.-what-would-be-the-outcome-of-the-code-answer---repx-c42-24-times-42-and-what-would-then-be-the-outcome-of-the-code-meananswer">Intro Q1. What would be the outcome of the code <code>answer &lt;- rep(x = c(42, 24), times = 42)</code>? And what would then be the outcome of the code <code>mean(answer)</code>?</h4>
 <h4 id="intro-q2.-use-the-preloaded-r-data-set-indometh.-subset-this-data-to-return-only-those-rows-for-which-the-concentration-is-strictly-between-1-and-2.-what-is-the-average-mean-concentration-for-this-subset">Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?</h4>
-<h4 id="intro-q3.-using-regular-expression-how-would-you-extract-all-the-words-except-dopamine-in-the-following-vector">Intro Q3. Using regular expression, how would you extract all the words except <code>dopamine</code> in the following vector?</h4>
-<p>words_vec &lt;- c(&quot;cameleopard&quot;, &quot;eop4r&quot;, &quot;kiloparsec&quot;, &quot;dopamine&quot;)</p>
+<h4 id="intro-q3.-using-regular-expressions-how-would-you-extract-all-the-words-except-antilope-in-the-vector-ccameleopard-eop4a-kiloparsec-antilope">Intro Q3. Using regular expressions, how would you extract all the words except <code>antilope</code> in the vector <code>c(&quot;cameleopard&quot;, &quot;eop4a&quot;, &quot;kiloparsec&quot;, &quot;antilope&quot;)</code>?</h4>
 <h2 id="functions">Functions</h2>
 <p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. A function looks like this:</p>
 <pre class="sourceCode R"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
@@ -58,10 +57,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own function to do some calculations:</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Define function named &#39;ant_proportion_calculator&#39;
 
-ant_proportion_calculator &lt;-<span class="st"> </span>function(my_input) {
+ant_proportion_calculator &lt;-<span class="st"> </span>function(ant_number) {
   ## Do some calculations
   total       &lt;-<span class="st"> </span><span class="dv">10000</span>
-  calculation &lt;-<span class="st"> </span>my_input /<span class="st"> </span>total
+  calculation &lt;-<span class="st"> </span>ant_number /<span class="st"> </span>total
   output      &lt;-<span class="st"> </span>calculation *<span class="st"> </span><span class="dv">100</span>
 
   ## Return the output
@@ -69,9 +68,9 @@ ant_proportion_calculator &lt;-<span class="st"> </span>function(my_input) {
 }
 
 ## Now run the function with some data:
-<span class="kw">ant_proportion_calculator</span>(<span class="dt">my_input =</span> <span class="dv">123</span>)</code></pre>
-<p>What we did here is to create a function that computes the percentage of a given number (<code>my_input</code>) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (<code>my_input</code>) and all the calculations are based on this. In the end we return the result of the second calculation (<code>output</code>).</p>
-<p>Nothing much happens after loading the function <code>ant_proportion_calculator</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>ant_proportion_calculator(my_input = 123)</code> (of course you can use other numbers instead of &quot;123&quot; as well). The number &quot;123&quot; will be used as <code>my_input</code> in the function and the output is simply the result of <code>(123 / 50000) * 100</code>.</p>
+<span class="kw">ant_proportion_calculator</span>(<span class="dt">ant_numbers =</span> <span class="dv">123</span>)</code></pre>
+<p>What we did here is to create a function that computes the percentage of a given number (<code>ant_number</code>) of a constant total number (10,000). Here we calculate the proportion of ant workers that we have sampled (123), over the estimated overall amount of workers found in an ant colony (10,000). We split the calculation in two, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a whole number (<code>ant_number</code>) and all the calculations are based on this. In the end we return the result of the second calculation (<code>output</code>).</p>
+<p>Nothing much happens after loading the function <code>ant_proportion_calculator</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). We need to use it as well to actually produce an output. This is done by typing <code>ant_proportion_calculator(ant_number = 123)</code> (of course you can use other numbers instead of &quot;123&quot; as well). The number &quot;123&quot; will be used as <code>ant_number</code> in the function and the output is simply the result of <code>(123 / 10000) * 100</code>.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function function for rounding down to the closest whole number):</p>
 <pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>
@@ -107,7 +106,7 @@ seconds &lt;-<span class="st"> </span><span class="dv">51</span>
 total_seconds &lt;-<span class="st"> </span>hours*<span class="dv">3600</span> +<span class="st"> </span>minutes*<span class="dv">60</span> +<span class="st"> </span>seconds
 total_seconds</code></pre>
 <h4 id="q3.-transform-the-previous-code-into-a-function.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times.">Q3. Transform the previous code into a function. Make sure it has three arguments and a descriptive name. Test the function with a range of times.</h4>
-<p>In our experiment, most bees flew through the test tunnel in under an hour, and it is time consuming to include the argument <code>hours = 0</code> every time we call the function we just created.</p>
+<p>In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument <code>hours = 0</code> every time that we call the function.</p>
 <p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, ..., <span class="dt">input15 =</span> default) {
   <span class="co"># code including input1, input2, ..., input15</span>
@@ -131,6 +130,14 @@ total_seconds</code></pre>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">00:00:08</td>
+</tr>
 <tr class="odd">
 <td align="left">10</td>
 <td align="left">00:00:20</td>
@@ -257,7 +264,7 @@ for (position in <span class="dv">1</span>:<span class="kw">length</span>(practi
 <p>The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:</p>
 <pre class="sourceCode R"><code class="sourceCode r">helianthus_data &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>))</code></pre>
 <p>Each row in this data set represents a different strain of <em>Helianthus annuus</em> (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.</p>
-<p>We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using <code>ggplot</code> (and many analysis packages) require long format. The first few lines of this new data structure should look like this:</p>
+<p>We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using <code>ggplot</code> (and many analysis packages) requires long format. The first few lines of this new data structure should look like this:</p>
 <table>
 <thead>
 <tr class="header">
@@ -359,8 +366,8 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 <pre class="sourceCode R"><code class="sourceCode r"><span class="kw">head</span>(long_data)
 <span class="kw">tail</span>(long_data)</code></pre>
 <h4 id="q14-d.-what-can-you-do-to-reduce-the-risks-of-things-going-wrong-if-there-is-a-chance-you-may-want-to-rerun-this-loop-on-a-similar-but-slightly-different-dataset">Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?</h4>
-<h2 id="working-with-dna-data">Working with DNA data</h2>
-<h4 id="q15-a.-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-e.g.-acctgtcatcatccc-to-rna-and-splits-the-string-into-codon-triplets.-you-will-need-to">Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. &quot;ACCTGTCATCATCCC&quot;) to RNA and splits the string into codon triplets. You will need to:</h4>
+<h2 id="hacker-section-working-with-dna-data">Hacker section: Working with DNA data</h2>
+<h4 id="bonus-q15-a.-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-e.g.-acctgtcatcatccc-to-rna-and-splits-the-string-into-codon-triplets.-you-will-need-to">Bonus Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. &quot;ACCTGTCATCATCCC&quot;) to RNA and splits the string into codon triplets. You will need to:</h4>
 <ul>
 <li>load the data into R: <code>dna_string &lt;- scan(&quot;https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt&quot;, what = character())</code><br /></li>
 <li>replace T with U (thymine with uracil to convert DNA to RNA)<br /></li>
@@ -371,8 +378,8 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 <p>As an example:</p>
 <pre class="sourceCode R"><code class="sourceCode r">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
 <span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
-<h4 id="q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
-<h4 id="q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
+<h4 id="bonus-q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
+<h4 id="bonus-q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Bonus Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
 <p>You can use this sequence (copy and paste it into R): <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
 <p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
 <ul>
@@ -382,7 +389,7 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 <li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function)<br /></li>
 <li>return the reverse-complement sequence</li>
 </ul>
-<h4 id="q17.-mastermind-question.-translate-your-triplet-string-from-q15-into-amino-acids.">Q17. (Mastermind question). Translate your triplet string from Q15 into amino acids.</h4>
+<h4 id="mastermind-q17.-translate-your-triplet-string-from-q15-into-amino-acids.">Mastermind Q17. Translate your triplet string from Q15 into amino acids.</h4>
 <p>Note: depending on your method, you may not need to convert it to RNA first. You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.</p>
 <h2 id="bringing-it-all-together">Bringing it all together</h2>
 <p>Well done for making it this far! Now try to bring all of your knowledge together. Have another look over your previous notes and make sure these ideas are still fresh in your mind. Have a go at writing your own scripts, preferably combining a number of different concepts (for example, you could try making a function that acts on a matrix and then using this function within a loop). Another good idea would be to come up with a problem that you want to solve (either for fun or for other coursework) and then write a function that solves it.</p>

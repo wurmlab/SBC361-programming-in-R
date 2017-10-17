@@ -50,18 +50,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>To take a self-explanatory example:</p>
 <pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
-<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own mean function to understand how R functions work:</p>
+<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
 
 my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
   ## Calculate mean
-  <span class="co">#Sum all numbers in the vector</span>
+  <span class="co"># Sum all numbers in the vector</span>
   sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(number_vec)
 
-  <span class="co">#Obtain the number of values in the vector</span>
+  <span class="co"># Obtain the number of values in the vector</span>
   nb_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)
 
-  <span class="co">#Get the mean</span>
+  <span class="co"># Get the mean</span>
   mean_value &lt;-<span class="st"> </span>sum_of_values/nb_of_values
 
   ## Output the mean
@@ -94,7 +94,7 @@ output_vec</code></pre>
 <p>Fortunately, functions in R can take more than one argument:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
-    <span class="co">#code including input1, input2, ...</span>
+    <span class="co"># code including input1, input2, ...</span>
     <span class="kw">return</span>(something)
 }</code></pre>
 <h4 id="q3.-make-a-function-that-takes-hours-minutes-and-seconds-as-inputs-and-outputs-the-total-number-of-seconds.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times-for-which-you-know-the-answer.">Q3. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h4>
@@ -156,7 +156,13 @@ for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span cl
 <p>The loop will run 3 times. Each time, it will define the variable <code>seconds</code> as a different number from the vector <code>(1000, 2000, 3000)</code>. It will compute a new time in hours and print it for every number in the vector.</p>
 <h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Sequential loop values
+<pre class="sourceCode R"><code class="sourceCode r">## Character based loop values
+greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>, <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>, <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
+for (word in greetings) {
+  <span class="kw">print</span>(word)
+}
+
+## Sequential loop values
 my_favourite_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">42</span>, <span class="fl">3.14</span>, <span class="dv">7</span>, <span class="dv">69</span>, <span class="fl">6.626e-34</span>, <span class="dv">1024</span>, <span class="dv">4</span>, <span class="fl">2.718281828</span>, <span class="dv">666</span> , <span class="fl">1.61803398</span>, <span class="dv">99</span>)
 <span class="co"># set the cumulative sum at zero before the loop starts</span>
 cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span>
@@ -166,14 +172,8 @@ for (value in my_favourite_numbers) {
   <span class="co"># add favourite numbers, sequentially</span>
   cumulative_sum &lt;-<span class="st"> </span>cumulative_sum +<span class="st"> </span>value
   <span class="co"># print the cumulative sum</span>
-  <span class="kw">print</span>(cumulative_sum)
-}
-
-## Character based loop values
-greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>, <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>, <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
-for (word in greetings) {
-  <span class="kw">print</span>(word)
-}
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;the sum of my favourite numbers is&quot;</span>, cumulative_sum)
+<span class="er">}</span>
 
 ## Looping through the positions of each element of the vector (the index, or position)
 colour_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;pink&quot;</span>)
@@ -194,7 +194,7 @@ for (practical_attribute in practical_attribute_vec) {
  <span class="co"># Add the loop result to end of the vector of results</span>
  phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(phrase_vec, phrase)
 }</code></pre>
-<p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the position to 'populate' it:</p>
+<p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Vector to loop through
 practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
@@ -205,20 +205,33 @@ phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class
 for (position in <span class="dv">1</span>:<span class="kw">length</span>(practical_attribute_vec)) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase        &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute_vec[position])
+  phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute_vec[position])
 
   ## Add phrase to the right position of the results vector
   phrase_vec[position] &lt;-<span class="st"> </span>phrase
 
 }</code></pre>
 <p>Once you are comfortable with loops, have a go at the following tasks:</p>
-<h4 id="q7-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
-<h4 id="q8.-write-a-loop-that-iterates-over-the-numbers-10-to-100-and-stores-this-number-in-a-separate-vector.-can-you-explain-the-sequence-of-events-that-the-computer-goes-through-during-say-the-20th-iteration">Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?</h4>
+<h4 id="pen-and-paper-q7.-the-following-loop-gives-you-the-number-of-ant-genera-that-begins-with-the-same-letter.-describe-in-your-own-words-the-following-loop-at-the-5th-iteration.">Pen and paper Q7. The following loop gives you the number of ant genera that begins with the same letter. Describe in your own words the following loop at the 5th iteration.</h4>
+<pre><code>&gt; ant_table
+     genus   species
+1 Tapinoma erraticum
+2  Formica     fusca
+3   Lasius     niger
+
+for (letter in LETTERS){
+ begins_with &lt;- paste(&quot;^&quot;, letter, sep = &quot;&quot;)
+ matches &lt;- grep(pattern = begins_with, x = ant_table$genus)
+ print(paste(length(matches), &quot;begin with&quot;, letter))
+}
+
+</code></pre>
+<h4 id="q8.-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
 <h3 id="using-loops">Using loops</h3>
 <p>For the following exercice, imagine that instead of buying a coffee, you deposit the £2 you would have spent into a savings account. The account has an annual interest rate of 2%, which is deposited into the account. You do not take any money out of the account for 20 years.</p>
 <h4 id="q9.-use-a-for-loop-to-calculate-how-much-money-there-is-in-the-account-after-20-years.">Q9. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h4>
 <h4 id="q10.-make-a-plot-the-amount-of-money-in-the-account-per-year.-hint-if-you-have-not-done-so-yet-you-will-have-to-create-a-vector-to-store-each-years-amount.">Q10. Make a plot the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.</h4>
-<p>In the following exercice, we will simulate the size of a population given a reproduction rate that changes every year.</p>
+<p>In the following exercise, we will simulate the size of a population given a reproduction rate that changes every year.</p>
 <h4 id="q11.-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years.-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector.">Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.</h4>
 <ul>
 <li>Use a starting population size of 1000.<br /></li>
@@ -228,12 +241,15 @@ for (position in <span class="dv">1</span>:<span class="kw">length</span>(practi
 </ul>
 <h3 id="nested-loops">Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
-<pre class="sourceCode R"><code class="sourceCode r">for (i in <span class="dv">1</span>:<span class="dv">5</span>) {
-  for (j in <span class="dv">7</span>:<span class="dv">9</span>) {
-    <span class="kw">print</span>(<span class="kw">c</span>(i, j))
+<pre class="sourceCode R"><code class="sourceCode r">coffee_drinks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;espresso&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
+coffee_places &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
+
+for (the_drink in <span class="dv">1</span>:<span class="kw">length</span>(coffee_drinks)) {
+  for (the_place in <span class="dv">1</span>:<span class="kw">length</span>(coffee_places)) {
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, coffee_drinks[the_drink], <span class="st">&quot;from&quot;</span>, coffee_places[the_place]))
   }
 }</code></pre>
-<p>Here we have one loop (with position j) nested within another loop (with position i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!</p>
+<p>Here we have one loop (with position <code>the_place</code>) nested within another loop (with position <code>the_drink</code>). We have also defined the values that <code>the_place</code> and <code>the_drink</code> can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!</p>
 <h4 id="q12-a.-create-a-nested-loop.-the-outer-loop-should-iterate-over-the-words-angry-lazy-and-happy.-the-inner-loop-should-iterate-over-the-words-birds-dogs-and-horses.-the-code-inside-the-inner-loop-should-print-out-a-vector-containing-the-values-of-both-loops-for-example-angry-and-birds-in-the-first-instance.">Q12-A. Create a nested loop. The outer loop should iterate over the words &quot;Angry&quot;, &quot;Lazy&quot;, and &quot;Happy&quot;. The inner loop should iterate over the words &quot;birds&quot;, &quot;dogs&quot;, and &quot;horses&quot;. The code inside the inner loop should print out a vector containing the values of both loops (for example &quot;Angry&quot; and &quot;birds&quot; in the first instance).</h4>
 <h4 id="q12-b.-look-again-at-the-code-you-wrote-in-q12-a.-did-you-sufficiently-indent-your-code-like-in-the-example-of-a-nested-loop-above-so-that-it-is-easy-to-see-which-lines-of-code-are-executed-at-which-point-of-the-different-loops-if-not-do-it-now-and-continue-doing-it-for-the-next-questions-as-well.">Q12-B. Look again at the code you wrote in Q12-A. Did you sufficiently indent your code (like in the example of a nested loop above), so that it is easy to see which lines of code are executed at which point of the different loops? If not, DO IT NOW! And continue doing it for the next questions as well.</h4>
 <h4 id="q13.-write-a-third-degree-nested-loop-i.e.-a-loop-within-a-loop-within-a-loop.-be-careful-not-to-loop-over-too-many-values-or-you-will-crash-r">Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!</h4>
@@ -358,7 +374,7 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 <pre class="sourceCode R"><code class="sourceCode r">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
 <span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
 <h4 id="bonus-q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
-<h4 id="bonus-q16.-bonus-question.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Bonus Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.</h4>
+<h4 id="bonus-q16.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Bonus Q16. Write a function to obtain the reverse-complement of a DNA sequence.</h4>
 <p>You can use this sequence (copy and paste it into R): <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
 <p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
 <ul>

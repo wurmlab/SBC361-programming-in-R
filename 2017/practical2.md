@@ -146,20 +146,18 @@ Finally, we would like to create a function to measure the flight speed of the b
 * Calculate the speed of the bees in meters per second
 * Returns the speed of the bees
 
-#### Q5. Create this function, and test it with the following values:
+#### Q5A. Create this function. Test it with a control (values for which you know the answer).
+
+#### Q5B. Use the function to measure the speed of the bees with the following measurements:
 
 Distance (m) | Time (hours:minutes:seconds)
 ---------|------
-0 |00:00:00
 1 |00:00:08
-10 |00:00:20
-10 |00:00:43
-150 |00:07:20
-150 |00:13:41
-500 |00:48:21
-500 |01:03:23
+10 |00:00:40
+300 |00:05:00
+800 |01:06:40
 
-All of the skills required to complete this task are given above. Take your time and approach this problem one step at a time. Also, don't hesitate to ask for help!
+#### Q5C. Can you think of parameter values that would make your function not work properly? What happens if you try running the function with these values?
 
 ### Functions with other types of input
 

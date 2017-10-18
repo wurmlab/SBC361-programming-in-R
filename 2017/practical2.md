@@ -274,7 +274,7 @@ In the following exercise, we will simulate the size of a population given a rep
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 
 ```r
-coffees_vec <- c("latte", "cappuccino", "espresso", "flat white", "cortado")
+coffees_vec <- c("latte", "cappuccino", "flat white", "cortado")
 cafes_vec   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
 
 for (drink in coffees_vec) {

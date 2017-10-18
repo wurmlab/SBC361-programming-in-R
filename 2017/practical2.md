@@ -235,15 +235,14 @@ for (position in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Pen and paper Q7. The following loop gives you the number of ant genera that begins with the same letter. Describe in your own words the following loop at the 5th iteration.
-```
-> ant_table
-     genus   species
-1 Tapinoma erraticum
-2  Formica     fusca
-3   Lasius     niger
+#### Pen and paper Q7. Consider the following table, which lists the genus and species name for a number of ant species present in Great Britain. The loop counts the number of entries where the genus name begins with given letters. Describe in your own words what the loop is doing at each iteration.
 
-for (letter in LETTERS){
+![ant table](img/ant_table.png "ant_table")
+
+```
+letters_vec <- c("L", "T", "A", "F")
+
+for (letter in letters_vec){
  begins_with <- paste("^", letter, sep = "")
  matches <- grep(pattern = begins_with, x = ant_table$genus)
  print(paste(length(matches), "begin with", letter))

@@ -275,8 +275,9 @@ coffee_drinks <- c("latte", "cappuccino", "espresso", "flat white", "cortado")
 coffee_places <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
 
 for (drink in coffee_drinks) {
+  print(paste("I'd like a", drink, "... Where can I go?"))
   for (the_place in coffee_places) {
-    print(paste("I'd like a", drink, "from", the_place))
+    print(paste("You can go to", the_place, "to have a", drink))
   }
 }
 ```

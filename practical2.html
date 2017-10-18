@@ -215,14 +215,11 @@ for (position in <span class="dv">1</span>:<span class="kw">length</span>(practi
 
 }</code></pre>
 <p>Once you are comfortable with loops, have a go at the following tasks:</p>
-<h4 id="pen-and-paper-q7.-the-following-loop-gives-you-the-number-of-ant-genera-that-begins-with-the-same-letter.-describe-in-your-own-words-the-following-loop-at-the-5th-iteration.">Pen and paper Q7. The following loop gives you the number of ant genera that begins with the same letter. Describe in your own words the following loop at the 5th iteration.</h4>
-<pre><code>&gt; ant_table
-     genus   species
-1 Tapinoma erraticum
-2  Formica     fusca
-3   Lasius     niger
+<h4 id="pen-and-paper-q7.-consider-the-following-table-which-lists-the-genus-and-species-name-for-a-number-of-ant-species-present-in-great-britain.-the-loop-counts-the-number-of-entries-where-the-genus-name-begins-with-given-letters.-describe-in-your-own-words-what-the-loop-is-doing-at-each-iteration.">Pen and paper Q7. Consider the following table, which lists the genus and species name for a number of ant species present in Great Britain. The loop counts the number of entries where the genus name begins with given letters. Describe in your own words what the loop is doing at each iteration.</h4>
+<p><img src="img/ant_table.png" title="ant_table" alt="ant table" /></p>
+<pre><code>letters_vec &lt;- c(&quot;L&quot;, &quot;T&quot;, &quot;A&quot;, &quot;F&quot;)
 
-for (letter in LETTERS){
+for (letter in letters_vec){
  begins_with &lt;- paste(&quot;^&quot;, letter, sep = &quot;&quot;)
  matches &lt;- grep(pattern = begins_with, x = ant_table$genus)
  print(paste(length(matches), &quot;begin with&quot;, letter))

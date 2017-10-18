@@ -243,8 +243,9 @@ for (letter in LETTERS){
 coffee_places &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
 
 for (drink in coffee_drinks) {
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, drink, <span class="st">&quot;... Where can I go?&quot;</span>))
   for (the_place in coffee_places) {
-    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, drink, <span class="st">&quot;from&quot;</span>, the_place))
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;You can go to&quot;</span>, the_place, <span class="st">&quot;to have a&quot;</span>, drink))
   }
 }</code></pre>
 <p>Here we have one loop (with position <code>the_place</code>) nested within another loop (with position <code>drink</code>). We have also defined the values that <code>the_place</code> and <code>drink</code> can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!</p>

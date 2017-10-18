@@ -157,7 +157,9 @@ for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span cl
 <h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Character based loop values
-greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>, <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>, <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
+greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>,
+               <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>,
+               <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
 for (word in greetings) {
   <span class="kw">print</span>(word)
 }
@@ -196,7 +198,8 @@ for (practical_attribute in practical_attribute_vec) {
 }</code></pre>
 <p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
-practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
+practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>,
+                             <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
 ## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dt">times =</span> <span class="kw">length</span>(practical_attribute_vec))
@@ -239,12 +242,12 @@ for (letter in LETTERS){
 </ul>
 <h3 id="nested-loops">Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
-<pre class="sourceCode r"><code class="sourceCode r">coffee_drinks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;espresso&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
-coffee_places &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">coffees_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;espresso&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
+cafes_vec   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
 
-for (drink in coffee_drinks) {
+for (drink in coffees_vec) {
   <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, drink, <span class="st">&quot;... Where can I go?&quot;</span>))
-  for (the_place in coffee_places) {
+  for (the_place in cafes_vec) {
     <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;You can go to&quot;</span>, the_place, <span class="st">&quot;to have a&quot;</span>, drink))
   }
 }</code></pre>

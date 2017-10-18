@@ -164,7 +164,9 @@ There are some interesting ways in which we can stretch our understanding of loo
 
 ```r
 ## Character based loop values
-greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy", "Yooooo!", "Wassup", "What's shakin?", "yello!", "Greetings",  "Dude, wake up!")
+greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy",
+               "Yooooo!", "Wassup", "What's shakin?",
+               "yello!", "Greetings",  "Dude, wake up!")
 for (word in greetings) {
   print(word)
 }
@@ -213,7 +215,8 @@ A different way of approaching a for loop is to loop through the positions of a 
 
 ```r
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
+practical_attribute_vec <- c("great", "boring", "very long",
+                             "amazeballs!", "informative", "fun")
 
 ## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec <- rep("", times = length(practical_attribute_vec))

@@ -35,7 +35,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As before, you will want to refer frequently to the R help files and your own notes when exploring these new concepts.</p>
 <h2 id="functions">Functions</h2>
 <p>Functions are pieces of code that are made to take an input (generally known as arguments), do something with it, and give back an output. They are interesting because they allow you to run the same piece of code multiple times without having to rewrite it every time you need to run it. A function looks like this:</p>
-<pre class="sourceCode R"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
+<pre class="sourceCode r"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
 
   ### the &quot;body&quot; of the function
 
@@ -48,7 +48,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 }</code></pre>
 <p>The <code>function_name</code> is the name of your function. You can choose whatever name you want. After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
-<pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
 <p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
@@ -73,7 +73,7 @@ my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
 <p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>).</p>
 <p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function function for rounding down to the closest whole number):</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>
 
 <span class="co"># Convert number_of_seconds into hours, minutes, and seconds</span>
@@ -148,7 +148,7 @@ my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
 <h2 id="loops">Loops</h2>
 <p>Imagine you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## For loop example
+<pre class="sourceCode r"><code class="sourceCode r">## For loop example
 for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {
   time_in_hours &lt;-<span class="st"> </span><span class="kw">time_converter</span>(<span class="dt">number_of_seconds =</span> seconds)
   <span class="kw">print</span>(time_in_hours)
@@ -156,7 +156,7 @@ for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span cl
 <p>The loop will run 3 times. Each time, it will define the variable <code>seconds</code> as a different number from the vector <code>(1000, 2000, 3000)</code>. It will compute a new time in hours and print it for every number in the vector.</p>
 <h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Character based loop values
+<pre class="sourceCode r"><code class="sourceCode r">## Character based loop values
 greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>, <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>, <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
 for (word in greetings) {
   <span class="kw">print</span>(word)
@@ -183,7 +183,7 @@ for (position in <span class="dv">1</span>:<span class="kw">length</span>(colour
 }</code></pre>
 <h3 id="storing-loop-results">Storing loop results</h3>
 <p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does <code>phrase_vec</code> look like after the 4th iteration?</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Vector to loop through
+<pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
 practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
 ## Empty vector to store the loop results in
@@ -195,7 +195,7 @@ for (practical_attribute in practical_attribute_vec) {
  phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(phrase_vec, phrase)
 }</code></pre>
 <p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
-<pre class="sourceCode R"><code class="sourceCode r">## Vector to loop through
+<pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
 practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
 ## Vector with empty elements (as long as practical_attribute_vec)
@@ -239,7 +239,7 @@ for (letter in LETTERS){
 </ul>
 <h3 id="nested-loops">Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
-<pre class="sourceCode R"><code class="sourceCode r">coffee_drinks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;espresso&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">coffee_drinks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;espresso&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
 coffee_places &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
 
 for (drink in coffee_drinks) {
@@ -256,7 +256,7 @@ for (drink in coffee_drinks) {
 <h3 id="using-loops-to-reformat-a-data-set">Using loops to reformat a data set</h3>
 <p>Loops are particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.</p>
 <p>The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:</p>
-<pre class="sourceCode R"><code class="sourceCode r">helianthus_data &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">helianthus_data &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>))</code></pre>
 <p>Each row in this data set represents a different strain of <em>Helianthus annuus</em> (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.</p>
 <p>We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using <code>ggplot</code> (and many analysis packages) requires long format. The first few lines of this new data structure should look like this:</p>
 <table>
@@ -318,7 +318,7 @@ for (drink in coffee_drinks) {
 <p>We can make the transition from the wide format of <code>helianthus_data</code> to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.</p>
 <h4 id="q14-a.-create-an-empty-matrix-called-long_data.-this-matrix-must-have-3-columns-and-30-rows-the-number-30-comes-from-the-fact-that-we-have-five-strains-at-six-time-points-each.-name-the-columns-cstrain-time-count.">Q14-A. Create an empty matrix, called <code>long_data</code>. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns <code>c(&quot;Strain&quot;, &quot;Time&quot;, &quot;Count&quot;)</code>.</h4>
 <p>With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Loop through all rows of helianthus_data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Loop through all rows of helianthus_data</span>
 <span class="kw">nrows</span>(helianthus_data)
 for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
   <span class="co"># Loop through all columns of helianthus_data except the first</span>
@@ -332,7 +332,7 @@ for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
 <p>Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix <code>long_data</code>. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix <code>long_data</code>? We cannot use the index <code>number_of_rows</code> to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index <code>my_col</code>, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.</p>
 <h4 id="q14-b.-change-the-for-loop-above-to-include-a-variable-my_position.-this-variable-should-be-defined-as-being-0-before-the-loop-starts.-at-every-iteration-of-the-inner-loop-you-should-add-1-to-it.-what-are-the-values-of-number_of_rows-and-my_col-when-my_position-is-3-add-a-line-to-check-the-positions-each-time-through.">Q14-B. Change the for loop above to include a variable <code>my_position</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of <code>number_of_rows</code> and <code>my_col</code> when <code>my_position</code> is 3? Add a line to check the positions each time through.</h4>
 <p>It should look something like this:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># my_position defined as 0 before the loop starts</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># my_position defined as 0 before the loop starts</span>
 my_position &lt;-<span class="st"> </span><span class="dv">0</span>
 
 <span class="co"># Loop through all rows</span>
@@ -347,17 +347,17 @@ for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
   }
 }</code></pre>
 <p>Now that we have three indices - one going through the rows of <code>helianthus_data</code>, one going through the columns of <code>helianthus_data</code>, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix <code>long_data</code>. The code we need at each iteration of the loop is the following:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Count</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Count</span>
 long_data[my_position, <span class="dv">3</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, my_col]</code></pre>
 <p>This is fairly straightforward. We also want to drop the time point in the second column of <code>long_data</code>. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Time</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Time</span>
 long_data[my_position, <span class="dv">2</span>] &lt;-<span class="st"> </span>my_col -<span class="st"> </span><span class="dv">2</span></code></pre>
 <p>Finally, we want to drop the strain type into the first column of <code>long_data</code>. The strain type is given by the first element in every row, meaning it is given by <code>helianthus_data[number_of_rows, 1]</code>. Therefore, we need the following line of code to extract the strain types:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Get Strain</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Strain</span>
 long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, <span class="dv">1</span>]</code></pre>
 <h4 id="q14-c.-bring-all-of-this-together-to-finish-the-for-loop-and-run-it">Q14-C. Bring all of this together to finish the for loop, and run it!</h4>
 <p>To check what you've done, you can print the start and end of long_data:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="kw">head</span>(long_data)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(long_data)
 <span class="kw">tail</span>(long_data)</code></pre>
 <h4 id="q14-d.-what-can-you-do-to-reduce-the-risks-of-things-going-wrong-if-there-is-a-chance-you-may-want-to-rerun-this-loop-on-a-similar-but-slightly-different-dataset">Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?</h4>
 <h2 id="hacker-section-working-with-dna-data">Hacker section: Working with DNA data</h2>
@@ -370,7 +370,7 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 </ul>
 <p>Note <code>substring()</code> takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are. In <code>seq()</code> you will also indicate you want triplets.</p>
 <p>As an example:</p>
-<pre class="sourceCode R"><code class="sourceCode r">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
 <span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
 <h4 id="bonus-q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
 <h4 id="bonus-q16.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Bonus Q16. Write a function to obtain the reverse-complement of a DNA sequence.</h4>

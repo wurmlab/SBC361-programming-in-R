@@ -33,20 +33,20 @@ x <- c(2, 3, 4, 5)
 mean(x)
 ```
 
-You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. Let's create our own mean function to understand how R functions work:
+You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:
 
 ```r
 ## Define function named 'my_own_mean'
 
 my_own_mean <- function(number_vec) {
   ## Calculate mean
-  #Sum all numbers in the vector
+  # Sum all numbers in the vector
   sum_of_values <- sum(number_vec)
 
-  #Obtain the number of values in the vector
+  # Obtain the number of values in the vector
   nb_of_values <- length(number_vec)
 
-  #Get the mean
+  # Get the mean
   mean_value <- sum_of_values/nb_of_values
 
   ## Output the mean
@@ -95,7 +95,7 @@ Fortunately, functions in R can take more than one argument:
 ```r
 
 my_function <- function(input1, input2, ...) {
-    #code including input1, input2, ...
+    # code including input1, input2, ...
     return(something)
 }
 
@@ -163,6 +163,12 @@ The loop will run 3 times. Each time, it will define the variable `seconds` as a
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:
 
 ```r
+## Character based loop values
+greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy", "Yooooo!", "Wassup", "What's shakin?", "yello!", "Greetings",  "Dude, wake up!")
+for (word in greetings) {
+  print(word)
+}
+
 ## Sequential loop values
 my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
 # set the cumulative sum at zero before the loop starts
@@ -173,13 +179,7 @@ for (value in my_favourite_numbers) {
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
   # print the cumulative sum
-  print(cumulative_sum)
-}
-
-## Character based loop values
-greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy", "Yooooo!", "Wassup", "What's shakin?", "yello!", "Greetings",  "Dude, wake up!")
-for (word in greetings) {
-  print(word)
+  print(paste("the sum of my favourite numbers is", cumulative_sum)
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)
@@ -209,7 +209,7 @@ for (practical_attribute in practical_attribute_vec) {
 }
 ```
 
-A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the position to 'populate' it:
+A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:
 
 ```r
 ## Vector to loop through
@@ -222,7 +222,7 @@ phrase_vec <- rep("", times = length(practical_attribute_vec))
 for (position in 1:length(practical_attribute_vec)) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase        <- paste("This practical is", practical_attribute_vec[position])
+  phrase <- paste("This practical is", practical_attribute_vec[position])
 
   ## Add phrase to the right position of the results vector
   phrase_vec[position] <- phrase
@@ -232,9 +232,22 @@ for (position in 1:length(practical_attribute_vec)) {
 
 Once you are comfortable with loops, have a go at the following tasks:
 
-#### Q7: Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
+#### Pen and paper Q7. The following loop gives you the number of ant genera that begins with the same letter. Describe in your own words the following loop at the 5th iteration.
+```
+> ant_table
+     genus   species
+1 Tapinoma erraticum
+2  Formica     fusca
+3   Lasius     niger
 
-#### Q8. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
+for (letter in LETTERS){
+ begins_with <- paste("^", letter, sep = "")
+ matches <- grep(pattern = begins_with, x = ant_table$genus)
+ print(paste(length(matches), "begin with", letter))
+}
+```
+
+#### Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
 
 ### Using loops
 
@@ -244,7 +257,7 @@ For the following exercice, imagine that instead of buying a coffee, you deposit
 
 #### Q10. Make a plot the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.
 
-In the following exercice, we will simulate the size of a population given a reproduction rate that changes every year.
+In the following exercise, we will simulate the size of a population given a reproduction rate that changes every year.
 
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.
 
@@ -258,14 +271,18 @@ In the following exercice, we will simulate the size of a population given a rep
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 
 ```r
-for (i in 1:5) {
-  for (j in 7:9) {
-    print(c(i, j))
+coffee_drinks <- c("latte", "cappuccino", "espresso", "flat white", "cortado")
+coffee_places <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
+
+for (drink in coffee_drinks) {
+  print(paste("I'd like a", drink, "... Where can I go?"))
+  for (the_place in coffee_places) {
+    print(paste("You can go to", the_place, "to have a", drink))
   }
 }
 ```
 
-Here we have one loop (with position j) nested within another loop (with position i). We have also defined the values that i and j can take directly within the loops, rather than outside of the loops as in previous examples - this is simply a way of saving space. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
+Here we have one loop (with position `the_place`) nested within another loop (with position `drink`). We have also defined the values that `the_place` and `drink` can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc'. Nested loops are particularly hazardous!
 
 #### Q12-A. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).
 
@@ -396,7 +413,7 @@ substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
 
 #### Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
 
-#### Bonus Q16. (Bonus question). Write a function to obtain the reverse-complement of a DNA sequence.
+#### Bonus Q16. Write a function to obtain the reverse-complement of a DNA sequence.
 
 You can use this sequence (copy and paste it into R): `"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"`. As an example, the reverse-complement of ATGC is GCAT.
 

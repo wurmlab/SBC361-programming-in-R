@@ -72,7 +72,7 @@ my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
 <span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="dv">1</span>:<span class="dv">50</span>)</code></pre>
 <p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>).</p>
 <p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
-<p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function function for rounding down to the closest whole number):</p>
+<p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function for rounding down to the closest whole number):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
 number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>
 
@@ -146,7 +146,7 @@ my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
 <p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
 <h4 id="q6.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-an-internet-search-engine">Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!</h4>
 <h2 id="loops">Loops</h2>
-<p>Imagine you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
+<p>Imagine that you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## For loop example
 for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {
@@ -198,8 +198,7 @@ for (practical_attribute in practical_attribute_vec) {
 }</code></pre>
 <p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
-practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>,
-                             <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
+practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
 
 ## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dt">times =</span> <span class="kw">length</span>(practical_attribute_vec))

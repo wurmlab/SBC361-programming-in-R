@@ -256,7 +256,7 @@ For the following exercice, imagine that instead of buying a coffee, you deposit
 
 #### Q9. Use a `for` loop to calculate how much money there is in the account after 20 years.
 
-#### Q10. Make a plot the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.
+#### Q10. Make a plot of the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.
 
 In the following exercise, we will simulate the size of a population given a reproduction rate that changes every year.
 
@@ -278,7 +278,7 @@ cafes_vec   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet
 for (drink in coffees_vec) {
   print(paste("I'd like a", drink, "... Where can I go?"))
   for (the_place in cafes_vec) {
-    print(paste("You can go to", the_place, "to have a", drink))
+  print(paste("You can go to", the_place, "to have a", drink))
   }
 }
 ```
@@ -340,7 +340,7 @@ for (number_of_rows in 1:5) {
 
 Here we are using loops to go through each of the rows of the matrix `helianthus_data`, and for each row we are going through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[number_of_rows, my_col]`.
 
-Hopefully you can already see that these are the exact values we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `number_of_rows` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
+Hopefully you can already see that these are the exact values that we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `number_of_rows` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
 #### Q14-B. Change the for loop above to include a variable `my_position`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `number_of_rows` and `my_col` when `my_position` is 3? Add a line to check the positions each time through.
 

@@ -181,7 +181,7 @@ for (value in my_favourite_numbers) {
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
   # print the cumulative sum
-  print(paste("the sum of my favourite numbers is", cumulative_sum)
+  print(paste("the sum of my favourite numbers is", cumulative_sum))
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)

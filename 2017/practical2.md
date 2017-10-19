@@ -328,7 +328,7 @@ With this empty matrix created, we can move on to the next part of the problem -
 
 ```r
 # Loop through all rows of helianthus_data
-nrows(helianthus_data)
+nrow(helianthus_data)
 for (number_of_rows in 1:5) {
   # Loop through all columns of helianthus_data except the first
   for (my_col in 2:7) {

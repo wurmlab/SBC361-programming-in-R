@@ -319,7 +319,7 @@ for (drink in coffees_vec) {
 <h4 id="q14-a.-create-an-empty-matrix-called-long_data.-this-matrix-must-have-3-columns-and-30-rows-the-number-30-comes-from-the-fact-that-we-have-five-strains-at-six-time-points-each.-name-the-columns-cstrain-time-count.">Q14-A. Create an empty matrix, called <code>long_data</code>. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns <code>c(&quot;Strain&quot;, &quot;Time&quot;, &quot;Count&quot;)</code>.</h4>
 <p>With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Loop through all rows of helianthus_data</span>
-<span class="kw">nrows</span>(helianthus_data)
+<span class="kw">nrow</span>(helianthus_data)
 for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
   <span class="co"># Loop through all columns of helianthus_data except the first</span>
   for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {

@@ -62,7 +62,7 @@ We created a function that computes the sum and number of all values in a given 
 
 Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
 
-Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function function for rounding down to the closest whole number):
+Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function for rounding down to the closest whole number):
 
 ```r
 # Input raw number of seconds
@@ -145,7 +145,7 @@ Note that functions do not have to take single numbers as input. They can take v
 #### Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!
 
 ## Loops
-Imagine you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
+Imagine that you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
 
 Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:
 
@@ -215,8 +215,7 @@ A different way of approaching a for loop is to loop through the positions of a 
 
 ```r
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long",
-                             "amazeballs!", "informative", "fun")
+practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
 
 ## Vector with empty elements (as long as practical_attribute_vec)
 phrase_vec <- rep("", times = length(practical_attribute_vec))

@@ -124,7 +124,7 @@ Finally, we would like to create a function to measure the flight speed of the b
 * Take the tunnel length (in meters), hours, minutes and seconds as arguments
 * Use your previous function to convert hours, minutes and seconds to seconds
 * Calculate the speed of the bees in meters per second
-* Returns the speed of the bees
+* Return the speed of the bees
 
 #### Q5A. Create this function. Test it with a control (values for which you know the answer).
 

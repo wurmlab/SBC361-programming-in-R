@@ -154,7 +154,7 @@ for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span cl
   time_in_hours &lt;-<span class="st"> </span><span class="kw">time_converter</span>(<span class="dt">number_of_seconds =</span> seconds)
   <span class="kw">print</span>(time_in_hours)
 }</code></pre>
-<p>The loop will run 3 times. Each time, it will define the variable <code>seconds</code> as a different number from the vector <code>(1000, 2000, 3000)</code>. It will compute a new time in hours and print it for every number in the vector.</p>
+<p>The variable <code>seconds</code> only exists within the loop. The loop will run 3 times. The first time, <code>seconds</code> will take the first value from the vector <code>(1000, 2000, 3000)</code>, i.e., <code>1000</code>. R will run through the loop, computing <code>time_in_hours</code> and printing it. When R starts running through the loop the second time, <code>seconds</code> will have the value <code>2000</code>, and the previously calculated <code>time_in_hours</code> will have been forgotten. R will run through the loop, computing <code>time_in_hours</code> and printing it. The third time, same thing again, but <code>seconds</code> will start with the value <code>3000</code>.</p>
 <h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Character based loop values

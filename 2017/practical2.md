@@ -146,7 +146,7 @@ Note that functions do not have to take single numbers as input. They can take v
 #### Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!
 
 ## Loops
-Imagine that you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. It would be impossible.
+Imagine that you need to run the function `time_converter` on different numbers. You could type `time_converter` many different times, each time with a different number. But now imagine you had to type that thousands of times. Not fun.
 
 Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a *loop*. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:
 

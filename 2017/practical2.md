@@ -233,7 +233,6 @@ for (position in 1:length(practical_attribute_vec)) {
 
   ## Add phrase to the right position of the results vector
   phrase_vec[position] <- phrase
-
 }
 ```
 

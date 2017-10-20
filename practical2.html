@@ -236,9 +236,12 @@ for (letter in letters_vec){
 <h4 id="q11.-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years.-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector.">Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.</h4>
 <ul>
 <li>Use a starting population size of 1000.<br /></li>
-<li>Create a vector containing the reproduction rate for each year: <code>reproduction_rate &lt;- rnorm(20, mean = 1, sd = 0.2)</code>.<br /></li>
-<li>Loop through the reproduction rate vector and update the population size value accordingly.<br /></li>
-<li>In addition, store each year's population and plot or just print it against the year (1 to 20).</li>
+<li>Every year,<br /></li>
+<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n=2, mean = 1, sd = 0.4)</code>.<br /></li>
+<li>Update the population size value accordingly.<br /></li>
+<li>Print a summary of what happened<br /></li>
+<li>Store each year's population in an external vector.<br /></li>
+<li>Once you have all the population sizes, plot them.</li>
 </ul>
 <h3 id="nested-loops">Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>

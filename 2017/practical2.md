@@ -53,7 +53,7 @@ my_own_mean <- function(number_vec) {
 }
 
 ## Now run the function with some data:
-my_own_mean(number_vec = c(10,20,30,40)
+my_own_mean(number_vec = c(10,20,30,40))
 
 my_own_mean(number_vec = 1:50)
 

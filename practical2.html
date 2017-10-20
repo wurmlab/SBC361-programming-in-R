@@ -44,13 +44,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
   <span class="co"># returning an output vector:</span>
   <span class="kw">return</span>(output)
-
 }</code></pre>
-<p>The <code>function_name</code> is the name of your function. You can choose whatever name you want. After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. The <code>input</code> will be what the calculations in the <code>body</code> of the function are based on. Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the <code>return</code> command can only handle a single argument.</p>
+<p>You can choose whatever name you want instead of <code>function_name</code> (try a meaningful name). After the <code>&lt;-</code>, the word <code>function</code> lets R know that you are writing a new function. Here, <code>input_vec</code> is the name of the only argument that the calculations in the <code>body</code> of the function are based on (your function <em>can</em> have multiple arguments). Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the <code>return()</code> on the last line. If you have no <code>return()</code>, your function may compute something but nobody will ever no about it! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
-<p>You just used the <code>mean</code> function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
+<p>You just used the <code>mean</code> function, one of many functions that our predecessors built into R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
 
 my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
@@ -59,18 +58,20 @@ my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
   sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(number_vec)
 
   <span class="co"># Obtain the number of values in the vector</span>
-  nb_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)
+  number_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)
 
   <span class="co"># Get the mean</span>
-  mean_value &lt;-<span class="st"> </span>sum_of_values/nb_of_values
+  mean_value &lt;-<span class="st"> </span>sum_of_values/number_of_values
 
   ## Output the mean
   <span class="kw">return</span>(mean_value)
 }
 
 ## Now run the function with some data:
+<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)
+
 <span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="dv">1</span>:<span class="dv">50</span>)</code></pre>
-<p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>).</p>
+<p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>). Does <code>number_of_values</code> exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.</p>
 <p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function for rounding down to the closest whole number):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>

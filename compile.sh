@@ -12,4 +12,6 @@ for i in *md; do
     -A ../footer.html -o ../public/${i%%md}html
   fi
 done
+echo "Copying img/ to public/"
+cp -r img ../public
 cd ..

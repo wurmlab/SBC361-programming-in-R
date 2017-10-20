@@ -256,7 +256,7 @@ for (letter in letters_vec){
 
 ### Using loops
 
-For the following exercice, imagine that instead of buying a coffee, you deposit the £2 you would have spent into a savings account. The account has an annual interest rate of 2%, which is deposited into the account. You do not take any money out of the account for 20 years.
+For the following exercice, imagine that instead of buying a coffee, you deposit the £2.50 you would have spent into a savings account. The account has an annual interest rate of 5%, which is deposited into the account. You do not take any money out of the account for 20 years.
 
 #### Q9. Use a `for` loop to calculate how much money there is in the account after 20 years.
 

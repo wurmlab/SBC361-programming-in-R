@@ -270,7 +270,7 @@ In the following exercise, we will simulate the size of a population given a rep
 * Every year,
    * obtain a random reproduction rate (e.g., `reproduction_rate <- rnorm(n=2, mean = 1, sd = 0.4)`.
    * Update the population size value accordingly.
-   * Print a summary of what happened
+   * Print a summary of what happened.
    * Store each year's population in an external vector. 
 * Once you have all the population sizes, plot them.
 
@@ -309,6 +309,7 @@ The data set that we will use in this example is typical of the sort of data tha
 ```r
 helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt", header = TRUE))
 ```
+If you have issue getting this data, remember that you might need to use `setInternet2(use = TRUE)`.
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.
 

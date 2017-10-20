@@ -173,13 +173,17 @@ for (word in greetings) {
 
 ## Sequential loop values
 my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
+
 # set the cumulative sum at zero before the loop starts
 cumulative_sum <- 0
+
 for (value in my_favourite_numbers) {
   # print the sentence
   print(paste(value, "is my favourite number"))
+  
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
+  
   # print the cumulative sum
   print(paste("the sum of my favourite numbers is", cumulative_sum))
 }

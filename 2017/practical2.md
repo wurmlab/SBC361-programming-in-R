@@ -314,7 +314,7 @@ Each row in this data set represents a different strain of *Helianthus annuus* (
 
 We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using `ggplot` (and many analysis packages) requires long format. The first few lines of this new data structure should look like this:
 
-Strain | Time | Count
+strain | time | count
 -------|------|------
 1 |0 |12
 1 |1 |33
@@ -328,7 +328,7 @@ Strain | Time | Count
 
 We can make the transition from the wide format of `helianthus_data` to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.
 
-#### Q14-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("Strain", "Time", "Count")`.
+#### Q14-A. Create an empty matrix, called `long_data`. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns `c("strain", "time", "count")`.
 
 With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:
 

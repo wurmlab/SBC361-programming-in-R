@@ -267,9 +267,12 @@ In the following exercise, we will simulate the size of a population given a rep
 #### Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.
 
 * Use a starting population size of 1000.
-* Create a vector containing the reproduction rate for each year: `reproduction_rate <- rnorm(20, mean = 1, sd = 0.2)`.
-* Loop through the reproduction rate vector and update the population size value accordingly.
-* In addition, store each year's population and plot or just print it against the year (1 to 20).
+* Every year,
+   * obtain a random reproduction rate (e.g., `reproduction_rate <- rnorm(n=2, mean = 1, sd = 0.4)`.
+   * Update the population size value accordingly.
+   * Print a summary of what happened
+   * Store each year's population in an external vector. 
+* Once you have all the population sizes, plot them.
 
 ### Nested Loops
 

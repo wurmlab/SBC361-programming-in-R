@@ -285,7 +285,7 @@ cafes_vec   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet
 for (drink in coffees_vec) {
   print(paste("I'd like a", drink, "... Where can I go?"))
   for (the_place in cafes_vec) {
-  print(paste("You can go to", the_place, "to have a", drink))
+    print(paste("You can go to", the_place, "to have a", drink))
   }
 }
 ```

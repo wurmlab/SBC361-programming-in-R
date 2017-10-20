@@ -158,7 +158,7 @@ for (seconds in c(1000, 2000, 3000)) {
 }
 ```
 
-The loop will run 3 times. Each time, it will define the variable `seconds` as a different number from the vector `(1000, 2000, 3000)`. It will compute a new time in hours and print it for every number in the vector.
+The variable `seconds` only exists within the loop. The loop will run 3 times. The first time, `seconds` will take the first value from the vector `(1000, 2000, 3000)`, i.e., `1000`. R will run through the loop, computing `time_in_hours` and printing it. When R starts running through the loop the second time, `seconds` will have the value `2000`, and the previously calculated `time_in_hours` will have been forgotten.  R will run through the loop, computing `time_in_hours` and printing it. The third time, same thing again, but `seconds` will start with the value `3000`.
 
 ### Slightly more complex loops
 There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:

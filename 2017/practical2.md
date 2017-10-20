@@ -169,7 +169,7 @@ greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy",
                "Yooooo!", "Wassup", "What's shakin?",
                "yello!", "Greetings",  "Dude, wake up!")
 for (word in greetings) {
-  print(word)
+  print(paste(word, " - said the giggling frog", sep=" "))
 }
 
 ## Sequential loop values
@@ -180,13 +180,13 @@ cumulative_sum <- 0
 
 for (value in my_favourite_numbers) {
   # print the sentence
-  print(paste(value, "is my favourite number"))
+  print(paste(value, "is my favourite number", sep=" "))
   
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
   
   # print the cumulative sum
-  print(paste("the sum of my favourite numbers is", cumulative_sum))
+  print(paste("The sum of my favourite numbers is:", cumulative_sum, sep=" "))
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)

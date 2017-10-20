@@ -20,11 +20,10 @@ function_name <- function(input) {
 
   # returning an output vector:
   return(output)
-
 }
 ```
 
-The `function_name` is the name of your function. You can choose whatever name you want. After the `<-`, the word `function` lets R know that you are writing a new function. The `input` will be what the calculations in the `body` of the function are based on. Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. At the end it is important to produce an output vector, otherwise the function will compute the code but it won't return anything! Note that the `return` command can only handle a single argument.
+You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever no about it! Note that the `return` command can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -33,7 +32,7 @@ x <- c(2, 3, 4, 5)
 mean(x)
 ```
 
-You just used the `mean` function, one of many functions loaded by default in R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:
+You just used the `mean` function, one of many functions that our predecessors built into R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:
 
 ```r
 ## Define function named 'my_own_mean'
@@ -44,21 +43,23 @@ my_own_mean <- function(number_vec) {
   sum_of_values <- sum(number_vec)
 
   # Obtain the number of values in the vector
-  nb_of_values <- length(number_vec)
+  number_of_values <- length(number_vec)
 
   # Get the mean
-  mean_value <- sum_of_values/nb_of_values
+  mean_value <- sum_of_values/number_of_values
 
   ## Output the mean
   return(mean_value)
 }
 
 ## Now run the function with some data:
+my_own_mean(number_vec = c(10,20,30,40)
+
 my_own_mean(number_vec = 1:50)
 
 ```
 
-We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`).
+We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
 
 Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
 

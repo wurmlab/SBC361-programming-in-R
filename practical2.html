@@ -68,7 +68,7 @@ my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
 }
 
 ## Now run the function with some data:
-<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)
+<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>))
 
 <span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="dv">1</span>:<span class="dv">50</span>)</code></pre>
 <p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>). Does <code>number_of_values</code> exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.</p>

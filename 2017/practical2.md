@@ -236,7 +236,7 @@ for (position in 1:length(practical_attribute_vec)) {
 }
 ```
 
-Once you are comfortable with loops, have a go at the following tasks:
+It is important to understand these two approaches with loops: looping through items vs. looping through positions. In some contexts it is easier to use the first approach; in other contexts the second is easier. Once you are comfortable with loops, have a go at the following tasks:
 
 #### Pen and paper Q7. Consider the following table, which lists the genus and species name for a number of ant species present in Great Britain. The loop counts the number of entries where the genus name begins with given letters. Describe in your own words what the loop is doing at each iteration.
 

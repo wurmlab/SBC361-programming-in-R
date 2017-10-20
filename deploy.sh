@@ -28,11 +28,6 @@ git remote add deploy $REPO_URL
 git fetch deploy $TARGET_BRANCH
 git reset deploy/$TARGET_BRANCH
 
-if [[ -z `git diff --exit-code` ]]; then
-    echo "No changes to deploy - exiting"
-    exit 0
-fi
-
 git add --all .
 git config user.name "Anurag Priyam"
 git config user.email "anurag.priyam@qmul.ac.uk"

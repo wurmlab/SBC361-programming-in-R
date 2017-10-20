@@ -162,7 +162,7 @@ greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="s
                <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>,
                <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
 for (word in greetings) {
-  <span class="kw">print</span>(word)
+  <span class="kw">print</span>(<span class="kw">paste</span>(word, <span class="st">&quot; - said the giggling frog&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
 }
 
 ## Sequential loop values
@@ -173,13 +173,13 @@ cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span>
 
 for (value in my_favourite_numbers) {
   <span class="co"># print the sentence</span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>))
+  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
   
   <span class="co"># add favourite numbers, sequentially</span>
   cumulative_sum &lt;-<span class="st"> </span>cumulative_sum +<span class="st"> </span>value
   
   <span class="co"># print the cumulative sum</span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;the sum of my favourite numbers is&quot;</span>, cumulative_sum))
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The sum of my favourite numbers is:&quot;</span>, cumulative_sum, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)

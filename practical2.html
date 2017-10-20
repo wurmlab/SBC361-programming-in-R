@@ -166,13 +166,17 @@ for (word in greetings) {
 
 ## Sequential loop values
 my_favourite_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">42</span>, <span class="fl">3.14</span>, <span class="dv">7</span>, <span class="dv">69</span>, <span class="fl">6.626e-34</span>, <span class="dv">1024</span>, <span class="dv">4</span>, <span class="fl">2.718281828</span>, <span class="dv">666</span> , <span class="fl">1.61803398</span>, <span class="dv">99</span>)
+
 <span class="co"># set the cumulative sum at zero before the loop starts</span>
 cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span>
+
 for (value in my_favourite_numbers) {
   <span class="co"># print the sentence</span>
   <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>))
+  
   <span class="co"># add favourite numbers, sequentially</span>
   cumulative_sum &lt;-<span class="st"> </span>cumulative_sum +<span class="st"> </span>value
+  
   <span class="co"># print the cumulative sum</span>
   <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;the sum of my favourite numbers is&quot;</span>, cumulative_sum))
 }

@@ -1,21 +1,21 @@
 # Computing in R - Practical 3
 
-SBC361: Research Methods and Communication II
+BIO309: Research Methods and Communication II
 
-October 2016
+October 2017
 
 ## Introduction
 
 This session will be divided into two halves. For the first 90 minutes, we will continue to practice and recap the skills learned in the first two sessions. The second half of this session will be the exam. You are encouraged to use your notes from the earlier sessions, the internet and the R help sheets during the practice half of the session and are also allowed to make use of them during the exam - though note that you are not allowed to use chat or forums to ask questions on the internet during the exam. You will be provided with the link to the exam when it is time to move on to it. The exam will need to be sat on one of the university PCs; it is recommended that you do this practice session on the same computer so that you can get used to the particular R interface.
 
 ## Recap questions
-To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the material from last week:
+To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the material from the last weeks:
 
 #### Intro Q1. What would be the outcome of the code `answer <- rep(x = c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
 #### Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
 
-#### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are few few ways of getting a result. Find three ways to achieve this question.
+#### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
 
 #### Intro Q4. Write a `for` loop that calculates the sum of 1/13 + 1/14 + 1/15… all the way up to 1/32. Note that R will not create the correct vector if you tell it ‘1/13:1/32’!
 
@@ -49,9 +49,9 @@ atgctaaactaa
 TCGATTAA
 ```
 
-#### Q4a. (hacker question) Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
+#### Hacker Q4a. Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
 
-#### Q4b. (hacker question) This time, check both the forward and reverse strand for ORFs. Return `"forward_only"` if there is an ORF only on the forward strand, `"reverse_only"` if only on the reverse, `"both"` if in both or "none" if in neither.
+#### Hacker Q4b. This time, check both the forward and reverse strand for ORFs. Return `"forward_only"` if there is an ORF only on the forward strand, `"reverse_only"` if only on the reverse, `"both"` if in both or "none" if in neither.
 
 ## Species names
 Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:

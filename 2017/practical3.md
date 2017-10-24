@@ -26,9 +26,9 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html)). The loop should store the results in a separate vector.
 
-#### Intro Q7. Numbers in Fibonacci's sequence are characterized by the fact that every number after the first two is the sum of the two preceding ones(e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
+#### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
 
-*Hint - you will need to create an empty vector to store every element in your Fibonacci sequence*
+*Hint - we cannot use positions equal or lower than 0 in a vector. Start with a vector containing the 2 first numbers of the sequence (1 and 1 in this case) and run through a loop starting in position 3 of your sequence to calculate the rest*
 
 #### Intro Q8. Create a function that can run this loop to generate a Fibonacci sequence of any size, starting from any given number. So for example, a sequence of length `x` from number `y`, where `x` and `y` are inputs to the function.
 
@@ -42,17 +42,17 @@ Before starting to code, think about the steps that you would need to go through
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
 #### Q2. Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, given the sequence ACCTAGGT, its complement would be:
-####5’ ACCTAGGT 3’
-####   ||||||||
-####3’ TGGATCCA 5’
-#### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html).
+#### 5’ ACCTAGGT 3’
+####    ||||||||
+#### 3’ TGGATCCA 5’
+#### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is a palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html).
 
 ## Open Reading Frames
 Protein-coding regions in the genome can be predicted by detecting open reading frames. An open reading frame normally begins with the start codon ‘ATG’ and ends at one of three possible stop codons, ‘TGA’, ‘TAA’ and ‘TAG’. The sequence in between these two points is arranged in 3-base codons.
 
 #### Q3. Write a function which uses regular expressions to detect if a given sequence contains an open reading frame. Test it on the following sequences:
 
-*Hint - an open reading frame should always start with the start codon 'ATG' and end with one of the stop codons. Additionally, the length of the entire sequence should be a multiple of 3. If any of these features are not met, the sequence is not a functional open reading frame*
+*Hint - an open reading frame should always start with the start codon 'ATG' and end with one of the stop codons. Additionally, the length of the entire sequence should be a multiple of 3. If any of these features are not met, the sequence is not a functional open reading frame.*
 
 ```
 ATGGATTTTTAG

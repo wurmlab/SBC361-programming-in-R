@@ -6,7 +6,8 @@ October 2017
 
 ## Introduction
 
-This session will be divided into two halves. For the first 90 minutes, we will continue to practice and recap the skills learned in the first two sessions. The second half of this session will be the exam. You are encouraged to use your notes from the earlier sessions, the internet and the R help sheets during the practice half of the session and are also allowed to make use of them during the exam - though note that you are not allowed to use chat or forums to ask questions on the internet during the exam. You will be provided with the link to the exam when it is time to move on to it. The exam will need to be sat on one of the university PCs; it is recommended that you do this practice session on the same computer so that you can get used to the particular R interface.
+This session will be a recap of what we saw in [practical1](https://wurmlab.github.io/SBC361-programming-in-R/practical1.html) and [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html). You can also use this session to revisit the parts of the last practicals that are still not entirely clear.
+**REMEMBER** The important thing for the exam is that you understand what you are doing. It is better to understand well a few exercises than finishing all exercises without entirely knowing what is going on.
 
 ## Recap questions
 To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the material from the last weeks:
@@ -17,11 +18,19 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
 
-#### Intro Q4. Write a `for` loop that calculates the sum of 1/13 + 1/14 + 1/15… all the way up to 1/32. Note that R will not create the correct vector if you tell it ‘1/13:1/32’!
+#### Intro Q4. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
-*It is possible to get the answer to this exercise without writing a loop, by using `sum()`. However, the idea of this exercise is to practice writing `for` loops - so write a `for` loop.*
+#### Intro Q5-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
 
-#### Intro Q5. Create a function that can run this loop between any two denominators (so from `1/x` to `1/y`, where `x` and `y` are inputs to the function).
+#### Intro Q5-B. Make the loop from Intro Q5-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+
+#### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html)). The loop should store the results in a separate vector.
+
+#### Intro Q7. Numbers in Fibonacci's sequence are characterized by the fact that every number after the first two is the sum of the two preceding ones(e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
+
+*Hint - you will need to create an empty vector to store every element in your Fibonacci sequence*
+
+#### Intro Q8. Create a function that can run this loop to generate a Fibonacci sequence of any size, starting from any given number. So for example, a sequence of length `x` from number `y`, where `x` and `y` are inputs to the function.
 
 ## Palindromic Sequences
 
@@ -32,14 +41,18 @@ Before starting to code, think about the steps that you would need to go through
 
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
-#### Q2. Write a function that assesses whether a DNA sequence is palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the last session.
-
-Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, ACCTAGGT is a palindromic DNA sequence as its complement is TGGATCCA.
+#### Q2. Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, given the sequence ACCTAGGT, its complement would be:
+####5’ ACCTAGGT 3’
+####   ||||||||
+####3’ TGGATCCA 5’
+#### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html).
 
 ## Open Reading Frames
 Protein-coding regions in the genome can be predicted by detecting open reading frames. An open reading frame normally begins with the start codon ‘ATG’ and ends at one of three possible stop codons, ‘TGA’, ‘TAA’ and ‘TAG’. The sequence in between these two points is arranged in 3-base codons.
 
-#### Q3. Write a function which uses regular expressions to detect if a given sequence contains an open reading frame (ORF). Test it on the following sequences:
+#### Q3. Write a function which uses regular expressions to detect if a given sequence contains an open reading frame. Test it on the following sequences:
+
+*Hint - an open reading frame should always start with the start codon 'ATG' and end with one of the stop codons. Additionally, the length of the entire sequence should be a multiple of 3. If any of these features are not met, the sequence is not a functional open reading frame*
 
 ```
 ATGGATTTTTAG
@@ -51,38 +64,30 @@ TCGATTAA
 
 #### Hacker Q4a. Instead of having the function return whether your sequence contains an open reading frame, have the function return a string containing the open reading frame if there is one and NULL if there is not (you will need to look up "if statements").
 
-#### Hacker Q4b. This time, check both the forward and reverse strand for ORFs. Return `"forward_only"` if there is an ORF only on the forward strand, `"reverse_only"` if only on the reverse, `"both"` if in both or "none" if in neither.
+#### Hacker Q4b. This time, check both the forward and reverse strand for open reading frames. Return `"forward_only"` if there is an open reading frame only on the forward strand, `"reverse_only"` if only on the reverse, `"both"` if in both or "none" if in neither.
 
 ## Species names
 Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:
 
 ```R
-butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflySample.csv"
-butterfly_sample  <- read.csv(butterfly_sam_url, header = T)
+butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample.csv"
+butterfly_sample  <- read.csv(butterfly_sam_url, header = TRUE)
 
-butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv"
-butterfly_reference <- read.csv(butterfly_ref_url, header = T)
+butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_reference.csv"
+butterfly_reference <- read.csv(butterfly_ref_url, header = TRUE)
 ```
 
 The `butterfly_reference` data frame contains the species name and the common name of a number of butterflies.
 
-The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations (A and B). This data was collected by multiple people, who have recorded the common names of the species they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
+The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations under different pesticide treatments (locations A and B). This data was collected by multiple people, who have recorded the common names of the species they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 
 #### Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the `butterfly_sample`.
 
-TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. `grep` and `gsub` both allow you to set an `ignore.case = T` option. Alternately, you could use the R commands `toupper()` and `tolower()`. Use the help pages to see how these work, which you can access by typing a question mark before the command - `?toupper`.
+TIP: There are several ways to do this. Remember that R is case sensitive, so you will need to account for case differences in your function. `grep` and `gsub` both allow you to set an `ignore.case = TRUE` option. Alternately, you could use the R commands `toupper()` and `tolower()`. Use the help pages to see how these work, which you can access by typing a question mark before the command - `?toupper`.
 
 #### Q6. From the data above, which location has the greatest number of different species?
 
 #### Q7. Which genus has been caught the greatest number of times?
-
-## Exam Reminders
-
-* You will have to sit the exam on one of the university PCs.
-* You will submit your answers through a Google form. Please do not use Internet Explorer for this. The form does not save as you fill in your answers, so please also save them in a text document or with screenshots so that you do not lose them if something goes wrong.
-* Do not click ‘submit’ until you have filled in all of your answers on the form.
-* You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.
-* You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.
 
 # Bonus hacker question
 
@@ -91,11 +96,8 @@ This question is an extension of the question Q5. Again, we will analyse a data 
 #### Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
 
 ```R
-butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflySampleBonus.csv"
-butterfly_sample  <- read.csv(butterfly_sam_url, header = T)
-
-butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/ButterflyReference.csv"
-butterfly_reference <- read.csv(butterfly_ref_url, header = T)
+butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample_bonus.csv"
+butterfly_sample_bonus  <- read.csv(butterfly_sam_url, header = TRUE)
 ```
 
 One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from latin to latin or common to latin), and do the transformation independently on each.

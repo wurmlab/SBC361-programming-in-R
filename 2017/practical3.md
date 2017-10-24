@@ -42,9 +42,11 @@ Before starting to code, think about the steps that you would need to go through
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
 #### Q2. Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, given the sequence ACCTAGGT, its complement would be:
-5’ ACCTAGGT 3’\n
-   ||||||||\n
-3’ TGGATCCA 5’\n
+```
+5’ ACCTAGGT 3’
+   ||||||||
+3’ TGGATCCA 5’
+```
 #### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is a palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html).
 
 ## Open Reading Frames

@@ -22,11 +22,11 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q5-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
 
-#### Intro Q5-B. Make the loop from Intro Q5-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What's the sum of the square roots of the numbers 16 to 49?
+#### Intro Q5-B. Make the loop from Intro Q5-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What is the sum of the square roots of the numbers 16 to 49?
 
 #### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html)). The loop should store the results in a separate vector.
 
-#### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
+#### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arrangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
 
 *Hint - we cannot use positions equal or lower than 0 in a vector. Start with a vector containing the 2 first numbers of the sequence (1 and 1 in this case) and run through a loop starting in position 3 of your sequence to calculate the rest*
 
@@ -41,7 +41,7 @@ Before starting to code, think about the steps that you would need to go through
 
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
-#### Q2. Palindromes in molecular biology work a little differently, in that the sequence is the same if read 5’ to 3’ on one strand or 5’ to 3’ on the complementary strand. For example, given the sequence ACCTAGGT, its complement would be:
+#### Q2. Palindromes in molecular biology work a little differently, in that the sequence is the same if read from 5’ to 3’ on one strand or from 5’ to 3’ on the complementary strand. For example, given the sequence ACCTAGGT, its complement would be:
 ```
 5’ ACCTAGGT 3’
    ||||||||
@@ -81,7 +81,7 @@ butterfly_reference <- read.csv(butterfly_ref_url, header = TRUE)
 
 The `butterfly_reference` data frame contains the species name and the common name of a number of butterflies.
 
-The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations under different pesticide treatments (locations A and B). This data was collected by multiple people, who have recorded the common names of the species they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
+The `butterfly_sample` data frame contains information on butterflies caught in sweep netting surveys in two locations under different pesticide treatments (locations A and B). This data was collected by multiple people, who have recorded the common names of the species that they encountered (without using a standard letter case). In order to be able to compare the diversity between the two different sites, you will need to standardise the names.
 
 #### Q5 Write a function that adds a new column in the data frame that contains the correct Latin species name for each record in the `butterfly_sample`.
 
@@ -102,6 +102,6 @@ butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/but
 butterfly_sample_bonus  <- read.csv(butterfly_sam_url, header = TRUE)
 ```
 
-One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from latin to latin or common to latin), and do the transformation independently on each.
+One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its Latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from Latin to Latin or common to Latin), and do the transformation independently on each.
 
 This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!

@@ -30,7 +30,7 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 *Hint - we cannot use positions equal or lower than 0 in a vector. Start with a vector containing the 2 first numbers of the sequence (1 and 1 in this case) and run through a loop starting in position 3 of your sequence to calculate the rest*
 
-#### Intro Q8. Create a function that can run this loop to generate a Fibonacci sequence of any size, starting from any given position. So for example, a sequence of length `x` from number `y`, where `x` and `y` are inputs to the function.
+#### Intro Q8. Create a function that can run this loop to generate a Fibonacci sequence of any size, starting from any given position. So for example, a sequence of length `x` from position `y`, where `x` and `y` are inputs to the function.
 
 ## Palindromic Sequences
 

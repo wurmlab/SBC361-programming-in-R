@@ -268,7 +268,7 @@ In the following exercise, we will simulate the size of a population given a rep
 
 * Use a starting population size of 1000.
 * Every year,
-   * obtain a random reproduction rate (e.g., `reproduction_rate <- rnorm(n=2, mean = 1, sd = 0.4)`.
+   * obtain a random reproduction rate (e.g., `reproduction_rate <- rnorm(n = 1, mean = 1, sd = 0.4)`.
    * Update the population size value accordingly.
    * Print a summary of what happened.
    * Store each year's population in an external vector.

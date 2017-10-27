@@ -174,10 +174,10 @@ cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span>
 for (value in my_favourite_numbers) {
   <span class="co"># print the sentence</span>
   <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
-  
+
   <span class="co"># add favourite numbers, sequentially</span>
   cumulative_sum &lt;-<span class="st"> </span>cumulative_sum +<span class="st"> </span>value
-  
+
   <span class="co"># print the cumulative sum</span>
   <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The sum of my favourite numbers is:&quot;</span>, cumulative_sum, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
 }
@@ -227,7 +227,7 @@ for (letter in letters_vec){
  matches &lt;- grep(pattern = begins_with, x = ant_table$genus)
  print(paste(length(matches), &quot;begin with&quot;, letter))
 }</code></pre>
-<h4 id="q8.-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
+<h4 id="q8.-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-i.e.-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
 <h3 id="using-loops">Using loops</h3>
 <p>For the following exercice, imagine that instead of buying a coffee, you deposit the £2.50 you would have spent into a savings account. The account has an annual interest rate of 5%, which is deposited into the account. You do not take any money out of the account for 20 years.</p>
 <h4 id="q9.-use-a-for-loop-to-calculate-how-much-money-there-is-in-the-account-after-20-years.">Q9. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h4>
@@ -237,7 +237,7 @@ for (letter in letters_vec){
 <ul>
 <li>Use a starting population size of 1000.<br /></li>
 <li>Every year,<br /></li>
-<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n=2, mean = 1, sd = 0.4)</code>.<br /></li>
+<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n = 1, mean = 1, sd = 0.4)</code>.<br /></li>
 <li>Update the population size value accordingly.<br /></li>
 <li>Print a summary of what happened.<br /></li>
 <li>Store each year's population in an external vector.<br /></li>

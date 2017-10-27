@@ -26,7 +26,7 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html)). The loop should store the results in a separate vector.
 
-#### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arrangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence strating from 1.
+#### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arrangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence starting from 1.
 
 *Hint - we cannot use positions equal or lower than 0 in a vector. Start with a vector containing the 2 first numbers of the sequence (1 and 1 in this case) and run through a loop starting in position 3 of your sequence to calculate the rest*
 

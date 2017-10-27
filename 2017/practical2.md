@@ -181,10 +181,10 @@ cumulative_sum <- 0
 for (value in my_favourite_numbers) {
   # print the sentence
   print(paste(value, "is my favourite number", sep=" "))
-  
+
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
-  
+
   # print the cumulative sum
   print(paste("The sum of my favourite numbers is:", cumulative_sum, sep=" "))
 }
@@ -252,7 +252,7 @@ for (letter in letters_vec){
 }
 ```
 
-#### Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (ie the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
+#### Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.
 
 ### Using loops
 
@@ -271,7 +271,7 @@ In the following exercise, we will simulate the size of a population given a rep
    * obtain a random reproduction rate (e.g., `reproduction_rate <- rnorm(n=2, mean = 1, sd = 0.4)`.
    * Update the population size value accordingly.
    * Print a summary of what happened.
-   * Store each year's population in an external vector. 
+   * Store each year's population in an external vector.
 * Once you have all the population sizes, plot them.
 
 ### Nested Loops

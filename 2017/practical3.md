@@ -1,8 +1,6 @@
 # Computing in R - Practical 3
 
-BIO309: Research Methods and Communication II
-
-October 2017
+November 2017
 
 ## Introduction
 

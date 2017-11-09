@@ -1,8 +1,6 @@
 # Computing in R - Practical 1
 
-BIO309: Research Methods and Communication
-
-October 2017
+November 2017
 
 Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 

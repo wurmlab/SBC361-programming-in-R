@@ -106,7 +106,7 @@ This question is not easy! But it is typical of the sort of thing researchers do
 
 ## Play time
 
-#### Q9 Write a script for a Rock-Scissors-Paper game to play against the computer. You will need to write it as a function (e.g. `rock_scissors_paper(your_play)`).
+#### Q9 Write a script for a [Rock-Scissors-Paper game](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) to play against the computer. You will need to write it as a function (e.g. `rock_scissors_paper(your_play)`).
 NOTE: You will need to use if else statements in R. Have a look online to see how they work.
 
 #### Q10 Write a script for a functional [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules). This is a type of cellular automata model where very simple initial rules can generate highly complex patterns. To model it, you will need to integrate Conway's rules into R. 

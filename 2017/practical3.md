@@ -103,3 +103,11 @@ butterfly_sample_bonus  <- read.csv(butterfly_sam_url, header = TRUE)
 One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its Latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from Latin to Latin or common to Latin), and do the transformation independently on each.
 
 This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!
+
+## Play time
+
+#### Q9 Write a script for a Rock-Scissors-Paper game to play against the computer. You will need to write it as a function (e.g. `rock_scissors_paper(your_play)`).
+NOTE: You will need to use if else statements in R. Have a look online to see how they work.
+
+#### Q10 Write a script for a functional [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules). This is a type of cellular automata model where very simple initial rules can generate highly complex patterns. To model it, you will need to integrate Conway's rules into R. 
+

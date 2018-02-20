@@ -2,7 +2,8 @@
 
 set -o errexit -o nounset
 
-year=$(date +"%Y")
+#year=$(date +"%Y")
+year=2017
 
 cd $year
 echo "Converting markdown files in $year/ to html"

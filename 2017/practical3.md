@@ -104,7 +104,7 @@ One of the difficulties of this exercise is that you will have to perform a diff
 
 This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!
 
-## Play time
+## Play time (you can safely ignore this if you are in 3rd year)
 
 #### Q9 Write a script for a [Rock-Scissors-Paper game](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) to play against the computer. You will need to write it as a function (e.g. `rock_scissors_paper(your_play)`).
 NOTE: You will need to use if else statements in R. Have a look online to see how they work.

@@ -47,7 +47,7 @@ Now we find that the output contains the actual elements of the vector that matc
 Finally, we may want to find and replace the pattern. This can be done using the function `gsub()`. The function `gsub()` takes arguments `pattern` and `x`, just like the function `grep()`, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the `reptile_data` the word "liopholis" is a genus name, and so should be capitalized. Thus, we want to replace the word "liopholis" with "Liopholis", as follows:
 
 ```R
-# Search through id_names_vec for the word "liopholis" and replace with the word "Liopholis."
+# Search through id_names_vec for the word "liopholis" and replace with the word "Liopholis".
 names_correct_vec <- gsub(pattern = "liopholis", replacement = "Liopholis", x = id_names_vec)
 ```
 
@@ -73,7 +73,7 @@ A slightly reduced list of special characters and their meanings is given below.
 
 Additional special characters can be found:
 
-* by Googling (e.g., "Regexp cheat sheet for R")
+* by Googling (e.g. "Regexp cheat sheet for R")
 * in the slides for our course (from slide 45): http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm
 * by typing: ?regex in R
 
@@ -100,7 +100,7 @@ Have a look inside the variable `names_vec`. We have successfully isolated the g
 
 #### Q5a. How many reptile names in `names_vec` contain a lowercase "o" or an uppercase "E"?
 
-Hint - you should able to identify the words containing these patterns using a single `grep` command. We have learnt how to search for a choice of two or more characters in class.
+Hint - you should be able to identify the words containing these patterns using a single `grep` command. We have learnt how to search for a choice of two or more characters in class.
 
 #### Q5b. How many reptile names in `names_vec` contain the syllables "us" or "li"?
 
@@ -134,7 +134,7 @@ Setting directory is a highly intensely used function which helps group your cod
 
 ```R
 # set the working directory
-setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options
+setwd("C:/Users/Public/Documents")   # or use the equivalent menu options
 # get all the file names in the current directory
 list.files(path = ".")
 # get the current working directory
@@ -146,11 +146,11 @@ Most of the time, as either a data recorder or a data analyst, knowing the best 
 
 ```R
 # write a new subsetted data frame (create this using your previous skills) into a CSV file
-write.csv(your subsetted data frame, file = "output location/file name.csv")
+write.csv(your subsetted data frame, file = "output_location/file_name.csv")
 # import your subsetted data frame into Excel
-write.table(your subsetted data frame, file = "output location/file name.xls", sep = "\t")
+write.table(your subsetted data frame, file = "output_location/file_name.xls", sep = "\t")
 # create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)
-save(a, b, c, file = "output location/file name.RData")
+save(a, b, c, file = "output_location/file_name.RData")
 ```
 
 #### Hacker Q7.  Download [this text file](http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt) and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).

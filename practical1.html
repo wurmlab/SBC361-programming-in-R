@@ -35,15 +35,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <a href="/news">News</a> | 
 <a href="/tools">Tools</a>
 <h1 id="computing-in-r---practical-1">Computing in R - Practical 1</h1>
-<p>November 2017</p>
+<p>October 2018</p>
 <p>Yannick Wurm and Rodrigo Pracana (and Robert Verity)</p>
 <h2 id="introduction">Introduction</h2>
 <p>This practical 1 is an introduction to regular expressions.</p>
 <h2 id="regular-expressions">Regular Expressions</h2>
 <p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># the first command might be needed</span>
-<span class="kw">setInternet2</span>(<span class="dt">use =</span> <span class="ot">TRUE</span>)
-reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
 <p>This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code</p>
 <pre class="sourceCode R"><code class="sourceCode r">id_names_vec &lt;-<span class="st"> </span><span class="kw">row.names</span>(reptile_data)</code></pre>
 <p>Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the <em>Liopholis</em> group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite &quot;messy&quot; and needs cleaning up.</p>

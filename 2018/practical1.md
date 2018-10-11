@@ -2,7 +2,7 @@
 
 October 2018
 
-Yannick Wurm and Rodrigo Pracana (and Robert Verit)
+Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 
 ## Introduction
 This practical 1 is an introduction to regular expressions.

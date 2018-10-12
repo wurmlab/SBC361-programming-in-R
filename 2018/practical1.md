@@ -29,7 +29,7 @@ The tools that allow us to deal with this sort of problem fall under the heading
 First of all we will search through the vector `id_names_vec` to find a list of the elements that contain the word "liopholis". The function that allows us to do this is `grep()`, which has two main arguments; `pattern` and `x`. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:
 
 ```R
-# Search through id_names_vec for the word "liopholis", and output positions
+# Search through id_names_vec for the word "liopholis", and output_positions
 grep(pattern = "liopholis", x = id_names_vec)
 ```
 
@@ -38,7 +38,7 @@ The output of this code is a list of numbers. Each of these numbers describes th
 Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument `value = TRUE` (see the help file for the `grep()` function for a complete list of possible arguments). The new code reads:
 
 ```R
-# Search through id_names_vec for the word "liopholis", and output names
+# Search through id_names_vec for the word "liopholis", and output_names
 grep(pattern = "liopholis", x = id_names_vec, value = TRUE)
 ```
 

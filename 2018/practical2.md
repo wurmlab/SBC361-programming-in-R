@@ -1,6 +1,6 @@
 # Computing in R - Practical 2
 
-November 2017
+October 2018
 
 Building on your existing skills, we will now move on to consider advanced ways of controlling program flow. Specifically, we will explore **functions** and **loops**, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As always, you will want to refer frequently to the R help files (through `?`) and your own notes when exploring these new concepts.
 
@@ -21,7 +21,7 @@ function_name <- function(input) {
 }
 ```
 
-You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever no about it! Note that the `return` command can only handle a single argument.
+You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` within brackets lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever know about it! Note that the `return` command can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -57,7 +57,7 @@ my_own_mean(number_vec = 1:50)
 
 ```
 
-We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives, is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
+We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
 
 Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
 
@@ -307,7 +307,6 @@ The data set that we will use in this example is typical of the sort of data tha
 ```r
 helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt", header = TRUE))
 ```
-If you have issue getting this data, remember that you might need to use `setInternet2(use = TRUE)`.
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.
 

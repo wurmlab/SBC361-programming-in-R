@@ -6,7 +6,7 @@ Building on your existing skills, we will now move on to consider advanced ways 
 
 ## Functions
 
-Functions are pieces of code that are take input information (in the form of "arguments"), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:
+Functions are pieces of code that take input information (in the form of "arguments"), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:
 
 ```r
 function_name <- function(input) {
@@ -21,7 +21,7 @@ function_name <- function(input) {
 }
 ```
 
-You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` within brackets lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever know about it! Note that the `return` command can only handle a single argument.
+You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` within brackets lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever know about it! Note that the `return` command can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -426,10 +426,10 @@ You can use this sequence (copy and paste it into R): `"ATTACGACGCGATTCCCGGTTAAT
 The tricky part here is reversing a single string of characters. Search around for `strsplit`.  You will need to:
 
 * replace bases with their complement (you can use `gsub`, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).
-* split the string of DNA bases into separate characters with `strsplit`. Unfortunately, `strsplit` confusingly returns a list, so you will need to use `unlist()` to obtain a string again
-* reverse the sequence
-* remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function)
-* return the reverse-complement sequence
+* split the string of DNA bases into separate characters with `strsplit`. Unfortunately, `strsplit` confusingly returns a list, so you will need to use `unlist()` to obtain a string again.
+* reverse the sequence.
+* remove the spaces to get your single string of DNA bases (look into the help files for the `paste()` function).
+* return the reverse-complement sequence.
 
 #### Mastermind Q17. Translate your triplet string from Q15 into amino acids.
 Note: depending on your method, you may not need to convert it to RNA first.  You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.

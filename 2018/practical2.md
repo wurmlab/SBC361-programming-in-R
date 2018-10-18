@@ -414,7 +414,7 @@ As an example:
 
 ```r
 dna_string <- c("AAATTT")
-substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
+substring(dna_string, seq(from = 1, to = 4, by = 3), seq(from = 3, to = 6, by = 3))
 ```
 
 #### Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.

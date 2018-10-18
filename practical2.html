@@ -38,7 +38,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>October 2018</p>
 <p>Building on your existing skills, we will now move on to consider advanced ways of controlling program flow. Specifically, we will explore <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As always, you will want to refer frequently to the R help files (through <code>?</code>) and your own notes when exploring these new concepts.</p>
 <h2 id="functions">Functions</h2>
-<p>Functions are pieces of code that are take input information (in the form of &quot;arguments&quot;), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:</p>
+<p>Functions are pieces of code that take input information (in the form of &quot;arguments&quot;), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:</p>
 <pre class="sourceCode r"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
 
   ### the &quot;body&quot; of the function
@@ -49,7 +49,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
   <span class="co"># returning an output vector:</span>
   <span class="kw">return</span>(output)
 }</code></pre>
-<p>You can choose whatever name you want instead of <code>function_name</code> (try a meaningful name). After the <code>&lt;-</code>, the word <code>function</code> within brackets lets R know that you are writing a new function. Here, <code>input_vec</code> is the name of the only argument that the calculations in the <code>body</code> of the function are based on (your function <em>can</em> have multiple arguments). Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that back outside the curly brackets is what you put into the <code>return()</code> on the last line. If you have no <code>return()</code>, your function may compute something but nobody will ever know about it! Note that the <code>return</code> command can only handle a single argument.</p>
+<p>You can choose whatever name you want instead of <code>function_name</code> (try a meaningful name). After the <code>&lt;-</code>, the word <code>function</code> within brackets lets R know that you are writing a new function. Here, <code>input_vec</code> is the name of the only argument that the calculations in the <code>body</code> of the function are based on (your function <em>can</em> have multiple arguments). Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the <code>return()</code> on the last line. If you have no <code>return()</code>, your function may compute something but nobody will ever know about it! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(x)</code></pre>
@@ -388,10 +388,10 @@ long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>
 <p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
 <ul>
 <li>replace bases with their complement (you can use <code>gsub</code>, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).<br /></li>
-<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Unfortunately, <code>strsplit</code> confusingly returns a list, so you will need to use <code>unlist()</code> to obtain a string again<br /></li>
-<li>reverse the sequence<br /></li>
-<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function)<br /></li>
-<li>return the reverse-complement sequence</li>
+<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Unfortunately, <code>strsplit</code> confusingly returns a list, so you will need to use <code>unlist()</code> to obtain a string again.<br /></li>
+<li>reverse the sequence.<br /></li>
+<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function).<br /></li>
+<li>return the reverse-complement sequence.</li>
 </ul>
 <h4 id="mastermind-q17.-translate-your-triplet-string-from-q15-into-amino-acids.">Mastermind Q17. Translate your triplet string from Q15 into amino acids.</h4>
 <p>Note: depending on your method, you may not need to convert it to RNA first. You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.</p>

@@ -29,6 +29,8 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q8. Create a function that can run this loop to generate a Fibonacci sequence of any size, starting from any given number (i.e. it does not have to start with 1). So for example, a sequence of length `x` from number `y`, where `x` and `y` are inputs to the function.
 
+*Hint - The starting number `y` will be the first two positions of your resulting vector*
+
 ## Palindromic Sequences
 
 Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase ‘Never odd or even’. In molecular biology, many restriction enzyme sites are palindromic.

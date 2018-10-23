@@ -96,7 +96,7 @@ This question is an extension of the question Q5. Again, we will analyse a data 
 
 ```R
 butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample_bonus.csv"
-butterfly_sample_bonus  <- read.csv(butterfly_sam_url, header = TRUE)
+butterfly_sample_bonus  <- read.csv(butterfly_sam_bonus_url, header = TRUE)
 ```
 
 One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its Latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from Latin to Latin or common to Latin), and do the transformation independently on each.

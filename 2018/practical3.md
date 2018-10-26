@@ -15,7 +15,7 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
 
-#### Intro Q4. Write a loop that iterates over the numbers 10 to 100 and stores this number in a separate vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
+#### Intro Q4. Write a loop that iterates over the numbers 10 to 100 and stores these numbers in a vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
 
 #### Intro Q5-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
 

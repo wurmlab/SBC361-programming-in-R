@@ -98,7 +98,7 @@ Have a look inside the variable `names_vec`. We have successfully isolated the g
 
 #### Q4. What does the pattern "e+" mean in a regular expression?
 
-#### Q5a. How many reptile names in `names_vec` contain a lowercase "o" or an uppercase "E"?
+#### Q5a. How many reptile names in `names_vec` contain a lowercase "o" or an uppercase "E" or both?
 
 Hint - you should be able to identify the words containing these patterns using a single `grep` command. We have learnt how to search for a choice of two or more characters in class.
 

@@ -2,7 +2,7 @@
 
 Research Methods and Communication
 
-October 2018
+October 2020
 
 Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 

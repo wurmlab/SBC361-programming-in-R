@@ -1,6 +1,6 @@
 # Computing in R - Practical 1
 
-October 2018
+October 2020
 
 Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 

@@ -1,6 +1,6 @@
 # Computing in R - Practical 3
 
-October 2018
+October 2020
 ## Introduction
 
 This session will be a recap of what we saw in [practical 1](https://wurmlab.github.io/SBC361-programming-in-R/practical1.html) and [practical 2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html). You can also use this session to revisit the parts of the last practicals that are still not entirely clear.

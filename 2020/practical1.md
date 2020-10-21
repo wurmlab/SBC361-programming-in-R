@@ -127,13 +127,11 @@ read.delim("input location/file name.txt")
 ```
 
 ## Data output into various formats
-Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).
+Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. Ouputting data as a CSV file is recommended as it's compatible with both Excel and R.
 
 ```R
 # write a new subsetted data frame (create this using your previous skills) into a CSV file
 write.csv(your subsetted data frame, file = "output_location/file_name.csv")
-# import your subsetted data frame into Excel
-write.table(your subsetted data frame, file = "output_location/file_name.xls", sep = "\t")
 # create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)
 save(a, b, c, file = "output_location/file_name.RData")
 ```

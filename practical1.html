@@ -1,31 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>practical1</title>
   <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="github-pandoc.css" type="text/css" />
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="github-pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <big><a href="https://wurmlab.github.io">Wurm lab</a></big> | 
@@ -34,121 +86,111 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <a href="/team">Team</a> | 
 <a href="/news">News</a> | 
 <a href="/tools">Tools</a>
-<h1 id="computing-in-r---practical-1">Computing in R - Practical 1</h1>
-<p>October 2018</p>
-<p>Yannick Wurm and Rodrigo Pracana (and Robert Verity)</p>
-<h2 id="introduction">Introduction</h2>
+<h1>Computing in R - Practical 1</h1>
+<p>October 2020</p>
+<h2>Introduction</h2>
 <p>This practical 1 is an introduction to regular expressions.</p>
-<h2 id="regular-expressions">Regular Expressions</h2>
+<h2>Regular Expressions</h2>
 <p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:</p>
-<pre class="sourceCode R"><code class="sourceCode r">reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p>This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code</p>
-<pre class="sourceCode R"><code class="sourceCode r">id_names_vec &lt;-<span class="st"> </span><span class="kw">row.names</span>(reptile_data)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">id_names_vec &lt;-<span class="st"> </span><span class="kw">row.names</span>(reptile_data)</a></code></pre></div>
 <p>Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the <em>Liopholis</em> group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite &quot;messy&quot; and needs cleaning up.</p>
 <p>The tools that allow us to deal with this sort of problem fall under the heading <strong>regular expressions</strong>. These consist of a suite of tools that allow us to search for, locate, and replace characters or words within a data set. The really powerful thing about regular expressions is that we can do a &quot;fuzzy&quot; search, meaning the pattern we are searching for has some flexibility built into it.</p>
-<h3 id="basic-find-and-replace">Basic find and replace</h3>
+<h3>Basic find and replace</h3>
 <p>First of all we will search through the vector <code>id_names_vec</code> to find a list of the elements that contain the word &quot;liopholis&quot;. The function that allows us to do this is <code>grep()</code>, which has two main arguments; <code>pattern</code> and <code>x</code>. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot;, and output_positions</span>
-<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot;, and output_positions</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec)</a></code></pre></div>
 <p>The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector <code>id_names_vec</code> that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!</p>
 <p>Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument <code>value = TRUE</code> (see the help file for the <code>grep()</code> function for a complete list of possible arguments). The new code reads:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot;, and output_names</span>
-<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec, <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot;, and output_names</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec, <span class="dt">value =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.</p>
 <p>Finally, we may want to find and replace the pattern. This can be done using the function <code>gsub()</code>. The function <code>gsub()</code> takes arguments <code>pattern</code> and <code>x</code>, just like the function <code>grep()</code>, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the <code>reptile_data</code> the word &quot;liopholis&quot; is a genus name, and so should be capitalized. Thus, we want to replace the word &quot;liopholis&quot; with &quot;Liopholis&quot;, as follows:</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot; and replace with the word &quot;Liopholis&quot;.</span>
-names_correct_vec &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Search through id_names_vec for the word &quot;liopholis&quot; and replace with the word &quot;Liopholis&quot;.</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">names_correct_vec &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Liopholis&quot;</span>, <span class="dt">x =</span> id_names_vec)</a></code></pre></div>
 <p>The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable <code>names_correct_vec</code>.</p>
 <p>Experiment with <code>grep()</code> and <code>gsub()</code> until you are confident at using them. Then answer the following questions:</p>
-<h4 id="q1.-how-could-you-use-regular-expressions-to-find-the-only-element-in-the-vector-names_correct_vec-that-contains-a-lowercase-q-what-is-the-position-of-this-element-in-the-vector">Q1. How could you use regular expressions to find the only element in the vector <code>names_correct_vec</code> that contains a lowercase &quot;q&quot;? What is the position of this element in the vector?</h4>
-<h4 id="q2.-you-want-to-import-the-names_correct_vec-data-into-excel-but-are-having-problems-due-to-the-spaces-between-the-words-a-common-problem.-how-could-you-use-gsub-to-replace-all-spaces-with-a-dot">Q2. You want to import the <code>names_correct_vec</code> data into excel, but are having problems due to the spaces between the words (a common problem). How could you use <code>gsub()</code> to replace all spaces with a dot?</h4>
-<h3 id="using-fuzzy-searching">Using &quot;fuzzy&quot; searching</h3>
+<h4>Q1. How could you use regular expressions to find the only element in the vector <code>names_correct_vec</code> that contains a lowercase &quot;q&quot;? What is the position of this element in the vector?</h4>
+<h4>Q2. You want to import the <code>names_correct_vec</code> data into excel, but are having problems due to the spaces between the words (a common problem). How could you use <code>gsub()</code> to replace all spaces with a dot?</h4>
+<h3>Using &quot;fuzzy&quot; searching</h3>
 <p>One of the most powerful features of regular expressions is the ability to perform &quot;fuzzy&quot; searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.</p>
 <p>A slightly reduced list of special characters and their meanings is given below.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Special Character</th>
-<th align="left">Meaning</th>
+<th>Special Character</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">.</td>
-<td align="left">Any character</td>
+<td>.</td>
+<td>Any character</td>
 </tr>
 <tr class="even">
-<td align="left">?</td>
-<td align="left">The preceding item is optional and will be matched at most once.</td>
+<td>?</td>
+<td>The preceding item is optional and will be matched at most once.</td>
 </tr>
 <tr class="odd">
-<td align="left">*</td>
-<td align="left">The preceding item will be matched zero or more times.</td>
+<td>*</td>
+<td>The preceding item will be matched zero or more times.</td>
 </tr>
 <tr class="even">
-<td align="left">+</td>
-<td align="left">The preceding item will be matched one or more times.</td>
+<td>+</td>
+<td>The preceding item will be matched one or more times.</td>
 </tr>
 </tbody>
 </table>
 <p>Additional special characters can be found:</p>
 <ul>
-<li>by Googling (e.g. &quot;Regexp cheat sheet for R&quot;)<br /></li>
-<li>in the slides for our course (from slide 45): <a href="http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm">http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm</a><br /></li>
+<li>by Googling (e.g. &quot;Regexp cheat sheet for R&quot;)</li>
 <li>by typing: ?regex in R</li>
 </ul>
 <p>These special characters can be used on their own, or in combination with one another. To help you out with understanding these symbols, here are a few examples:</p>
 <ul>
-<li>The pattern <code>.r</code> means any character, followed by the letter &quot;r&quot; (e.g. &quot;er&quot;, &quot;or&quot;, &quot;tr&quot;, &quot;3r&quot;).<br /></li>
-<li>The pattern <code>...r</code> means any character, followed by any character, followed by any character, followed by the letter &quot;r&quot; (e.g. &quot;beer&quot;, &quot;deer&quot;, &quot;zekr&quot;).<br /></li>
-<li>The pattern <code>l*at</code> means zero or more copies of the letter &quot;l&quot;, followed by the letters &quot;at&quot; (e.g. &quot;at&quot;, &quot;lat&quot;, &quot;llllllllllat&quot;).<br /></li>
-<li>The pattern <code>s.+s</code> means the letter &quot;s&quot;, followed by one or more copies of any character, followed by the letter &quot;s&quot; (e.g. &quot;sas&quot;, &quot;sts&quot;, &quot;sauces&quot;, &quot;serendipities&quot;, but NOT &quot;ss&quot;).<br /></li>
+<li>The pattern <code>.r</code> means any character, followed by the letter &quot;r&quot; (e.g. &quot;er&quot;, &quot;or&quot;, &quot;tr&quot;, &quot;3r&quot;).</li>
+<li>The pattern <code>...r</code> means any character, followed by any character, followed by any character, followed by the letter &quot;r&quot; (e.g. &quot;beer&quot;, &quot;deer&quot;, &quot;zekr&quot;).</li>
+<li>The pattern <code>l*at</code> means zero or more copies of the letter &quot;l&quot;, followed by the letters &quot;at&quot; (e.g. &quot;at&quot;, &quot;lat&quot;, &quot;llllllllllat&quot;).</li>
+<li>The pattern <code>s.+s</code> means the letter &quot;s&quot;, followed by one or more copies of any character, followed by the letter &quot;s&quot; (e.g. &quot;sas&quot;, &quot;sts&quot;, &quot;sauces&quot;, &quot;serendipities&quot;, but NOT &quot;ss&quot;).</li>
 <li>The pattern <code>.* .*</code> means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. &quot;test word&quot;).</li>
 </ul>
 <p>Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.</p>
 <p>As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:</p>
-<pre class="sourceCode R"><code class="sourceCode r">names_vec &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;.*:&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> names_correct_vec)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">names_vec &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;.*:&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> names_correct_vec)</a></code></pre></div>
 <p>Have a look inside the variable <code>names_vec</code>. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.</p>
-<h4 id="q3.-what-does-the-pattern-..x..-mean-in-a-regular-expression">Q3. What does the pattern &quot;..x..&quot; mean in a regular expression?</h4>
-<h4 id="q4.-what-does-the-pattern-e-mean-in-a-regular-expression">Q4. What does the pattern &quot;e+&quot; mean in a regular expression?</h4>
-<h4 id="q5a.-how-many-reptile-names-in-names_vec-contain-a-lowercase-o-or-an-uppercase-e">Q5a. How many reptile names in <code>names_vec</code> contain a lowercase &quot;o&quot; or an uppercase &quot;E&quot;?</h4>
+<h4>Q3. What does the pattern &quot;..x..&quot; mean in a regular expression?</h4>
+<h4>Q4. What does the pattern &quot;e+&quot; mean in a regular expression?</h4>
+<h4>Q5a. How many reptile names in <code>names_vec</code> contain a lowercase &quot;o&quot; or an uppercase &quot;E&quot;?</h4>
 <p>Hint - you should be able to identify the words containing these patterns using a single <code>grep</code> command. We have learnt how to search for a choice of two or more characters in class.</p>
-<h4 id="q5b.-how-many-reptile-names-in-names_vec-contain-the-syllables-us-or-li">Q5b. How many reptile names in <code>names_vec</code> contain the syllables &quot;us&quot; or &quot;li&quot;?</h4>
+<h4>Q5b. How many reptile names in <code>names_vec</code> contain the syllables &quot;us&quot; or &quot;li&quot;?</h4>
 <p>Hint - As before, use a single <code>grep</code> command to identify the words with these patterns.</p>
-<h4 id="q6.-add-three-additional-columns-to-the-reptile_data-table">Q6. Add three additional columns to the <code>reptile_data</code> table:</h4>
+<h4>Q6. Add three additional columns to the <code>reptile_data</code> table:</h4>
 <ul>
-<li>one containing only the identifier numbers (e.g. 1423 without the “ID”)<br /></li>
-<li>one column containing only the genus (e.g. &quot;Bellatorias&quot;)<br /></li>
+<li>one containing only the identifier numbers (e.g. 1423 without the “ID”)</li>
+<li>one column containing only the genus (e.g. &quot;Bellatorias&quot;)</li>
 <li>one containing only the species (excluding the genus name and the subspecies name, e.g. we want to read &quot;tympanum&quot;)</li>
 </ul>
 <p>Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.</p>
-<h1 id="extra-section">Extra section!</h1>
-<h2 id="data-input-from-files">Data input from files</h2>
-<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download <a href="http://genomics.senescence.info/longevity/longevity_genes.zip">longevity_genes/longevity.csv</a> and <a href="http://genomics.senescence.info/diet/TableS2.xls">TableS2.xls</a> and try loading them into R.</p>
-<pre class="sourceCode R"><code class="sourceCode r">longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;input location/longevity.csv&quot;</span>)
-longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.choose</span>())                    <span class="co"># to choose the file</span>
-<span class="co"># try to figure out how to import Excel spreadsheets into R,</span>
-<span class="co"># which is an excessively discussed topic online.</span>
-<span class="co"># One way of doing it, is saving your Excel spreadsheet (TableS2.xls)</span>
-<span class="co"># as a tab delimited text file and loading it into R</span>
-<span class="kw">read.delim</span>(<span class="st">&quot;input location/file name.txt&quot;</span>)</code></pre>
-<h2 id="setting-the-working-directory">Setting the working directory</h2>
-<p>Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you.</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># set the working directory</span>
-<span class="kw">setwd</span>(<span class="st">&quot;C:/Users/Public/Documents&quot;</span>)   <span class="co"># or use the equivalent menu options</span>
-<span class="co"># get all the file names in the current directory</span>
-<span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;.&quot;</span>)
-<span class="co"># get the current working directory</span>
-<span class="kw">getwd</span>()</code></pre>
-<h2 id="data-output-into-various-formats">Data output into various formats</h2>
+<h1>Extra section!</h1>
+<h2>Data input from files</h2>
+<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download <a href="https://genomics.senescence.info/longevity/longevity_genes.zip">longevity_genes/longevity.csv</a> and <a href="https://genomics.senescence.info/diet/TableS2.xls">TableS2.xls</a> and try loading them into R.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;input location/longevity.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.choose</span>())                    <span class="co"># to choose the file</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># try to figure out how to import Excel spreadsheets into R,</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># which is an excessively discussed topic online.</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># One way of doing it, is saving your Excel spreadsheet (TableS2.xls)</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># as a tab delimited text file and loading it into R</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw">read.delim</span>(<span class="st">&quot;input location/file name.txt&quot;</span>)</a></code></pre></div>
+<h2>Data output into various formats</h2>
 <p>Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).</p>
-<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># write a new subsetted data frame (create this using your previous skills) into a CSV file</span>
-<span class="kw">write.csv</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.csv&quot;</span>)
-<span class="co"># import your subsetted data frame into Excel</span>
-<span class="kw">write.table</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.xls&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)
-<span class="co"># create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)</span>
-<span class="kw">save</span>(a, b, c, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.RData&quot;</span>)</code></pre>
-<h4 id="hacker-q7.-download-this-text-file-and-figure-out-how-to-capture-the-first-letter-of-the-genus-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q7. Download <a href="http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt">this text file</a> and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># write a new subsetted data frame (create this using your previous skills) into a CSV file</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">write.csv</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># import your subsetted data frame into Excel</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">write.table</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.xls&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co"># create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw">save</span>(a, b, c, <span class="dt">file =</span> <span class="st">&quot;output_location/file_name.RData&quot;</span>)</a></code></pre></div>
+<h4>Hacker Q7. Download <a href="http://wurmlab.github.io/teaching/2013sbc361/reptile_data_lower_to_upper.txt">this text file</a> and figure out how to “capture” the first letter of the genus, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
 <p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.</p>
 <hr>
 <small>Copyright 2017 <a href=https://github.com/wurmlab/genomicscourse/graphs/contributors>Authors</a>. All rights reserverd.

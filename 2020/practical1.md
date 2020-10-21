@@ -2,8 +2,6 @@
 
 October 2020
 
-Yannick Wurm
-
 ## Introduction
 This practical 1 is an introduction to regular expressions.
 

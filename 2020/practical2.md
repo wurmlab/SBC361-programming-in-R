@@ -9,7 +9,7 @@ Building on your existing skills, we will now move on to consider advanced ways 
 Functions are pieces of code that take input information (in the form of "arguments"), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:
 
 ```r
-function_name <- function(input) {
+function_name <- function(input_vec) {
 
   ### the "body" of the function
 

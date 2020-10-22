@@ -171,7 +171,7 @@ for (word in greetings) {
 }
 
 ## Sequential loop values
-my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666 , 1.61803398, 99)
+my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666, 1.61803398, 99)
 
 # set the cumulative sum at zero before the loop starts
 cumulative_sum <- 0
@@ -184,12 +184,12 @@ for (value in my_favourite_numbers) {
   cumulative_sum <- cumulative_sum + value
 
   # print the cumulative sum
-  print(paste("The sum of my favourite numbers is:", cumulative_sum, sep=" "))
+  print(paste("The sum of my favourite numbers is:", cumulative_sum, sep = " "))
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)
-colour_vec <- c("red","green","blue","yellow","orange","purple","pink")
-for (position in 1:length(colour_vec)) {
+colour_vec <- c("red", "green", "blue", "yellow", "orange", "purple", "pink")
+for (position in seq_len(length(colour_vec)) {
   current_colour <- colour_vec[position]
   print(current_colour)
 }

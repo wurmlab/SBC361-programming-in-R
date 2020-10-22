@@ -1,31 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>practical2</title>
   <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="github-pandoc.css" type="text/css" />
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="github-pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <big><a href="https://wurmlab.github.io">Wurm lab</a></big> | 
@@ -34,368 +86,373 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <a href="/team">Team</a> | 
 <a href="/news">News</a> | 
 <a href="/tools">Tools</a>
-<h1 id="computing-in-r---practical-2">Computing in R - Practical 2</h1>
-<p>October 2018</p>
+<h1>Computing in R - Practical 2</h1>
+<p>October 2020</p>
 <p>Building on your existing skills, we will now move on to consider advanced ways of controlling program flow. Specifically, we will explore <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As always, you will want to refer frequently to the R help files (through <code>?</code>) and your own notes when exploring these new concepts.</p>
-<h2 id="functions">Functions</h2>
+<h2>Functions</h2>
 <p>Functions are pieces of code that take input information (in the form of &quot;arguments&quot;), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:</p>
-<pre class="sourceCode r"><code class="sourceCode r">function_name &lt;-<span class="st"> </span>function(input) {
-
-  ### the &quot;body&quot; of the function
-
-  <span class="co"># code that performs some calculation on the input</span>
-  <span class="co"># possibly other lines of code that perform calculations</span>
-
-  <span class="co"># returning an output vector:</span>
-  <span class="kw">return</span>(output)
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">function_name &lt;-<span class="st"> </span><span class="cf">function</span>(input_vec) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="co">### the &quot;body&quot; of the function</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="co"># code that performs some calculation on the input</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="co"># possibly other lines of code that perform calculations</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="co"># returning an output vector:</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="kw">return</span>(output)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">}</a></code></pre></div>
 <p>You can choose whatever name you want instead of <code>function_name</code> (try a meaningful name). After the <code>&lt;-</code>, the word <code>function</code> within brackets lets R know that you are writing a new function. Here, <code>input_vec</code> is the name of the only argument that the calculations in the <code>body</code> of the function are based on (your function <em>can</em> have multiple arguments). Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the <code>return()</code> on the last line. If you have no <code>return()</code>, your function may compute something but nobody will ever know about it! Note that the <code>return</code> command can only handle a single argument.</p>
 <p>To take a self-explanatory example:</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
-<span class="kw">mean</span>(x)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">mean</span>(x)</a></code></pre></div>
 <p>You just used the <code>mean</code> function, one of many functions that our predecessors built into R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
-<pre class="sourceCode r"><code class="sourceCode r">## Define function named &#39;my_own_mean&#39;
-
-my_own_mean &lt;-<span class="st"> </span>function(number_vec) {
-  ## Calculate mean
-  <span class="co"># Sum all numbers in the vector</span>
-  sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(number_vec)
-
-  <span class="co"># Obtain the number of values in the vector</span>
-  number_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)
-
-  <span class="co"># Get the mean</span>
-  mean_value &lt;-<span class="st"> </span>sum_of_values/number_of_values
-
-  ## Output the mean
-  <span class="kw">return</span>(mean_value)
-}
-
-## Now run the function with some data:
-<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>))
-
-<span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="dv">1</span>:<span class="dv">50</span>)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">## Define function named &#39;my_own_mean&#39;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">my_own_mean &lt;-<span class="st"> </span><span class="cf">function</span>(number_vec) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="co">## Calculate mean</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="co"># Sum all numbers in the vector</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  sum_of_values &lt;-<span class="st"> </span><span class="kw">sum</span>(number_vec)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="co"># Obtain the number of values in the vector</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  number_of_values &lt;-<span class="st"> </span><span class="kw">length</span>(number_vec)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="co"># Get the mean</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  mean_value &lt;-<span class="st"> </span>sum_of_values<span class="op">/</span>number_of_values</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">  <span class="co">## Output the mean</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">  <span class="kw">return</span>(mean_value)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">}</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">## Now run the function with some data:</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>))</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="kw">my_own_mean</span>(<span class="dt">number_vec =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">50</span>))</a></code></pre></div>
 <p>We created a function that computes the sum and number of all values in a given vector (<code>number_vec</code>) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (<code>number_vec</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>). Does <code>number_of_values</code> exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.</p>
-<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
+<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(number_vec = seq(from = 1, to = 50))</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>number_vec</code> in the function.</p>
 <p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function for rounding down to the closest whole number):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Input raw number of seconds</span>
-number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span>
-
-<span class="co"># Convert number_of_seconds into hours, minutes, and seconds</span>
-hours   &lt;-<span class="st"> </span><span class="kw">floor</span>(number_of_seconds /<span class="st"> </span>(<span class="dv">60</span> *<span class="st"> </span><span class="dv">60</span>))
-minutes &lt;-<span class="st"> </span><span class="kw">floor</span>((number_of_seconds -<span class="st"> </span>hours *<span class="st"> </span>(<span class="dv">60</span> *<span class="st"> </span><span class="dv">60</span>)) /<span class="st"> </span><span class="dv">60</span>)
-seconds &lt;-<span class="st"> </span>number_of_seconds -<span class="st"> </span>((hours *<span class="st"> </span><span class="dv">60</span>) +<span class="st"> </span>minutes) *<span class="st"> </span><span class="dv">60</span>
-
-<span class="co"># Create a single vector containing all three quantities</span>
-output_vec &lt;-<span class="st"> </span><span class="kw">c</span>(hours, minutes, seconds)
-
-<span class="co"># Output the solution to the console</span>
-output_vec</code></pre>
-<h4 id="q1.-modify-the-code-above-to-make-it-into-a-function-called-time_converter.-this-function-should-take-a-single-number-as-an-argument-the-number-of-seconds-we-want-to-convert.-this-function-should-also-include-the-three-lines-of-code-that-convert-number_of_seconds-into-hours-minutes-and-seconds-the-line-of-code-that-merges-these-three-variables-into-one-vector-and-a-line-returning-this-vector-as-the-output-of-the-function.-once-you-created-the-function-and-loaded-it-into-r-use-relevant-examples-for-testing-0-3600-another.-remember-to-indent-any-code-inside-the-curly-brackets.">Q1. Modify the code above to make it into a function called <code>time_converter</code>. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert <code>number_of_seconds</code> into <code>hours</code>, <code>minutes</code>, and <code>seconds</code>, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.</h4>
-<h4 id="q2.-write-your-own-function-for-converting-distances-between-different-units.-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-0.6213712-miles.-note-floor-wont-be-needed-in-the-calculations-here.-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines.">Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (<a href="https://en.wikipedia.org/wiki/Mile">1 kilometre is 0.6213712 miles</a>). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
-<h3 id="more-complex-functions">More complex functions</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Input raw number of seconds</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">number_of_seconds &lt;-<span class="st"> </span><span class="dv">19955</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Convert number_of_seconds into hours, minutes, and seconds</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">hours   &lt;-<span class="st"> </span><span class="kw">floor</span>(number_of_seconds <span class="op">/</span><span class="st"> </span>(<span class="dv">60</span> <span class="op">*</span><span class="st"> </span><span class="dv">60</span>))</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">minutes &lt;-<span class="st"> </span><span class="kw">floor</span>((number_of_seconds <span class="op">-</span><span class="st"> </span>hours <span class="op">*</span><span class="st"> </span>(<span class="dv">60</span> <span class="op">*</span><span class="st"> </span><span class="dv">60</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">seconds &lt;-<span class="st"> </span>number_of_seconds <span class="op">-</span><span class="st"> </span>((hours <span class="op">*</span><span class="st"> </span><span class="dv">60</span>) <span class="op">+</span><span class="st"> </span>minutes) <span class="op">*</span><span class="st"> </span><span class="dv">60</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># Create a single vector containing all three quantities</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">output_vec &lt;-<span class="st"> </span><span class="kw">c</span>(hours, minutes, seconds)</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># Output the solution to the console</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">output_vec</a></code></pre></div>
+<h4>Q1. Modify the code above to make it into a function called <code>time_converter</code>. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert <code>number_of_seconds</code> into <code>hours</code>, <code>minutes</code>, and <code>seconds</code>, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.</h4>
+<h4>Q2. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (<a href="https://en.wikipedia.org/wiki/Mile">1 kilometre is 0.6213712 miles</a>). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
+<h3>More complex functions</h3>
 <p>Functions can be very useful when you have to do the same calculation many times. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.</p>
 <p>We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format <code>hours:minutes:seconds</code>, rather than just the total number of seconds.</p>
 <p>Fortunately, functions in R can take more than one argument:</p>
-<pre class="sourceCode r"><code class="sourceCode r">
-my_function &lt;-<span class="st"> </span>function(input1, input2, ...) {
-    <span class="co"># code including input1, input2, ...</span>
-    <span class="kw">return</span>(something)
-}</code></pre>
-<h4 id="q3.-make-a-function-that-takes-hours-minutes-and-seconds-as-inputs-and-outputs-the-total-number-of-seconds.-make-sure-it-has-three-arguments-and-a-descriptive-name.-test-the-function-with-a-range-of-times-for-which-you-know-the-answer.">Q3. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">my_function &lt;-<span class="st"> </span><span class="cf">function</span>(input1, input2, ...) {</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="co"># code including input1, input2, ...</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw">return</span>(something)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">}</a></code></pre></div>
+<h4>Q3. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h4>
 <p>In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument <code>hours = 0</code> every time that we call the function.</p>
 <p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
-<pre class="sourceCode r"><code class="sourceCode r">my_function &lt;-<span class="st"> </span>function(input1, ..., <span class="dt">input15 =</span> default) {
-  <span class="co"># code including input1, input2, ..., input15</span>
-  <span class="kw">return</span>(something)
-}</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">my_function &lt;-<span class="st"> </span><span class="cf">function</span>(input1, ..., <span class="dt">input15 =</span> default) {</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="co"># code including input1, input2, ..., input15</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="kw">return</span>(something)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">}</a></code></pre></div>
 <p>The default argument(s) is generally placed at the end of the argument list.</p>
-<h4 id="q4.-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function.-run-the-function-without-supplying-these-two-arguments-then-run-it-again-with-using-a-range-of-hours-and-minutes.">Q4. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
+<h4>Q4. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
 <p>Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:</p>
 <ul>
-<li>Take the tunnel length (in meters), hours, minutes and seconds as arguments<br /></li>
-<li>Use your previous function to convert hours, minutes and seconds to seconds<br /></li>
-<li>Calculate the speed of the bees in meters per second<br /></li>
+<li>Take the tunnel length (in meters), hours, minutes and seconds as arguments</li>
+<li>Use your previous function to convert hours, minutes and seconds to seconds</li>
+<li>Calculate the speed of the bees in meters per second</li>
 <li>Return the speed of the bees</li>
 </ul>
-<h4 id="q5a.-create-this-function.-test-it-with-a-control-values-for-which-you-know-the-answer.">Q5A. Create this function. Test it with a control (values for which you know the answer).</h4>
-<h4 id="q5b.-use-the-function-to-measure-the-speed-of-the-bees-with-the-following-measurements">Q5B. Use the function to measure the speed of the bees with the following measurements:</h4>
+<h4>Q5A. Create this function. Test it with a control (values for which you know the answer).</h4>
+<h4>Q5B. Use the function to measure the speed of the bees with the following measurements:</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Distance (m)</th>
-<th align="left">Time (hours:minutes:seconds)</th>
+<th>Distance (m)</th>
+<th>Time (hours:minutes:seconds)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">00:00:08</td>
+<td>1</td>
+<td>00:00:08</td>
 </tr>
 <tr class="even">
-<td align="left">10</td>
-<td align="left">00:00:40</td>
+<td>10</td>
+<td>00:00:40</td>
 </tr>
 <tr class="odd">
-<td align="left">300</td>
-<td align="left">00:05:00</td>
+<td>300</td>
+<td>00:05:00</td>
 </tr>
 <tr class="even">
-<td align="left">800</td>
-<td align="left">01:06:40</td>
+<td>800</td>
+<td>01:06:40</td>
 </tr>
 </tbody>
 </table>
-<h4 id="q5c.-can-you-think-of-parameter-values-that-would-make-your-function-not-work-properly-what-happens-if-you-try-running-the-function-with-these-values">Q5C. Can you think of parameter values that would make your function not work properly? What happens if you try running the function with these values?</h4>
-<h3 id="functions-with-other-types-of-input">Functions with other types of input</h3>
+<h4>Q5C. Can you think of parameter values that would make your function not work properly? What happens if you try running the function with these values?</h4>
+<h3>Functions with other types of input</h3>
 <p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
-<h4 id="q6.-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word.-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector---use-an-internet-search-engine">Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!</h4>
-<h2 id="loops">Loops</h2>
+<h4>Q6. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!</h4>
+<h2>Loops</h2>
 <p>Imagine that you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. Not fun.</p>
 <p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
-<pre class="sourceCode r"><code class="sourceCode r">## For loop example
-for (seconds in <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {
-  time_in_hours &lt;-<span class="st"> </span><span class="kw">time_converter</span>(<span class="dt">number_of_seconds =</span> seconds)
-  <span class="kw">print</span>(time_in_hours)
-}</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">## For loop example</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">for</span> (seconds <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">3000</span>)) {</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  time_in_hours &lt;-<span class="st"> </span><span class="kw">time_converter</span>(<span class="dt">number_of_seconds =</span> seconds)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="kw">print</span>(time_in_hours)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
 <p>The variable <code>seconds</code> only exists within the loop. The loop will run 3 times. The first time, <code>seconds</code> will take the first value from the vector <code>(1000, 2000, 3000)</code>, i.e., <code>1000</code>. R will run through the loop, computing <code>time_in_hours</code> and printing it. When R starts running through the loop the second time, <code>seconds</code> will have the value <code>2000</code>, and the previously calculated <code>time_in_hours</code> will have been forgotten. R will run through the loop, computing <code>time_in_hours</code> and printing it. The third time, same thing again, but <code>seconds</code> will start with the value <code>3000</code>.</p>
-<h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
+<h3>Slightly more complex loops</h3>
 <p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
-<pre class="sourceCode r"><code class="sourceCode r">## Character based loop values
-greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>,
-               <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>,
-               <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)
-for (word in greetings) {
-  <span class="kw">print</span>(<span class="kw">paste</span>(word, <span class="st">&quot; - said the giggling frog&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
-}
-
-## Sequential loop values
-my_favourite_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">42</span>, <span class="fl">3.14</span>, <span class="dv">7</span>, <span class="dv">69</span>, <span class="fl">6.626e-34</span>, <span class="dv">1024</span>, <span class="dv">4</span>, <span class="fl">2.718281828</span>, <span class="dv">666</span> , <span class="fl">1.61803398</span>, <span class="dv">99</span>)
-
-<span class="co"># set the cumulative sum at zero before the loop starts</span>
-cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span>
-
-for (value in my_favourite_numbers) {
-  <span class="co"># print the sentence</span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
-
-  <span class="co"># add favourite numbers, sequentially</span>
-  cumulative_sum &lt;-<span class="st"> </span>cumulative_sum +<span class="st"> </span>value
-
-  <span class="co"># print the cumulative sum</span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The sum of my favourite numbers is:&quot;</span>, cumulative_sum, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
-}
-
-## Looping through the positions of each element of the vector (the index, or position)
-colour_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;pink&quot;</span>)
-for (position in <span class="dv">1</span>:<span class="kw">length</span>(colour_vec)) {
-  current_colour &lt;-<span class="st"> </span>colour_vec[position]
-  <span class="kw">print</span>(current_colour)
-}</code></pre>
-<h3 id="storing-loop-results">Storing loop results</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">## Character based loop values</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hey&quot;</span>, <span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Aloha&quot;</span>, <span class="st">&quot;Howdy&quot;</span>,</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">               <span class="st">&quot;Yooooo!&quot;</span>, <span class="st">&quot;Wassup&quot;</span>, <span class="st">&quot;What&#39;s shakin?&quot;</span>,</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">               <span class="st">&quot;yello!&quot;</span>, <span class="st">&quot;Greetings&quot;</span>,  <span class="st">&quot;Dude, wake up!&quot;</span>)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="cf">for</span> (word <span class="cf">in</span> greetings) {</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="kw">print</span>(<span class="kw">paste</span>(word, <span class="st">&quot; - said the giggling frog&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">## Sequential loop values</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">my_favourite_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">42</span>, <span class="fl">3.14</span>, <span class="dv">7</span>, <span class="dv">69</span>, <span class="fl">6.626e-34</span>, <span class="dv">1024</span>, <span class="dv">4</span>, <span class="fl">2.718281</span>, <span class="dv">666</span>, <span class="fl">1.61803</span>, <span class="dv">99</span>)</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co"># set the cumulative sum at zero before the loop starts</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">cumulative_sum &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="cf">for</span> (value <span class="cf">in</span> my_favourite_numbers) {</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">  <span class="co"># print the sentence</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">  <span class="kw">print</span>(<span class="kw">paste</span>(value, <span class="st">&quot;is my favourite number&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  <span class="co"># add favourite numbers, sequentially</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">  cumulative_sum &lt;-<span class="st"> </span>cumulative_sum <span class="op">+</span><span class="st"> </span>value</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">  <span class="co"># print the cumulative sum</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The sum of my favourite numbers is:&quot;</span>, cumulative_sum, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">}</a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">## Looping through the positions of each element of the vector (the index, or position)</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">colour_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;purple&quot;</span>, <span class="st">&quot;pink&quot;</span>)</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="cf">for</span> (position <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">length</span>(colour_vec)) {</a>
+<a class="sourceLine" id="cb8-29" data-line-number="29">  current_colour &lt;-<span class="st"> </span>colour_vec[position]</a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">  <span class="kw">print</span>(current_colour)</a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">}</a></code></pre></div>
+<h3>Storing loop results</h3>
 <p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does <code>phrase_vec</code> look like after the 4th iteration?</p>
-<pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
-practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
-
-## Empty vector to store the loop results in
-phrase_vec &lt;-<span class="st"> </span><span class="kw">c</span>()
-
-for (practical_attribute in practical_attribute_vec) {
- phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute)
- <span class="co"># Add the loop result to end of the vector of results</span>
- phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(phrase_vec, phrase)
-}</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">## Vector to loop through</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">## Empty vector to store the loop results in</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">phrase_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="cf">for</span> (practical_attribute <span class="cf">in</span> practical_attribute_vec) {</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">  phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute)</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="co"># Add the loop result to end of the vector of results</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">  phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(<span class="dt">x =</span> phrase_vec, <span class="dt">values =</span> phrase)</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">}</a></code></pre></div>
 <p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
-<pre class="sourceCode r"><code class="sourceCode r">## Vector to loop through
-practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)
-
-## Vector with empty elements (as long as practical_attribute_vec)
-phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dt">times =</span> <span class="kw">length</span>(practical_attribute_vec))
-
-## Loop through the position rather than the vector
-for (position in <span class="dv">1</span>:<span class="kw">length</span>(practical_attribute_vec)) {
-
-  ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute_vec[position])
-
-  ## Add phrase to the right position of the results vector
-  phrase_vec[position] &lt;-<span class="st"> </span>phrase
-}</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">## Vector to loop through</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">practical_attribute_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;great&quot;</span>, <span class="st">&quot;boring&quot;</span>, <span class="st">&quot;very long&quot;</span>, <span class="st">&quot;amazeballs!&quot;</span>, <span class="st">&quot;informative&quot;</span>, <span class="st">&quot;fun&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">## Vector with empty elements (as long as practical_attribute_vec)</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">phrase_vec &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dt">times =</span> <span class="kw">length</span>(practical_attribute_vec))</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">## Loop through the position rather than the vector</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="cf">for</span> (position <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">length</span>(practical_attribute_vec))) {</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">  <span class="co">## Create phrase, getting attribute from practical_attribute_vec[i]</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">  phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute_vec[position])</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">  <span class="co">## Add phrase to the right position of the results vector</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  phrase_vec[position] &lt;-<span class="st"> </span>phrase</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">}</a></code></pre></div>
 <p>It is important to understand these two approaches with loops: looping through items vs. looping through positions. In some contexts it is easier to use the first approach; in other contexts the second is easier. Once you are comfortable with loops, have a go at the following tasks:</p>
-<h4 id="pen-and-paper-q7.-consider-the-following-table-which-lists-the-genus-and-species-name-for-a-number-of-ant-species-present-in-great-britain.-the-loop-counts-the-number-of-entries-where-the-genus-name-begins-with-given-letters.-describe-in-your-own-words-what-the-loop-is-doing-at-each-iteration.">Pen and paper Q7. Consider the following table, which lists the genus and species name for a number of ant species present in Great Britain. The loop counts the number of entries where the genus name begins with given letters. Describe in your own words what the loop is doing at each iteration.</h4>
+<h4>Pen and paper Q7. Consider the following table, which lists the genus and species name for a number of ant species present in Great Britain. The loop counts the number of entries where the genus name begins with given letters. Describe in your own words what the loop is doing at each iteration.</h4>
 <p><img src="img/ant_table.png" title="ant_table" alt="ant table" /></p>
 <pre><code>letters_vec &lt;- c(&quot;L&quot;, &quot;T&quot;, &quot;A&quot;, &quot;F&quot;)
 
-for (letter in letters_vec){
- begins_with &lt;- paste(&quot;^&quot;, letter, sep = &quot;&quot;)
- matches &lt;- grep(pattern = begins_with, x = ant_table$genus)
- print(paste(length(matches), &quot;begin with&quot;, letter))
+for (letter in letters_vec) {
+  begins_with &lt;- paste(&quot;^&quot;, letter, sep = &quot;&quot;)
+  matches &lt;- grep(pattern = begins_with, x = ant_table$genus)
+  print(paste(length(matches), &quot;begin with&quot;, letter))
 }</code></pre>
-<h4 id="q8.-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-i.e.-the-position-of-the-colour-in-the-vector-and-the-colour-itself.-this-should-be-done-in-human-readable-format-i.e.-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on.-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets.">Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
-<h3 id="using-loops">Using loops</h3>
+<h4>Q8. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. &quot;the colour red is in position 1 in the vector&quot;, &quot;the colour blue is in position 2 in the vector&quot;, and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
+<h3>Using loops</h3>
 <p>For the following exercice, imagine that instead of buying a coffee, you deposit the £2.50 you would have spent into a savings account. The account has an annual interest rate of 5%, which is deposited into the account. You do not take any money out of the account for 20 years.</p>
-<h4 id="q9.-use-a-for-loop-to-calculate-how-much-money-there-is-in-the-account-after-20-years.">Q9. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h4>
-<h4 id="q10.-make-a-plot-of-the-amount-of-money-in-the-account-per-year.-hint-if-you-have-not-done-so-yet-you-will-have-to-create-a-vector-to-store-each-years-amount.">Q10. Make a plot of the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.</h4>
+<h4>Q9. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h4>
+<h4>Q10. Make a plot of the amount of money in the account per year. Hint: if you have not done so yet, you will have to create a vector to store each year's amount.</h4>
 <p>In the following exercise, we will simulate the size of a population given a reproduction rate that changes every year.</p>
-<h4 id="q11.-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years.-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector.">Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.</h4>
+<h4>Q11. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector.</h4>
 <ul>
-<li>Use a starting population size of 1000.<br /></li>
-<li>Every year,<br /></li>
-<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n = 1, mean = 1, sd = 0.4)</code>.<br /></li>
-<li>Update the population size value accordingly.<br /></li>
-<li>Print a summary of what happened.<br /></li>
-<li>Store each year's population in an external vector.<br /></li>
+<li>Use a starting population size of 1000.</li>
+<li>Every year,
+<ul>
+<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n = 1, mean = 1, sd = 0.4)</code>.</li>
+<li>Update the population size value accordingly.</li>
+<li>Print a summary of what happened.</li>
+<li>Store each year's population in an external vector.</li>
+</ul></li>
 <li>Once you have all the population sizes, plot them.</li>
 </ul>
-<h3 id="nested-loops">Nested Loops</h3>
+<h3>Nested Loops</h3>
 <p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
-<pre class="sourceCode r"><code class="sourceCode r">coffees_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)
-cafes_vec   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;Sugar Cube&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Sweet&quot;</span>)
-
-for (drink in coffees_vec) {
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, drink, <span class="st">&quot;... Where can I go?&quot;</span>))
-  for (the_place in cafes_vec) {
-    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;You can go to&quot;</span>, the_place, <span class="st">&quot;to have a&quot;</span>, drink))
-  }
-}</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">coffees_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;latte&quot;</span>, <span class="st">&quot;cappuccino&quot;</span>, <span class="st">&quot;flat white&quot;</span>, <span class="st">&quot;cortado&quot;</span>)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">cafes_vec   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Infusion&quot;</span>, <span class="st">&quot;Ground&quot;</span>, <span class="st">&quot;E5&quot;</span>, <span class="st">&quot;Foxcroft &amp; Ginger&quot;</span>, <span class="st">&quot;Di Stefano&quot;</span>, <span class="st">&quot;Black Cat&quot;</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="cf">for</span> (drink <span class="cf">in</span> coffees_vec) {</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;I&#39;d like a&quot;</span>, drink, <span class="st">&quot;... Where can I go?&quot;</span>))</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">  <span class="cf">for</span> (the_place <span class="cf">in</span> cafes_vec) {</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;You can go to&quot;</span>, the_place, <span class="st">&quot;to have a&quot;</span>, drink))</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">}</a></code></pre></div>
 <p>Here we have one loop (with position <code>the_place</code>) nested within another loop (with position <code>drink</code>). We have also defined the values that <code>the_place</code> and <code>drink</code> can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc' (or control-C). Nested loops are particularly hazardous!</p>
-<h4 id="q12-a.-create-a-nested-loop.-the-outer-loop-should-iterate-over-the-words-angry-lazy-and-happy.-the-inner-loop-should-iterate-over-the-words-birds-dogs-and-horses.-the-code-inside-the-inner-loop-should-print-out-a-vector-containing-the-values-of-both-loops-for-example-angry-and-birds-in-the-first-instance.">Q12-A. Create a nested loop. The outer loop should iterate over the words &quot;Angry&quot;, &quot;Lazy&quot;, and &quot;Happy&quot;. The inner loop should iterate over the words &quot;birds&quot;, &quot;dogs&quot;, and &quot;horses&quot;. The code inside the inner loop should print out a vector containing the values of both loops (for example &quot;Angry&quot; and &quot;birds&quot; in the first instance).</h4>
-<h4 id="q12-b.-look-again-at-the-code-you-wrote-in-q12-a.-did-you-sufficiently-indent-your-code-like-in-the-example-of-a-nested-loop-above-so-that-it-is-easy-to-see-which-lines-of-code-are-executed-at-which-point-of-the-different-loops-if-not-do-it-now-and-continue-doing-it-for-the-next-questions-as-well.">Q12-B. Look again at the code you wrote in Q12-A. Did you sufficiently indent your code (like in the example of a nested loop above), so that it is easy to see which lines of code are executed at which point of the different loops? If not, DO IT NOW! And continue doing it for the next questions as well.</h4>
-<h4 id="q13.-write-a-third-degree-nested-loop-i.e.-a-loop-within-a-loop-within-a-loop.-be-careful-not-to-loop-over-too-many-values-or-you-will-crash-r">Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!</h4>
+<h4>Q12-A. Create a nested loop. The outer loop should iterate over the words &quot;Angry&quot;, &quot;Lazy&quot;, and &quot;Happy&quot;. The inner loop should iterate over the words &quot;birds&quot;, &quot;dogs&quot;, and &quot;horses&quot;. The code inside the inner loop should print out a vector containing the values of both loops (for example &quot;Angry&quot; and &quot;birds&quot; in the first instance).</h4>
+<h4>Q12-B. Look again at the code you wrote in Q12-A. Did you sufficiently indent your code (like in the example of a nested loop above), so that it is easy to see which lines of code are executed at which point of the different loops? If not, DO IT NOW! And continue doing it for the next questions as well.</h4>
+<h4>Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!</h4>
 <p>(if you're short of ideas, you could for example add <code>practical_attribute_vec</code> qualifiers to Q12...)</p>
-<h3 id="using-loops-to-reformat-a-data-set">Using loops to reformat a data set</h3>
+<h3>Using loops to reformat a data set</h3>
 <p>Loops are particularly useful to reformat data sets. By looping through all of the fields of a particular data set and at each iteration saving the relevant entry into a new data structure, it is possible to convert from one data format into another.</p>
 <p>The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:</p>
-<pre class="sourceCode r"><code class="sourceCode r">helianthus_data &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>))</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">helianthus_data &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="dt">file =</span><span class="st">&quot;https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">                                        <span class="dt">header =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <p>Each row in this data set represents a different strain of <em>Helianthus annuus</em> (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.</p>
 <p>We want to get this data into a new format - sometimes called long format - in which we have a matrix of three columns; the first column describes the strain, the second column describes the time point, and the third column describes the number of plants observed. It turns out that researchers often need to do this! For example, plotting using <code>ggplot</code> (and many analysis packages) requires long format. The first few lines of this new data structure should look like this:</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">strain</th>
-<th align="left">time</th>
-<th align="left">count</th>
+<th>strain</th>
+<th>time</th>
+<th>count</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">12</td>
+<td>1</td>
+<td>0</td>
+<td>12</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">33</td>
+<td>1</td>
+<td>1</td>
+<td>33</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">71</td>
+<td>1</td>
+<td>2</td>
+<td>71</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="left">3</td>
-<td align="left">61</td>
+<td>1</td>
+<td>3</td>
+<td>61</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">4</td>
-<td align="left">73</td>
+<td>1</td>
+<td>4</td>
+<td>73</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="left">5</td>
-<td align="left">57</td>
+<td>1</td>
+<td>5</td>
+<td>57</td>
 </tr>
 <tr class="odd">
-<td align="left">2</td>
-<td align="left">0</td>
-<td align="left">10</td>
+<td>2</td>
+<td>0</td>
+<td>10</td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
-<td align="left">1</td>
-<td align="left">27</td>
+<td>2</td>
+<td>1</td>
+<td>27</td>
 </tr>
 <tr class="odd">
-<td align="left">...</td>
-<td align="left">...</td>
-<td align="left">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
 </tr>
 </tbody>
 </table>
 <p>We can make the transition from the wide format of <code>helianthus_data</code> to the long format described above using a nested loop. But first, let us create an empty matrix, which we will eventually fill with our new values.</p>
-<h4 id="q14-a.-create-an-empty-matrix-called-long_data.-this-matrix-must-have-3-columns-and-30-rows-the-number-30-comes-from-the-fact-that-we-have-five-strains-at-six-time-points-each.-name-the-columns-cstrain-time-count.">Q14-A. Create an empty matrix, called <code>long_data</code>. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns <code>c(&quot;strain&quot;, &quot;time&quot;, &quot;count&quot;)</code>.</h4>
+<h4>Q14-A. Create an empty matrix, called <code>long_data</code>. This matrix must have 3 columns and 30 rows (the number 30 comes from the fact that we have five strains at six time points each). Name the columns <code>c(&quot;strain&quot;, &quot;time&quot;, &quot;count&quot;)</code>.</h4>
 <p>With this empty matrix created, we can move on to the next part of the problem - populating it with values. We want to look at each of the elements of helianthus_data one after the other, using a nested loop. The basic structure of this nested loop is as follows:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Loop through all rows of helianthus_data</span>
-<span class="kw">nrow</span>(helianthus_data)
-for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
-  <span class="co"># Loop through all columns of helianthus_data except the first</span>
-  for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {
-
-    <span class="co"># This is where the main code goes (populating long_data with values).</span>
-
-  }
-}</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># Loop through all rows of helianthus_data</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">nrow</span>(helianthus_data)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="cf">for</span> (number_of_rows <span class="cf">in</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">5</span>)) {</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="co"># Loop through all columns of helianthus_data except the first</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="cf">for</span> (my_col <span class="cf">in</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">2</span>, <span class="dt">to =</span><span class="dv">7</span>)) {</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">    <span class="co"># This is where the main code goes (populating long_data with values).</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">  }</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">}</a></code></pre></div>
 <p>Here we are using loops to go through each of the rows of the matrix <code>helianthus_data</code>, and for each row we are going through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by <code>helianthus_data[number_of_rows, my_col]</code>.</p>
 <p>Hopefully you can already see that these are the exact values that we want to drop into the third column of our matrix <code>long_data</code>. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix <code>long_data</code>? We cannot use the index <code>number_of_rows</code> to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index <code>my_col</code>, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.</p>
-<h4 id="q14-b.-change-the-for-loop-above-to-include-a-variable-my_position.-this-variable-should-be-defined-as-being-0-before-the-loop-starts.-at-every-iteration-of-the-inner-loop-you-should-add-1-to-it.-what-are-the-values-of-number_of_rows-and-my_col-when-my_position-is-3-add-a-line-to-check-the-positions-each-time-through.">Q14-B. Change the for loop above to include a variable <code>my_position</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of <code>number_of_rows</code> and <code>my_col</code> when <code>my_position</code> is 3? Add a line to check the positions each time through.</h4>
+<h4>Q14-B. Change the for loop above to include a variable <code>my_position</code>. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of <code>number_of_rows</code> and <code>my_col</code> when <code>my_position</code> is 3? Add a line to check the positions each time through.</h4>
 <p>It should look something like this:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># my_position defined as 0 before the loop starts</span>
-my_position &lt;-<span class="st"> </span><span class="dv">0</span>
-
-<span class="co"># Loop through all rows</span>
-for (number_of_rows in <span class="dv">1</span>:<span class="dv">5</span>) {
-  <span class="co"># Loop through all columns except the first</span>
-  for (my_col in <span class="dv">2</span>:<span class="dv">7</span>) {
-
-    ## Change my_position here:
-    <span class="co"># make my_position equal to my_position plus one</span>
-
-    <span class="co"># Print all the indices here to check that you are doing the right thing</span>
-  }
-}</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># my_position defined as 0 before the loop starts</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">my_position &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co"># Loop through all rows</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="cf">for</span> (number_of_rows <span class="cf">in</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">5</span>)) {</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">  <span class="co"># Loop through all columns except the first</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">  <span class="cf">for</span> (my_col <span class="cf">in</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">2</span>, <span class="dt">to =</span> <span class="dv">7</span>)) {</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">    <span class="co">## Change my_position here:</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">    <span class="co"># make my_position equal to my_position plus one</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">    <span class="co"># Print all the indices here to check that you are doing the right thing</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">}</a></code></pre></div>
 <p>Now that we have three indices - one going through the rows of <code>helianthus_data</code>, one going through the columns of <code>helianthus_data</code>, and one simply going from 1 to 30 - we have all the ingredients we need to populate the matrix <code>long_data</code>. The code we need at each iteration of the loop is the following:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Count</span>
-long_data[my_position, <span class="dv">3</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, my_col]</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># Get Count</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">long_data[my_position, <span class="dv">3</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, my_col]</a></code></pre></div>
 <p>This is fairly straightforward. We also want to drop the time point in the second column of <code>long_data</code>. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Time</span>
-long_data[my_position, <span class="dv">2</span>] &lt;-<span class="st"> </span>my_col -<span class="st"> </span><span class="dv">2</span></code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Get Time</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">long_data[my_position, <span class="dv">2</span>] &lt;-<span class="st"> </span>my_col <span class="op">-</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <p>Finally, we want to drop the strain type into the first column of <code>long_data</code>. The strain type is given by the first element in every row, meaning it is given by <code>helianthus_data[number_of_rows, 1]</code>. Therefore, we need the following line of code to extract the strain types:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get Strain</span>
-long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, <span class="dv">1</span>]</code></pre>
-<h4 id="q14-c.-bring-all-of-this-together-to-finish-the-for-loop-and-run-it">Q14-C. Bring all of this together to finish the for loop, and run it!</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># Get Strain</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">long_data[my_position, <span class="dv">1</span>] &lt;-<span class="st"> </span>helianthus_data[number_of_rows, <span class="dv">1</span>]</a></code></pre></div>
+<h4>Q14-C. Bring all of this together to finish the for loop, and run it!</h4>
 <p>To check what you've done, you can print the start and end of long_data:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(long_data)
-<span class="kw">tail</span>(long_data)</code></pre>
-<h4 id="q14-d.-what-can-you-do-to-reduce-the-risks-of-things-going-wrong-if-there-is-a-chance-you-may-want-to-rerun-this-loop-on-a-similar-but-slightly-different-dataset">Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?</h4>
-<h2 id="hacker-section-working-with-dna-data">Hacker section: Working with DNA data</h2>
-<h4 id="bonus-q15-a.-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-e.g.-acctgtcatcatccc-to-rna-and-splits-the-string-into-codon-triplets.-you-will-need-to">Bonus Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. &quot;ACCTGTCATCATCCC&quot;) to RNA and splits the string into codon triplets. You will need to:</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">head</span>(long_data)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">tail</span>(long_data)</a></code></pre></div>
+<h4>Q14-D. What can you do to reduce the risks of things going wrong if there is a chance you may want to rerun this loop on a similar but slightly different dataset?</h4>
+<h2>Hacker section: Working with DNA data</h2>
+<h4>Bonus Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. &quot;ACCTGTCATCATCCC&quot;) to RNA and splits the string into codon triplets. You will need to:</h4>
 <ul>
-<li>load the data into R: <code>dna_string &lt;- scan(&quot;https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt&quot;, what = character())</code><br /></li>
-<li>replace T with U (thymine with uracil to convert DNA to RNA)<br /></li>
-<li>use <code>substring()</code> to split the sequence into triplets and <code>seq()</code> within <code>substring()</code><br /></li>
+<li>load the data into R: <code>dna_string &lt;- scan(file = &quot;https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt&quot;, what = character())</code></li>
+<li>replace T with U (thymine with uracil to convert DNA to RNA)</li>
+<li>use <code>substring()</code> to split the sequence into triplets and <code>seq()</code> within <code>substring()</code></li>
 <li>return the RNA triplets string</li>
 </ul>
 <p>Note <code>substring()</code> takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are. In <code>seq()</code> you will also indicate you want triplets.</p>
 <p>As an example:</p>
-<pre class="sourceCode r"><code class="sourceCode r">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)
-<span class="kw">substring</span>(dna_string, <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>), <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">3</span>, <span class="dt">to =</span> <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</code></pre>
-<h4 id="bonus-q15-b.-once-you-have-created-the-function-see-if-you-can-modify-it-to-work-for-a-sequence-with-any-number-of-characters.-tip-you-can-use-nchar-to-create-a-variable-such-as-num_characters.">Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
-<h4 id="bonus-q16.-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence.">Bonus Q16. Write a function to obtain the reverse-complement of a DNA sequence.</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">dna_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AAATTT&quot;</span>)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">substring</span>(<span class="dt">x     =</span> dna_string,</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">          <span class="dt">start =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">4</span>, <span class="dt">by =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">          <span class="dt">stop  =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">3</span>, <span class="dt">to =</span> <span class="dv">6</span>, <span class="dt">by =</span> <span class="dv">3</span>))</a></code></pre></div>
+<h4>Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use <code>nchar()</code> to create a variable such as <code>num_characters</code>.</h4>
+<h4>Bonus Q16. Write a function to obtain the reverse-complement of a DNA sequence.</h4>
 <p>You can use this sequence (copy and paste it into R): <code>&quot;ATTACGACGCGATTCCCGGTTAATCGAATTCCCA&quot;</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
 <p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>. You will need to:</p>
 <ul>
-<li>replace bases with their complement (you can use <code>gsub</code>, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).<br /></li>
-<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Unfortunately, <code>strsplit</code> confusingly returns a list, so you will need to use <code>unlist()</code> to obtain a string again.<br /></li>
-<li>reverse the sequence.<br /></li>
-<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function).<br /></li>
+<li>replace bases with their complement (you can use <code>gsub</code>, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).</li>
+<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Unfortunately, <code>strsplit</code> confusingly returns a list, so you will need to use <code>unlist()</code> to obtain a string again.</li>
+<li>reverse the sequence.</li>
+<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function).</li>
 <li>return the reverse-complement sequence.</li>
 </ul>
-<h4 id="mastermind-q17.-translate-your-triplet-string-from-q15-into-amino-acids.">Mastermind Q17. Translate your triplet string from Q15 into amino acids.</h4>
+<h4>Mastermind Q17. Translate your triplet string from Q15 into amino acids.</h4>
 <p>Note: depending on your method, you may not need to convert it to RNA first. You can use a codon-to-amino-acid table and code the translation yourself. Your solution could include a function calling a function. Alternatively, you could search around and load a specific package for the manipulation of biological sequences.</p>
-<h2 id="bringing-it-all-together">Bringing it all together</h2>
+<h2>Bringing it all together</h2>
 <p>Well done for making it this far! Now try to bring all of your knowledge together. Have another look over your previous notes and make sure these ideas are still fresh in your mind. Have a go at writing your own scripts, preferably combining a number of different concepts (for example, you could try making a function that acts on a matrix and then using this function within a loop). Another good idea would be to come up with a problem that you want to solve (either for fun or for other coursework) and then write a function that solves it.</p>
 <p>Many of the ideas presented in this and the last session are designed to challenge you. Do not expect to understand them from a single read through the material. Rather, you will have to play around with many different examples and applications before the penny drops completely. On the plus side, structures such as loops and functions are common to almost all programming languages, and so once you understand these concepts the world of programming is your oyster!</p>
 <hr>

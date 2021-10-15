@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{site.title}}</title>
     <meta name="description" content="{{site.description}}">
-    <link rel="stylesheet" href="/assets/css/markdown-style.css">
-    <link rel="stylesheet" href="/assets/css/custom-style.css">
+    <link rel="stylesheet" href={{"/assets/css/markdown-style.css" | absolute_url }}>
+    <link rel="stylesheet" href={{"/assets/css/custom-style.css" | absolute_url }}>
     <link rel="icon" href="{{site.url}}/favicon.ico" type="image/x-icon" />
 </head>
 
@@ -54,7 +54,7 @@
             // add some simple styles
             document.write('<style>.banner { display:block; max-width:100%; padding: 1em 1em .25em; margin-bottom: 1em; background-color: #ffffcc; color: inherit; }</style>');
             //add an alert and redirect to the current years course material
-            document.write('<div role="banner" class="banner"><p style="font-size:120%;">For the most up to date curriculum, <a href="/' + currentYear + '/">please visit the ' + currentYear + ' {{site.title}}.</a></p></div>');
+            document.write('<div role="banner" class="banner"><p style="font-size:120%;">For the most up to date curriculum, <a href="{{site.baseurl}}/' + currentYear + '/">please visit the ' + currentYear + ' {{site.title}}.</a></p></div>');
         }
     </script>
 {% endif %}

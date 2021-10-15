@@ -5,4 +5,4 @@
 layout: page
 title: Home
 ---
-## This is the main repository for [{{site.title}}](/2021/).
+## This is the main repository for [{{site.title}}]({{site.baseurl}}/2021/).

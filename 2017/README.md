@@ -8,10 +8,10 @@ Lectures are in: Geography 1.26 from 11am to 1pm on September 27th and on Octobe
 
 ## Practicals:
 
-* [Practical 0](/2017/practical0): introduction to R
-* [Practical 1](/2017/practical1): regular expressions
-* [Practical 2](/2017/practical2): functions and for loops
-* [Practical 3](/2017/practical3): practice exercises
+* [Practical 0](./practical0): introduction to R
+* [Practical 1](./practical1): regular expressions
+* [Practical 2](./practical2): functions and for loops
+* [Practical 3](./practical3): practice exercises
 * [Practical 4 - no specific plan]: First hour revision. Then they have an exam.
 
 

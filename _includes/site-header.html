@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{site.title}}</title>
+    <meta name="description" content="{{site.description}}">
+    <link rel="stylesheet" href={{"/assets/css/markdown-style.css" | absolute_url }}>
+    <link rel="stylesheet" href={{"/assets/css/custom-style.css" | absolute_url }}>
+    <link rel="icon" href="{{site.url}}/favicon.ico" type="image/x-icon" />
+</head>
+
+<body class="markdown-body">
+    {% if site.data.siteBreadcrumbs.displaySiteBreadcrumbs == true%}
+    <div id="breadcrumbs">
+        {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+        <a href="/">{{site.title}}</a>
+        {% for crumb in crumbs offset: 1 %}
+        / <a
+            href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">{{
+            crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <header class="site-header border-bottom">
+        <h1 class="site-title">{{site.title}}</h1>
+        {% if site.data.siteNavigation.displayMainNavigation == true%}
+        <a href="javascript:void(0);" title="Expand Menu" class="icon" onclick="mainNavigation()">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 11 8.9"
+                style="enable-background:new 0 0 11 8.9;" xml:space="preserve">
+                <path class="st0" d="M11,3.2H0V2.3h11V3.2z M11,4H0v0.9h11V4z M11,5.7H0v0.9h11V5.7z" />
+            </svg>
+        </a>
+        <nav id="main-menu" class="topnav">
+            <ul class="site-links">
+                {% for item in site.data.siteNavigation.mainNavigation -%}
+                <li><a href="{{ item.link }}" {% if item.external==true %} target="_blank" rel="noopener" {% endif %}>{{
+                        item.name | upcase }}</a></li>
+                {% endfor -%}
+            </ul>
+        </nav>
+        {% endif %}
+
+    </header>
+    {% if page.title != "Home" %}
+    <script>
+        // update the const to reflect current year
+        const currentYear = '2021';
+        if (window.location.href.indexOf(currentYear) > -1) {
+            //do nothing if the visitor has arrived at the current course material
+        } else {
+            // add some simple styles
+            document.write('<style>.banner { display:block; max-width:100%; padding: 1em 1em .25em; margin-bottom: 1em; background-color: #ffffcc; color: inherit; }</style>');
+            //add an alert and redirect to the current years course material
+            document.write('<div role="banner" class="banner"><p style="font-size:120%;">For the most up to date curriculum, <a href="{{site.baseurl}}/' + currentYear + '/">please visit the ' + currentYear + ' {{site.title}}.</a></p></div>');
+        }
+    </script>
+{% endif %}
+    <main>

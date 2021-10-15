@@ -1,0 +1,8 @@
+dist: trusty
+install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq pandoc
+script: bash deploy.sh
+env:
+  global:
+    secure: FnZwYb+9QiibVBD12oMl9wnQi5k5HpNi+CKe4Z2dKpau+cGdaNim2pYafakem9Hv76vYCHoi2Xg37c9w745TPsyUomqwxJyUX3JvYhPS9lywP0Z/t+KevLjfwwoIwcXe++tJUDZSkcevB581SOR7+ZndxjCLYOIyHOpbmYgqLiJkiVYldoA2O0JN7hHYeoTBOK/LwjBQXQTsS/12mVBQ/lg9Rz1pHkC8AaigN9t0miTZJNQ4iGYtLXtJxfRQSVmlZMSrwCnICbyMYUVNGHDglgQmy4NWZm6L/aoqc5Grr0x+SrqVB2WOM476+29ROKRSwqXxfQnxqyRLlpVo9NlhLxQhKjK5DWq1Axt8ejXRYz8SdI3HKYAX2S5HUozXPIVjddr3cqONSkMLIZfqMucM+6ZKisPR2A0t3zX/cdhxveCparjkEL13/y0KzaEL7uwjoz6Ae0Y12uyigsZgKm19lL+Bl/IEctIAE/f/WfX8CX8Nca8R9DNudO/WzBbFIZjcJ596HfgXDOa9Z4COwdWjHKiTPBNo1EUl0Nig5ccwusAmmW1EgpOh6s63j+XhdAeFpNFjqIWLUCDCtq1g3xcaqcZMXNVdqBT14h/3XgBAkDHW1GVGly/1qCgfREyJroTZa7gnJ5MLfPoKaVAs4MEGF3+6xF0hm7oII7+II9BXVq4=

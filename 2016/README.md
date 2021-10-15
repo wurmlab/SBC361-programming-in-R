@@ -2,9 +2,9 @@
 
 ## Practicals:
 
-* [Practical 1](/2016/practical1): introduction to R and Regular expressions
-* [Practical 2](/2016/practical2): functions and for loops
-* [Practical 3](/2016/practical3): practice exercises
+* [Practical 1](/2016/practical1.md): introduction to R and Regular expressions
+* [Practical 2](/2016/practical2.md): functions and for loops
+* [Practical 3](/2016/practical3.md): practice exercises
 
 Put any public file in the "public" folder.
 

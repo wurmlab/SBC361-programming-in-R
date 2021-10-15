@@ -6,7 +6,6 @@
 * [Practical 1](./practical1): regular expressions
 * [Practical 2](./practical2): functions and for loops
 * [Practical 3](./practical3): practice exercises
-* Practical 4 - no specific plan: First hour revision. Then they have an exam.
 
 
 

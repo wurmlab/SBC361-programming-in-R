@@ -193,7 +193,7 @@ for (value in my_favourite_numbers) {
 
 ## Looping through the positions of each element of the vector (the index, or position)
 colour_vec <- c("red", "green", "blue", "yellow", "orange", "purple", "pink")
-for (position in seq_len(length(colour_vec)) {
+for (position in seq_len(length(colour_vec))) {
   current_colour <- colour_vec[position]
   print(current_colour)
 }

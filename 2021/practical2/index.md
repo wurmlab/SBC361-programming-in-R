@@ -1,10 +1,9 @@
 ---
 layout: page
+title: Introduction to functions and loops in R
 ---
 
-# Computing in R - Practical 2
-
-October 2021
+# Introduction to functions and loops in R
 
 Building on your existing skills, we will now move on to consider advanced ways of controlling program flow. Specifically, we will explore **functions** and **loops**, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As always, you will want to refer frequently to the R help files (through `?`) and your own notes when exploring these new concepts.
 
@@ -309,7 +308,8 @@ Loops are particularly useful to reformat data sets. By looping through all of t
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
 ```r
-helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt", header = TRUE))
+helianthus_data <- as.matrix(read.table("https://wurmlab.com/SBC361-programming-in-R/HelianthusData_num.txt", 
+                                         header = TRUE))
 ```
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.

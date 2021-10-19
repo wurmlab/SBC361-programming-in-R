@@ -1,9 +1,10 @@
 ---
 layout: page
+title: Programming in R
 ---
 
 
-# Computing in R - Practical 0
+# Practical 0 - Introduction to basic data structures
 
 October 2021
 

@@ -14,7 +14,8 @@ This practical 1 is an introduction to regular expressions.
 Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example in which the actual names in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:
 
 ```R
-reptile_data <- read.table("http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", row.names = 1)
+reptile_data <- read.table(file = "http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt", 
+                           row.names = 1)
 ```
 
 This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code

@@ -16,13 +16,11 @@ We will not be covering any stats in these practicals. However, do not relax too
 
 ## The environment
 
-To start with, let us reacquaint ourselves with the R environment. First of all, launch R (in the computer room, probably the “Bio version” if there are several to choose from; but any R install should be fine).
+To start with, let us reacquaint ourselves with the R environment. First of all, launch R (or RStudio).
 
-Once you have done this you should see a single window. This is called the **console**. The console is where you go to actually run lines of code. The other major way in which you will program in R is by writing code in a separate file called a **script**. Create a new script by going to File> New script. An empty window pops up, in which you can also type code. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and go to Edit>Run line or selection. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands (i.e. a **program**) in a way that would not be possible by working directly in the console. In general you should work mainly with scripts and only use the console for small tasks like checking that your script is working as planned.
+The main window you where you talk directly to R is called the **console**. THis is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a **script**. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit (shift-enter) or Run. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands n a way that would not be possible by working directly in the console. In general you should work mainly with scripts and only use the console for small tasks like checking that your script is working as planned.
 
-!Tip! - To run an entire script, first select all with the keyboard shortcut Ctrl+a, then run selected lines with the shortcut Ctrl+r (Windows only). This also works for just a single selected line.
-
-We strongly suggest that you write anything you want to keep in scripts and that you save these scripts in your home directory or on a USB stick. (Scripts are just text files; most people use up using other text editors, such as SublimeText, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).
+We strongly suggest that you write anything you want to keep in scripts and that you save these scripts somewhere. (Scripts are just text files; most people use up using other text editors, such as emacs, VS Code, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).
 
 It is also worth keeping in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. ?length) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!
 
@@ -36,9 +34,9 @@ y <- 225
 ```
 into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
 
-The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check [Hadley Wickham style guide](http://adv-r.had.co.nz/Style.html); it provides standard guidelines which most R users follow.
+The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check the [tidyverse style guide](https://adv-r.hadley.nz/index.html); it provides standard guidelines which most R users do or should follow.
 
-You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), but don’t make them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
+You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), and using "_" to separate words. As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
 Finally some variable names are not allowed. Typing `?make.names` in the console brings up a help file describing the important variable name restrictions.
 

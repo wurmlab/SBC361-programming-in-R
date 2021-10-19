@@ -1,13 +1,9 @@
 ---
 layout: page
+title: Introduction to Regular Expressions in R
 ---
 
-# Computing in R - Practical 1
-
-October 2021
-
-## Introduction
-This practical 1 is an introduction to regular expressions.
+# Introduction to Regular Expressions in R
 
 ## Regular Expressions
 

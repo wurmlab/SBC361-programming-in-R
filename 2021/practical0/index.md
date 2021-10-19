@@ -5,11 +5,7 @@ layout: page
 
 # Computing in R - Practical 0
 
-Research Methods and Communication
-
 October 2021
-
-Yannick Wurm and Rodrigo Pracana (and Robert Verity)
 
 ## Introduction
 
@@ -17,7 +13,6 @@ This practical series is aimed at teaching basic programming in R.  You should a
 
 You will be pleased to hear that we will not be covering any stats in these practicals (you should already have mastered stats by now). However, do not relax too much, as these practicals will move fairly quickly, and you will need to stay focused in order to do well in the final exam. Refer back to your notes from last year, make use of R’s help system (and Google), your neighbour, and if you're really stuck don't be afraid to ask a demonstrator.
 
-This practical is a short reminder of the basics of R that you covered last year.
 
 ## The environment
 
@@ -210,12 +205,12 @@ As with vectors, you can get to the elements of a matrix using square brackets, 
 You can perform simple calculations on matrices, in which case the calculation applies to each element separately:
 
 ```R
-(mat3 + 2)*2
+(mat3 + 2) * 2
 ```
 You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible
 
 ```R
-(mat3*100) + mat4
+(mat3 * 100) + mat4
 ```
 
 Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:
@@ -249,8 +244,9 @@ mat1(, (2, 4))
 mat1[c(2, 4), ]
 mat1[, c(2, 4)]
 ```
+** Note that in most situations, we try to avoid using this type of column indication. This is because it is easy to make a mistake with the numbers. Instead, it is easier and less risky to use column names **
 
-#### Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
+#### Q17. Write your own script for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
 A very common type of object is the **data frame**. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1, 1]`). While you can get to specific columns using an index (`puromycin_data[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
@@ -268,10 +264,10 @@ as.character(puromycin_data$rate)
 The last data type that is commonly seen in R is the **list**. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:
 
 ```R
-my_list <- list(A = c(1, 2, 3), B = c(5, 6, 7, 8, 9, 10), D = c('G', 'H'))
+my_list <- list(a = c(1, 2, 3), b = c(5, 6, 7, 8, 9, 10), d = c('G', 'H'))
 ```
 
-Again, we can access elements from the list using their index, with brackets `my_list[[1]]`, *but you should NOT do this!*. Instead, use the names whenever possible, either using the bracket notation (`my_list[['A']]`) or the dollar sign (`my_list$A`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
+Again, we can access elements from the list using their index, with brackets `my_list[[1]]`, *but you should NOT do this!*. Instead, use the names whenever possible, either using the bracket notation (`my_list[['a']]`) or the dollar sign (`my_list$a`). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…
 
 There are other types of data in R, with many being specific to particular libraries.
 
@@ -342,9 +338,9 @@ tadayeahmanfunky
 Example 2
 
 #--------------------------------
-# Program:        PopSize.R
-# Author:        Bob Verity
-# Date:        01/10/2013
+# Program:     population_size.R
+# Author:      Bob Verity
+# Date:        2021-10-01
 # Purpose:
 # Works out the size of a population under a simple model of exponential growth.
 # The growth rate is assumed to be equal to the sum of the nutrient content (% sugars),

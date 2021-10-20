@@ -11,21 +11,19 @@ This session will be a recap of what we saw in [practical 1](../practical1) and 
 **REMEMBER** The important thing is that you understand what you are doing. It is better to understand well a few exercises than finishing all exercises without entirely knowing what is going on.
 
 ## Recap questions
-To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the material from the last weeks:
+To get back into gear in terms of thinking about programming, we’ll start with a quick recap exercise of the recent material:
 
 #### Intro Q1. What would be the outcome of the code `answer <- rep(x = c(42, 24), times = 42)`? And what would then be the outcome of the code `mean(answer)`?
 
-#### Intro Q2. Use the preloaded R data set 'Indometh'. Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
+#### Intro Q2. Use the preloaded R data set 'Indometh' (check `?Indometh` to understand more about the dataset). Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
 
 #### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
 
-#### Intro Q4. Write a loop that iterates over the numbers 10 to 100 and stores these numbers in a vector. Can you explain the sequence of events that the computer goes through during, say, the 20th iteration?
+#### Intro Q4. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes, for this exercise we *absolutely* want you to write a loop to do this, even though there are other ways of getting R to provide the same result.
 
-#### Intro Q5-A. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes we *absolutely* want you to write a loop to do this.
+#### Intro Q5. Make the loop from Intro Q4 store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What is the sum of the square roots of the numbers 16 to 49?
 
-#### Intro Q5-B. Make the loop from Intro Q5-A store the results to a separate vector called `my_square_roots` instead of just printing the results. What's the value of the 3rd iteration? What is the sum of the square roots of the numbers 16 to 49?
-
-#### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html)). The loop should store the results in a separate vector.
+#### Intro Q6. Write a loop that iterates over all even numbers between 30 and 90. At each iteration, run your function to convert each of these even numbers from kilometres into miles (you created this function in Q2 from [practical2](../practical2). The loop should store the results in a separate vector.
 
 #### Intro Q7. Numbers in Fibonacci's sequence are characterised by the fact that every number after the first two is the sum of the two preceding ones (e.g., 1, 1, 2, 3, 5,...). This seemingly simple sequence can be used to explain different biological patterns ranging from the arrangement of leaves on a stem or the flowering of an artichoke to the patterns of inheritance of X chromosomes. Write a `for` loop that calculates the first 20 numbers in a Fibonacci sequence starting from 1.
 
@@ -37,10 +35,15 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 ## Palindromic Sequences
 
-Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase ‘Never odd or even’. In molecular biology, many restriction enzyme sites are palindromic.
+Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase *never odd or even* (if you remove the spaces). In molecular biology, many restriction enzyme sites are palindromic,
 
 #### Q1. Write a function that assesses whether a given word or phrase is a palindrome.
-Before starting to code, think about the steps that you would need to go through in order to judge if something is a palindrome or not. Write these steps as comments in an R script window, then think about how you can tell the computer to execute those steps. Only start writing the code when you have a plan of what you want to do. Don’t be afraid to test lines independently in the console and to use easy test cases where you know the answer in order to check that your function works.
+Before starting to code, think about the steps that you would need to go through in order to judge if something is a mirror palindrome.
+ * Write these steps as comments in an R script window (or a piece of paper) , then think about how you can tell the computer to execute those steps. 
+ * Only start writing the code when you have a plan of what you want to do. 
+ * Write your code as a one-off first - without considering that you'll do a function. 
+ * Only once you're happy with how things work, sandwich your code into a function format.
+ * Use easy test cases where you know the answer in order to check that your function works.
 
 The bottom section of the R help sheets normally have examples of how a command can be used. Sometimes one of these examples will be a way to solve the problem that you are currently working on. The `strsplit` helpsheet is particularly interesting in relation to this question.
 
@@ -50,7 +53,7 @@ The bottom section of the R help sheets normally have examples of how a command 
    ||||||||
 3’ TGGATCCA 5’
 ```
-#### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is a palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](https://wurmlab.github.io/SBC361-programming-in-R/practical2.html).
+#### Both ACCTAGGT and its complementary sequence TGGATCCA are identical if read from 5’ to 3’, that is, ACCTAGGT is a palindromic sequence. Write a function that assesses whether a DNA sequence is a palindrome. You will need to convert it to its reverse complement and then compare this to the original sequence. Again, there are commands which may help you in the ‘Working with DNA data’ section from the [last session](../practical2).
 
 ## Open Reading Frames
 Protein-coding regions in the genome can be predicted by detecting open reading frames. An open reading frame normally begins with the start codon ‘ATG’ and ends at one of three possible stop codons, ‘TGA’, ‘TAA’ and ‘TAG’. The sequence in between these two points is arranged in 3-base codons.
@@ -76,10 +79,10 @@ Run the following line of code to import the `butterfly_sample` and the `butterf
 
 ```R
 butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample.csv"
-butterfly_sample  <- read.csv(butterfly_sam_url, header = TRUE)
+butterfly_sample  <- read.csv(file = butterfly_sam_url, header = TRUE)
 
 butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_reference.csv"
-butterfly_reference <- read.csv(butterfly_ref_url, header = TRUE)
+butterfly_reference <- read.csv(file = butterfly_ref_url, header = TRUE)
 ```
 
 The `butterfly_reference` data frame contains the species name and the common name of a number of butterflies.
@@ -102,7 +105,7 @@ This question is an extension of the question Q5. Again, we will analyse a data 
 
 ```R
 butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample_bonus.csv"
-butterfly_sample_bonus  <- read.csv(butterfly_sam_bonus_url, header = TRUE)
+butterfly_sample_bonus  <- read.csv(file = butterfly_sam_bonus_url, header = TRUE)
 ```
 
 One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its Latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from Latin to Latin or common to Latin), and do the transformation independently on each.
@@ -114,5 +117,5 @@ This question is not easy! But it is typical of the sort of thing researchers do
 #### Q9 Write a script for a [Rock-Scissors-Paper game](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) to play against the computer. You will need to write it as a function (e.g. `rock_scissors_paper(your_play)`).
 NOTE: You will need to use if else statements in R. Have a look online to see how they work.
 
-#### Q10 Write a script for a functional [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules). This is a type of cellular automata model where very simple initial rules can generate highly complex patterns. To model it, you will need to integrate Conway's rules into R.
+#### Q10 Write a script for a functional [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules). This is a type of cellular automata model where very simple initial rules can generate highly complex patterns. To model/simulate life, you will need to integrate Conway's rules into R.
 

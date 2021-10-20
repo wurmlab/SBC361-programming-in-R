@@ -308,7 +308,7 @@ Loops are particularly useful to reformat data sets. By looping through all of t
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
 ```r
-helianthus_data <- as.matrix(read.table("https://wurmlab.com/SBC361-programming-in-R/HelianthusData_num.txt", 
+helianthus_data <- as.matrix(read.table("https://wurmlab.com/SBC361-programming-in-R/public/HelianthusData_num.txt", 
                                          header = TRUE))
 ```
 

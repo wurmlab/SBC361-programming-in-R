@@ -247,15 +247,16 @@ matrix1[, c(2, 4)]
 #### Q17. Write your own script for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
-A very common type of object is the **data frame**. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (`puromycin_data <- Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`puromycin_data[1, 1]`). While you can get to specific columns using an index (`puromycin_data[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `puromycin_data$rate`. Note that, although the data frame is of class data frame, typing `puromycin_data$rate` will return a vector of class numeric (try using the function `class()` to check this).
+A very common type of object is the **data frame**. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (e.g., `Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`Puromycin[1, 1]`). While you can get to specific columns using an index (`Puromycin[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `Puromycin$rate`. Note that, although the data frame is of class data frame, typing `Puromycin$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
 Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the **factor** (this is true for R version 3, R version 4 interprets columns with words as data type **character**). This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:
 
 ```R
-puromycin_data$rate
-class(puromycin_data$rate)
-levels(puromycin_data$rate)
-as.character(puromycin_data$rate)
+Puromycin$rate
+class(Puromycin$rate)
+class(Puromycin$state)
+levels(Puromycin$state)
+as.character(Puromycin$state)
 ```
 
 ### Lists

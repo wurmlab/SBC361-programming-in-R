@@ -10,7 +10,7 @@ October 2021
 
 ## Introduction
 
-This practical series is aimed at teaching basic programming in R.  You may already be familiar with R from introductions to statistics, and so some of the material covered here should be fairly straightforward. However! The ultimate aim of these practicals differs from your previous work in that **the focus will be on creating, accessing, and manipulating different data structures**. As this is often the first step in real scientific research, you will find that the skills you develop here will be invaluable to you later on in your studies!  It's also a general (though very simple) introduction to programming: the stuff we will be learning about exists, in one way or another, in most other programming languages.
+This practical series is aimed at teaching basic programming in R.  You may already be familiar with R from introductions to statistics, and so some of the material covered here should be fairly straightforward. However! The ultimate aim of these practicals differs from your previous work in that **the focus will be on creating, accessing, and manipulating data structures**. As this is often the first step in real scientific research, you will find that the skills you develop here will be invaluable to you later on in your studies!  It's also a general (though very simple) introduction to programming: the stuff we will be learning about exists in most other programming languages.
 
 We will not be covering any stats in these practicals. However, do not relax too much, as these practicals will move fairly quickly, and you will need to stay focused in order to do well in the final exam. Make use of R’s help system (and [http://duckduckgo.com](http://duckduckgo.com), your neighbour, and if you're really stuck don't be afraid to ask a demonstrator.
 
@@ -19,11 +19,11 @@ We will not be covering any stats in these practicals. However, do not relax too
 
 To start with, let us reacquaint ourselves with the R environment. First of all, launch R (or RStudio).
 
-The main window you where you talk directly to R is called the **console**. THis is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a **script**. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit (shift-enter) or Run. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands n a way that would not be possible by working directly in the console. In general you should work mainly with scripts and only use the console for small tasks like checking that your script is working as planned.
+The main window you where you talk directly to R is called the **console**. This is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a **script**. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit Run, or type shift-enter or control-enter. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands in a way that would not be possible by working directly in the console. Using a script also helps for keeping track of what we did. In general you should work mainly with scripts and limit your direct use of the console.
 
 We strongly suggest that you write anything you want to keep in scripts and that you save these scripts somewhere. (Scripts are just text files; most people use up using other text editors, such as emacs, VS Code, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).
 
-It is also worth keeping in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. ?length) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!
+Also keep in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. `?length`) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!
 
 
 ## Variables
@@ -37,16 +37,16 @@ into the console and hitting return. This assigns the number `5` to the symbol `
 
 The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check the [tidyverse style guide](https://adv-r.hadley.nz/index.html); it provides standard guidelines which most R users do or should follow.
 
-You can name variables almost anything you want. Try using descriptive names (avoiding  x and y), and using "_" to separate words. As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
+You can name variables almost anything you want. Try using descriptive names (avoiding `x` and `y`), and using "_" to separate words. As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
 Finally some variable names are not allowed. Typing `?make.names` in the console brings up a help file describing the important variable name restrictions.
 
 #### Q1. Create a new variable, `z`, out of the values in `x` and `y`. You can choose any formula you want for `z`, as long as it contains both `x` and `y`.
 
 ## Data classes
-There are several classes of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
+There are several classes (or types) of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
 
-You will probably have met variables of class numeric (`x <- 5`) and character (`x <- ‘hello’`). An important class of data that you might not be familiar with is **logical data**. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:
+You will probably have seen numeric (`x <- 5`) and character variables (`x <- ‘hello’`). An important class of data that you might not be familiar with is **logical data**. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:
 
 ```R
 x <- TRUE
@@ -58,9 +58,9 @@ or false, for example
 x <- FALSE
 ```
 
-Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read "logical" (keep in mind that R is case-sensitive, i.e. x <- false will throw an error).
+Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read "logical" (keep in mind that R is case-sensitive, i.e. `x <- false` will throw an error).
 
- However, this is not the way that logical variables tend to be used in programming. More often than not we arrive at a logical variable through a particular type of calculation, called a **logical expression**. You can think of a logical expression as a statement that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code
+However, this is not the way that logical variables tend to be used in programming. We often create logical variables through a particular type of calculation, called a **logical expression**. You can think of a logical expression as a statement (or a question) that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code
 
 ```R
 5 > 4
@@ -77,7 +77,7 @@ on the other hand, returns the value `FALSE`. We can assign this logical value t
 x <- (5 > 4)
 ```
 
-You can read the expression above as "the variable x is assigned the outcome of the logical expression 5 > 4". In this particular example the variable x will be assigned the logical value `TRUE`. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.
+You can read the expression above as "the variable x is assigned the outcome of the logical expression 5 > 4". In this particular example the variable `x` will get the value `TRUE`. Notice that the logical expression itself is within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.
 
 The main logical operators that you should be familiar with are the following:
 
@@ -88,9 +88,9 @@ The main logical operators that you should be familiar with are the following:
 * `==` is equal to
 * `!=` is not equal to
 
-Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.
+Play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.
 
-We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written `&` and called ampersand (keyboard shortcut Shift+7), while the "or" command is written `|` and called a vertical bar (keyboard shortcut Shift+\ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression
+We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written `&` and called ampersand (keyboard shortcut Shift+7), while the "or" command is written `|` and called a vertical bar (keyboard shortcut Shift+\ on a standard Windows keyboard). These "operators" can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression
 
 ```R
 (x > 5) & (x <= 10)
@@ -143,14 +143,13 @@ Objects can be of different types. So far, we have looked at **scalar objects**,
 
 ```R
 numeric_vec   <- c(1, 1, 2, 3, 5, 8)   # c is a function for combining values into a vector or list.
-seq_vec1      <- 5:10
 seq_vec2      <- seq(from = 0, to = 10, by = 0.25)
 rep_vec       <- rep(x = 2, times = 12)
 character_vec <- c("How", "Now", "Brown", "Cow")
 logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 ```
 
-As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). You can also use vectors to access a set of elements (e.g. `x[1:5]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
+As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). You can also use vectors to access a set of elements (e.g. `x[seq(from = 1, to = 5)]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 #### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
 
@@ -161,7 +160,7 @@ As you know by now, R is good at manipulating these vectors, with easy ways of a
 Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing
 
 ```R
-numeric_vec_squared <- numeric_vec^2
+numeric_vec_squared <- numeric_vec ^ 2
 ```
 
 in the console. You will find that `numeric_vec_squared` contains values taken from `numeric_vec`, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as `numeric_vec > 3`
@@ -190,32 +189,32 @@ Another major type of object in R is the **matrix**. A matrix is simply a rectan
 You can also create matrices directly in a number of different ways:
 
 ```R
-mat1 <- matrix(data = 1:24, nrow = 6, ncol = 4)
-mat2 <- matrix(data = 1:24, nrow = 6, ncol = 4, byrow = T)
-mat3 <- diag(x = 5, nrow = 3, ncol = 2)
-mat4 <- outer(X = 1:5, Y = 4:8)
-mat5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
+matrix1 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4)
+matrix2 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4, byrow = TRUE)
+matrix3 <- diag(x = 5, nrow = 3, ncol = 2)
+matrix4 <- outer(X = 1:5, Y = 4:8)
+matrix5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
 
-As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for rows and another one for columns! (`mat1[4, 3]`, `mat1[1:4, 1:2]`, `mat1[1:3, ]`).
+As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for rows and another one for columns! (`matrix1[4, 3]`, `matrix1[seq_len(length.out = 2), seq_len(length.out = 2)]`, `matrix1[seq_len(length.out = 2), ]`).
 
 #### Q14. How do you retrieve the 2nd column of `mat2`?
 
 You can perform simple calculations on matrices, in which case the calculation applies to each element separately:
 
 ```R
-(mat3 + 2) * 2
+(matrix3 + 2) * 2
 ```
 You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible
 
 ```R
-(mat3 * 100) + mat4
+(matrix3 * 100) + mat4
 ```
 
 Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:
 
 ```R
-(mat1 > 10)
+(matrix1 > 10)
 ```
 
 There are a number of useful functions that can be applied to matrices. Have a look at each of the following functions, and try to make sense of the output:
@@ -227,21 +226,21 @@ There are a number of useful functions that can be applied to matrices. Have a l
 
 Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.
 
-#### Q15. The variable `mat1` describes a matrix produced by the following code:
+#### Q15. The variable `matrix1` describes a matrix produced by the following code:
 
 ```R
-mat1 <- matrix(data = 1:50, nrow = 10, ncol = 5)
+mat1 <- matrix(data = seq_len(length.out = 50), nrow = 10, ncol = 5)
 ```
 
-What number would we expect to see when we evaluate `mat1[1, 2]`? Try to answer this without evaluating the code! Why not a different number?
+What number would we expect to see when we evaluate `matrix1[1, 2]`? Try to answer this without evaluating the code! Why not a different number?
 
 #### Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?
 
 ```R
-mat1[2, 4]
-mat1(, (2, 4))
-mat1[c(2, 4), ]
-mat1[, c(2, 4)]
+matrix1[2, 4]
+matrix1(, (2, 4))
+matrix1[c(2, 4), ]
+matrix1[, c(2, 4)]
 ```
 ** Note that in most situations, we try to avoid using this type of column indication. This is because it is easy to make a mistake with the numbers. Instead, it is easier and less risky to use column names **
 
@@ -274,48 +273,48 @@ There are other types of data in R, with many being specific to particular libra
 We have already come across one way of subsetting through the use of square brackets. By typing, for example,
 
 ```R
-puromycin_data <- Puromycin
-puromycin_data[1:3, ]   # this is acceptable
-puromycin_data[, 2]     # we should never do this.
+Puromycin
+Puromycin[c(1, 2, 3), ]   # this is acceptable
+Puromycin[, 2]         # we should never do this because the column has a name.
 ```
 we can isolate certain rows of the data frame that we are interested in. Using numbers to access specific rows is ok, but we should never do this with columns. Instead, we can use `subset` (see below) or the dollar sign `$` to get a specific column:
 
 ```R
-puromycin_data$rate
+Puromycin$rate
 ```
 
 We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:
 
 ```R
 # returns TRUE or FALSE
-puromycin_data$rate < 100
+Puromycin$rate < 100
 # returns which elements are TRUE
-which(puromycin_data$rate < 100)
+which(Puromycin$rate < 100)
 ```
 
 We can use the subset function to select the rows for which the statement is TRUE:
 
 ```R
 # returns all the columns, but only the rows for which
-# puromycin_data$rate < 100 is TRUE
-puromycin_sub <- subset(puromycin_data, rate < 100)
+# Puromycin$rate < 100 is TRUE
+puromycin_sub <- subset(Puromycin, rate < 100)
 ```
 
 We could subset by the "state" column:
 
 ```R
-puromycin_treated <- subset(puromycin_data, subset = state == "treated")
+puromycin_treated <- subset(Puromycin, subset = state == "treated")
 ```
 
 This will return all fields for which the state is equal to "treated". Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.
 
-#### Q18. How would you subset the variable `puromycin_data` to return only those fields for which the concentration is greater than 0.1?
+#### Q18. How would you subset the variable `Puromycin` to return only those fields for which the concentration is greater than 0.1?
 #### Q19. What is the average (mean) concentration for these cells?
-#### Q20. How would you subset the variable `puromycin_data` to return only the fields for which the cells were not treated?
-#### Q21. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?
-#### Q22. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
-#### Q23. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
-#### Q24. How would you subset the variable `puromycin_data` to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
+#### Q20. How would you subset the variable `Puromycin` to return only the fields for which the cells were not treated?
+#### Q21. How would you subset the variable `Puromycin` to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?
+#### Q22. How would you subset the variable `Puromycin` to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
+#### Q23. How would you subset the variable `Puromycin` to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
+#### Q24. How would you subset the variable `Puromycin` to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
 
 
 ## Good coding practice

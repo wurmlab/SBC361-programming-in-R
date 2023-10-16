@@ -33,9 +33,9 @@ A variable is a symbolic way of storing a particular set of values and/or charac
 x <- 5
 y <- 225
 ```
-into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`).
+into the console and hitting return. This assigns the number `5` to the symbol `x`. You can run operations on variables (e.g. `3*x^2`), create new variables from existing variables (e.g. `y <- 3*x^2`), and reassign existing variables to a new value (e.g.` x <- 3*x^2`; try running that a few times).
 
-The `=` symbol can also be used for assignment instead of `<-`, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use `<-` . When in doubt about how to write something, check the [tidyverse style guide](https://adv-r.hadley.nz/index.html); it provides standard guidelines which most R users do or should follow.
+Please always use `<-` for assignment. When in doubt about how to write something, check the [tidyverse style guide](https://style.tidyverse.org); it provides standard guidelines which most R users do or should follow.
 
 You can name variables almost anything you want. Try using descriptive names (avoiding `x` and `y`), and using "_" to separate words. As a rule of thumb, remember to make your code easily understandable for other people, including your future self.
 
@@ -44,9 +44,9 @@ Finally some variable names are not allowed. Typing `?make.names` in the console
 #### Q1. Create a new variable, `z`, out of the values in `x` and `y`. You can choose any formula you want for `z`, as long as it contains both `x` and `y`.
 
 ## Data classes
-There are several classes (or types) of data.  In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
+There are several classes (or types) of data.  The class of your data tells you whether R interprets the data as numbers, letters, factors (i.e. categories), logical values or a number of alternatives. You can use the function `class()` to check the class of a variable.
 
-You will probably have seen numeric (`x <- 5`) and character variables (`x <- ‘hello’`). An important class of data that you might not be familiar with is **logical data**. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:
+You will probably have seen numeric (`x <- 5`) and character variables (`x <- "hello"`). An important class of data that you might not be familiar with is **logical data**. Simply put, logical data can only take one of two possible values: `TRUE` or `FALSE`. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:
 
 ```R
 x <- TRUE
@@ -90,7 +90,7 @@ The main logical operators that you should be familiar with are the following:
 
 Play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.
 
-We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written `&` and called ampersand (keyboard shortcut Shift+7), while the "or" command is written `|` and called a vertical bar (keyboard shortcut Shift+\ on a standard Windows keyboard). These "operators" can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression
+We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written `&` and called ampersand (keyboard shortcut Shift+7), while the "or" command is written `|` and called a "pipe" or vertical bar (keyboard shortcut Shift+\ on a standard Windows keyboard). These "operators" can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression
 
 ```R
 (x > 5) & (x <= 10)
@@ -134,7 +134,7 @@ In this case `x` is of class "character" because of the quotation marks. Try typ
 
 #### Q4. Given three variables (`x`, `y` and `z`), how would you write the following sentence in a logical expression?
 
-*The variable `x` is less than variable `y`, or is it greater than variable `z`?*
+*The variable `x` is less than variable `y`, or greater than variable `z`?*
 
 
 ## Types of Objects
@@ -149,7 +149,7 @@ character_vec <- c("How", "Now", "Brown", "Cow")
 logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 ```
 
-As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1*3` or `vec1*vec2`). You can also use vectors to access a set of elements (e.g. `x[seq(from = 1, to = 5)]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
+As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1 * 3` or `vec1 * vec2` - *make sure you understand what R is doing here*). You can also use vectors to access a set of elements (e.g. `x[seq(from = 1, to = 5)]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 #### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
 
@@ -168,16 +168,16 @@ in the console. You will find that `numeric_vec_squared` contains values taken f
 You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing
 
 ```R
-combined_vec1 <- numeric_vec*seq_vec1
+combined_vec1 <- numeric_vec * seq_vec1
 ```
 
 You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec1`
 
-#### Q8. Try evaluating `combined_vec2 <- numeric_vec*seq_vec2` in the console. What happens? Why?
+#### Q8. Try evaluating `combined_vec2 <- numeric_vec * seq_vec2` in the console. What happens? Why?
 
 #### Q9. What do you type to find the length of a vector?
 
-#### Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating `combined_vec3 <- numeric_vec*rep_vec` in the console, and look at the result. What is the reasoning behind the values produced?
+#### Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating `combined_vec3 <- numeric_vec * rep_vec` in the console, and look at the result. What is the reasoning behind the values produced?
 
 ### Matrices
 Another major type of object in R is the **matrix**. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()`. Try `rbind(numeric_vec, seq_vec1)`.
@@ -196,7 +196,11 @@ matrix4 <- outer(X = 1:5, Y = 4:8)
 matrix5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
 
-As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for rows and another one for columns! (`matrix1[4, 3]`, `matrix1[seq_len(length.out = 2), seq_len(length.out = 2)]`, `matrix1[seq_len(length.out = 2), ]`).
+As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for rows and another one for columns! For example:
+
+ * `matrix1[4, 3]`
+ * `matrix1[seq_len(length.out = 2), seq_len(length.out = 2)]`
+ * `matrix1[seq_len(length.out = 2), ]`
 
 #### Q14. How do you retrieve the 2nd column of `mat2`?
 
@@ -218,6 +222,7 @@ Finally, you can create logical expressions that apply to an entire matrix. For 
 ```
 
 There are a number of useful functions that can be applied to matrices. Have a look at each of the following functions, and try to make sense of the output:
+
 * `length()`
 * `dim()`
 * `t()`
@@ -247,7 +252,11 @@ matrix1[, c(2, 4)]
 #### Q17. Write your own script for creating a matrix from three separate vectors. The first vector, `vec1`, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, `vec2`, should contain the square of these numbers (i.e. `vec1` raised to the power 2). The third vector, `vec3`, should contain the cube of these numbers (i.e. `vec1` raised to the power 3). Finally, create a matrix, `my_matrix`, which has `vec1` as the first row, `vec2` as the second row, and `vec3` as the third row.
 
 ### Data frame
-A very common type of object is the **data frame**. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (e.g., `Puromycin`). Like in matrices, you can access different elements of the data frame using indices (`Puromycin[1, 1]`). While you can get to specific columns using an index (`Puromycin[, 2]`), R allows you to get to specific columns using their name and the dollar sign: `Puromycin$rate`. Note that, although the data frame is of class data frame, typing `Puromycin$rate` will return a vector of class numeric (try using the function `class()` to check this).
+A very common type of object is the **data frame**. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (e.g., `Puromycin`). Check the help to understand what this data includes: `?Puromycin`.
+
+R allows you to get to specific columns using their name and the dollar sign: `Puromycin$rate`.  (it is also possible to use indices like in matrices, for example`Puromycin[1, 1]` or `Puromycin[, 2]`. But using indices is risky and should thus be avoided).
+
+Note that, although the data frame is of class data frame, typing `Puromycin$rate` will return a vector of class numeric (try using the function `class()` to check this).
 
 Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the **factor** (this is true for R version 3, R version 4 interprets columns with words as data type **character**). This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:
 
@@ -275,8 +284,8 @@ We have already come across one way of subsetting through the use of square brac
 
 ```R
 Puromycin
-Puromycin[c(1, 2, 3), ]   # this is acceptable
-Puromycin[, 2]         # we should never do this because the column has a name.
+Puromycin[c(1, 2, 3), ]  # this is acceptable
+Puromycin[, 2]           # never do this: use the column's name instead
 ```
 we can isolate certain rows of the data frame that we are interested in. Using numbers to access specific rows is ok, but we should never do this with columns. Instead, we can use `subset` (see below) or the dollar sign `$` to get a specific column:
 
@@ -323,8 +332,8 @@ Keep your code clean and tidy by making use of comments and white space and resp
 
 The following two examples make this point clear. Both programs do exactly the same thing, but one will make sense one year from now, and the other will not!
 
+### Example 1
 ```R
-Example 1
 boooom <-0.01
 blah2          =0.005
     blah3<- 0.0036
@@ -333,9 +342,9 @@ tadayeahmanfunky<-100*exp(bigblah*10)
 tadayeahmanfunky
 ```
 
-```R
-Example 2
+### Example 2
 
+```R
 #--------------------------------
 # Program:     population_size.R
 # Author:      Bob Verity
@@ -367,7 +376,9 @@ end_size
 ```
 
 #### Q25. Write  your own well annotated and fully functional script for calculating the volume of a rectangular room with the following dimensions:
-length: 5m
-width: 4m
-height: 3m
+
+* length: 5m
+* width: 4m
+* height: 3m
+
 The layout and design of the program are much more important than the calculations here!

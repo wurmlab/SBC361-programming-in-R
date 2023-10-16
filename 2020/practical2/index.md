@@ -56,13 +56,13 @@ my_own_mean <- function(number_vec) {
 ## Now run the function with some data:
 my_own_mean(number_vec = c(10,20,30,40))
 
-my_own_mean(number_vec = 1:50)
+my_own_mean(number_vec = seq(from = 1, to = 50))
 
 ```
 
 We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
 
-Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
+Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = seq(from = 1, to = 50))` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function for rounding down to the closest whole number):
 
@@ -170,18 +170,18 @@ greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy",
                "Yooooo!", "Wassup", "What's shakin?",
                "yello!", "Greetings",  "Dude, wake up!")
 for (word in greetings) {
-  print(paste(word, " - said the giggling frog", sep=" "))
+  print(paste(word, " - said the giggling frog", sep = " "))
 }
 
 ## Sequential loop values
-my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281828, 666, 1.61803398, 99)
+my_favourite_numbers <- c(42, 3.14, 7, 69, 6.626e-34, 1024, 4, 2.718281, 666, 1.61803, 99)
 
 # set the cumulative sum at zero before the loop starts
 cumulative_sum <- 0
 
 for (value in my_favourite_numbers) {
   # print the sentence
-  print(paste(value, "is my favourite number", sep=" "))
+  print(paste(value, "is my favourite number", sep = " "))
 
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
@@ -211,9 +211,9 @@ practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "inf
 phrase_vec <- c()
 
 for (practical_attribute in practical_attribute_vec) {
- phrase <- paste("This practical is", practical_attribute)
- # Add the loop result to end of the vector of results
- phrase_vec <- append(phrase_vec, phrase)
+  phrase <- paste("This practical is", practical_attribute)
+  # Add the loop result to end of the vector of results
+  phrase_vec <- append(x = phrase_vec, values = phrase)
 }
 ```
 
@@ -227,7 +227,7 @@ practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "inf
 phrase_vec <- rep("", times = length(practical_attribute_vec))
 
 ## Loop through the position rather than the vector
-for (position in 1:length(practical_attribute_vec)) {
+for (position in seq_len(length(practical_attribute_vec))) {
 
   ## Create phrase, getting attribute from practical_attribute_vec[i]
   phrase <- paste("This practical is", practical_attribute_vec[position])
@@ -246,10 +246,10 @@ It is important to understand these two approaches with loops: looping through i
 ```
 letters_vec <- c("L", "T", "A", "F")
 
-for (letter in letters_vec){
- begins_with <- paste("^", letter, sep = "")
- matches <- grep(pattern = begins_with, x = ant_table$genus)
- print(paste(length(matches), "begin with", letter))
+for (letter in letters_vec) {
+  begins_with <- paste("^", letter, sep = "")
+  matches <- grep(pattern = begins_with, x = ant_table$genus)
+  print(paste(length(matches), "begin with", letter))
 }
 ```
 
@@ -281,7 +281,7 @@ Another important way of extending loops is to consider nested loops - in other 
 
 ```r
 coffees_vec <- c("latte", "cappuccino", "flat white", "cortado")
-cafes_vec   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
+cafes_vec   <- c("Infusion", "Ground", "E5", "Foxcroft & Ginger", "Di Stefano", "Black Cat")
 
 for (drink in coffees_vec) {
   print(paste("I'd like a", drink, "... Where can I go?"))
@@ -308,7 +308,8 @@ Loops are particularly useful to reformat data sets. By looping through all of t
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
 ```r
-helianthus_data <- as.matrix(read.table("https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt", header = TRUE))
+helianthus_data <- as.matrix(read.table(file ="https://wurmlab.github.io/SBC361-programming-in-R/HelianthusData_num.txt",
+                                        header = TRUE))
 ```
 
 Each row in this data set represents a different strain of *Helianthus annuus* (sunflowers), grown under controlled conditions. The first column tells us the Strain (these are numbered from 1 to 5). The remaining columns describe the number of plants found in the study area at six different points in time. For example, looking at the first row, we can see that strain 1 started out with 12 plants in the first time point and ended up with 57 plants in the last time point.
@@ -336,9 +337,9 @@ With this empty matrix created, we can move on to the next part of the problem -
 ```r
 # Loop through all rows of helianthus_data
 nrow(helianthus_data)
-for (number_of_rows in 1:5) {
+for (number_of_rows in seq(from = 1, to = 5)) {
   # Loop through all columns of helianthus_data except the first
-  for (my_col in 2:7) {
+  for (my_col in seq(from = 2, to =7)) {
 
     # This is where the main code goes (populating long_data with values).
 
@@ -359,9 +360,9 @@ It should look something like this:
 my_position <- 0
 
 # Loop through all rows
-for (number_of_rows in 1:5) {
+for (number_of_rows in seq(from = 1, to = 5)) {
   # Loop through all columns except the first
-  for (my_col in 2:7) {
+  for (my_col in seq(from = 2, to = 7)) {
 
     ## Change my_position here:
     # make my_position equal to my_position plus one
@@ -406,7 +407,7 @@ tail(long_data)
 
 #### Bonus Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
 
-  * load the data into R: `dna_string <- scan("https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
+  * load the data into R: `dna_string <- scan(file = "https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
   * replace T with U  (thymine with uracil to convert DNA to RNA)
   * use `substring()` to split the sequence into triplets and `seq()` within `substring()`
   * return the RNA triplets string
@@ -417,7 +418,9 @@ As an example:
 
 ```r
 dna_string <- c("AAATTT")
-substring(dna_string, seq(from = 1, to = 4, by = 3), seq(from = 3, to = 6, by = 3))
+substring(x     = dna_string,
+          start = seq(from = 1, to = 4, by = 3),
+          stop  = seq(from = 3, to = 6, by = 3))
 ```
 
 #### Bonus Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.

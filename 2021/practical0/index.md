@@ -6,7 +6,7 @@ title: Programming in R
 
 # Practical 0 - Introduction to basic data structures
 
-October 2021
+October 2023
 
 ## Introduction
 
@@ -19,7 +19,7 @@ We will not be covering any stats in these practicals. However, do not relax too
 
 To start with, let us reacquaint ourselves with the R environment. First of all, launch R (or RStudio).
 
-The main window you where you talk directly to R is called the **console**. This is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a **script**. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit Run, or type shift-enter or control-enter. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands in a way that would not be possible by working directly in the console. Using a script also helps for keeping track of what we did. In general you should work mainly with scripts and limit your direct use of the console.
+The main window you where you talk directly to R is called the **console**. This is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a **script**. Try typing `1 + 2`` in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other **text editor**. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit Run, or type shift-enter or control-enter. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands in a way that would not be possible by working directly in the console. Using a script also helps for keeping track of what we did. In general you should work mainly with scripts and limit your direct use of the console.
 
 We strongly suggest that you write anything you want to keep in scripts and that you save these scripts somewhere. (Scripts are just text files; most people use up using other text editors, such as emacs, VS Code, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).
 

@@ -12,7 +12,7 @@ Building on your existing skills, we will now move on to consider advanced ways 
 Functions are pieces of code that take input information (in the form of "arguments"), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:
 
 ```r
-function_name <- function(input_vec) {
+function_name <- function(input) {
 
   ### the "body" of the function
 
@@ -24,7 +24,7 @@ function_name <- function(input_vec) {
 }
 ```
 
-You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` within brackets lets R know that you are writing a new function. Here, `input_vec` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever know about it! Note that the `return` command can only handle a single argument.
+You can choose whatever name you want instead of `function_name` (try a meaningful name). After the `<-`, the word `function` within brackets lets R know that you are writing a new function. Here, `input` is the name of the only argument that the calculations in the `body` of the function are based on (your function *can* have multiple arguments). Between the curly brackets `{}` is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the `return()` on the last line. If you have no `return()`, your function may compute something but nobody will ever know about it! Note that the `return` command can only handle a single argument.
 
 To take a self-explanatory example:
 
@@ -38,13 +38,13 @@ You just used the `mean` function, one of many functions that our predecessors b
 ```r
 ## Define function named 'my_own_mean'
 
-my_own_mean <- function(number_vec) {
+my_own_mean <- function(numbers) {
   ## Calculate mean
   # Sum all numbers in the vector
-  sum_of_values <- sum(number_vec)
+  sum_of_values <- sum(numbers)
 
   # Obtain the number of values in the vector
-  number_of_values <- length(number_vec)
+  number_of_values <- length(numbers)
 
   # Get the mean
   mean_value <- sum_of_values/number_of_values
@@ -54,15 +54,15 @@ my_own_mean <- function(number_vec) {
 }
 
 ## Now run the function with some data:
-my_own_mean(number_vec = c(10,20,30,40))
+my_own_mean(numbers = c(10, 20, 30, 40))
 
-my_own_mean(number_vec = 1:50)
+my_own_mean(numbers = seq(from = 1, to = 50))
 
 ```
 
-We created a function that computes the sum and number of all values in a given vector (`number_vec`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (`number_vec`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
+We created a function that computes the sum and number of all values in a given vector (`numbers`) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (`numbers`) and all the calculations are based on this. In the end we return the result of the third calculation (`mean_value`). Does `number_of_values` exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.
 
-Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(number_vec = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `number_vec` in the function.
+Nothing much happens after loading the function `my_own_mean` into R (you always have to evaluate the entire code of the function from `function_name` to the closing curly brackets `}` if you made changes to the code). The magic happens when you *call* the function. We did this by typing `my_own_mean(numbers = 1:50)` (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as `numbers` in the function.
 
 Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (`floor()` is R's built-in function for rounding down to the closest whole number):
 
@@ -76,10 +76,10 @@ minutes <- floor((number_of_seconds - hours * (60 * 60)) / 60)
 seconds <- number_of_seconds - ((hours * 60) + minutes) * 60
 
 # Create a single vector containing all three quantities
-output_vec <- c(hours, minutes, seconds)
+outputs <- c(hours, minutes, seconds)
 
 # Output the solution to the console
-output_vec
+outputs
 ```
 
 #### Q1. Modify the code above to make it into a function called `time_converter`. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert `number_of_seconds` into `hours`, `minutes`, and `seconds`, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.
@@ -170,7 +170,7 @@ greetings <- c("Hey", "Hi", "Hello", "Aloha", "Howdy",
                "Yooooo!", "Wassup", "What's shakin?",
                "yello!", "Greetings",  "Dude, wake up!")
 for (word in greetings) {
-  print(paste(word, " - said the giggling frog", sep=" "))
+  print(paste(word, " - said the giggling frog", sep = " "))
 }
 
 ## Sequential loop values
@@ -181,7 +181,7 @@ cumulative_sum <- 0
 
 for (value in my_favourite_numbers) {
   # print the sentence
-  print(paste(value, "is my favourite number", sep=" "))
+  print(paste(value, "is my favourite number", sep = " "))
 
   # add favourite numbers, sequentially
   cumulative_sum <- cumulative_sum + value
@@ -191,29 +191,29 @@ for (value in my_favourite_numbers) {
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)
-colour_vec <- c("red", "green", "blue", "yellow", "orange", "purple", "pink")
-for (position in seq_len(length(colour_vec))) {
-  current_colour <- colour_vec[position]
-  print(current_colour)
+colours <- c("red", "green", "blue", "yellow", "orange", "purple", "pink")
+for (position in seq_len(length(colours))) {
+  current_colour <- colours[position]
+  message("At position", position, "we have", current_colour)
 }
 
 ```
 
 ### Storing loop results
 
-You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does `phrase_vec` look like after the 4th iteration?
+You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does `phrases` look like after the 4th iteration?
 
 ```r
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
+practical_attributes <- c("great", "deeply distressing", "very long", "amazeballs!", "informative")
 
 ## Empty vector to store the loop results in
-phrase_vec <- c()
+phrases <- c()
 
-for (practical_attribute in practical_attribute_vec) {
+for (practical_attribute in practical_attributes) {
  phrase <- paste("This practical is", practical_attribute)
  # Add the loop result to end of the vector of results
- phrase_vec <- append(phrase_vec, phrase)
+ phrases <- append(phrases, phrase)
 }
 ```
 
@@ -221,19 +221,19 @@ A different way of approaching a for loop is to loop through the positions of a 
 
 ```r
 ## Vector to loop through
-practical_attribute_vec <- c("great", "boring", "very long", "amazeballs!", "informative", "fun")
+practical_attributes <- c("great", "deeply distressing", "very long", "amazeballs!", "informative")
 
-## Vector with empty elements (as long as practical_attribute_vec)
-phrase_vec <- rep("", times = length(practical_attribute_vec))
+## Vector with empty elements (as long as practical_attributes)
+phrases <- rep("", times = length(practical_attributes))
 
 ## Loop through the position rather than the vector
-for (position in 1:length(practical_attribute_vec)) {
+for (position in 1:length(practical_attributes)) {
 
-  ## Create phrase, getting attribute from practical_attribute_vec[i]
-  phrase <- paste("This practical is", practical_attribute_vec[position])
+  ## Create phrase, getting attribute from practical_attributes[i]
+  phrase <- paste("This practical is", practical_attributes[position])
 
   ## Add phrase to the right position of the results vector
-  phrase_vec[position] <- phrase
+  phrases[position] <- phrase
 }
 ```
 
@@ -244,9 +244,9 @@ It is important to understand these two approaches with loops: looping through i
 ![ant table](../img/ant_table.png "ant_table")
 
 ```
-letters_vec <- c("L", "T", "A", "F")
+letters <- c("L", "T", "A", "F")
 
-for (letter in letters_vec){
+for (letter in letters){
  begins_with <- paste("^", letter, sep = "")
  matches <- grep(pattern = begins_with, x = ant_table$genus)
  print(paste(length(matches), "begin with", letter))
@@ -280,12 +280,12 @@ In the following exercise, we will simulate the size of a population given a rep
 Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:
 
 ```r
-coffees_vec <- c("latte", "cappuccino", "flat white", "cortado")
-cafes_vec   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
+coffee <- c("latte", "cappuccino", "flat white", "cortado")
+cafes   <- c("Infusion", "Ground", "Sugar Cube", "Foxcroft & Ginger", "Sweet")
 
-for (drink in coffees_vec) {
+for (drink in coffees) {
   print(paste("I'd like a", drink, "... Where can I go?"))
-  for (the_place in cafes_vec) {
+  for (the_place in cafes) {
     print(paste("You can go to", the_place, "to have a", drink))
   }
 }
@@ -299,7 +299,7 @@ Here we have one loop (with position `the_place`) nested within another loop (wi
 
 #### Q13. Write a third-degree nested loop (i.e. a loop within a loop within a loop). Be careful not to loop over too many values or you will crash R!
 
-(if you're short of ideas, you could for example add `practical_attribute_vec` qualifiers to Q12...)
+(if you're short of ideas, you could for example add `practical_attributes` qualifiers to Q12...)
 
 ### Using loops to reformat a data set
 
@@ -308,7 +308,7 @@ Loops are particularly useful to reformat data sets. By looping through all of t
 The data set that we will use in this example is typical of the sort of data that you might be faced with in the future. Load the data by running the following line of code:
 
 ```r
-helianthus_data <- as.matrix(read.table("https://wurmlab.com/SBC361-programming-in-R/public/HelianthusData_num.txt", 
+helianthus_data <- as.matrix(read.table("https://wurmlab.com/SBC361-programming-in-R/public/HelianthusData_num.txt",
                                          header = TRUE))
 ```
 
@@ -337,7 +337,7 @@ With this empty matrix created, we can move on to the next part of the problem -
 ```r
 # Loop through all rows of helianthus_data
 nrow(helianthus_data)
-for (number_of_rows in 1:5) {
+for (my_rows in 1:5) {
   # Loop through all columns of helianthus_data except the first
   for (my_col in 2:7) {
 
@@ -347,11 +347,11 @@ for (number_of_rows in 1:5) {
 }
 ```
 
-Here we are using loops to go through each of the rows of the matrix `helianthus_data`, and for each row we are going through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[number_of_rows, my_col]`.
+Here we are using loops to go through each of the rows of the matrix `helianthus_data`, and for each row we are going through columns 2 to 7 (as these are the columns that contain relevant data). At any point in the two loops, the value that we are focusing on is given by `helianthus_data[my_rows, my_col]`.
 
-Hopefully you can already see that these are the exact values that we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `number_of_rows` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
+Hopefully you can already see that these are the exact values that we want to drop into the third column of our matrix `long_data`. However, we are presented with a problem - how do we drop these values one after the other into the right place in the matrix `long_data`? We cannot use the index `my_rows` to help us, as this only goes through values 1 to 5. Similarly, we cannot use the index `my_col`, as this only goes through values 2 to 7. What we really need is a new index that goes all the way from 1 to 30, irrespectively of the row or column that we are focusing on.
 
-#### Q14-B. Change the for loop above to include a variable `my_position`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `number_of_rows` and `my_col` when `my_position` is 3? Add a line to check the positions each time through.
+#### Q14-B. Change the for loop above to include a variable `my_position`. This variable should be defined as being 0 before the loop starts. At every iteration of the inner loop, you should add 1 to it. What are the values of `my_rows` and `my_col` when `my_position` is 3? Add a line to check the positions each time through.
 
 It should look something like this:
 
@@ -360,7 +360,7 @@ It should look something like this:
 my_position <- 0
 
 # Loop through all rows
-for (number_of_rows in 1:5) {
+for (my_row in 1:5) {
   # Loop through all columns except the first
   for (my_col in 2:7) {
 
@@ -376,7 +376,7 @@ Now that we have three indices - one going through the rows of `helianthus_data`
 
 ```r
 # Get Count
-long_data[my_position, 3] <- helianthus_data[number_of_rows, my_col]
+long_data[my_position, 3] <- helianthus_data[my_row, my_col]
 ```
 
 This is fairly straightforward. We also want to drop the time point in the second column of `long_data`. Although we do not have a vector describing each of the time points, in fact the timings are very simply given by 'my_col minus two'. For example, if we are looking at the fourth column then we are looking at the second time point. Therefore, we need the following line of code to extract the timings:
@@ -386,11 +386,11 @@ This is fairly straightforward. We also want to drop the time point in the secon
 long_data[my_position, 2] <- my_col - 2
 ```
 
-Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[number_of_rows, 1]`. Therefore, we need the following line of code to extract the strain types:
+Finally, we want to drop the strain type into the first column of `long_data`. The strain type is given by the first element in every row, meaning it is given by `helianthus_data[my_rows, 1]`. Therefore, we need the following line of code to extract the strain types:
 
 ```r
 # Get Strain
-long_data[my_position, 1] <- helianthus_data[number_of_rows, 1]
+long_data[my_position, 1] <- helianthus_data[my_rows, 1]
 ```
 
 #### Q14-C. Bring all of this together to finish the for loop, and run it!

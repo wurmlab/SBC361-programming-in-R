@@ -39,9 +39,9 @@ Palindromes are arrangements of words or letters which read the same way whether
 
 #### Q1. Write a function that assesses whether a given word or phrase is a palindrome.
 Before starting to code, think about the steps that you would need to go through in order to judge if something is a mirror palindrome.
- * Write these steps as comments in an R script window (or a piece of paper) , then think about how you can tell the computer to execute those steps. 
- * Only start writing the code when you have a plan of what you want to do. 
- * Write your code as a one-off first - without considering that you'll do a function. 
+ * Write these steps as comments in an R script window (or a piece of paper) , then think about how you can tell the computer to execute those steps.
+ * Only start writing the code when you have a plan of what you want to do.
+ * Write your code as a one-off first - without considering that you'll do a function.
  * Only once you're happy with how things work, sandwich your code into a function format.
  * Use easy test cases where you know the answer in order to check that your function works.
 
@@ -78,10 +78,10 @@ TCGATTAA
 Run the following line of code to import the `butterfly_sample` and the `butterfly_reference` data frames:
 
 ```R
-butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample.csv"
+butterfly_sam_url <- "http://wurmlab.github.io/SBC361-programming-in-R/public/butterfly_sample.csv"
 butterfly_sample  <- read.csv(file = butterfly_sam_url, header = TRUE)
 
-butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_reference.csv"
+butterfly_ref_url   <- "http://wurmlab.github.io/SBC361-programming-in-R/public/butterfly_reference.csv"
 butterfly_reference <- read.csv(file = butterfly_ref_url, header = TRUE)
 ```
 

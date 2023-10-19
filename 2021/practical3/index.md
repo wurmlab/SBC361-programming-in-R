@@ -17,7 +17,7 @@ To get back into gear in terms of thinking about programming, we’ll start with
 
 #### Intro Q2. Use the preloaded R data set 'Indometh' (check `?Indometh` to understand more about the dataset). Subset this data to return only those rows for which the concentration is strictly between 1 and 2. What is the average (mean) concentration for this subset?
 
-#### Intro Q3. Using regular expressions, how would you extract all the words except `antilope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antilope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
+#### Intro Q3. Using regular expressions, how would you extract all the words except `antelope` in the vector `c("cameleopard", "eop4a", "kiloparsec", "antelope")`? In R, there are a few ways of getting a result. Find three ways to answer this question.
 
 #### Intro Q4. Write a loop that iterates over the numbers 16 to 49 and prints out the square root of the number each time through (you may have to search around for the square root function). Yes, for this exercise we *absolutely* want you to write a loop to do this, even though there are other ways of getting R to provide the same result.
 
@@ -104,7 +104,7 @@ This question is an extension of the question Q5. Again, we will analyse a data 
 #### Q8 Write a script that adds a new column in the data frame that contains the correct Latin species name for each record in the data frame imported below.
 
 ```R
-butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/butterfly_sample_bonus.csv"
+butterfly_sam_bonus_url <- "http://wurmlab.github.io/SBC361-programming-in-R/public/butterfly_sample_bonus.csv"
 butterfly_sample_bonus  <- read.csv(file = butterfly_sam_bonus_url, header = TRUE)
 ```
 

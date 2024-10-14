@@ -212,7 +212,7 @@ You can perform simple calculations on matrices, in which case the calculation a
 You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible
 
 ```R
-(matrix3 * 100) + mat4
+(matrix1 * 100) + matrix2
 ```
 
 Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:

@@ -143,6 +143,7 @@ Objects can be of different types. So far, we have looked at **scalar objects**,
 
 ```R
 numeric_vec   <- c(1, 1, 2, 3, 5, 8)   # c is a function for combining values into a vector or list.
+seq_vec1      <- seq(from = 10, to = 5) 
 seq_vec2      <- seq(from = 0, to = 10, by = 0.25)
 rep_vec       <- rep(x = 2, times = 12)
 character_vec <- c("How", "Now", "Brown", "Cow")
@@ -152,7 +153,7 @@ logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1 * 3` or `vec1 * vec2` - *make sure you understand what R is doing here*). You can also use vectors to access a set of elements (e.g. `x[seq(from = 1, to = 5)]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
 #### Q5. What number would you obtain if you typed `seq_vec2[3]` in the console? (try working this out for yourself before typing it into R)
-
+ 
 #### Q6. What happens when you type `seq_vec2[seq(from = 1, to = 5)]` in the console and hit return?
 
 #### Q7. How would you retrieve just the 8th, 13th and 21st elements of `seq_vec2`?
@@ -168,10 +169,10 @@ in the console. You will find that `numeric_vec_squared` contains values taken f
 You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing
 
 ```R
-combined_vec1 <- numeric_vec * seq_vec2
+combined_vec1 <- numeric_vec * seq_vec1
 ```
 
-You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec2`
+You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec1`
 
 #### Q8. Try evaluating `combined_vec2 <- numeric_vec * seq_vec2` in the console. What happens? Why?
 

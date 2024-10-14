@@ -101,7 +101,7 @@ Have a look inside the variable `names`. We have successfully isolated the genus
 
 Hint - you should be able to identify the words containing these patterns using a single `grep` command. We have learnt how to search for a choice of two or more characters in class.
 
-#### Q5b. How many reptile names in `names` contain the syllables "us" or "li"?
+#### Q5b. How many reptile names in `names` contain "us" or "li"?
 
 Hint - As before, use a single `grep` command to identify the words with these patterns.
 

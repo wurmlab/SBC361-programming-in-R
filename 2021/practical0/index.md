@@ -202,7 +202,7 @@ As with vectors, you can get to the elements of a matrix using square brackets, 
  * `matrix1[seq_len(length.out = 2), seq_len(length.out = 2)]`
  * `matrix1[seq_len(length.out = 2), ]`
 
-#### Q14. How do you retrieve the 2nd column of `mat2`?
+#### Q14. How do you retrieve the 2nd column of `matrix2`?
 
 You can perform simple calculations on matrices, in which case the calculation applies to each element separately:
 
@@ -234,12 +234,12 @@ Keep in mind that if you ever need help in understanding a function, just bring 
 #### Q15. The variable `matrix1` describes a matrix produced by the following code:
 
 ```R
-mat1 <- matrix(data = seq_len(length.out = 50), nrow = 10, ncol = 5)
+matrix1 <- matrix(data = seq_len(length.out = 50), nrow = 10, ncol = 5)
 ```
 
 What number would we expect to see when we evaluate `matrix1[1, 2]`? Try to answer this without evaluating the code! Why not a different number?
 
-#### Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?
+#### Q16. Which of these commands would output the 2nd and 4th columns of matrix1 only (again, try answering this without evaluating the code!)?
 
 ```R
 matrix1[2, 4]

@@ -151,7 +151,7 @@ logical_vec   <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)
 
 As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. `x[3]`) and of applying simple operations on all elements of the vector (e.g. `vec1 * 3` or `vec1 * vec2` - *make sure you understand what R is doing here*). You can also use vectors to access a set of elements (e.g. `x[seq(from = 1, to = 5)]`) or specific elements (e.g. `x[c(2, 7, 9)]`) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.
 
-#### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
+#### Q5. What number would you obtain if you typed `seq_vec2[3]` in the console? (try working this out for yourself before typing it into R)
 
 #### Q6. What happens when you type `seq_vec2[seq(from = 1, to = 5)]` in the console and hit return?
 
@@ -168,10 +168,10 @@ in the console. You will find that `numeric_vec_squared` contains values taken f
 You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing
 
 ```R
-combined_vec1 <- numeric_vec * seq_vec1
+combined_vec1 <- numeric_vec * seq_vec2
 ```
 
-You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec1`
+You will find that each of the elements of `combined_vec1` is equal to the product of the corresponding elements in `numeric_vec` and `seq_vec2`
 
 #### Q8. Try evaluating `combined_vec2 <- numeric_vec * seq_vec2` in the console. What happens? Why?
 
@@ -180,9 +180,9 @@ You will find that each of the elements of `combined_vec1` is equal to the produ
 #### Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating `combined_vec3 <- numeric_vec * rep_vec` in the console, and look at the result. What is the reasoning behind the values produced?
 
 ### Matrices
-Another major type of object in R is the **matrix**. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()`. Try `rbind(numeric_vec, seq_vec1)`.
+Another major type of object in R is the **matrix**. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions `rbind()` and `cbind()`. Try `rbind(numeric_vec, seq_vec2)`.
 
-#### Q11. What happens when you evaluate `rbind(numeric_vec, seq_vec1)`? What happens when you evaluate `cbind(numeric_vec, seq_vec1)`? Why?
+#### Q11. What happens when you evaluate `rbind(numeric_vec, seq_vec2)`? What happens when you evaluate `cbind(numeric_vec, seq_vec2)`? Why?
 #### Q12. When you evaluate `rbind(numeric_vec, seq_vec2)` you get a warning message. Why?
 #### Q13. What happens when you evaluate `rbind(numeric_vec, rep_vec)`? Why?
 

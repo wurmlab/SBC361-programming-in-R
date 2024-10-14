@@ -193,7 +193,6 @@ You can also create matrices directly in a number of different ways:
 matrix1 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4)
 matrix2 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4, byrow = TRUE)
 matrix3 <- diag(x = 5, nrow = 3, ncol = 2)
-matrix4 <- outer(x = seq(from = 1, to = 5), y = seq(from = 4, to = 8))
 matrix5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
 

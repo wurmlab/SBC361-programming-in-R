@@ -6,7 +6,7 @@ title: Programming in R
 
 # Practical 0 - Introduction to basic data structures
 
-October 2023
+October 2024
 
 ## Introduction
 
@@ -153,7 +153,7 @@ As you know by now, R is good at manipulating these vectors, with easy ways of a
 
 #### Q5. What number would you obtain if you typed `seq_vec1[3]` in the console? (try working this out for yourself before typing it into R)
 
-#### Q6. What happens when you type `seq_vec2[1:5]` in the console and hit return?
+#### Q6. What happens when you type `seq_vec2[seq(from = 1, to = 5)]` in the console and hit return?
 
 #### Q7. How would you retrieve just the 8th, 13th and 21st elements of `seq_vec2`?
 
@@ -192,7 +192,7 @@ You can also create matrices directly in a number of different ways:
 matrix1 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4)
 matrix2 <- matrix(data = seq_len(length.out = 24), nrow = 6, ncol = 4, byrow = TRUE)
 matrix3 <- diag(x = 5, nrow = 3, ncol = 2)
-matrix4 <- outer(X = 1:5, Y = 4:8)
+matrix4 <- outer(x = seq(from = 1, to = 5), y = seq(from = 4, to = 8))
 matrix5 <- matrix(data = "Hello World", nrow = 2, ncol = 5)
 ```
 

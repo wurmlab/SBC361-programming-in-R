@@ -191,10 +191,10 @@ for (value in my_favourite_numbers) {
 }
 
 ## Looping through the positions of each element of the vector (the index, or position)
-colours <- c("red", "green", "blue", "yellow", "orange", "purple", "pink")
-for (position in seq_len(length(colours))) {
-  current_colour <- colours[position]
-  message("At position", position, "we have", current_colour)
+foods <- c("tempeh", "beyond", "beans", "tofu")
+for (position in seq_len(length(foods))) {
+  current_food <- foods[position]
+  message("At position ", position, " we have ", current_food)
 }
 
 ```
